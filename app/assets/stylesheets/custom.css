@@ -1,14 +1,16 @@
 /*
- * This file is intentionally left blank.
- *
- * Use file file to place CSS overrides in.  It is loaded last and will take precedence.
+ * CSS overrides for the Collectif palette.
+ * Loaded last, so it wins over theme defaults.
  */
 
-/*
- Example:
-
-.container {
-    color: #000;
-    background-color: #1acaca;
+@media (prefers-color-scheme: light) {
+    :root {
+        --bs-primary: #268b78;
+        --bs-primary-rgb: 38, 139, 120;
+        --bs-link-color: #268b78;
+        --bs-link-hover-color: #1f725f;
+        --bs-body-color: #2f2e2e;
+        --bs-gray-100: rgba(0, 0, 0, 0.045);
+        --bs-light: rgba(0, 0, 0, 0.045);
+    }
 }
-*/

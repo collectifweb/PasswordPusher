@@ -701,13 +701,13 @@ brand:
   #
   # Environment variable override: PWP__BRAND__TITLE='Acme Corp.'
   #
-  title: 'Password Pusher'
+  title: 'Espace secret du Collectif'
 
   ### Site Tagline
   #
   # Environment variable override: PWP__BRAND__TAGLINE='Security First'
   #
-  tagline: 'Go Ahead.  Email Another Password.'
+  tagline: 'Envoyez vos secrets les plus deep. Une fois lus, ils disparaîtront ensuite à tout jamais. Promis !'
 
   ### Site Disclaimer
   #
