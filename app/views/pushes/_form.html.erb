@@ -31,11 +31,19 @@
 
     <div class='row'>
         <div class='col'>
+            <% payload_blurred = action_name == 'edit' && @push.text? && @push.settings_for_kind.enable_blur %>
+            <% if payload_blurred %>
+                <div class="payload-reveal-zone rounded-3 px-3 pt-4 pb-4 mb-2 bg-light border">
+                    <p class="d-flex align-items-center gap-2 text-muted small mb-2 mb-md-3 mb-lg-3">
+                        <em class="bi bi-eye-slash flex-shrink-0" aria-hidden="true"></em>
+                        <span><%= _('Content is hidden for privacy. Click the field below to reveal and edit.') %></span>
+                    </p>
+            <% end %>
             <p class='mb-3'>
                 Cet outil permet d'envoyer vos données sensibles dans cet espace secret. Une fois tout mis, clique en bas sur PUBLIER. Un lien unique va être généré.<br>
                 Envoyez ce lien à votre destinataire. Une fois qu'il l'aura consulté, toutes les données seront supprimées définitivement.
             </p>
-            <%= f.text_area(:payload, { class: "form-control",
+            <%= f.text_area(:payload, { class: "form-control#{' spoiler' if payload_blurred}",
                                         rows: 6,
                                         placeholder: _('Enter the Password or Text to push...'),
                                         autocomplete: "off",
