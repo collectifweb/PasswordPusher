@@ -44,7 +44,7 @@ class Api::V1::PushesController < Api::BaseController
     # Passphrase handling
     if @push.passphrase.present?
       # JSON requests must pass the passphrase in the params
-      has_passphrase = params[:passphrase] == @push.passphrase
+      has_passphrase = ActiveSupport::SecurityUtils.secure_compare(@push.passphrase.to_s, params[:passphrase].to_s)
 
       unless has_passphrase
         log_failed_passphrase(@push)
@@ -171,8 +171,8 @@ class Api::V1::PushesController < Api::BaseController
 
     @push.user = current_user if user_signed_in?
 
-    create_detect_deletable_by_viewer(@push, push_params)
-    create_detect_retrieval_step(@push, push_params)
+    assign_deletable_by_viewer(@push, push_params)
+    assign_retrieval_step(@push, push_params)
 
     if @push.save
       log_creation(@push)

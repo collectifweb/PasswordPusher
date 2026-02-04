@@ -26,7 +26,7 @@ group :development do
 
   # Visual Studio Additions
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  # gem install debase -v '0.2.5.beta2' -- --with-cflags=-Wno-error=incompatible-function-pointer-types
+  # gem install debase -v '0.2.9' -- --with-cflags=-Wno-error=incompatible-function-pointer-types
   # https://blog.arkency.com/how-to-get-burned-by-16-years-old-hack-in-2024/
   gem "debase"
   gem "ruby-debug-ide"
@@ -82,7 +82,7 @@ gem "json", "~> 2.18" # Legacy carry-over
 gem "apipie-rails", github: "Apipie/apipie-rails", branch: "copilot/fix-router-deprecation-warning"
 
 gem "config"
-gem "devise", github: "heartcombo/devise", branch: "main"
+gem "devise", "~> 5.0"
 gem "foreman"
 gem "lograge"
 gem "mail_form", ">= 1.9.0"
@@ -97,8 +97,8 @@ gem "translation"
 
 # For File Uploads
 gem "aws-sdk-s3", require: false
-gem "azure-blob", "~> 0.7.0", require: false
-gem "google-cloud-storage", "~> 1.57", require: false
+gem "azure-blob", "~> 0.8.0", require: false
+gem "google-cloud-storage", "~> 1.58", require: false
 
 # Database backends
 gem "mysql2"
