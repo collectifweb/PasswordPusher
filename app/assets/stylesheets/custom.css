@@ -14,3 +14,48 @@
         --bs-light: rgba(0, 0, 0, 0.045);
     }
 }
+
+/* ===== CW Customizations ===== */
+
+/* Hide retrieval step + deletable checkboxes */
+.list-group.mx-0 {
+    display: none !important;
+}
+
+/* Hide the Generate Password button group + its label */
+#generate_password,
+#configure_generator {
+    display: none !important;
+}
+.btn-group[aria-label="Password Generator button group with nested dropdown"] {
+    display: none !important;
+}
+.btn-group[aria-label="Password Generator button group with nested dropdown"] + p {
+    display: none !important;
+}
+
+/* Hide the separator hr between generator and tip */
+.col-12.col-sm-4 .row.my-3.px-5 {
+    display: none !important;
+}
+
+/* Hide the right column entirely (generator + tips) since we move tips below */
+.col-12.col-sm-4.p-3.mt-3 {
+    display: none !important;
+}
+
+/* Style for our injected tip block */
+#cw-tip-block {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+#cw-tip-block strong {
+    font-style: normal;
+}
+
+/* Hide footer navigation links (Front Page, Resources, About) */
+footer .nav.col-md-5.justify-content-end {
+    display: none !important;
+}
