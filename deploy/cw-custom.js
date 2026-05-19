@@ -9,11 +9,13 @@
 (function () {
   'use strict';
 
-  if (document.readyState === 'loading') {
+  if (!window.__cwPwpushCustomBound) {
+    window.__cwPwpushCustomBound = true;
     document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+    document.addEventListener('turbo:load', init);
+    window.addEventListener('pageshow', init);
   }
+  init();
 
   function init() {
     customizeNewForm();
@@ -28,6 +30,7 @@
     if (!form) return;
 
     customizeSubmitButton(form);
+    normalizeHiddenOptions();
     replaceExpirationControls();
     makePassphraseOptional();
   }
@@ -46,6 +49,7 @@
     var daysInput = document.querySelector('input[name="push[expire_after_days]"]');
     var viewsInput = document.querySelector('input[name="push[expire_after_views]"]');
     if (!daysInput || !viewsInput) return;
+    if (document.getElementById('cw-expiration')) return;
 
     var daysAllowed = [1, 3, 7, 14, 30];
     var viewsAllowed = [1, 3, 7, 15];
@@ -152,6 +156,7 @@
   function makePassphraseOptional() {
     var passInput = document.getElementById('push_passphrase');
     if (!passInput) return;
+    if (document.getElementById('cw-passphrase-wrap')) return;
     var inputGroup = passInput.closest('.input-group');
     if (!inputGroup) return;
     var col = inputGroup.parentNode;
@@ -186,6 +191,19 @@
     });
   }
 
+  function normalizeHiddenOptions() {
+    var retrieval = document.getElementById('push_retrieval_step');
+    if (retrieval) {
+      retrieval.checked = false;
+    }
+
+    var deletable = document.getElementById('push_deletable_by_viewer');
+    if (deletable) {
+      deletable.checked = true;
+      deletable.value = 'on';
+    }
+  }
+
   // ============================================================
   // Page d'aperçu après création (/p/:token/preview)
   // ============================================================
@@ -194,6 +212,7 @@
     if (!urlInput) return;
     // On veut uniquement la page preview (pas la page show côté destinataire)
     if (!/\/preview(?:[/?#]|$)/.test(location.pathname + location.search)) return;
+    if (document.getElementById('cw-preview-block')) return;
 
     var bar = urlInput.closest('.input-group');
     if (!bar || !bar.parentNode) return;
