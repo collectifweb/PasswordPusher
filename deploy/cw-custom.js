@@ -45,11 +45,30 @@
     btn.textContent = 'Générer le lien sécurisé';
   }
 
+  function syncSelectToRangeInput(selectId, rangeInput) {
+    var sel = document.getElementById(selectId);
+    if (!sel) return;
+    var currentVal = parseInt(rangeInput.value, 10);
+    var opts = Array.from(sel.options).map(function (o) { return parseInt(o.value, 10); });
+    if (!opts.length) return;
+    var closest = opts.reduce(function (prev, curr) {
+      return Math.abs(curr - currentVal) < Math.abs(prev - currentVal) ? curr : prev;
+    });
+    sel.value = String(closest);
+    setRangeValue(rangeInput, closest);
+  }
+
   function replaceExpirationControls() {
     var daysInput = document.querySelector('input[name="push[expire_after_days]"]');
     var viewsInput = document.querySelector('input[name="push[expire_after_views]"]');
     if (!daysInput || !viewsInput) return;
-    if (document.getElementById('cw-expiration')) return;
+    if (document.getElementById('cw-expiration')) {
+      // Les dropdowns existent déjà : resynchroniser avec les valeurs actuelles
+      // (Stimulus a pu les mettre à jour depuis les cookies entre-temps)
+      syncSelectToRangeInput('cw-days-select', daysInput);
+      syncSelectToRangeInput('cw-views-select', viewsInput);
+      return;
+    }
 
     var daysAllowed = [1, 3, 7, 14, 30];
     var viewsAllowed = [1, 3, 7, 15];
