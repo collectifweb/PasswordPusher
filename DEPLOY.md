@@ -21,11 +21,13 @@
 
 ```
 /etc/nginx-rc/extra.d/
-  app-secrets.location.root.secrets.conf       # Reverse proxy vers Docker
-  app-secrets.location.root.inject.conf        # Injection du script cw-custom.js
-  app-secrets.location.main-before.assets.conf # Proxy des assets statiques
-  app-secrets.location.main-before.cwjs.conf   # Sert le fichier cw-custom.js
+  app-secrets.location.main-before.secrets.conf # Reverse proxy vers Docker + injection de cw-custom.js
+  app-secrets.location.main-before.assets.conf  # Proxy des assets statiques
+  app-secrets.location.main-before.cwjs.conf    # Sert le fichier cw-custom.js
+  app-secrets.location.main-before.cable.conf   # Ferme /cable (websocket ActionCable, inutilisé)
 ```
+
+Les fichiers de `deploy/nginx/` portent les mêmes noms que sur le serveur.
 
 ### Personnalisations CW
 
@@ -64,6 +66,8 @@ curl -sf -H 'Host: secrets.collectifweb.ca' http://127.0.0.1:5100/up && echo "OK
 Les personnalisations CW (CSS, JS, env vars) survivent car elles sont montées en volume ou injectées par nginx, pas dans l'image.
 
 > **Attention** : si l'upstream modifie la structure HTML du formulaire, le CSS ou le JS custom pourrait ne plus cibler les bons éléments. Vérifier visuellement le site après chaque update.
+
+> **Attention** : `/cable` est fermé par nginx (`app-secrets.location.main-before.cable.conf`). Si une nouvelle version de l'image se sert du websocket, ce blocage la cassera : vérifier dans le navigateur qu'aucune page ne tente d'ouvrir `/cable`.
 
 ### 2. Mise à jour du repo local (sync avec upstream)
 
@@ -124,4 +128,7 @@ ssh cwsecretsdaddou@159.89.118.112 "sudo nginx-rc -t && sudo systemctl reload ng
 
 # Health check
 ssh cwsecretsdaddou@159.89.118.112 "curl -sf -H 'Host: secrets.collectifweb.ca' http://127.0.0.1:5100/up && echo OK"
+
+# Vérifier que /cable reste fermé (attendu : 404). Toujours en HTTP/1.1 : en HTTP/2, la réponse trompe.
+curl -s -o /dev/null -w '%{http_code}\n' --http1.1 --max-time 4 -H 'Connection: Upgrade' -H 'Upgrade: websocket' -H 'Sec-WebSocket-Version: 13' -H 'Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==' https://secrets.collectifweb.ca/cable
 ```
