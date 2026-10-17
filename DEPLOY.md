@@ -48,6 +48,9 @@ L'app a deux axes de mise à jour indépendants :
 ### 1. Mise à jour de l'image Docker (app upstream)
 
 L'image `pglombardo/pwpush:stable` est publiée sur DockerHub par l'auteur upstream.
+
+> **Ne pas appliquer en l'état** : au 17/10/2026, `stable` pointe sur la 2.14.3 et la prod tourne en 1.69.3. Un `pull` ferait le saut de version majeure. Épingler d'abord une version dans `docker-compose.yml` (voir `CLAUDE.md`).
+
 Pour appliquer une nouvelle version :
 
 ```bash

@@ -2,24 +2,37 @@
 
 ## Project Context
 
-- **Stack**: Ruby on Rails 8.1 / Ruby 4.0 / Puma / SolidQueue
+- **Stack**: Ruby on Rails / Puma / SolidQueue. Prod (image 1.69.3) : Rails 8.1.2, Ruby 4.0.1.
+  Dépôt (fork, `VERSION` 1.67.1) : Rails 8.1.3, Ruby 3.4.8.
 - **CSS loading**: Sass compilé via cssbundling-rails + Bootstrap 5, custom.css Collectif chargé en dernier
 - **Templates**: ERB avec layout application.html.erb
 - **Base de données**: SQLite3 (production, fichier dans storage/db/)
 - **Storage/fichiers**: Volume Docker `/opt/PasswordPusher/storage`
-- **Déploiement**: Docker (pglombardo/pwpush:stable) sur DO/RunCloud. Voir `deploy/` et `new_deploy.md`
+- **Déploiement**: Docker (pglombardo/pwpush:stable) sur DO/RunCloud. Voir `deploy/` et `DEPLOY.md`
 - **Variables d'env**: `.env` sur le serveur (voir `deploy/.env.example`), pas de .env local
 - **Personnalisations CW**: CSS via volume mount, JS via nginx sub_filter, labels via cw-custom.js
+- **Le dépôt n'est pas la prod** : le serveur tourne l'image upstream, pas ce code. Ce qui concerne le
+  code en service se vérifie dans le conteneur (`docker compose exec -T pwpush ...`, code dans
+  `/opt/PasswordPusher`).
+- **Dépôt GitHub public** (fork de pglombardo/PasswordPusher) : aucun secret ni détail de faille non
+  corrigée dans un fichier commité ; un blocage se pousse après son déploiement. `tasks/` est exclu
+  localement (`.git/info/exclude`).
+- **Secrets** : ne jamais afficher le `.env` de prod ni écrire une valeur de secret dans une commande.
+  Elle finit dans le journal de session et, si la commande est autorisée, dans
+  `.claude/settings.local.json`.
 
 ### Architecture de déploiement
 
 L'app utilise l'image Docker upstream (pas de build custom). Les personnalisations sont externes :
 - `deploy/custom.css` -> monté en volume dans le container
 - `deploy/cw-custom.js` -> servi par nginx, injecté via sub_filter
-- `deploy/nginx/` -> configs RunCloud/nginx pour reverse proxy + injection
+- `deploy/nginx/` -> configs RunCloud/nginx pour reverse proxy + injection + blocage de `/cable`
 - Variables d'env dans `.env` pour branding, features, expiration
 
-**Mise à jour upstream** : `docker compose pull && docker compose up -d` (rien à rebuild)
+**Mise à jour upstream** : **pas de `docker compose pull` tant que la version n'est pas épinglée.**
+Au 17/10/2026, l'étiquette `stable` pointe sur la 2.14.3 (registre Docker Hub) alors que la prod
+tourne en 1.69.3 : un pull ferait le saut de version majeure sans prévenir. Le passage en 2.x est un
+chantier à part, avec une version épinglée dans `docker-compose.yml`.
 
 ### Serveur
 
@@ -61,7 +74,8 @@ L'app utilise l'image Docker upstream (pas de build custom). Les personnalisatio
 
 ## Déploiement
 
-1. Modifier les fichiers dans `deploy/` ou `app/assets/stylesheets/custom.css`
+1. Modifier les fichiers dans `deploy/`. C'est `deploy/custom.css` qui part en prod ;
+   `app/assets/stylesheets/custom.css` en est une copie (identique au 17/10/2026), non déployée.
 2. Copier sur le serveur : `scp deploy/custom.css cwsecretsdaddou@159.89.118.112:~/pwpush/`
 3. Redémarrer si nécessaire : `ssh ... "cd ~/pwpush && docker compose down && docker compose up -d"`
 4. Pour les configs nginx : copier dans `/etc/nginx-rc/extra.d/` puis `sudo nginx-rc -t && sudo systemctl reload nginx-rc`
