@@ -77,7 +77,7 @@ Les personnalisations CW (CSS, JS, env vars) survivent car elles sont montées e
 Le repo local est un fork de `pglombardo/PasswordPusher`. Pour récupérer les changements upstream :
 
 ```bash
-cd "/home/alexandre/Apps-coding/CW_Password Pusher"
+cd /home/alexandre/Apps-coding/CW_secrets
 git fetch upstream
 git merge upstream/master
 ```
