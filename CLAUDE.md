@@ -3,7 +3,8 @@
 ## Project Context
 
 - **Stack**: Ruby on Rails / Puma / SolidQueue. Prod (image 2.14.3 depuis le 18/10/2026) : Rails 8.1.4, Ruby 4.0.7.
-  Dépôt (fork, `VERSION` 1.67.1) : Rails 8.1.3, Ruby 3.4.8.
+  Dépôt : aligné sur l'étiquette officielle `v2.14.3` (même code que l'image en prod), plus les
+  fichiers CW (`deploy/`, docs). Il suit la version épinglée, pas `master` (voir `DEPLOY.md`).
 - **CSS loading**: Sass compilé via cssbundling-rails + Bootstrap 5, custom.css Collectif chargé en dernier
 - **Templates**: ERB avec layout application.html.erb
 - **Base de données**: SQLite3 (production, fichier dans storage/db/)
@@ -33,6 +34,7 @@ L'app utilise l'image Docker upstream (pas de build custom). Les personnalisatio
 **Mise à jour upstream** : la version est épinglée dans `deploy/docker-compose.yml` (2.14.3). Changer
 de version = changer cette étiquette, après un essai local : la structure HTML et la CSP de l'image
 peuvent casser `custom.css` et `cw-custom.js` (voir `DEPLOY.md`). Ne jamais revenir à `stable`.
+Fusionner ensuite la même étiquette dans le dépôt, pour que ses alertes Dependabot restent celles de la prod.
 
 ### Serveur
 
@@ -75,7 +77,7 @@ peuvent casser `custom.css` et `cw-custom.js` (voir `DEPLOY.md`). Ne jamais reve
 ## Déploiement
 
 1. Modifier les fichiers dans `deploy/`. C'est `deploy/custom.css` qui part en prod ;
-   `app/assets/stylesheets/custom.css` en est une ancienne copie (version 1.x), non déployée.
+   `app/assets/stylesheets/custom.css` est le fichier officiel, remplacé en prod par ce montage.
 2. Copier sur le serveur : `scp deploy/custom.css cwsecretsdaddou@159.89.118.112:~/pwpush/`
 3. Redémarrer si nécessaire : `ssh ... "cd ~/pwpush && docker compose down && docker compose up -d"`
 4. Pour les configs nginx : copier dans `/etc/nginx-rc/extra.d/` puis `sudo nginx-rc -t && sudo systemctl reload nginx-rc`

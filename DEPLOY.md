@@ -87,24 +87,20 @@ Les personnalisations CW (CSS, JS, env vars) survivent car elles sont montées e
 
 ### 2. Mise à jour du repo local (sync avec upstream)
 
-Le repo local est un fork de `pglombardo/PasswordPusher`. Pour récupérer les changements upstream :
+Le repo local est un fork de `pglombardo/PasswordPusher`. Il suit **l'étiquette de la version épinglée
+en prod**, pas `master` : son code est celui de l'image en service, et les alertes Dependabot du dépôt
+portent donc sur les dépendances de la prod. Les personnalisations CW ne touchent aucun fichier de
+l'application : elles vivent dans `deploy/`, `CLAUDE.md`, `DEPLOY.md` (et une ligne de `.gitignore`).
+
+À chaque changement de version épinglée (exemple : vX.Y.Z) :
 
 ```bash
 cd /home/alexandre/Apps-coding/CW_secrets
-git fetch upstream
-git merge upstream/master
-```
-
-**Fichiers susceptibles de conflits lors du merge** :
-- `config/environments/production.rb` — on a fixé le bug du `config.hosts`, upstream pourrait modifier ce fichier
-- `config/settings.yml` — on a customisé le branding (titre, tagline), upstream pourrait ajouter de nouveaux paramètres
-- `app/assets/stylesheets/custom.css` — notre fichier de customisations, upstream pourrait le modifier aussi
-- `docker-compose.yml` — on n'a pas modifié celui du repo (le nôtre est dans `deploy/`), mais à surveiller
-
-En cas de conflit, **toujours garder nos modifications CW** dans ces fichiers.
-
-Après le merge :
-```bash
+git fetch upstream --tags
+git merge --no-ff --no-commit vX.Y.Z
+git checkout vX.Y.Z -- .            # version officielle de tout fichier de l'application
+git diff --cached --stat vX.Y.Z     # ne doit lister que les fichiers CW
+git commit
 git push origin master
 ```
 
