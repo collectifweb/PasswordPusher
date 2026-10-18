@@ -4,7 +4,7 @@
 **User** : cwsecretsdaddou
 **URL** : secrets.collectifweb.ca
 **Gestion serveur** : RunCloud
-**App** : Docker (pglombardo/pwpush:2.14.3, version épinglée depuis le 18/10/2026)
+**App** : Docker (pglombardo/pwpush:2.14.3, version épinglée depuis le 17/10/2026)
 **Upstream** : https://github.com/pglombardo/PasswordPusher.git
 
 ### Fichiers sur le serveur
@@ -70,7 +70,7 @@ Pour appliquer une nouvelle version :
 ssh cwsecretsdaddou@159.89.118.112
 cd ~/pwpush
 docker compose pull                 # Télécharge l'image épinglée
-docker compose up -d --wait         # Redémarre (≈ 1 min avec la précompilation CSS, mesuré le 18/10/2026)
+docker compose up -d --wait         # Redémarre (≈ 1 min avec la précompilation CSS, mesuré le 17/10/2026)
 docker compose logs pwpush | grep -E "Version|migrat"
 ```
 
