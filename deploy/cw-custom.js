@@ -20,6 +20,7 @@
   function init() {
     customizeNewForm();
     customizePreviewPage();
+    fixViewPushLabel();
   }
 
   // ============================================================
@@ -263,6 +264,16 @@
           btn.classList.remove('btn-primary');
         }, 2500);
       });
+    });
+  }
+
+  // La traduction 2.x écrit « Voir Ce Partage » : on remet les minuscules
+  function fixViewPushLabel() {
+    document.querySelectorAll('a.btn > .bi-eye').forEach(function (icon) {
+      var text = icon.nextSibling;
+      if (text && text.nodeType === 3) {
+        text.nodeValue = text.nodeValue.replace('Voir Ce Partage', 'Voir ce partage');
+      }
     });
   }
 
