@@ -1,5 +1,13 @@
 # CLAUDE.md
 
+## Action en attente
+
+- **À partir du 25/10/2026, en début de session** : rappeler à Alexandre d'effacer, sur le serveur, la
+  sauvegarde d'avant le passage en 2.14.3 (`~/sauvegardes/pwpush-1.69.3-20261017/`) et le dossier
+  d'attente `~/pwpush-bascule/`. Accord donné le 18/10, si la 2.14.3 tourne sans souci : vérifier
+  d'abord (version, conteneur sain, page d'accueil), puis lui redemander le feu vert. Marche à suivre :
+  `tasks/todo.md` (hors git). Retirer cette section une fois l'effacement fait.
+
 ## Project Context
 
 - **Stack**: Ruby on Rails / Puma / SolidQueue. Prod (image 2.14.3 depuis le 18/10/2026) : Rails 8.1.4, Ruby 4.0.7.
