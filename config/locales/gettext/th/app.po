@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pwpush 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2026-01-29 01:43+0100\n"
-"PO-Revision-Date: 2026-01-29 00:43+0000\n"
+"POT-Creation-Date: 2026-08-21 03:07+0200\n"
+"PO-Revision-Date: 2026-08-21 01:08+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Thai\n"
 "Language: th\n"
@@ -18,31 +18,59 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "\n"
 
+#: ../../../app/controllers/admin/custom_css_controller.rb:11
+msgid "Custom CSS updated successfully."
+msgstr "อัปเดต CSS แบบกำหนดเองสำเร็จแล้ว"
+
+#: ../../../app/controllers/admin/custom_css_controller.rb:13
+msgid "Error updating CSS: %{error}"
+msgstr "เกิดข้อผิดพลาดในการอัปเดต CSS: %{error}"
+
 #: ../../../app/controllers/admin/users_controller.rb:49
 msgid "You cannot delete your own account."
 msgstr "คุณไม่สามารถลบบัญชีของคุณเองได้"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:255
-#: ../../../app/controllers/pushes_controller.rb:117
-#: ../../../app/controllers/pushes_controller.rb:157
-#: ../../../app/controllers/pushes_controller.rb:275
-#: ../../../app/controllers/pushes_controller.rb:305
+#: ../../../app/controllers/api/v1/pushes_controller.rb:14
+#: ../../../app/controllers/pushes_controller.rb:19
+#: ../../../app/controllers/pushes_controller.rb:25
+msgid "Too many passphrase attempts. Please try again in a minute."
+msgstr "พยายามป้อนรหัสผ่านผิดหลายครั้งเกินไป โปรดลองอีกครั้งในอีกหนึ่งนาที"
+
+#: ../../../app/controllers/api/v1/pushes_controller.rb:261
+#: ../../../app/controllers/api/v2/pushes_controller.rb:58
+#: ../../../app/controllers/api/v2/pushes_controller.rb:78
+#: ../../../app/controllers/pushes_controller.rb:129
+#: ../../../app/controllers/pushes_controller.rb:171
+#: ../../../app/controllers/pushes_controller.rb:265
+#: ../../../app/controllers/pushes_controller.rb:321
+#: ../../../app/controllers/pushes_controller.rb:351
 msgid "That push doesn't belong to you."
 msgstr "การผลักดันนั้นไม่ได้เป็นของคุณ"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:309
+#: ../../../app/controllers/api/v1/pushes_controller.rb:315
 msgid "That push is not deletable by viewers."
 msgstr "ผู้ชมไม่สามารถลบการพุชนั้นได้"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:354
-msgid "You must be logged in to view your active pushes."
-msgstr "คุณจะต้องเข้าสู่ระบบเพื่อดูการผลักดันที่ใช้งานอยู่ของคุณ"
+#: ../../../app/controllers/api/v2/pushes_controller.rb:12
+#: ../../../app/controllers/pushes_controller.rb:14
+msgid "Too many email notification requests. Please try again in a minute."
+msgstr "มีการร้องขอการแจ้งเตือนทางอีเมลมากเกินไป โปรดลองใหม่อีกครั้งในสักครู่"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:410
-msgid "You must be logged in to view your expired pushes."
-msgstr "คุณจะต้องเข้าระบบเพื่อดูการผลักดันที่หมดอายุของคุณ"
+#: ../../../app/controllers/api/v2/pushes_controller.rb:87
+#: ../../../app/controllers/pushes_controller.rb:274
+#: ../../../app/views/pages/api.html.erb:245
+msgid "Recipient(s) are added to the queue to be sent."
+msgstr "ผู้รับจะถูกเพิ่มเข้าไปในคิวเพื่อรอการส่ง"
 
-#: ../../../app/controllers/pushes_controller.rb:97
+#: ../../../app/controllers/concerns/enforce_required_mfa.rb:19
+#: ../../../test/controllers/api/base_controller_test.rb:50
+#: ../../../test/integration/require_mfa_test.rb:27
+#: ../../../test/integration/require_mfa_test.rb:58
+#: ../../../test/integration/require_mfa_test.rb:74
+msgid "Two-factor authentication is required. Please set it up to continue."
+msgstr "จำเป็นต้องใช้การยืนยันตัวตนสองขั้นตอน โปรดตั้งค่าเพื่อดำเนินการต่อ"
+
+#: ../../../app/controllers/pushes_controller.rb:109
 msgid ""
 "That passphrase is incorrect.  Please try again or contact the person or organ"
 "ization that sent you this link."
@@ -50,85 +78,293 @@ msgstr ""
 "ข้อความรหัสผ่านนั้นไม่ถูกต้อง โปรดลองอีกครั้งหรือติดต่อบุคคลหรือองค์กรที่ส่งลิ"
 "งก์นี้ให้คุณ"
 
-#: ../../../app/controllers/pushes_controller.rb:122
-#: ../../../app/controllers/pushes_controller.rb:163
+#: ../../../app/controllers/pushes_controller.rb:134
+#: ../../../app/controllers/pushes_controller.rb:177
 msgid "That push has already expired and cannot be edited."
 msgstr "การส่งข้อมูลดังกล่าวหมดอายุแล้วและไม่สามารถแก้ไขได้"
 
-#: ../../../app/controllers/pushes_controller.rb:188
+#: ../../../app/controllers/pushes_controller.rb:202
 msgid "must be at least %{count} (days already elapsed + 1)."
 msgstr "ต้องมีอย่างน้อย %{count} (จำนวนวันที่ผ่านไปแล้ว + 1)"
 
-#: ../../../app/controllers/pushes_controller.rb:197
+#: ../../../app/controllers/pushes_controller.rb:211
 msgid "must be at least %{count} (views already consumed + 1)."
 msgstr "ต้องมีอย่างน้อย %{count} (จำนวนการดูที่ใช้ไปแล้ว + 1)"
 
-#: ../../../app/controllers/pushes_controller.rb:222
-#: ../../../app/models/push.rb:114
+#: ../../../app/controllers/pushes_controller.rb:236
+#: ../../../app/models/push.rb:121
 msgid "You can only attach up to %{count} files per push."
 msgstr "คุณสามารถแนบไฟล์ได้สูงสุด %{count} ต่อการพุชแต่ละครั้ง"
 
-#: ../../../app/controllers/pushes_controller.rb:235
+#: ../../../app/controllers/pushes_controller.rb:249
 msgid "Push was successfully updated."
 msgstr "การอัปเดต Push สำเร็จแล้ว"
 
-#: ../../../app/controllers/pushes_controller.rb:285
+#: ../../../app/controllers/pushes_controller.rb:314
+#: ../../../app/controllers/pushes_controller.rb:498
+#: ../../../test/integration/disable_logins_test.rb:54
+msgid "The audit log is only available when signed in."
+msgstr "บันทึกการตรวจสอบจะใช้งานได้เฉพาะเมื่อเข้าสู่ระบบแล้วเท่านั้น"
+
+#: ../../../app/controllers/pushes_controller.rb:316
+msgid "You must be signed in to view the audit log."
+msgstr "คุณต้องเข้าสู่ระบบเพื่อดูบันทึกการตรวจสอบ"
+
+#: ../../../app/controllers/pushes_controller.rb:331
 msgid "That push is not deletable by viewers and does not belong to you."
 msgstr "การผลักดันนั้นไม่สามารถลบโดยผู้ชมและไม่เป็นของคุณ"
 
-#: ../../../app/controllers/pushes_controller.rb:290
-#: ../../../app/controllers/pushes_controller.rb:311
+#: ../../../app/controllers/pushes_controller.rb:336
+#: ../../../app/controllers/pushes_controller.rb:357
 msgid "That push has already expired."
 msgstr "การผลักดันนั้นหมดเวลาไปแล้ว"
 
-#: ../../../app/controllers/pushes_controller.rb:298
-#: ../../../app/views/pushes/audit.html.erb:99
+#: ../../../app/controllers/pushes_controller.rb:344
+#: ../../../app/views/pushes/audit.html.erb:96
 msgid "The push content has been deleted and the secret URL expired."
 msgstr "เนื้อหาพุชถูกลบและ URL ลับหมดอายุ"
 
-#: ../../../app/controllers/pushes_controller.rb:317
+#: ../../../app/controllers/pushes_controller.rb:363
 msgid "You cannot delete the last file from a file push."
 msgstr "คุณไม่สามารถลบไฟล์สุดท้ายจากการส่งไฟล์ได้"
 
-#: ../../../app/controllers/pushes_controller.rb:326
+#: ../../../app/controllers/pushes_controller.rb:372
 msgid "File was successfully deleted."
 msgstr "ไฟล์ถูกลบเรียบร้อยแล้ว"
 
-#: ../../../app/controllers/pushes_controller.rb:328
+#: ../../../app/controllers/pushes_controller.rb:374
 msgid "File not found."
 msgstr "ไม่พบไฟล์"
 
-#: ../../../app/controllers/pushes_controller.rb:467
-#: ../../../app/models/push.rb:208
+#: ../../../app/controllers/pushes_controller.rb:490
+#: ../../../test/integration/disable_logins_test.rb:144
+msgid "The push dashboard is not available while logins are disabled."
+msgstr "แดชบอร์ดการแจ้งเตือนแบบพุชจะไม่สามารถใช้งานได้ในขณะที่ปิดใช้งานการเข้าสู่ระบบ"
+
+#: ../../../app/controllers/pushes_controller.rb:523
+#: ../../../test/integration/disable_logins_test.rb:135
+msgid "File pushes are unavailable while logins are disabled."
+msgstr "ไม่สามารถส่งไฟล์ได้ในขณะที่ปิดใช้งานการเข้าสู่ระบบ"
+
+#: ../../../app/controllers/pushes_controller.rb:531
+#: ../../../app/models/push.rb:297
 msgid "File pushes are disabled."
 msgstr "การผลักไฟล์ถูกปิดใช้งาน"
 
-#: ../../../app/controllers/pushes_controller.rb:477
-#: ../../../app/models/push.rb:212
+#: ../../../app/controllers/pushes_controller.rb:536
+#: ../../../app/models/push.rb:301
+#: ../../../test/controllers/urls_controller_test.rb:110
+#: ../../../test/controllers/urls_controller_test.rb:127
 msgid "URL pushes are disabled."
 msgstr "การผลัก URL ถูกปิดการใช้งาน"
 
-#: ../../../app/controllers/pushes_controller.rb:487
-#: ../../../app/models/push.rb:216
+#: ../../../app/controllers/pushes_controller.rb:548
+#: ../../../app/models/push.rb:305
+#: ../../../test/controllers/qr_push_controller_test.rb:128
+#: ../../../test/controllers/qr_push_controller_test.rb:144
 msgid "QR code pushes are disabled."
 msgstr "การพุชรหัส QR ถูกปิดใช้งาน"
 
-#: ../../../app/models/push.rb:123 ../../../app/models/push.rb:141
-#: ../../../app/models/push.rb:155
+#: ../../../app/controllers/users/first_runs_controller.rb:34
+msgid "Administrator account created successfully!"
+msgstr "สร้างบัญชีผู้ดูแลระบบสำเร็จแล้ว!"
+
+#: ../../../app/controllers/users/first_runs_controller.rb:64
+msgid ""
+"Invalid or missing boot code. Please check the application logs for the boot c"
+"ode."
+msgstr "รหัสบูตไม่ถูกต้องหรือหายไป โปรดตรวจสอบบันทึกของแอปพลิเคชันเพื่อหารหัสบูต"
+
+#: ../../../app/controllers/users/sessions_controller.rb:55
+msgid "Session expired. Please sign in again."
+msgstr "เซッションหมดอายุแล้ว โปรดเข้าสู่ระบบอีกครั้ง"
+
+#: ../../../app/controllers/users/sessions_controller.rb:67
+#: ../../../app/controllers/users/two_factor_controller.rb:25
+msgid "Incorrect verification code."
+msgstr "รหัสยืนยันไม่ถูกต้อง"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:23
+msgid "Two-factor authentication is now enabled."
+msgstr "ขณะนี้ได้เปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนแล้ว"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:34
+#: ../../../test/integration/require_mfa_test.rb:105
+msgid ""
+"Two-factor authentication cannot be disabled because it is required by the adm"
+"inistrator."
+msgstr ""
+"ไม่สามารถปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนได้ เนื่องจากผู้ดูแลระบบกำหนดให"
+"้ต้องใช้งาน"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:40
+#: ../../../test/integration/require_mfa_test.rb:122
+msgid "Two-factor authentication has been disabled."
+msgstr "การตรวจสอบสิทธิ์แบบสองขั้นตอนถูกปิดใช้งานแล้ว"
+
+#: ../../../app/helpers/pushes_helper.rb:15
+#: ../../../app/helpers/share_message_helper.rb:46
+#: ../../../app/views/pushes/preview.html.erb:76
+#: ../../../app/views/pushes/print_preview.html.erb:13
+#: ../../../app/views/pushes/show.html.erb:43
+#: ../../../app/views/pushes/show.html.erb:77
+msgid "day"
+msgid_plural "days"
+msgstr[0] "วัน"
+msgstr[1] ""
+
+#: ../../../app/helpers/share_message_helper.rb:14
+msgid "The link and content will be deleted upon expiration."
+msgstr "ลิงก์และเนื้อหาจะถูกลบเมื่อหมดอายุ"
+
+#: ../../../app/helpers/share_message_helper.rb:18
+msgid "A secure link has been shared with you."
+msgstr "ลิงก์ที่ปลอดภัยได้ถูกส่งถึงคุณแล้ว"
+
+#: ../../../app/helpers/share_message_helper.rb:20
+#: ../../../app/views/push_created_mailer/notify.html.erb:6
+msgid "Please find the secret link below to access the sensitive information."
+msgstr "โปรดดูลิงก์ลับด้านล่างเพื่อเข้าถึงข้อมูลที่ละเอียดอ่อน."
+
+#: ../../../app/helpers/share_message_helper.rb:22
+#: ../../../app/views/pushes/preview.html.erb:18
+msgid "Secret link"
+msgstr "ลิงก์ลับ"
+
+#: ../../../app/helpers/share_message_helper.rb:24
+msgid "IMPORTANT NOTES:"
+msgstr "หมายเหตุสำคัญ:"
+
+#: ../../../app/helpers/share_message_helper.rb:47
+#: ../../../app/views/pushes/preview.html.erb:78
+#: ../../../app/views/pushes/print_preview.html.erb:15
+msgid "view"
+msgid_plural "views"
+msgstr[0] "มุมมอง"
+msgstr[1] ""
+
+#: ../../../app/helpers/share_message_helper.rb:49
+msgid "This link is valid for %{days}, or %{views}, whichever occurs first."
+msgstr "ลิงก์นี้ใช้ได้กับ %{days} หรือ %{views} แล้วแต่ว่าอันไหนจะเกิดขึ้นก่อน"
+
+#: ../../../app/helpers/share_message_helper.rb:53
+#: ../../../app/views/push_created_mailer/notify.html.erb:14
+msgid ""
+"For added security, you may be prompted to enter a passphrase (provided separa"
+"tely) to access the content."
+msgstr ""
+"เพื่อความปลอดภัยเพิ่มเติม คุณอาจถูกขอให้ป้อนรหัสผ่าน (ที่ให้แยกต่างหาก) เพื่อเ"
+"ข้าถึงเนื้อหา"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:47
+msgid "No emails were sent successfully."
+msgstr "ไม่สามารถส่งอีเมลได้สำเร็จ"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:49
+msgid "Some emails could not be sent."
+msgstr "ไม่สามารถส่งอีเมลบางฉบับได้"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:56
+msgid "An unexpected error occurred while sending the email."
+msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดขณะส่งอีเมล"
+
+#: ../../../app/mailers/push_created_mailer.rb:14
+msgid "Someone"
+msgstr "บางคน"
+
+#: ../../../app/mailers/push_created_mailer.rb:15
+msgid "You have received a push"
+msgstr "คุณได้รับการแจ้งเตือนแล้ว"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:34
+msgid "Recipient emails"
+msgstr "อีเมลผู้รับ"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:36
+msgid "Notification language"
+msgstr "ภาษาในการแจ้งเตือน"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:61
+msgid "are not available"
+msgstr "ไม่พร้อมใช้งาน"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:62
+msgid "is not available"
+msgstr "ไม่สามารถใช้งานได้"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:63
+msgid "Notify by email feature is not enabled"
+msgstr "ฟังก์ชันแจ้งเตือนทางอีเมลไม่ได้เปิดใช้งาน"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:71
+msgid "are not allowed for unknown users"
+msgstr "ไม่อนุญาตให้ผู้ใช้ที่ไม่รู้จักใช้งาน"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:72
+msgid "is not allowed for unknown users"
+msgstr "ไม่อนุญาตให้ผู้ใช้ที่ไม่รู้จักใช้งาน"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:78
+msgid "are allowed only for owners"
+msgstr "อนุญาตเฉพาะเจ้าของเท่านั้น"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:79
+msgid "is allowed only for owners"
+msgstr "อนุญาตเฉพาะเจ้าของเท่านั้น"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:85
+msgid "The maximum number of emails has been reached for today"
+msgstr "จำนวนอีเมลสูงสุดสำหรับวันนี้ถึงจำนวนที่กำหนดแล้ว"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:99
+msgid ""
+"You can notify up to %{count} email(s) and you have already sent emails to %{t"
+"otal_count} recipients"
+msgstr ""
+"คุณสามารถแจ้งเตือนอีเมลได้สูงสุด %{count} ฉบับ และคุณได้ส่งอีเมลไปแล้ว %{total"
+"_count} ฉบับ"
+
+#: ../../../app/models/push.rb:130 ../../../app/models/push.rb:148
+#: ../../../app/models/push.rb:162
 msgid "Payload is required."
 msgstr "จำเป็นต้องมีเพย์โหลด"
 
-#: ../../../app/models/push.rb:128
+#: ../../../app/models/push.rb:135
 msgid "The payload is too large.  You can only push up to %{count} bytes."
 msgstr "เพย์โหลดมีขนาดใหญ่เกินไป คุณสามารถพุชได้สูงสุด %{count} ไบต์เท่านั้น"
 
-#: ../../../app/models/push.rb:138
+#: ../../../app/models/push.rb:145 ../../../test/models/url_test.rb:68
+#: ../../../test/models/url_test.rb:78 ../../../test/models/url_test.rb:88
 msgid "must be a valid HTTP or HTTPS URL."
 msgstr "ต้องเป็น URL HTTP หรือ HTTPS ที่ถูกต้อง"
 
-#: ../../../app/models/push.rb:152
+#: ../../../app/models/push.rb:159
 msgid "The QR code payload is too large.  You can only push up to %{count} bytes."
 msgstr "เพย์โหลดรหัส QR มีขนาดใหญ่เกินไป คุณสามารถส่งได้สูงสุดถึง %{count} ไบต์"
+
+#: ../../../app/models/push.rb:348
+msgid "are not available for expired pushes"
+msgstr "ไม่สามารถใช้งานได้สำหรับการแจ้งเตือนที่หมดอายุแล้ว"
+
+#: ../../../app/models/push.rb:349
+msgid "is not available for expired pushes"
+msgstr "ไม่สามารถใช้งานได้สำหรับการแจ้งเตือนที่หมดอายุแล้ว"
+
+#: ../../../app/validators/multiple_emails_validator.rb:20
+msgid "has commas used in the wrong way"
+msgstr "มีการใช้เครื่องหมายจุลภาคผิดวิธี"
+
+#: ../../../app/validators/multiple_emails_validator.rb:25
+msgid "contains duplicate emails"
+msgstr "มีอีเมลซ้ำกัน"
+
+#: ../../../app/validators/multiple_emails_validator.rb:29
+msgid "contains more than %{count} email(s)"
+msgstr "ประกอบด้วยอีเมลมากกว่า %{count} ฉบับ"
+
+#: ../../../app/validators/multiple_emails_validator.rb:33
+msgid "contains invalid email(s)"
+msgstr "มีอีเมลที่ไม่ถูกต้อง"
 
 #: ../../../app/views/admin/_navigation.html.erb:9
 msgid "Password Pusher"
@@ -136,13 +372,9 @@ msgstr "ตัวดันรหัสผ่าน"
 
 #: ../../../app/views/admin/_navigation.html.erb:12
 #: ../../../app/views/admin/index.html.erb:11
-#: ../../../app/views/shared/_header.html.erb:46
+#: ../../../app/views/shared/_header.html.erb:32
 msgid "Administration Center"
 msgstr "การบริหาร"
-
-#: ../../../app/views/admin/_navigation.html.erb:17
-msgid "BETA"
-msgstr "เบต้า"
 
 #: ../../../app/views/admin/_navigation.html.erb:31
 msgid "Administration Home"
@@ -165,12 +397,113 @@ msgstr "นักสำรวจข้อมูล"
 
 #: ../../../app/views/admin/_navigation.html.erb:57
 #: ../../../app/views/admin/index.html.erb:146
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:34
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:37
 msgid "Background Jobs"
 msgstr "งานเบื้องหลัง"
 
+#: ../../../app/views/admin/_navigation.html.erb:64
+#: ../../../app/views/admin/custom_css/edit.html.erb:1
+#: ../../../app/views/admin/custom_css/edit.html.erb:6
+msgid "Custom CSS"
+msgstr "CSS แบบกำหนดเอง"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:7
+msgid ""
+"Add custom CSS styles to override the default appearance of your Password Push"
+"er instance."
+msgstr ""
+"เพิ่มสไตล์ CSS แบบกำหนดเองเพื่อแทนที่ลักษณะการแสดงผลเริ่มต้นของอินสแตนซ์ Passw"
+"ord Pusher ของคุณ"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:16
+msgid "Use Caution"
+msgstr "โปรดใช้ความระมัดระวัง"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:17
+msgid ""
+"Custom CSS can break the application layout or make it unusable. Test your cha"
+"nges carefully. Invalid CSS will be ignored by browsers."
+msgstr ""
+"CSS ที่กำหนดเองอาจทำให้โครงสร้างของแอปพลิเคชันเสียหายหรือใช้งานไม่ได้ โปรดทดสอ"
+"บการเปลี่ยนแปลงอย่างระมัดระวัง CSS ที่ไม่ถูกต้องจะถูกเบราว์เซอร์มองข้ามไป"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:27
+msgid "Looking for Themes?"
+msgstr "กำลังมองหาธีมอยู่ใช่ไหม?"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:29
+msgid ""
+"Password Pusher includes 26 built-in themes that can be set via the %{code_sta"
+"rt}PWP__THEME%{code_end} environment variable. No custom CSS needed for most b"
+"randing changes."
+msgstr ""
+"Password Pusher มีธีมสำเร็จรูป 26 แบบ ซึ่งสามารถตั้งค่าได้ผ่านตัวแปรสภาพแวดล้อ"
+"ม %{code_start}PWP__THEME%{code_end} ไม่จำเป็นต้องใช้ CSS แบบกำหนดเองสำหรับการ"
+"เปลี่ยนแปลงแบรนด์ส่วนใหญ่"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:31
+msgid "View the Theme Gallery"
+msgstr "ดูแกลเลอรี่ธีม"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:41
+msgid "Custom Stylesheet"
+msgstr "สไตล์ชีทแบบกำหนดเอง"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:45
+msgid ""
+"/* Add your custom CSS here */\n"
+"\n"
+"body {\n"
+"  background-color: #f5f5f5;\n"
+"}"
+msgstr "/* เพิ่ม CSS ที่กำหนดเองของคุณที่นี่ */ body { background-color: #f5f5f5; }"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:51
+msgid ""
+"CSS entered here will be injected into every page. Changes take effect immedia"
+"tely after saving."
+msgstr ""
+"โค้ด CSS ที่ป้อนในช่องนี้จะถูกแทรกเข้าไปในทุกหน้า การเปลี่ยนแปลงจะมีผลทันทีหลั"
+"งจากบันทึก"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:57
+msgid "Tip: Use Ctrl+Enter (or Cmd+Enter on Mac) to save quickly"
+msgstr "คำแนะนำ: ใช้ Ctrl+Enter (หรือ Cmd+Enter บน Mac) เพื่อบันทึกอย่างรวดเร็ว"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:59
+msgid "Save Custom CSS"
+msgstr "บันทึก CSS แบบกำหนดเอง"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:68
+msgid "Common Customization Examples"
+msgstr "ตัวอย่างการปรับแต่งทั่วไป"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:72
+msgid "Make the password textarea larger with monospace font"
+msgstr "ขยายช่องป้อนรหัสผ่านให้ใหญ่ขึ้นโดยใช้แบบอักษรแบบ Monospace"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:82
+msgid "Style the Generate Password button with gradient"
+msgstr "ตกแต่งปุ่มสร้างรหัสผ่านด้วยการไล่ระดับสี"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:92
+msgid "Customize slider appearance"
+msgstr "ปรับแต่งลักษณะของแถบเลื่อน"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:104
+msgid "Style the Push It button"
+msgstr "ตกแต่งปุ่มกด"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:116
+msgid "Highlight the passphrase field when focused"
+msgstr "ไฮไลต์ช่องรหัสผ่านเมื่อเลือกช่องนั้น"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:125
+msgid "Add card-style borders to form sections"
+msgstr "เพิ่มเส้นขอบแบบการ์ดเพื่อแบ่งส่วนต่างๆ"
+
 #: ../../../app/views/admin/index.html.erb:1
-#: ../../../app/views/layouts/admin.html.erb:38
+#: ../../../app/views/layouts/admin.html.erb:47
 msgid "Administration"
 msgstr "การบริหารจัดการ"
 
@@ -197,9 +530,6 @@ msgid "Total Pushes"
 msgstr "การผลักทั้งหมด"
 
 #: ../../../app/views/admin/index.html.erb:80
-#: ../../../app/views/pushes/index.html.erb:1
-#: ../../../app/views/pushes/index.html.erb:26
-#: ../../../app/views/pushes/index.html.erb:34
 msgid "Active Pushes"
 msgstr "ผลักดันที่ใช้งานอยู่"
 
@@ -277,7 +607,9 @@ msgid "View changelog and download updates"
 msgstr "ดูบันทึกการเปลี่ยนแปลงและดาวน์โหลดการอัพเดต"
 
 #: ../../../app/views/admin/index.html.erb:262
-#: ../../../app/views/shared/_footer.html.erb:52
+#: ../../../app/views/pages/about.html.erb:102
+#: ../../../app/views/shared/_footer.html.erb:19
+#: ../../../app/views/users/first_runs/new.html.erb:190
 msgid "Documentation"
 msgstr "เอกสารประกอบ"
 
@@ -361,13 +693,16 @@ msgstr "ผู้ดูแลระบบปัจจุบัน"
 
 #: ../../../app/views/admin/users/index.html.erb:50
 #: ../../../app/views/admin/users/index.html.erb:142
+#: ../../../app/views/devise/registrations/edit.html.erb:16
 #: ../../../app/views/devise/sessions/new.html.erb:7
+#: ../../../app/views/users/first_runs/new.html.erb:69
+#: ../../../app/views/users/first_runs/new.html.erb:72
 msgid "Email"
 msgstr "อีเมล"
 
 #: ../../../app/views/admin/users/index.html.erb:51
 #: ../../../app/views/admin/users/index.html.erb:143
-#: ../../../app/views/pushes/index.html.erb:39
+#: ../../../app/views/pushes/index.html.erb:34
 msgid "Created"
 msgstr "สร้าง"
 
@@ -380,6 +715,7 @@ msgstr "การลงชื่อเข้าใช้ครั้งสุด
 #: ../../../app/views/admin/users/index.html.erb:145
 #: ../../../app/views/madmin/application/index.html.erb:63
 #: ../../../app/views/madmin/users/index.html.erb:63
+#: ../../../app/views/pushes/index.html.erb:37
 msgid "Actions"
 msgstr "การดำเนินการ"
 
@@ -445,6 +781,13 @@ msgstr "ไม่พบผู้ใช้ปกติ"
 msgid "All users in the system are administrators."
 msgstr "ผู้ใช้ทั้งหมดในระบบคือผู้ดูแลระบบ"
 
+#: ../../../app/views/application/_push_expiration.html.erb:2
+#: ../../../app/views/pushes/audit.html.erb:95
+#: ../../../app/views/pushes/index.html.erb:88
+#: ../../../app/views/shared/_dashboard_header.html.erb:17
+msgid "Expired"
+msgstr "หมดอายุ"
+
 #: ../../../app/views/application/_push_expiration.html.erb:3
 msgid "The file download links above will expire in:"
 msgstr "ลิงก์ดาวน์โหลดไฟล์ด้านบนจะหมดอายุใน:"
@@ -453,25 +796,20 @@ msgstr "ลิงก์ดาวน์โหลดไฟล์ด้านบน
 msgid "You can refresh the page to regenerate new download links if views remain."
 msgstr "คุณสามารถรีเฟรชหน้าเพื่อสร้างลิงก์ดาวน์โหลดใหม่หากจำนวนการดูยังคงอยู่"
 
-#: ../../../app/views/application/_push_expiration.html.erb:16
-#: ../../../app/views/pushes/audit.html.erb:98
-#: ../../../app/views/pushes/index.html.erb:75
-#: ../../../app/views/shared/_dashboard_header.html.erb:11
-msgid "Expired"
-msgstr "หมดอายุ"
-
-#: ../../../app/views/application/_secret_url_bar.html.erb:14
+#: ../../../app/views/application/_secret_url_bar.html.erb:15
 msgid "Secret Link Language"
 msgstr "ภาษาลิงค์ลับ"
 
-#: ../../../app/views/application/_secret_url_bar.html.erb:19
+#: ../../../app/views/application/_secret_url_bar.html.erb:20
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:25
 msgid "Autodetect the recipient's language"
 msgstr "ตรวจจับอัตโนมัติ"
 
-#: ../../../app/views/application/_secret_url_bar.html.erb:38
-#: ../../../app/views/pages/generate_key.html.erb:26
-#: ../../../app/views/pages/generate_key.html.erb:39
+#: ../../../app/views/application/_secret_url_bar.html.erb:39
+#: ../../../app/views/pages/generate_key.html.erb:36
+#: ../../../app/views/pages/generate_key.html.erb:46
 #: ../../../app/views/shared/_copy_button.html.erb:2
+#: ../../../app/views/shared/_share_message.html.erb:11
 msgid "Copy to Clipboard"
 msgstr "คัดลอกไปยังคลิปบอร์ด"
 
@@ -522,8 +860,7 @@ msgstr "ตัวแทนผู้ใช้:"
 #: ../../../app/views/audit_logs/_log_owner_view.html.erb:13
 #: ../../../app/views/audit_logs/_log_view.html.erb:10
 #: ../../../app/views/audit_logs/_log_view.html.erb:12
-#: ../../../app/views/pushes/audit.html.erb:19
-#: ../../../app/views/pushes/index.html.erb:67
+#: ../../../app/views/pushes/audit.html.erb:20
 msgid "None"
 msgstr "ไม่มี"
 
@@ -541,6 +878,34 @@ msgstr "ผู้อ้างอิง:"
 #: ../../../app/views/audit_logs/_log_creation.html.erb:3
 msgid "Created on %{date} by %{user}"
 msgstr "พุชที่สร้างบน %{date} โดย %{user}"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:22
+msgid "Email notification(s) queued on %{date}"
+msgstr "การแจ้งเตือนทางอีเมลถูกจัดคิวไว้สำหรับ %{date}"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:29
+msgid "Status:"
+msgstr "สถานะ:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:33
+msgid "To:"
+msgstr "ถึง:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:38
+msgid "Sent:"
+msgstr "ส่งแล้ว:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:44
+msgid "Error:"
+msgstr "ข้อผิดพลาด:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:49
+msgid "Proceed At:"
+msgstr "ดำเนินการต่อที่:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:49
+msgid "Not yet"
+msgstr "ยัง"
 
 #: ../../../app/views/audit_logs/_log_edit.html.erb:3
 msgid "Edited on %{date} by %{user}"
@@ -570,115 +935,99 @@ msgstr "การดู %{date} โดย %{user} ประสบความส
 msgid "Click Here to Confirm Your Account"
 msgstr "คลิกที่นี่เพื่อยืนยันบัญชีของคุณ"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:8
-#: ../../../app/views/devise/mailer/email_changed.html.erb:8
-#: ../../../app/views/devise/mailer/password_change.html.erb:8
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:8
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:8
-#: ../../../app/views/layouts/application.html.erb:8
-#: ../../../app/views/layouts/bare.html.erb:8
-#: ../../../app/views/layouts/login.html.erb:8
-#: ../../../app/views/layouts/naked.html.erb:8
-msgid ""
-"Password Pusher is an application to securely send passwords over the web. Lin"
-"ks to passwords expire after a certain number of views and/or time has passed."
-msgstr ""
-"Password Pusher เป็นแอปพลิเคชั่นสำหรับส่งรหัสผ่านทางเว็บอย่างปลอดภัย ลิงก์ไปยั"
-"งรหัสผ่านจะหมดอายุหลังจากการดูและ/หรือเวลาผ่านไปตามจำนวนที่กำหนด"
-
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:1
 msgid "Confirm your new account"
 msgstr "ยืนยันบัญชีใหม่ของคุณ"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:20
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:2
 msgid ""
 "Your account has been created but you must confirm that you own this email add"
 "ress."
 msgstr "บัญชีของคุณถูกสร้างขึ้นแล้ว แต่คุณต้องยืนยันว่าคุณเป็นเจ้าของที่อยู่อีเมลนี้"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:23
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:5
 msgid "You can confirm your account email by"
 msgstr "คุณสามารถยืนยันอีเมลบัญชีของคุณได้โดย"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:24
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:22
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:6
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:4
 msgid "by clicking this link"
 msgstr "โดยคลิกที่ลิงค์นี้"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:25
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:23
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:7
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:5
 msgid "or by copying and pasting the following URL into your browser:"
 msgstr "หรือโดยการคัดลอกและวาง URL ต่อไปนี้ในเบราว์เซอร์ของคุณ:"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:32
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:14
 msgid "If you didn't create an account, no action is required."
 msgstr "หากคุณไม่ได้สร้างบัญชี ก็ไม่จำเป็นต้องดำเนินการใดๆ"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:19
+#: ../../../app/views/devise/mailer/email_changed.html.erb:1
 msgid "Your email is being changed"
 msgstr "อีเมลของคุณกำลังถูกเปลี่ยน"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:21
+#: ../../../app/views/devise/mailer/email_changed.html.erb:3
 msgid "We're contacting you to notify you that your email at"
 msgstr "เรากำลังติดต่อคุณเพื่อแจ้งให้คุณทราบว่าอีเมลของคุณที่"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:25
+#: ../../../app/views/devise/mailer/email_changed.html.erb:7
 msgid "is being changed to %s"
 msgstr "กำลังเปลี่ยนเป็น %s"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:27
+#: ../../../app/views/devise/mailer/email_changed.html.erb:9
 msgid "has been changed to %s"
 msgstr "เปลี่ยนเป็น %s แล้ว"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:19
+#: ../../../app/views/devise/mailer/password_change.html.erb:1
 msgid "Password Change"
 msgstr "เปลี่ยนรหัสผ่าน"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:21
+#: ../../../app/views/devise/mailer/password_change.html.erb:3
 msgid "We're contacting you to notify you that your password has been changed on"
 msgstr "เรากำลังติดต่อคุณเพื่อแจ้งให้คุณทราบว่ารหัสผ่านของคุณถูกเปลี่ยน"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:24
+#: ../../../app/views/devise/mailer/password_change.html.erb:6
 msgid ""
 "If you didn't initiate this and it wasn't your intention, please contact us as"
 " soon as possible."
 msgstr "หากคุณไม่ได้เป็นผู้ริเริ่มและไม่ใช่ความตั้งใจของคุณ โปรดติดต่อเราโดยเร็วที่สุด"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:1
 msgid "Password Change Request"
 msgstr "คำขอเปลี่ยนรหัสผ่าน"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:21
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:3
 msgid ""
 "Someone has requested a link to change your password. You can proceed with thi"
 "s action"
 msgstr "มีคนขอลิงค์เพื่อเปลี่ยนรหัสผ่านของคุณ คุณสามารถดำเนินการต่อได้"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:31
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:13
 msgid "If you didn't request this change, you can safely delete this email."
 msgstr "หากคุณไม่ได้ร้องขอการเปลี่ยนแปลง คุณสามารถลบอีเมลนี้ได้อย่างปลอดภัย"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:32
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:14
 msgid ""
 "Your password won't change until you access the link above and create a new on"
 "e."
 msgstr "รหัสผ่านของคุณจะไม่เปลี่ยนจนกว่าคุณจะเข้าถึงลิงก์ด้านบนและสร้างใหม่"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:1
 msgid "Unlock Your Account"
 msgstr "ปลดล็อกบัญชีของคุณ"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:22
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:4
 msgid ""
 "Your account has been locked due to an excessive number of unsuccessful sign i"
 "n attempts."
 msgstr "บัญชีของคุณถูกล็อคเนื่องจากมีการพยายามลงชื่อเข้าใช้ไม่สำเร็จหลายครั้งมากเกินไป"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:26
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:8
 msgid "Click this link"
 msgstr "คลิกที่ลิงค์นี้"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:27
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:9
 msgid ""
 "to unlock your account or by copying and pasting the following URL into your b"
 "rowser:"
@@ -696,20 +1045,41 @@ msgstr "ยืนยันรหัสผ่านใหม่"
 msgid "A minimum of %d characters is required but the more the better."
 msgstr "ต้องมีอักขระอย่างน้อย %d ตัว แต่ยิ่งมากยิ่งดี"
 
-#: ../../../app/views/devise/registrations/edit.html.erb:10
-msgid "Change Email"
-msgstr "เปลี่ยนอีเมล"
-
-#: ../../../app/views/devise/registrations/edit.html.erb:46
+#: ../../../app/views/devise/registrations/edit.html.erb:53
 msgid "Current Password"
 msgstr "รหัสผ่านปัจจุบัน"
 
-#: ../../../app/views/devise/registrations/token.html.erb:2
-#: ../../../app/views/shared/_header.html.erb:63
+#: ../../../app/views/devise/registrations/edit.html.erb:65
+#: ../../../app/views/users/sessions/otp.html.erb:1
+#: ../../../app/views/users/sessions/otp.html.erb:3
+msgid "Two-factor authentication"
+msgstr "การตรวจสอบสิทธิ์แบบสองปัจจัย"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:66
+msgid "Add a second step to your sign-in using an authenticator app (TOTP)."
+msgstr "เพิ่มขั้นตอนการเข้าสู่ระบบอีกขั้นตอนโดยใช้แอปยืนยันตัวตน (TOTP)"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:68
+msgid "Disable two-factor authentication"
+msgstr "ปิดใช้งานการตรวจสอบปัจจัยสองชั้น"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:71
+#: ../../../app/views/devise/registrations/token.html.erb:59
+#: ../../../app/views/pushes/show.html.erb:115
+msgid "Are you sure?"
+msgstr "คุณแน่ใจไหม?"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:73
+msgid "Set up two-factor authentication"
+msgstr "ตั้งค่าการตรวจสอบสิทธิ์แบบสองขั้นตอน"
+
+#: ../../../app/views/devise/registrations/token.html.erb:1
+#: ../../../app/views/devise/registrations/token.html.erb:6
+#: ../../../app/views/shared/_header.html.erb:46
 msgid "API Token"
 msgstr "โทเค็น API"
 
-#: ../../../app/views/devise/registrations/token.html.erb:4
+#: ../../../app/views/devise/registrations/token.html.erb:9
 msgid ""
 "This token is specific to your account.  It can be used with command line appl"
 "ications, the JSON API, 3rd party integrations and more."
@@ -717,33 +1087,34 @@ msgstr ""
 "โทเค็นนี้มีไว้สำหรับบัญชีของคุณโดยเฉพาะ สามารถใช้กับแอปพลิเคชันบรรทัดคำสั่ง, J"
 "SON API, การผสานรวมของบุคคลที่สาม และอื่นๆ"
 
-#: ../../../app/views/devise/registrations/token.html.erb:7
+#: ../../../app/views/devise/registrations/token.html.erb:13
 msgid "Make sure to keep this token secure.  It provides full access to your account."
 msgstr "อย่าลืมรักษาโทเค็นนี้ให้ปลอดภัย ให้การเข้าถึงบัญชีของคุณอย่างเต็มที่"
 
-#: ../../../app/views/devise/registrations/token.html.erb:10
-msgid ""
-"If needed, you can regenerate a new token below which will invalidate this exi"
-"sting token."
-msgstr ""
-"หากจำเป็น คุณสามารถสร้างโทเค็นใหม่ด้านล่าง ซึ่งจะทำให้โทเค็นที่มีอยู่นี้ใช้ไม่"
-"ได้"
-
-#: ../../../app/views/devise/registrations/token.html.erb:14
+#: ../../../app/views/devise/registrations/token.html.erb:16
 #: ../../../app/views/pushes/show.html.erb:4
 #: ../../../app/views/pushes/show.html.erb:64
 msgid "Copied!"
 msgstr "คัดลอก!"
 
-#: ../../../app/views/devise/registrations/token.html.erb:15
+#: ../../../app/views/devise/registrations/token.html.erb:17
+msgid "Current Token"
+msgstr "โทเค็นปัจจุบัน"
+
+#: ../../../app/views/devise/registrations/token.html.erb:18
 msgid "Your API token is blurred out.  Click below to reveal it."
 msgstr "โทเค็น API ของคุณเบลอ คลิกด้านล่างเพื่อเปิดเผย"
 
-#: ../../../app/views/devise/registrations/token.html.erb:27
+#: ../../../app/views/devise/registrations/token.html.erb:35
+#: ../../../app/views/devise/registrations/token.html.erb:41
+msgid "Regenerate Token"
+msgstr "สร้างโทเค็นใหม่"
+
+#: ../../../app/views/devise/registrations/token.html.erb:37
 msgid "To delete this token and regenerate a new one, use the button below."
 msgstr "หากต้องการลบโทเค็นนี้และสร้างโทเค็นใหม่ ให้ใช้ปุ่มด้านล่าง"
 
-#: ../../../app/views/devise/registrations/token.html.erb:30
+#: ../../../app/views/devise/registrations/token.html.erb:38
 msgid ""
 "Note that this will invalidate any tools that may be using the existing key an"
 "d will have to be updated with the new token."
@@ -751,84 +1122,96 @@ msgstr ""
 "โปรดทราบว่าการดำเนินการนี้จะทำให้เครื่องมือใดๆ ที่อาจใช้คีย์ที่มีอยู่ใช้ไม่ได้"
 " และจะต้องอัปเดตด้วยโทเค็นใหม่"
 
-#: ../../../app/views/devise/registrations/token.html.erb:34
-msgid "Regenerate Token"
-msgstr "สร้างโทเค็นใหม่"
-
-#: ../../../app/views/devise/registrations/token.html.erb:42
+#: ../../../app/views/devise/registrations/token.html.erb:52
 msgid "Delete and generate a new API token?"
 msgstr "ลบและสร้างโทเค็น API ใหม่ไหม"
 
-#: ../../../app/views/devise/registrations/token.html.erb:46
+#: ../../../app/views/devise/registrations/token.html.erb:56
 msgid "This will delete this token and "
 msgstr "สิ่งนี้จะลบโทเค็นนี้และ"
 
-#: ../../../app/views/devise/registrations/token.html.erb:47
+#: ../../../app/views/devise/registrations/token.html.erb:57
 msgid "invalidate any tools that may be using it"
 msgstr "ทำให้เครื่องมือใด ๆ ที่อาจใช้อยู่เป็นโมฆะ"
 
-#: ../../../app/views/devise/registrations/token.html.erb:48
+#: ../../../app/views/devise/registrations/token.html.erb:58
 msgid "A new token will be generated in its place."
 msgstr "โทเค็นใหม่จะถูกสร้างขึ้นแทนที่"
 
-#: ../../../app/views/devise/registrations/token.html.erb:49
-#: ../../../app/views/pushes/audit.html.erb:221
-#: ../../../app/views/pushes/show.html.erb:115
-msgid "Are you sure?"
-msgstr "คุณแน่ใจไหม?"
-
-#: ../../../app/views/devise/registrations/token.html.erb:52
+#: ../../../app/views/devise/registrations/token.html.erb:62
 #: ../../../app/views/madmin/application/_form.html.erb:212
-#: ../../../app/views/madmin/users/_form.html.erb:80
-#: ../../../app/views/pushes/audit.html.erb:224
+#: ../../../app/views/madmin/users/_form.html.erb:82
+#: ../../../app/views/pushes/audit.html.erb:220
 #: ../../../app/views/pushes/show.html.erb:118
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:17
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: ../../../app/views/devise/registrations/token.html.erb:53
+#: ../../../app/views/devise/registrations/token.html.erb:63
 msgid "Delete & Regenerate"
 msgstr "ลบและสร้างใหม่"
 
-#: ../../../app/views/devise/registrations/token.html.erb:53
-#: ../../../app/views/pushes/audit.html.erb:225
+#: ../../../app/views/devise/registrations/token.html.erb:63
+#: ../../../app/views/pushes/audit.html.erb:221
 #: ../../../app/views/pushes/show.html.erb:119
 msgid "Processing..."
 msgstr "กำลังประมวลผล..."
 
 #: ../../../app/views/devise/sessions/new.html.erb:12
+#: ../../../app/views/users/first_runs/new.html.erb:79
+#: ../../../app/views/users/first_runs/new.html.erb:81
 msgid "Password"
 msgstr "รหัสผ่าน"
 
-#: ../../../app/views/layouts/admin.html.erb:11
+#: ../../../app/views/layouts/admin.html.erb:6
+#: ../../../app/views/layouts/application.html.erb:6
+#: ../../../app/views/layouts/login.html.erb:6
+#: ../../../app/views/layouts/madmin/application.html.erb:6
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:21
+msgid "Use light theme"
+msgstr "ใช้ธีมสีอ่อน"
+
+#: ../../../app/views/layouts/admin.html.erb:7
+#: ../../../app/views/layouts/application.html.erb:7
+#: ../../../app/views/layouts/login.html.erb:7
+#: ../../../app/views/layouts/madmin/application.html.erb:7
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:20
+msgid "Use dark theme"
+msgstr "ใช้ธีมสีเข้ม"
+
+#: ../../../app/views/layouts/admin.html.erb:8
+#: ../../../app/views/layouts/application.html.erb:8
+#: ../../../app/views/layouts/login.html.erb:8
+#: ../../../app/views/layouts/madmin/application.html.erb:8
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:7
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:8
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:22
+#: ../../../app/views/shared/_theme_toggle.html.erb:9
+#: ../../../app/views/shared/_theme_toggle.html.erb:10
+msgid "Use system theme"
+msgstr "ใช้ธีมระบบ"
+
+#: ../../../app/views/layouts/admin.html.erb:20
 msgid "Administration - Password Pusher"
 msgstr "การดูแลระบบ - การส่งรหัสผ่าน"
 
-#: ../../../app/views/layouts/admin.html.erb:52
+#: ../../../app/views/layouts/admin.html.erb:63
 msgid "System Active"
 msgstr "ระบบใช้งานอยู่"
 
-#: ../../../app/views/layouts/admin.html.erb:60
+#: ../../../app/views/layouts/admin.html.erb:71
 msgid "Back to App"
 msgstr "กลับไปที่แอพ"
 
-#: ../../../app/views/layouts/login.html.erb:33
-#: ../../../app/views/shared/_footer.html.erb:11
-#: ../../../app/views/shared/_footer.html.erb:15
-#: ../../../app/views/shared/_header.html.erb:9
-#: ../../../app/views/shared/_header.html.erb:13
-msgid "Password Pusher Logo"
-msgstr "โลโก้ตัวดันรหัสผ่าน"
-
-#: ../../../app/views/layouts/madmin/application.html.erb:12
+#: ../../../app/views/layouts/madmin/application.html.erb:21
 msgid "Data Explorer - Administration - Password Pusher"
 msgstr "Data Explorer - การดูแลระบบ - เครื่องมือผลักดันรหัสผ่าน"
 
-#: ../../../app/views/layouts/madmin/application.html.erb:20
+#: ../../../app/views/layouts/madmin/application.html.erb:29
 msgid "Staging Environment"
 msgstr "สภาพแวดล้อมการจัดเตรียม"
 
-#: ../../../app/views/layouts/madmin/application.html.erb:20
+#: ../../../app/views/layouts/madmin/application.html.erb:29
 msgid ""
 "This is a staging site for testing and data is reset frequently. Please use %{"
 "production_link} unless you are testing new features."
@@ -837,22 +1220,22 @@ msgstr ""
 "roduction_link} เว้นแต่คุณจะกำลังทดสอบฟีเจอร์ใหม่"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:20
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:23
 msgid "Back to Administration Center"
 msgstr "กลับสู่ศูนย์การบริหาร"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:36
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:39
 msgid "Monitor and manage background job processing and queues"
 msgstr "ตรวจสอบและจัดการการประมวลผลงานเบื้องหลังและคิว"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:47
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:50
 msgid "What are Background Jobs?"
 msgstr "งานเบื้องหลังคืออะไร?"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:50
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
 msgid ""
 "Background jobs handle tasks that run asynchronously without blocking the main"
 " application. In Password Pusher, these include:"
@@ -861,47 +1244,47 @@ msgstr ""
 "ssword Pusher งานเหล่านี้ประกอบด้วย:"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
 msgid "Email notifications"
 msgstr "การแจ้งเตือนทางอีเมล์"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
 msgid "Sending push expiration alerts and admin notifications"
 msgstr "การส่งการแจ้งเตือนการหมดอายุแบบพุชและการแจ้งเตือนผู้ดูแลระบบ"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:54
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:57
 msgid "Push cleanup"
 msgstr "ดันทำความสะอาด"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:54
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:57
 msgid "Automatically removing expired pushes from the database"
 msgstr "การลบการพุชที่หมดอายุออกจากฐานข้อมูลโดยอัตโนมัติ"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:55
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:58
 msgid "File processing"
 msgstr "การประมวลผลไฟล์"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:55
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:58
 msgid "Handling file uploads and any post-processing tasks."
 msgstr "จัดการการอัพโหลดไฟล์และงานหลังการประมวลผลใดๆ"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
 msgid "Audit logging"
 msgstr "การบันทึกการตรวจสอบ"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
 msgid "Recording system events and user actions"
 msgstr "การบันทึกเหตุการณ์ระบบและการกระทำของผู้ใช้"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:62
 msgid ""
 "Use the tabs below to monitor job queues, view failed jobs, and manage job pro"
 "cessing."
@@ -953,8 +1336,8 @@ msgstr "แก้ไข %{name}"
 #: ../../../app/views/madmin/application/edit.html.erb:13
 #: ../../../app/views/madmin/application/index.html.erb:77
 #: ../../../app/views/madmin/application/show.html.erb:25
-#: ../../../app/views/pushes/audit.html.erb:204
-#: ../../../app/views/pushes/index.html.erb:86
+#: ../../../app/views/pushes/index.html.erb:103
+#: ../../../app/views/pushes/preview.html.erb:123
 msgid "Edit"
 msgstr "แก้ไข"
 
@@ -985,7 +1368,7 @@ msgstr "ค้นหา"
 
 #: ../../../app/views/madmin/application/index.html.erb:40
 #: ../../../app/views/madmin/users/index.html.erb:40
-#: ../../../app/views/shared/_dashboard_header.html.erb:9
+#: ../../../app/views/shared/_dashboard_header.html.erb:11
 msgid "All"
 msgstr "ทั้งหมด"
 
@@ -995,7 +1378,7 @@ msgstr "ทั้งหมด"
 #: ../../../app/views/pushes/_form.html.erb:9
 #: ../../../app/views/pushes/_qr_form.html.erb:9
 #: ../../../app/views/pushes/_url_form.html.erb:9
-#: ../../../app/views/pushes/audit.html.erb:34
+#: ../../../app/views/pushes/audit.html.erb:35
 msgid "View"
 msgid_plural "Views"
 msgstr[0] "มุมมอง"
@@ -1011,7 +1394,7 @@ msgstr "ดูรายละเอียด %{name}"
 
 #: ../../../app/views/madmin/application/show.html.erb:26
 #: ../../../app/views/madmin/users/index.html.erb:78
-#: ../../../app/views/pushes/audit.html.erb:225
+#: ../../../app/views/pushes/audit.html.erb:222
 #: ../../../app/views/pushes/show.html.erb:119
 #: ../../../app/views/shared/_delete_user_button.html.erb:12
 msgid "Delete"
@@ -1171,6 +1554,7 @@ msgid "Manage user accounts and permissions"
 msgstr "จัดการบัญชีผู้ใช้และสิทธิ์อนุญาต"
 
 #: ../../../app/views/madmin/dashboard/show.html.erb:124
+#: ../../../app/views/pushes/index.html.erb:29
 msgid "Pushes"
 msgstr "ดัน"
 
@@ -1234,11 +1618,11 @@ msgstr "ข้อมูลผู้ใช้"
 msgid "The email address for the new user account."
 msgstr "ที่อยู่อีเมลสำหรับบัญชีผู้ใช้ใหม่"
 
-#: ../../../app/views/madmin/users/_form.html.erb:50
+#: ../../../app/views/madmin/users/_form.html.erb:51
 msgid "Auto-confirm account"
 msgstr "ยืนยันบัญชีอัตโนมัติ"
 
-#: ../../../app/views/madmin/users/_form.html.erb:53
+#: ../../../app/views/madmin/users/_form.html.erb:54
 msgid ""
 "If checked, the user account will be automatically confirmed and ready to use."
 " Otherwise, the user will need to confirm their email address."
@@ -1246,11 +1630,11 @@ msgstr ""
 "หากทำเครื่องหมายไว้ บัญชีผู้ใช้จะได้รับการยืนยันและพร้อมใช้งานโดยอัตโนมัติ หาก"
 "ไม่เช่นนั้น ผู้ใช้จะต้องยืนยันที่อยู่อีเมล"
 
-#: ../../../app/views/madmin/users/_form.html.erb:68
+#: ../../../app/views/madmin/users/_form.html.erb:70
 msgid "Password Information"
 msgstr "ข้อมูลรหัสผ่าน"
 
-#: ../../../app/views/madmin/users/_form.html.erb:70
+#: ../../../app/views/madmin/users/_form.html.erb:72
 msgid ""
 "A secure password will be automatically generated for this user. The user can "
 "reset their password using the \"Forgot Password\" link on the login page."
@@ -1258,85 +1642,221 @@ msgstr ""
 "ระบบจะสร้างรหัสผ่านที่ปลอดภัยให้กับผู้ใช้รายนี้โดยอัตโนมัติ ผู้ใช้สามารถรีเซ็ต"
 "รหัสผ่านได้โดยใช้ลิงก์ \"ลืมรหัสผ่าน\" ในหน้าเข้าสู่ระบบ"
 
-#: ../../../app/views/madmin/users/_form.html.erb:85
+#: ../../../app/views/madmin/users/_form.html.erb:87
 msgid "Create User"
 msgstr "สร้างผู้ใช้"
 
 #: ../../../app/views/pages/about.html.erb:1
+#: ../../../app/views/pages/about.html.erb:6
 msgid "About Password Pusher"
 msgstr "เกี่ยวกับตัวดันรหัสผ่าน"
 
-#: ../../../app/views/pages/about.html.erb:2
-#: ../../../app/views/shared/_footer.html.erb:48
-msgid "About"
-msgstr "เกี่ยวกับ"
-
-#: ../../../app/views/pages/about.html.erb:7
+#: ../../../app/views/pages/about.html.erb:8
 msgid ""
-"Password Pusher is a tool used for sharing passwords and other sensitive infor"
-"mation with other people securely."
+"Open source software for securely sharing passwords, text, URLs, and files. Tr"
+"usted by thousands of organizations worldwide."
 msgstr ""
-"Password Pusher เป็นเครื่องมือที่ใช้สำหรับแบ่งปันรหัสผ่านและข้อมูลที่ละเอียดอ่"
-"อนอื่น ๆ กับบุคคลอื่นอย่างปลอดภัย"
+"ซอฟต์แวร์โอเพนซอร์สสำหรับแชร์รหัสผ่าน ข้อความ URL และไฟล์อย่างปลอดภัย ได้รับคว"
+"ามไว้วางใจจากองค์กรหลายพันแห่งทั่วโลก"
 
-#: ../../../app/views/pages/about.html.erb:10
+#: ../../../app/views/pages/about.html.erb:13
+msgid "What It Is"
+msgstr "มันคืออะไร"
+
+#: ../../../app/views/pages/about.html.erb:15
 msgid ""
-"With Password Pusher, you can create a unique, one-time URL that will expire a"
-"fter a certain amount of time or after it has been accessed a certain number o"
-"f times, ensuring that your information remains private and secure."
+"Password Pusher is a tool for sharing sensitive information securely. You crea"
+"te a unique, one-time link that expires after a set number of views or a set t"
+"ime. Recipients open the link, see the content once, and the data is no longer"
+" available—reducing the risk of credentials living in email or chat."
 msgstr ""
-"ด้วย Password Pusher คุณสามารถสร้าง URL ที่ใช้ครั้งเดียวและไม่ซ้ำใครซึ่งจะหมดอ"
-"ายุหลังจากระยะเวลาหนึ่งหรือหลังจากที่มีการเข้าถึงตามจำนวนครั้งที่กำหนด เพื่อให"
-"้มั่นใจว่าข้อมูลของคุณยังคงเป็นส่วนตัวและปลอดภัย"
+"Password Pusher เป็นเครื่องมือสำหรับแชร์ข้อมูลสำคัญอย่างปลอดภัย คุณสร้างลิงก์ท"
+"ี่ไม่ซ้ำกันและใช้ได้เพียงครั้งเดียว ซึ่งจะหมดอายุหลังจากจำนวนครั้งที่ดูหรือระย"
+"ะเวลาที่กำหนด ผู้รับจะเปิดลิงก์ ดูเนื้อหาเพียงครั้งเดียว และข้อมูลจะไม่สามารถเ"
+"ข้าถึงได้อีกต่อไป ซึ่งจะช่วยลดความเสี่ยงที่ข้อมูลประจำตัวจะยังคงอยู่ในอีเมลหรื"
+"อแชท"
 
-#: ../../../app/views/pages/about.html.erb:11
+#: ../../../app/views/pages/about.html.erb:18
 msgid ""
-"It is often used by individuals and organizations to share login credentials o"
-"r other sensitive data with colleagues, clients, or partners."
+"It is open source, free to use and modify, and designed to be self-hosted so y"
+"our data never leaves your infrastructure."
 msgstr ""
-"บุคคลและองค์กรมักใช้เพื่อแบ่งปันข้อมูลรับรองการเข้าสู่ระบบหรือข้อมูลที่ละเอียด"
-"อ่อนอื่นๆ กับเพื่อนร่วมงาน ลูกค้า หรือคู่ค้า"
-
-#: ../../../app/views/pages/about.html.erb:14
-msgid ""
-"Password Pusher is a simple and convenient solution for securely sharing passw"
-"ords without the need for email or other less secure communication methods."
-msgstr ""
-"Password Pusher เป็นโซลูชันที่ง่ายและสะดวกสำหรับการแบ่งปันรหัสผ่านอย่างปลอดภัย"
-"โดยไม่จำเป็นต้องใช้อีเมลหรือวิธีการสื่อสารอื่นๆ ที่ปลอดภัยน้อยกว่า"
-
-#: ../../../app/views/pages/about.html.erb:17
-msgid "Hosted at"
-msgstr "เป็นเจ้าภาพที่"
-
-#: ../../../app/views/pages/about.html.erb:19
-msgid "or you can run your own private instance wherever you like."
-msgstr "หรือคุณสามารถเรียกใช้อินสแตนซ์ส่วนตัวของคุณเองได้ทุกที่ที่คุณต้องการ"
+"เป็นซอฟต์แวร์โอเพนซอร์ส ใช้งานและแก้ไขได้ฟรี และออกแบบมาให้ติดตั้งบนระบบภายในอ"
+"งค์กร ดังนั้นข้อมูลของคุณจึงไม่เคยออกจากโครงสร้างพื้นฐานของคุณ"
 
 #: ../../../app/views/pages/about.html.erb:23
-msgid "The source code is"
-msgstr "รหัสที่มาคือ"
-
-#: ../../../app/views/pages/about.html.erb:24
-#: ../../../app/views/pages/about.html.erb:41
-msgid "on Github"
-msgstr "บน Github"
+msgid "The Story"
+msgstr "เรื่องราว"
 
 #: ../../../app/views/pages/about.html.erb:25
-msgid "It’s opensource and free for anyone to use, review or modify."
-msgstr "เป็นโอเพ่นซอร์สและฟรีสำหรับทุกคนที่จะใช้ ตรวจสอบ หรือแก้ไข"
+msgid ""
+"Password Pusher began in December 2011 with a simple goal: stop sending passwo"
+"rds over email. The first commit was on"
+msgstr ""
+"Password Pusher เริ่มต้นในเดือนธันวาคม 2011 ด้วยเป้าหมายง่ายๆ คือ หยุดการส่งรห"
+"ัสผ่านผ่านทางอีเมล การแก้ไขครั้งแรกเกิดขึ้นใน"
 
-#: ../../../app/views/pages/about.html.erb:28
+#: ../../../app/views/pages/about.html.erb:27
+msgid "The public service at pwpush.com went live shortly after."
+msgstr "บริการสาธารณะที่ pwpush.com เริ่มใช้งานได้ไม่นานหลังจากนั้น"
+
+#: ../../../app/views/pages/about.html.erb:30
+msgid ""
+"Over the years it grew into a full-featured application—passwords, URLs, file "
+"uploads, QR codes, a JSON API, dozens of languages, and a large self-hosted co"
+"mmunity. Today it is used by companies, teams, and individuals who want a simp"
+"le, auditable way to share secrets without leaving them in inboxes or messagin"
+"g apps."
+msgstr ""
+"ตลอดหลายปีที่ผ่านมา แอปพลิเคชันนี้ได้พัฒนาจนกลายเป็นแอปพลิเคชันที่มีฟังก์ชันคร"
+"บครัน ทั้งรหัสผ่าน URL การอัปโหลดไฟล์ รหัส QR API รูปแบบ JSON รองรับหลายสิบภาษ"
+"า และมีชุมชนผู้ใช้งานขนาดใหญ่ที่ดูแลระบบด้วยตนเอง ปัจจุบัน บริษัท ทีมงาน และบุ"
+"คคลทั่วไปต่างใช้แอปพลิเคชันนี้เพื่อต้องการวิธีที่ง่ายและตรวจสอบได้ในการแบ่งปัน"
+"ความลับ โดยไม่ต้องเก็บไว้ในกล่องจดหมายหรือแอปพลิเคชันส่งข้อความทั่วไป"
+
+#: ../../../app/views/pages/about.html.erb:33
+msgid "In 2024,"
+msgstr "ในปี 2024"
+
+#: ../../../app/views/pages/about.html.erb:35
+msgid ""
+"was formed to further the open source Password Pusher project: maintaining the"
+" codebase, hosting the public service at pwpush.com, publishing documentation,"
+" and offering a Pro edition for teams that want additional features and suppor"
+"t. The open source version remains free and self-hostable."
+msgstr ""
+"ก่อตั้งขึ้นเพื่อพัฒนาโครงการ Password Pusher แบบโอเพนซอร์สต่อไป โดยดูแลรักษารห"
+"ัสโปรแกรม ให้บริการสาธารณะที่ pwpush.com เผยแพร่เอกสาร และนำเสนอเวอร์ชัน Pro ส"
+"ำหรับทีมที่ต้องการคุณสมบัติและการสนับสนุนเพิ่มเติม เวอร์ชันโอเพนซอร์สยังคงใช้ง"
+"านได้ฟรีและสามารถติดตั้งใช้งานเองได้"
+
+#: ../../../app/views/pages/about.html.erb:40
+msgid "What You Can Do"
+msgstr "สิ่งที่คุณสามารถทำได้"
+
+#: ../../../app/views/pages/about.html.erb:46
+msgid "Passwords & text"
+msgstr "รหัสผ่านและข้อความ"
+
+#: ../../../app/views/pages/about.html.erb:47
+msgid "Share one-time secrets with expiration by views or time."
+msgstr "แชร์เคล็ดลับแบบใช้ครั้งเดียว โดยมีกำหนดหมดอายุตามจำนวนการเข้าชมหรือเวลา"
+
+#: ../../../app/views/pages/about.html.erb:55
+#: ../../../app/views/shared/_topnav.html.erb:18
+msgid "URLs"
+msgstr "URL"
+
+#: ../../../app/views/pages/about.html.erb:56
+msgid "Send links that redirect only after the recipient opens the push."
+msgstr "ส่งลิงก์ที่จะนำไปยังหน้าถัดไปก็ต่อเมื่อผู้รับเปิดการแจ้งเตือนแล้วเท่านั้น"
+
+#: ../../../app/views/pages/about.html.erb:64
+#: ../../../app/views/shared/_topnav.html.erb:11
+msgid "Files"
+msgstr "ไฟล์"
+
+#: ../../../app/views/pages/about.html.erb:65
+msgid "Upload files that expire after retrieval or time."
+msgstr "อัปโหลดไฟล์ที่หมดอายุหลังจากเรียกดูหรือหมดเวลา"
+
+#: ../../../app/views/pages/about.html.erb:73
+msgid "QR codes"
+msgstr "รหัส QR"
+
+#: ../../../app/views/pages/about.html.erb:74
+msgid "Generate expiring QR codes for credentials or links."
+msgstr "สร้างคิวอาร์โค้ดที่มีวันหมดอายุสำหรับข้อมูลประจำตัวหรือลิงก์"
+
+#: ../../../app/views/pages/about.html.erb:80
+msgid ""
+"Optional passphrase protection, view/expiration limits, optional deletion by v"
+"iewer, JSON API, and more. See the"
+msgstr ""
+"ตัวเลือกการป้องกันด้วยรหัสผ่าน, ข้อจำกัดการดูและวันหมดอายุ, การลบโดยผู้ดู (ตัว"
+"เลือกเสริม), API ในรูปแบบ JSON และอื่นๆ ดูรายละเอียดเพิ่มเติมได้ที่"
+
+#: ../../../app/views/pages/about.html.erb:81
+msgid "documentation"
+msgstr "เอกสารประกอบ"
+
+#: ../../../app/views/pages/about.html.erb:82
+msgid "for details."
+msgstr "สำหรับรายละเอียดเพิ่มเติม"
+
+#: ../../../app/views/pages/about.html.erb:87
+msgid "Security & Self-Hosting"
+msgstr "ความปลอดภัยและการโฮสต์ด้วยตนเอง"
+
+#: ../../../app/views/pages/about.html.erb:89
+msgid ""
+"Payloads are encrypted at rest. You control where data lives: run Password Pus"
+"her on your own servers, in your cloud, or in Docker. Thousands of companies a"
+"nd teams self-host it so sensitive data never touches third-party SaaS."
+msgstr ""
+"ข้อมูลจะถูกเข้ารหัสขณะจัดเก็บ คุณสามารถควบคุมได้ว่าข้อมูลจะจัดเก็บอยู่ที่ใด: เ"
+"รียกใช้ Password Pusher บนเซิร์ฟเวอร์ของคุณเอง ในระบบคลาวด์ หรือใน Docker บริษ"
+"ัทและทีมงานหลายพันรายใช้งานแบบโฮสต์เอง ทำให้ข้อมูลสำคัญไม่เคยถูกส่งไปยัง SaaS "
+"ของบุคคลที่สาม"
+
+#: ../../../app/views/pages/about.html.erb:92
+msgid ""
+"No account is required for basic use; optional user accounts and sign-in let t"
+"eams track their own pushes. The source code is open so you can review and ada"
+"pt it."
+msgstr ""
+"ไม่จำเป็นต้องมีบัญชีผู้ใช้สำหรับการใช้งานขั้นพื้นฐาน บัญชีผู้ใช้และการลงชื่อเข"
+"้าใช้เป็นตัวเลือกเสริม ช่วยให้ทีมสามารถติดตามการอัปเดตของตนเองได้ โค้ดต้นฉบับเ"
+"ป็นแบบโอเพนซอร์ส คุณจึงสามารถตรวจสอบและดัดแปลงได้"
+
+#: ../../../app/views/pages/about.html.erb:97
+msgid "Get Started"
+msgstr "เริ่มต้น"
+
+#: ../../../app/views/pages/about.html.erb:103
+msgid "Installation, configuration, API, and FAQ."
+msgstr "การติดตั้ง การกำหนดค่า API และคำถามที่พบบ่อย"
+
+#: ../../../app/views/pages/about.html.erb:104
+msgid "docs.pwpush.com"
+msgstr "docs.pwpush.com"
+
+#: ../../../app/views/pages/about.html.erb:111
+#: ../../../app/views/users/first_runs/new.html.erb:214
+msgid "Source code"
+msgstr "ซอร์สโค้ด"
+
+#: ../../../app/views/pages/about.html.erb:112
+msgid "Open source on GitHub. Use, review, or contribute."
+msgstr "โอเพนซอร์สบน GitHub สามารถใช้งาน ตรวจสอบ หรือร่วมพัฒนาได้"
+
+#: ../../../app/views/pages/about.html.erb:113
+msgid "GitHub"
+msgstr "GitHub"
+
+#: ../../../app/views/pages/about.html.erb:120
+msgid "Hosted option"
+msgstr "ตัวเลือกแบบโฮสต์"
+
+#: ../../../app/views/pages/about.html.erb:121
+msgid "Use the public service or run your own instance."
+msgstr "ใช้บริการสาธารณะหรือสร้างอินสแตนซ์ของคุณเอง"
+
+#: ../../../app/views/pages/about.html.erb:130
 msgid "The Author"
 msgstr "ผู้เขียน"
 
-#: ../../../app/views/pages/about.html.erb:31
-msgid "My name is Peter Giacomo Lombardo. You can find me on"
-msgstr "ฉันชื่อปีเตอร์ จาโกโม ลอมบาร์โด คุณสามารถพบฉันได้ที่"
+#: ../../../app/views/pages/about.html.erb:132
+msgid ""
+"Password Pusher is created and maintained by Peter Giacomo Lombardo. You can f"
+"ind him on"
+msgstr ""
+"Password Pusher สร้างและดูแลโดย Peter Giacomo Lombardo คุณสามารถติดต่อเขาได้ที"
+"่"
 
-#: ../../../app/views/pages/about.html.erb:34
-#: ../../../app/views/pages/about.html.erb:40
-#: ../../../app/views/pushes/preview.html.erb:58
+#: ../../../app/views/pages/about.html.erb:135
+#: ../../../app/views/pages/about.html.erb:141
+#: ../../../app/views/pushes/preview.html.erb:77
 #: ../../../app/views/pushes/print_preview.html.erb:14
 #: ../../../app/views/pushes/show.html.erb:46
 #: ../../../app/views/pushes/show.html.erb:49
@@ -1345,242 +1865,703 @@ msgstr "ฉันชื่อปีเตอร์ จาโกโม ลอม�
 msgid "or"
 msgstr "หรือ"
 
-#: ../../../app/views/pages/about.html.erb:38
-msgid "For updates, you can"
-msgstr "สำหรับการอัพเดต คุณสามารถ"
+#: ../../../app/views/pages/about.html.erb:139
+msgid "For news and updates,"
+msgstr "สำหรับข่าวสารและข้อมูลอัปเดต"
 
-#: ../../../app/views/pages/about.html.erb:39
-msgid "follow me on Twitter"
-msgstr "ติดตามฉันบนทวิตเตอร์"
+#: ../../../app/views/pages/about.html.erb:140
+msgid "follow on X"
+msgstr "ติดตามบน X"
 
-#: ../../../app/views/pages/about.html.erb:44
-msgid "Want to Help Out?"
-msgstr "ต้องการความช่วยเหลือหรือไม่"
+#: ../../../app/views/pages/about.html.erb:142
+msgid "subscribe to the newsletter"
+msgstr "สมัครรับจดหมายข่าว"
 
-#: ../../../app/views/pages/about.html.erb:48
-msgid "By far the biggest help is to spread the word"
-msgstr "ความช่วยเหลือที่ใหญ่ที่สุดคือการกระจายข่าว"
-
-#: ../../../app/views/pages/about.html.erb:50
-msgid "Share and suggest Password Pusher to colleagues and friends."
-msgstr "แบ่งปันและแนะนำ Password Pusher ให้กับเพื่อนร่วมงานและเพื่อนๆ"
-
-#: ../../../app/views/pages/about.html.erb:53
-msgid "You can also"
-msgstr "นอกจากนี้คุณยังสามารถ"
-
-#: ../../../app/views/pages/about.html.erb:56
-msgid "Star the Github project"
-msgstr "ติดดาวโครงการ Github"
-
-#: ../../../app/views/pages/about.html.erb:57
-msgid "It's gasoline for the algos that trend Password Pusher."
-msgstr "เป็นน้ำมันสำหรับ algos ที่มีแนวโน้ม Password Pusher"
-
-#: ../../../app/views/pages/about.html.erb:60
-msgid "Sign up for the"
-msgstr "ลงทะเบียนสำหรับ"
-
-#: ../../../app/views/pages/about.html.erb:61
-msgid "newsletter"
-msgstr "จดหมายข่าว"
-
-#: ../../../app/views/pages/about.html.erb:62
-msgid "to get updates on important releases, security issues, tips and more."
+#: ../../../app/views/pages/about.html.erb:149
+msgid ""
+"Apnotic was created to manage and build out the Password Pusher project—mainta"
+"ining the open source codebase, the public service, documentation, and related"
+" products."
 msgstr ""
-"เพื่อรับการอัปเดตเกี่ยวกับการเผยแพร่ที่สำคัญ ปัญหาด้านความปลอดภัย เคล็ดลับ และ"
-"อื่นๆ"
+"Apnotic ถูกสร้างขึ้นเพื่อบริหารจัดการและพัฒนาโครงการ Password Pusher โดยดูแลรั"
+"กษารหัสโปรแกรมแบบโอเพนซอร์ส บริการสาธารณะ เอกสารประกอบ และผลิตภัณฑ์ที่เกี่ยวข้"
+"อง"
 
-#: ../../../app/views/pages/about.html.erb:65
-msgid "Follow Password Pusher on"
-msgstr "ติดตาม Password Pusher บน"
+#: ../../../app/views/pages/about.html.erb:150
+msgid "Learn more at apnotic.com"
+msgstr "เรียนรู้เพิ่มเติมได้ที่ apnotic.com"
 
-#: ../../../app/views/pages/about.html.erb:68
-#: ../../../app/views/pages/about.html.erb:91
-#: ../../../app/views/pushes/preview.html.erb:65
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "and"
-msgstr "และ"
+#: ../../../app/views/pages/about.html.erb:152
+msgid "Why choose Apnotic?"
+msgstr "ทำไมต้องเลือก Apnotic?"
 
-#: ../../../app/views/pages/about.html.erb:72
-msgid "Fix an issue, add a feature or write some documentation."
-msgstr "แก้ไขปัญหา เพิ่มฟีเจอร์ หรือเขียนเอกสารประกอบ"
+#: ../../../app/views/pages/about.html.erb:154
+msgid "Apnotic is built on principles of trust, reliability, and exceptional service."
+msgstr ""
+"บริษัท Apnotic ก่อตั้งขึ้นบนหลักการของความไว้วางใจ ความน่าเชื่อถือ และการบริกา"
+"รที่เป็นเลิศ"
 
-#: ../../../app/views/pages/about.html.erb:72
-msgid "See the Github project."
-msgstr "ดูโครงการ Github"
+#: ../../../app/views/pages/about.html.erb:157
+msgid "Privately held, zero debt, and financially responsible"
+msgstr "บริษัทเอกชน ปลอดหนี้สิน และมีความรับผิดชอบทางการเงิน"
 
-#: ../../../app/views/pages/about.html.erb:75
-msgid "Sign up to Digital Ocean"
-msgstr "ลงชื่อสมัครใช้ Digital Ocean"
+#: ../../../app/views/pages/about.html.erb:158
+msgid "Fanatical customer service and support"
+msgstr "บริการลูกค้าและการสนับสนุนที่ยอดเยี่ยม"
 
-#: ../../../app/views/pages/about.html.erb:76
-msgid "with this link"
-msgstr "ด้วยลิงค์นี้"
+#: ../../../app/views/pages/about.html.erb:159
+msgid "No venture capital pressure—we build for customers, not investors"
+msgstr "ไม่มีแรงกดดันจากบริษัทร่วมทุน—เราสร้างเพื่อลูกค้า ไม่ใช่เพื่อนักลงทุน"
 
-#: ../../../app/views/pages/about.html.erb:77
-msgid "to get Password Pusher a hosting credit."
-msgstr "เพื่อรับ Password Pusher เป็นเครดิตโฮสติ้ง"
+#: ../../../app/views/pages/about.html.erb:160
+msgid "Run by industry veterans with decades of experience"
+msgstr "บริหารงานโดยผู้เชี่ยวชาญในอุตสาหกรรมที่มีประสบการณ์ยาวนานหลายทศวรรษ"
 
-#: ../../../app/views/pages/about.html.erb:81
-msgid "Thank you for supporting Password Pusher!"
-msgstr "ขอบคุณที่สนับสนุน Password Pusher!"
+#: ../../../app/views/pages/about.html.erb:161
+msgid "Talk directly with the founder and team"
+msgstr "พูดคุยโดยตรงกับผู้ก่อตั้งและทีมงาน"
 
-#: ../../../app/views/pages/about.html.erb:83
-#: ../../../app/views/shared/_footer.html.erb:25
+#: ../../../app/views/pages/about.html.erb:162
+msgid "15+ years of proven track record with Password Pusher"
+msgstr "ประสบการณ์ที่ได้รับการพิสูจน์แล้วกว่า 15 ปีในการใช้ Password Pusher"
+
+#: ../../../app/views/pages/about.html.erb:167
+msgid "Want to Help?"
+msgstr "อยากช่วยเหลือไหม?"
+
+#: ../../../app/views/pages/about.html.erb:169
+msgid "The biggest help is to spread the word."
+msgstr "วิธีช่วยเหลือที่ดีที่สุดคือการบอกต่อให้คนอื่นรู้"
+
+#: ../../../app/views/pages/about.html.erb:170
+msgid "Share Password Pusher with colleagues and friends."
+msgstr "แชร์ Password Pusher กับเพื่อนร่วมงานและเพื่อนๆ"
+
+#: ../../../app/views/pages/about.html.erb:174
+msgid "Star the project on GitHub"
+msgstr "กดดาวให้โปรเจ็กต์บน GitHub"
+
+#: ../../../app/views/pages/about.html.erb:175
+msgid "it helps others discover the project."
+msgstr "มันช่วยให้ผู้อื่นค้นพบโครงการนี้ได้"
+
+#: ../../../app/views/pages/about.html.erb:178
+msgid "Subscribe to the newsletter"
+msgstr "สมัครรับจดหมายข่าว"
+
+#: ../../../app/views/pages/about.html.erb:179
+msgid "releases, security notes, and tips."
+msgstr "ข่าวสารล่าสุด หมายเหตุเกี่ยวกับความปลอดภัย และเคล็ดลับต่างๆ"
+
+#: ../../../app/views/pages/about.html.erb:182
+msgid "Fix a bug, add a feature, or improve the docs."
+msgstr "แก้ไขข้อผิดพลาด เพิ่มฟีเจอร์ หรือปรับปรุงเอกสารประกอบ"
+
+#: ../../../app/views/pages/about.html.erb:183
+msgid "See the GitHub project"
+msgstr "ดูโครงการบน GitHub"
+
+#: ../../../app/views/pages/about.html.erb:189
 msgid "Resources"
 msgstr "ทรัพยากร"
 
-#: ../../../app/views/pages/about.html.erb:86
+#: ../../../app/views/pages/about.html.erb:191
 msgid ""
-"If you are giving a presentation, authoring a blog post or video about Passwor"
-"d Pusher, feel free to contact me for any questions."
+"Presenting or writing about Password Pusher? Media kits and slide decks are av"
+"ailable in"
 msgstr ""
-"หากคุณกำลังนำเสนอ เขียนบล็อกโพสต์หรือวิดีโอเกี่ยวกับ Password Pusher โปรดอย่าล"
-"ังเลที่จะติดต่อฉันหากมีคำถามใดๆ"
+"กำลังนำเสนอหรือเขียนเกี่ยวกับ Password Pusher อยู่ใช่ไหม? ชุดสื่อประชาสัมพันธ์"
+"และสไลด์นำเสนอมีให้บริการแล้ว"
 
-#: ../../../app/views/pages/about.html.erb:89
-msgid "We have media resources and a full explanation of features available in"
-msgstr "เรามีแหล่งข้อมูลสื่อและคำอธิบายคุณสมบัติทั้งหมดที่มีอยู่ใน"
+#: ../../../app/views/pages/about.html.erb:192
+msgid "PowerPoint"
+msgstr "พาวเวอร์พอยต์"
 
-#: ../../../app/views/pages/about.html.erb:90
-msgid "Windows Powerpoint"
-msgstr "วินโดวส์ พาวเวอร์พอยต์"
+#: ../../../app/views/pages/about.html.erb:193
+msgid "and"
+msgstr "และ"
 
-#: ../../../app/views/pages/about.html.erb:92
-msgid "Mac Keynote"
-msgstr "ประเด็นสำคัญของ Mac"
+#: ../../../app/views/pages/about.html.erb:194
+msgid "Keynote"
+msgstr "ปาฐกถาหลัก"
 
-#: ../../../app/views/pages/about.html.erb:93
-msgid "formats."
-msgstr "รูปแบบ"
+#: ../../../app/views/pages/about.html.erb:195
+msgid "formats. For questions or assets, reach out via the links above."
+msgstr "รูปแบบต่างๆ หากมีคำถามหรือต้องการไฟล์เพิ่มเติม โปรดติดต่อผ่านลิงก์ด้านบน"
 
-#: ../../../app/views/pages/about.html.erb:99
-msgid "Birthday"
-msgstr "วันเกิด"
+#: ../../../app/views/pages/about.html.erb:200
+msgid "Thank you for using and supporting Password Pusher."
+msgstr "ขอบคุณที่ใช้งานและให้การสนับสนุน Password Pusher"
 
-#: ../../../app/views/pages/about.html.erb:101
-msgid "More Than 11 Years Old"
-msgstr "มากกว่า 11 ปี"
+#: ../../../app/views/pages/api.html.erb:4
+msgid "API v2"
+msgstr "API เวอร์ชัน 2"
 
-#: ../../../app/views/pages/about.html.erb:103
-msgid "The first git commit to Password Pusher was on"
-msgstr "คอมไพล์แรกที่ใช้กับ Password Pusher เปิดอยู่"
-
-#: ../../../app/views/pages/about.html.erb:107
-msgid "pwpush.com went live shortly thereafter."
-msgstr "pwpush.com ถ่ายทอดสดหลังจากนั้นไม่นาน"
-
-#: ../../../app/views/pages/about.html.erb:113
-msgid "The Original Theme"
-msgstr "ธีมดั้งเดิม"
-
-#: ../../../app/views/pages/about.html.erb:114
+#: ../../../app/views/pages/api.html.erb:6
 msgid ""
-"The original site design consisted of a dark background with a bold yellow fon"
-"t."
-msgstr "การออกแบบไซต์ดั้งเดิมประกอบด้วยพื้นหลังสีเข้มพร้อมฟอนต์สีเหลืองตัวหนา"
+"Complete JSON API documentation for creating, retrieving and managing pushes i"
+"n the open-source edition."
+msgstr ""
+"เอกสารประกอบ API JSON ฉบับสมบูรณ์สำหรับการสร้าง ดึงข้อมูล และจัดการการแจ้งเตือ"
+"นแบบพุชในเวอร์ชันโอเพนซอร์ส"
 
-#: ../../../app/views/pages/about.html.erb:117
-msgid "Follow for news, changes & updates."
-msgstr "ติดตามข่าวสาร การเปลี่ยนแปลง"
+#: ../../../app/views/pages/api.html.erb:11
+msgid "Authentication"
+msgstr "การตรวจสอบความถูกต้อง"
+
+#: ../../../app/views/pages/api.html.erb:13
+msgid "Authenticate requests with a Bearer token in the Authorization header."
+msgstr "ยืนยันคำขอด้วยโทเค็น Bearer ในส่วนหัว Authorization"
+
+#: ../../../app/views/pages/api.html.erb:17
+msgid "Create an API token in your account settings at"
+msgstr "สร้างโทเค็น API ในการตั้งค่าบัญชีของคุณได้ที่นี่"
+
+#: ../../../app/views/pages/api.html.erb:23
+msgid "Public endpoints:"
+msgstr "จุดเชื่อมต่อสาธารณะ:"
+
+#: ../../../app/views/pages/api.html.erb:24
+msgid "Authenticated endpoints:"
+msgstr "จุดเชื่อมต่อที่ได้รับการตรวจสอบสิทธิ์:"
+
+#: ../../../app/views/pages/api.html.erb:25
+msgid "Anonymous access setting:"
+msgstr "การตั้งค่าการเข้าถึงแบบไม่ระบุตัวตน:"
+
+#: ../../../app/views/pages/api.html.erb:25
+msgid "When anonymous pushes are disabled, API endpoints require authentication."
+msgstr "เมื่อปิดใช้งานการพุชแบบไม่ระบุตัวตน จุดเชื่อมต่อ API จะต้องการการตรวจสอบสิทธิ์"
+
+#: ../../../app/views/pages/api.html.erb:32
+msgid "Base URL"
+msgstr "URL พื้นฐาน"
+
+#: ../../../app/views/pages/api.html.erb:33
+msgid "All endpoints are relative to your installation host:"
+msgstr "ปลายทางทั้งหมดจะสัมพันธ์กับโฮสต์การติดตั้งของคุณ:"
+
+#: ../../../app/views/pages/api.html.erb:40
+msgid "Version Endpoint"
+msgstr "เวอร์ชันเอนด์พอยต์"
+
+#: ../../../app/views/pages/api.html.erb:42
+msgid ""
+"Returns API version, application details, and a features hash describing which"
+" capabilities are enabled on this instance."
+msgstr ""
+"ส่งคืนเวอร์ชัน API รายละเอียดแอปพลิเคชัน และแฮชคุณสมบัติที่อธิบายว่าความสามารถ"
+"ใดบ้างที่เปิดใช้งานในอินสแตนซ์นี้"
+
+#: ../../../app/views/pages/api.html.erb:43
+#: ../../../app/views/pages/api.html.erb:155
+#: ../../../app/views/pages/api.html.erb:164
+#: ../../../app/views/pages/api.html.erb:174
+#: ../../../app/views/pages/api.html.erb:184
+#: ../../../app/views/pages/api.html.erb:195
+#: ../../../app/views/pages/api.html.erb:206
+#: ../../../app/views/pages/api.html.erb:235
+msgid "cURL example:"
+msgstr "ตัวอย่างการใช้ cURL:"
+
+#: ../../../app/views/pages/api.html.erb:75
+msgid "Features Hash"
+msgstr "คุณสมบัติแฮช"
+
+#: ../../../app/views/pages/api.html.erb:77
+msgid "Whether anonymous API usage is allowed (Settings.allow_anonymous)"
+msgstr "อนุญาตให้ใช้งาน API แบบไม่ระบุตัวตนหรือไม่ (Settings.allow_anonymous)"
+
+#: ../../../app/views/pages/api.html.erb:78
+msgid "Bearer token authentication support"
+msgstr "รองรับการตรวจสอบสิทธิ์ด้วยโทเค็น Bearer"
+
+#: ../../../app/views/pages/api.html.erb:79
+msgid "Accounts API availability (not available in OSS)"
+msgstr "ความพร้อมใช้งานของ API บัญชีผู้ใช้ (ไม่สามารถใช้งานได้ใน OSS)"
+
+#: ../../../app/views/pages/api.html.erb:80
+msgid "Push creation and management via API"
+msgstr "การสร้างและจัดการการแจ้งเตือนแบบพุชผ่าน API"
+
+#: ../../../app/views/pages/api.html.erb:81
+msgid ""
+"Auto-Dispatch email notifications (Settings.notify_by_email.enabled, requires "
+"SMTP and logins)"
+msgstr ""
+"การส่งการแจ้งเตือนทางอีเมลอัตโนมัติ (การตั้งค่า: แจ้งเตือนทางอีเมล เปิดใช้งาน "
+"ต้องใช้ SMTP และการเข้าสู่ระบบ)"
+
+#: ../../../app/views/pages/api.html.erb:82
+msgid "File attachments on pushes (Settings.enable_file_pushes)"
+msgstr "การแนบไฟล์ในการแจ้งเตือนแบบพุช (การตั้งค่า: เปิดใช้งานการแนบไฟล์)"
+
+#: ../../../app/views/pages/api.html.erb:83
+msgid "URL push type (Settings.enable_url_pushes)"
+msgstr ""
+"ประเภทการแจ้งเตือนแบบพุชผ่าน URL (การตั้งค่า: เปิดใช้งานการแจ้งเตือนแบบพุชผ่าน"
+" URL)"
+
+#: ../../../app/views/pages/api.html.erb:84
+msgid "QR code push type (Settings.enable_qr_pushes)"
+msgstr "ประเภทการแจ้งเตือนแบบ QR Code (การตั้งค่า: เปิดใช้งานการแจ้งเตือนแบบ QR Code)"
+
+#: ../../../app/views/pages/api.html.erb:85
+msgid "Requests API availability (not available in OSS)"
+msgstr "ความพร้อมใช้งานของ Requests API (ไม่สามารถใช้งานได้ใน OSS)"
+
+#: ../../../app/views/pages/api.html.erb:91
+msgid "Push Endpoints"
+msgstr "พุชเอนด์พอยต์"
+
+#: ../../../app/views/pages/api.html.erb:96
+msgid "Create a new push."
+msgstr "สร้างการผลักดันใหม่"
+
+#: ../../../app/views/pages/api.html.erb:97
+#: ../../../app/views/pages/api.html.erb:218
+msgid "Body format:"
+msgstr "รูปแบบเนื้อหา:"
+
+#: ../../../app/views/pages/api.html.erb:102
+#: ../../../app/views/pages/api.html.erb:223
+msgid "Parameter"
+msgstr "พารามิเตอร์"
+
+#: ../../../app/views/pages/api.html.erb:103
+#: ../../../app/views/pages/api.html.erb:224
+#: ../../../app/views/pushes/index.html.erb:33
+msgid "Type"
+msgstr "ประเภท"
+
+#: ../../../app/views/pages/api.html.erb:104
+#: ../../../app/views/pages/api.html.erb:225
+msgid "Required"
+msgstr "ที่จำเป็น"
+
+#: ../../../app/views/pages/api.html.erb:105
+#: ../../../app/views/pages/api.html.erb:226
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: ../../../app/views/pages/api.html.erb:109
+#: ../../../app/views/pages/api.html.erb:230
+#: ../../../app/views/pushes/audit.html.erb:53
+#: ../../../app/views/pushes/audit.html.erb:66
+#: ../../../app/views/pushes/audit.html.erb:80
+#: ../../../app/views/pushes/audit.html.erb:142
+msgid "Yes"
+msgstr "ใช่"
+
+#: ../../../app/views/pages/api.html.erb:109
+msgid "Secret text payload for text, URL or QR pushes."
+msgstr "ข้อความลับสำหรับส่งข้อความแจ้งเตือนผ่าน SMS, URL หรือ QR Code"
+
+#: ../../../app/views/pages/api.html.erb:110
+#: ../../../app/views/pages/api.html.erb:111
+#: ../../../app/views/pages/api.html.erb:112
+#: ../../../app/views/pages/api.html.erb:113
+#: ../../../app/views/pages/api.html.erb:114
+#: ../../../app/views/pages/api.html.erb:115
+#: ../../../app/views/pages/api.html.erb:116
+#: ../../../app/views/pages/api.html.erb:117
+#: ../../../app/views/pages/api.html.erb:118
+#: ../../../app/views/pages/api.html.erb:119
+#: ../../../app/views/pages/api.html.erb:120
+#: ../../../app/views/pages/api.html.erb:231
+#: ../../../app/views/pushes/audit.html.erb:55
+#: ../../../app/views/pushes/audit.html.erb:68
+#: ../../../app/views/pushes/audit.html.erb:78
+#: ../../../app/views/pushes/audit.html.erb:140
+msgid "No"
+msgstr "ไม่"
+
+#: ../../../app/views/pages/api.html.erb:110
+msgid ""
+"Files to attach. When present, the push type becomes file unless kind is expli"
+"citly provided."
+msgstr ""
+"ไฟล์ที่จะแนบ หากมีการระบุประเภทการส่ง ระบบจะเปลี่ยนเป็นประเภทไฟล์ เว้นแต่จะระบ"
+"ุประเภทการส่งไว้อย่างชัดเจน"
+
+#: ../../../app/views/pages/api.html.erb:111
+msgid "Push type: text, file, url, or qr. Defaults to text when not provided."
+msgstr ""
+"ประเภทการแจ้งเตือนแบบพุช: ข้อความ ไฟล์ URL หรือ QR Code ระบบจะส่งข้อความโดยอัต"
+"โนมัติหากไม่ได้ระบุประเภทการแจ้งเตือน"
+
+#: ../../../app/views/pages/api.html.erb:112
+msgid "Expiration window in days. If omitted, instance defaults are used."
+msgstr "ระยะเวลาหมดอายุ (หน่วยเป็นวัน) หากไม่ได้ระบุ ระบบจะใช้ค่าเริ่มต้นที่กำหนดไว้"
+
+#: ../../../app/views/pages/api.html.erb:113
+msgid "Maximum allowed retrieval count. If omitted, instance defaults are used."
+msgstr ""
+"จำนวนการเรียกข้อมูลสูงสุดที่อนุญาต หากไม่ได้ระบุไว้ ระบบจะใช้ค่าเริ่มต้นของอิน"
+"สแตนซ์"
+
+#: ../../../app/views/pages/api.html.erb:114
+msgid "Allows the recipient to expire the push."
+msgstr "อนุญาตให้ผู้รับสามารถยกเลิกการรับการแจ้งเตือนได้"
+
+#: ../../../app/views/pages/api.html.erb:115
+msgid "Adds an extra retrieval confirmation step."
+msgstr "เพิ่มขั้นตอนการยืนยันการเรียกค้นข้อมูลเพิ่มเติม"
+
+#: ../../../app/views/pages/api.html.erb:116
+msgid "Requires this passphrase to retrieve the payload."
+msgstr "ต้องใช้รหัสผ่านนี้เพื่อดึงข้อมูล"
+
+#: ../../../app/views/pages/api.html.erb:117
+msgid "Optional label shown to the owner."
+msgstr "ป้ายกำกับ (ไม่บังคับ) ที่แสดงให้เจ้าของเห็น"
+
+#: ../../../app/views/pages/api.html.erb:118
+msgid "Optional owner-only note."
+msgstr "หมายเหตุสำหรับเจ้าของ (ไม่บังคับ)"
+
+#: ../../../app/views/pages/api.html.erb:119
+msgid ""
+"Optional recipients for the push creation email. Comma-separated list of email"
+" addresses. Maximum 5 emails. Requires authentication when provided."
+msgstr ""
+"ผู้รับอีเมลแจ้งเตือน (ไม่บังคับ) ระบุที่อยู่อีเมลโดยคั่นด้วยเครื่องหมายจุลภาค "
+"สูงสุด 5 อีเมล ต้องยืนยันตัวตนเมื่อระบุที่อยู่อีเมล"
+
+#: ../../../app/views/pages/api.html.erb:120
+msgid ""
+"Optional locale for the push creation email. See the list of available locales"
+" in the"
+msgstr ""
+"เลือกภาษาสำหรับอีเมลแจ้งเตือนการสร้างพุช (ไม่บังคับ) ดูรายการภาษาที่มีให้เลือก"
+"ได้ใน"
+
+#: ../../../app/views/pages/api.html.erb:120
+#: ../../../app/views/pages/api.html.erb:231
+#: ../../../app/views/pages/api.html.erb:258
+msgid "Supported Locales"
+msgstr "ภาษาที่รองรับ"
+
+#: ../../../app/views/pages/api.html.erb:136
+msgid "cURL example (JSON body):"
+msgstr "ตัวอย่างการใช้ cURL (เนื้อหา JSON):"
+
+#: ../../../app/views/pages/api.html.erb:153
+msgid ""
+"Retrieve a push payload by token. This counts as a view and may expire the pus"
+"h when limits are reached."
+msgstr ""
+"ดึงข้อมูลสำหรับการแจ้งเตือนแบบพุชโดยใช้โทเค็น การกระทำนี้จะนับเป็นการดูหนึ่งคร"
+"ั้ง และอาจทำให้การแจ้งเตือนหมดอายุเมื่อถึงขีดจำกัด"
+
+#: ../../../app/views/pages/api.html.erb:154
+#: ../../../app/views/pages/api.html.erb:173
+#: ../../../app/views/pages/api.html.erb:194
+#: ../../../app/views/pages/api.html.erb:205
+msgid "Query parameters:"
+msgstr "พารามิเตอร์การค้นหา:"
+
+#: ../../../app/views/pages/api.html.erb:154
+msgid "optional, required when the push is passphrase-protected"
+msgstr "ตัวเลือกเสริม จำเป็นต้องใช้เมื่อการแจ้งเตือนแบบพุชได้รับการป้องกันด้วยรหัสผ่าน"
+
+#: ../../../app/views/pages/api.html.erb:163
+msgid ""
+"Returns the fully-qualified secret URL for a push without retrieving its paylo"
+"ad."
+msgstr "ส่งคืน URL ลับแบบเต็มสำหรับการแจ้งเตือนแบบพุช โดยไม่ต้องดึงข้อมูลเพย์โหลด"
+
+#: ../../../app/views/pages/api.html.erb:172
+msgid ""
+"Return audit log entries for a push. Authentication and ownership are required"
+"."
+msgstr ""
+"ส่งคืนรายการบันทึกการตรวจสอบสำหรับการพุช จำเป็นต้องมีการตรวจสอบสิทธิ์และความเป"
+"็นเจ้าของ"
+
+#: ../../../app/views/pages/api.html.erb:173
+#: ../../../app/views/pages/api.html.erb:194
+#: ../../../app/views/pages/api.html.erb:205
+msgid "optional, integer, default 1, valid range 1 to 200"
+msgstr "ตัวเลือกเสริม, จำนวนเต็ม, ค่าเริ่มต้น 1, ช่วงค่าที่ถูกต้อง 1 ถึง 200"
+
+#: ../../../app/views/pages/api.html.erb:183
+msgid ""
+"Expire a push immediately. Allowed for owners (when authenticated) or for reci"
+"pients when the push was created with deletable_by_viewer enabled."
+msgstr ""
+"ยกเลิกการแจ้งเตือนแบบพุชทันที อนุญาตสำหรับเจ้าของ (เมื่อยืนยันตัวตนแล้ว) หรือส"
+"ำหรับผู้รับเมื่อสร้างการแจ้งเตือนแบบพุชโดยเปิดใช้งาน deletable_by_viewer ไว้"
+
+#: ../../../app/views/pages/api.html.erb:193
+msgid "List active pushes for the authenticated user."
+msgstr "แสดงรายการการแจ้งเตือนแบบพุชที่ใช้งานอยู่สำหรับผู้ใช้ที่เข้าสู่ระบบแล้ว"
+
+#: ../../../app/views/pages/api.html.erb:204
+msgid "List expired pushes for the authenticated user."
+msgstr "แสดงรายการการแจ้งเตือนแบบพุชที่หมดอายุสำหรับผู้ใช้ที่เข้าสู่ระบบแล้ว"
+
+#: ../../../app/views/pages/api.html.erb:215
+msgid "Send an email to notify the push creation to the specified recipients."
+msgstr "ส่งอีเมลเพื่อแจ้งให้ผู้รับที่ระบุทราบเมื่อมีการสร้างการแจ้งเตือนแบบพุช"
+
+#: ../../../app/views/pages/api.html.erb:216
+msgid ""
+"Authentication and ownership are required. Only the push owner may send email "
+"notifications."
+msgstr ""
+"จำเป็นต้องมีการยืนยันตัวตนและแสดงความเป็นเจ้าของ เฉพาะเจ้าของพุชเท่านั้นที่สาม"
+"ารถส่งอีเมลแจ้งเตือนได้"
+
+#: ../../../app/views/pages/api.html.erb:217
+msgid ""
+"This endpoint is only available when email auto-dispatch is enabled and SMTP i"
+"s configured. When disabled, the route is not registered and requests return 4"
+"04 Not Found."
+msgstr ""
+"ปลายทางนี้จะใช้งานได้เฉพาะเมื่อเปิดใช้งานการส่งอีเมลอัตโนมัติและกำหนดค่า SMTP "
+"แล้วเท่านั้น หากปิดใช้งาน ระบบจะไม่ลงทะเบียนเส้นทาง และคำขอจะแสดงข้อผิดพลาด 40"
+"4 ไม่พบ (404 Not Found)"
+
+#: ../../../app/views/pages/api.html.erb:230
+msgid "Comma-separated list of email addresses. Maximum 5 emails."
+msgstr "รายชื่ออีเมลที่คั่นด้วยเครื่องหมายจุลภาค สูงสุด 5 อีเมล"
+
+#: ../../../app/views/pages/api.html.erb:231
+msgid "Locale for the email notification. See the list of available locales in the"
+msgstr "เลือกภาษาสำหรับการแจ้งเตือนทางอีเมล ดูรายการภาษาที่มีให้เลือกได้ใน"
+
+#: ../../../app/views/pages/api.html.erb:243
+msgid "Success response (201):"
+msgstr "การตอบรับความสำเร็จ (201):"
+
+#: ../../../app/views/pages/api.html.erb:247
+msgid "Validation error response (422):"
+msgstr "การตอบสนองข้อผิดพลาดในการตรวจสอบ (422):"
+
+#: ../../../app/views/pages/api.html.erb:248
+msgid "Field-level errors are returned as a JSON object keyed by parameter name:"
+msgstr ""
+"ข้อผิดพลาดระดับฟิลด์จะถูกส่งคืนในรูปแบบอ็อบเจ็กต์ JSON โดยใช้ชื่อพารามิเตอร์เป"
+"็นคีย์:"
+
+#: ../../../app/views/pages/api.html.erb:259
+msgid ""
+"The following locales are supported for API requests that accept a locale para"
+"meter:"
+msgstr "ภาษาต่อไปนี้ได้รับการสนับสนุนสำหรับการร้องขอ API ที่ยอมรับพารามิเตอร์ภาษา:"
+
+#: ../../../app/views/pages/api.html.erb:264
+msgid "Locale Code"
+msgstr "รหัสท้องถิ่น"
+
+#: ../../../app/views/pages/api.html.erb:265
+msgid "Language"
+msgstr "ภาษา"
+
+#: ../../../app/views/pages/api.html.erb:283
+msgid "HTTP Status Codes"
+msgstr "รหัสสถานะ HTTP"
+
+#: ../../../app/views/pages/api.html.erb:285
+msgid "Successful request"
+msgstr "คำขอสำเร็จแล้ว"
+
+#: ../../../app/views/pages/api.html.erb:286
+msgid "Push created or email notification queued"
+msgstr "สร้างการแจ้งเตือนแบบพุชแล้ว หรืออยู่ในคิวการแจ้งเตือนทางอีเมลแล้ว"
+
+#: ../../../app/views/pages/api.html.erb:287
+msgid "Invalid request parameters"
+msgstr "พารามิเตอร์คำขอไม่ถูกต้อง"
+
+#: ../../../app/views/pages/api.html.erb:288
+msgid "Authentication required or invalid token"
+msgstr "ต้องมีการตรวจสอบสิทธิ์หรือโทเค็นไม่ถูกต้อง"
+
+#: ../../../app/views/pages/api.html.erb:289
+msgid "Forbidden for current user"
+msgstr "ไม่อนุญาตให้ผู้ใช้ปัจจุบันใช้งาน"
+
+#: ../../../app/views/pages/api.html.erb:290
+msgid ""
+"Resource not found (includes unavailable notify_emails route when email auto-d"
+"ispatch is disabled)"
+msgstr ""
+"ไม่พบทรัพยากร (รวมถึงเส้นทาง notify_emails ที่ไม่สามารถใช้งานได้เมื่อปิดใช้งาน"
+"การส่งอีเมลอัตโนมัติ)"
+
+#: ../../../app/views/pages/api.html.erb:291
+msgid "Validation error"
+msgstr "ข้อผิดพลาดในการตรวจสอบความถูกต้อง"
+
+#: ../../../app/views/pages/api.html.erb:292
+msgid "Too many email notification requests (notify_emails endpoint only)"
+msgstr ""
+"มีการร้องขอการแจ้งเตือนทางอีเมลมากเกินไป (เฉพาะเอนด์พอยต์ notify_emails เท่านั"
+"้น)"
+
+#: ../../../app/views/pages/api.html.erb:298
+msgid "For legacy API v1 documentation, see"
+msgstr "สำหรับเอกสารประกอบ API เวอร์ชัน 1 เดิม โปรดดูที่นี่"
 
 #: ../../../app/views/pages/generate_key.html.erb:1
 msgid "Generate Key"
 msgstr "สร้างคีย์"
 
-#: ../../../app/views/pages/generate_key.html.erb:3
-msgid "Generate an Encryption Key"
-msgstr "สร้างคีย์เข้ารหัส"
+#: ../../../app/views/pages/generate_key.html.erb:9
+msgid "Encryption Key Generator"
+msgstr "เครื่องกำเนิดคีย์"
 
-#: ../../../app/views/pages/generate_key.html.erb:6
+#: ../../../app/views/pages/generate_key.html.erb:12
 msgid ""
-"This page is used as a helper tool to generate a random encryption key for pri"
-"vately hosted instances of Password Pusher."
-msgstr ""
-"หน้านี้ใช้เป็นเครื่องมือช่วยเหลือในการสร้างคีย์การเข้ารหัสแบบสุ่มสำหรับอินสแตน"
-"ซ์ที่โฮสต์แบบส่วนตัวของ Password Pusher"
+"Generate a secure encryption key for your self-hosted Password Pusher instance"
+"."
+msgstr "สร้างคีย์เข้ารหัสที่ปลอดภัยสำหรับอินสแตนซ์ Password Pusher ที่คุณติดตั้งเอง"
 
-#: ../../../app/views/pages/generate_key.html.erb:10
+#: ../../../app/views/pages/generate_key.html.erb:20
+msgid "Why Use a Custom Key?"
+msgstr "เหตุใดจึงควรใช้คีย์ที่กำหนดเอง?"
+
+#: ../../../app/views/pages/generate_key.html.erb:23
 msgid ""
-"Password Pusher encrypts sensitive data in the database.  This requires a rand"
-"omly generated encryption key for each application instance."
+"Password Pusher encrypts all sensitive data in the database using a master enc"
+"ryption key. While a default key is provided for convenience, using your own u"
+"nique key provides the highest level of security for your private instance."
 msgstr ""
-"Password Pusher เข้ารหัสข้อมูลที่ละเอียดอ่อนในฐานข้อมูล สิ่งนี้ต้องการคีย์การเ"
-"ข้ารหัสที่สร้างขึ้นแบบสุ่มสำหรับแต่ละอินสแตนซ์ของแอปพลิเคชัน"
+"Password Pusher เข้ารหัสข้อมูลสำคัญทั้งหมดในฐานข้อมูลโดยใช้คีย์เข้ารหัสหลัก แม"
+"้ว่าจะมีคีย์เริ่มต้นให้เพื่อความสะดวก แต่การใช้คีย์เฉพาะของคุณเองจะให้ความปลอด"
+"ภัยสูงสุดสำหรับอินสแตนซ์ส่วนตัวของคุณ"
 
-#: ../../../app/views/pages/generate_key.html.erb:14
-msgid ""
-"You can use the randomly generated code below to configure your Password Pushe"
-"r instance."
-msgstr ""
-"คุณสามารถใช้รหัสที่สร้างขึ้นแบบสุ่มด้านล่างเพื่อกำหนดค่าอินสแตนซ์ Password Pus"
-"her ของคุณ"
+#: ../../../app/views/pages/generate_key.html.erb:29
+msgid "Your Generated Key"
+msgstr "รหัสที่คุณสร้างขึ้น"
 
-#: ../../../app/views/pages/generate_key.html.erb:22
-msgid "Generated Encryption Key"
-msgstr "คีย์การเข้ารหัสที่สร้างขึ้น"
+#: ../../../app/views/pages/generate_key.html.erb:33
+msgid "Raw Encryption Key"
+msgstr "คีย์เข้ารหัสดิบ"
 
-#: ../../../app/views/pages/generate_key.html.erb:32
-msgid "You can apply this key to your application by setting the environment variable"
-msgstr "คุณสามารถใช้คีย์นี้กับแอปพลิเคชันของคุณโดยตั้งค่าตัวแปรสภาพแวดล้อม"
+#: ../../../app/views/pages/generate_key.html.erb:43
+msgid "Environment Variable Format"
+msgstr "รูปแบบตัวแปรสภาพแวดล้อม"
 
-#: ../../../app/views/pages/generate_key.html.erb:45
-msgid "Reload this page to re-generate a new key."
-msgstr "โหลดหน้านี้ซ้ำเพื่อสร้างคีย์ใหม่อีกครั้ง"
+#: ../../../app/views/pages/generate_key.html.erb:51
+msgid "Set this environment variable in your deployment configuration."
+msgstr "ตั้งค่าตัวแปรสภาพแวดล้อมนี้ในไฟล์การกำหนดค่าการปรับใช้ของคุณ"
 
-#: ../../../app/views/pages/generate_key.html.erb:49
-msgid "Notes:"
-msgstr "หมายเหตุ:"
-
-#: ../../../app/views/pages/generate_key.html.erb:52
-msgid "If an encryption key isn't provided, a default key will be used."
-msgstr "หากไม่มีคีย์การเข้ารหัส ระบบจะใช้คีย์เริ่มต้น"
-
-#: ../../../app/views/pages/generate_key.html.erb:55
-msgid ""
-"The best security for private instances of Password Pusher is to use your own "
-"custom encryption key although it is not required."
-msgstr ""
-"การรักษาความปลอดภัยที่ดีที่สุดสำหรับอินสแตนซ์ส่วนตัวของ Password Pusher คือการ"
-"ใช้คีย์เข้ารหัสที่คุณกำหนดเองแม้ว่าจะไม่จำเป็นก็ตาม"
-
-#: ../../../app/views/pages/generate_key.html.erb:58
-msgid ""
-"The risk in using the default key is lessened if you keep your instance secure"
-" and your push expirations short.  e.g.  1 day/1 view versus 100 days/100 view"
-"s."
-msgstr ""
-"ความเสี่ยงในการใช้คีย์เริ่มต้นจะลดลงหากคุณรักษาอินสแตนซ์ของคุณให้ปลอดภัยและการ"
-"หมดอายุของพุชสั้นลง เช่น 1 วัน/1 การดู กับ 100 วัน/100 การดู"
-
-#: ../../../app/views/pages/generate_key.html.erb:61
-msgid "Once a push expires, all encrypted data is deleted."
-msgstr "เมื่อการพุชหมดอายุ ข้อมูลที่เข้ารหัสทั้งหมดจะถูกลบ"
+#: ../../../app/views/pages/generate_key.html.erb:57
+msgid "Generate New Key"
+msgstr "สร้างคีย์ใหม่"
 
 #: ../../../app/views/pages/generate_key.html.erb:64
+msgid "Important Notes"
+msgstr "หมายเหตุสำคัญ"
+
+#: ../../../app/views/pages/generate_key.html.erb:72
+msgid "Default Key Available"
+msgstr "คีย์เริ่มต้นพร้อมใช้งาน"
+
+#: ../../../app/views/pages/generate_key.html.erb:75
 msgid ""
-"Changing an encryption key where old pushes already exist will make those olde"
-"r pushes unreadable.  In other words, the payloads will be garbled.  New pushe"
-"s going forward will work fine."
+"A default key is used if none is provided. This works but is less secure than "
+"a custom key."
 msgstr ""
-"การเปลี่ยนคีย์การเข้ารหัสที่มีพุชเก่าอยู่แล้วจะทำให้ไม่สามารถอ่านพุชเก่าเหล่าน"
-"ั้นได้ กล่าวอีกนัยหนึ่ง payloads จะอ่านไม่ออก การผลักดันใหม่ไปข้างหน้าจะทำงานไ"
-"ด้ดี"
+"หากไม่ได้ระบุคีย์ ระบบจะใช้คีย์เริ่มต้น วิธีนี้ใช้ได้ผล แต่มีความปลอดภัยน้อยกว"
+"่าคีย์ที่กำหนดเอง"
 
-#: ../../../app/views/pages/generate_key.html.erb:67
+#: ../../../app/views/pages/generate_key.html.erb:85
+msgid "Reduce Risk"
+msgstr "ลดความเสี่ยง"
+
+#: ../../../app/views/pages/generate_key.html.erb:88
 msgid ""
-"Key generation can also be done from the command line in the application sourc"
-"e by executing: "
-msgstr "การสร้างคีย์สามารถทำได้จากบรรทัดคำสั่งในแหล่งที่มาของแอปพลิเคชันโดยดำเนินการ:"
+"Using short push expirations (e.g., 1 day/1 view) reduces risk even with the d"
+"efault key."
+msgstr ""
+"การใช้ระยะเวลาหมดอายุของการแจ้งเตือนสั้นๆ (เช่น 1 วัน/1 ครั้ง) จะช่วยลดความเสี"
+"่ยงได้ แม้ว่าจะใช้คีย์เริ่มต้นก็ตาม"
 
-#: ../../../app/views/pages/generate_key.html.erb:79
-msgid "See also the Password Pusher"
-msgstr "ดูเพิ่มเติมที่ตัวดันรหัสผ่าน"
+#: ../../../app/views/pages/generate_key.html.erb:98
+msgid "Data Deletion"
+msgstr "การลบข้อมูล"
 
-#: ../../../app/views/pages/generate_key.html.erb:80
-msgid "Configuration documentation"
-msgstr "เอกสารการกำหนดค่า"
+#: ../../../app/views/pages/generate_key.html.erb:101
+msgid ""
+"Once a push expires, all encrypted data is permanently deleted from the databa"
+"se."
+msgstr ""
+"เมื่อการส่งข้อมูลหมดอายุ ข้อมูลที่เข้ารหัสทั้งหมดจะถูกลบออกจากฐานข้อมูลอย่างถา"
+"วร"
+
+#: ../../../app/views/pages/generate_key.html.erb:111
+msgid "Key Changes"
+msgstr "การเปลี่ยนแปลงที่สำคัญ"
+
+#: ../../../app/views/pages/generate_key.html.erb:114
+msgid "Changing keys makes existing pushes unreadable. New pushes will work normally."
+msgstr ""
+"การเปลี่ยนปุ่มจะทำให้การกดปุ่มที่มีอยู่แล้วอ่านไม่ได้ การกดปุ่มใหม่จะใช้งานได้"
+"ตามปกติ"
+
+#: ../../../app/views/pages/generate_key.html.erb:124
+msgid "Command Line Alternative"
+msgstr "ทางเลือกบรรทัดคำสั่ง"
+
+#: ../../../app/views/pages/generate_key.html.erb:127
+msgid "You can also generate keys from the command line in the application source:"
+msgstr "คุณสามารถสร้างคีย์จากบรรทัดคำสั่งในซอร์สโค้ดของแอปพลิเคชันได้เช่นกัน:"
+
+#: ../../../app/views/pages/generate_key.html.erb:130
+msgid "In your Password Pusher directory"
+msgstr "ในไดเร็กทอรี Password Pusher ของคุณ"
+
+#: ../../../app/views/pages/generate_key.html.erb:140
+msgid "Learn More"
+msgstr "เรียนรู้เพิ่มเติม"
+
+#: ../../../app/views/pages/generate_key.html.erb:143
+msgid "For detailed configuration options and deployment strategies, see the"
+msgstr "สำหรับตัวเลือกการกำหนดค่าโดยละเอียดและกลยุทธ์การปรับใช้ โปรดดูที่..."
+
+#: ../../../app/views/pages/generate_key.html.erb:145
+msgid "Configuration Documentation"
+msgstr "เอกสารประกอบการกำหนดค่า"
+
+#: ../../../app/views/pages/generate_key.html.erb:153
+msgid "Keys are generated server-side using cryptographically secure random bytes."
+msgstr ""
+"คีย์จะถูกสร้างขึ้นฝั่งเซิร์ฟเวอร์โดยใช้ไบต์สุ่มที่มีความปลอดภัยทางด้านการเข้าร"
+"หัส"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:2
+msgid "%{sender} has sent you a push"
+msgstr "%{sender} ได้ส่งข้อความแจ้งเตือนถึงคุณแล้ว"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:9
+msgid "Secret link:"
+msgstr "ลิงก์ลับ:"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:11
+msgid "Important Notes:"
+msgstr "หมายเหตุสำคัญ:"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:13
+msgid ""
+"This link is valid for %{remaining}, or until %{views} views, whichever occurs"
+" first."
+msgstr ""
+"ลิงก์นี้ใช้ได้เป็นเวลา %{remaining} หรือจนกว่าจะมีการดู %{views} ครั้ง ขึ้นอยู"
+"่กับสิ่งใดจะเกิดขึ้นก่อน"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:15
+msgid "Upon expiration, this secret link and all content are permanently deleted."
+msgstr "เมื่อหมดอายุ ลิงก์ลับนี้และเนื้อหาทั้งหมดจะถูกลบอย่างถาวร"
+
+#: ../../../app/views/pushes/_error.html.erb:3
+msgid "%{count} error prohibited this push from being saved:"
+msgid_plural "%{count} errors prohibited this push from being saved:"
+msgstr[0] "ข้อผิดพลาด %{count} ทำให้ไม่สามารถบันทึกการส่งข้อมูลนี้ได้:"
+msgstr[1] ""
 
 #: ../../../app/views/pushes/_files_form.html.erb:1
 msgid "Securely Send Files"
@@ -1597,36 +2578,36 @@ msgstr[0] "วัน"
 msgstr[1] ""
 
 #: ../../../app/views/pushes/_files_form.html.erb:7
-#: ../../../app/views/pushes/_files_form.html.erb:95
+#: ../../../app/views/pushes/_files_form.html.erb:90
 #: ../../../app/views/pushes/_form.html.erb:7
-#: ../../../app/views/pushes/_form.html.erb:69
+#: ../../../app/views/pushes/_form.html.erb:123
 #: ../../../app/views/pushes/_qr_form.html.erb:7
-#: ../../../app/views/pushes/_qr_form.html.erb:70
+#: ../../../app/views/pushes/_qr_form.html.erb:103
 #: ../../../app/views/pushes/_url_form.html.erb:7
-#: ../../../app/views/pushes/_url_form.html.erb:56
+#: ../../../app/views/pushes/_url_form.html.erb:58
 msgid "Days"
 msgstr "วัน"
 
 #: ../../../app/views/pushes/_files_form.html.erb:10
-#: ../../../app/views/pushes/_files_form.html.erb:113
+#: ../../../app/views/pushes/_files_form.html.erb:107
 #: ../../../app/views/pushes/_form.html.erb:10
-#: ../../../app/views/pushes/_form.html.erb:86
+#: ../../../app/views/pushes/_form.html.erb:139
 #: ../../../app/views/pushes/_qr_form.html.erb:10
-#: ../../../app/views/pushes/_qr_form.html.erb:87
+#: ../../../app/views/pushes/_qr_form.html.erb:119
 #: ../../../app/views/pushes/_url_form.html.erb:10
-#: ../../../app/views/pushes/_url_form.html.erb:75
+#: ../../../app/views/pushes/_url_form.html.erb:76
 msgid "Views"
 msgstr "มุมมอง"
 
 #: ../../../app/views/pushes/_files_form.html.erb:12
-#: ../../../app/views/pushes/_files_form.html.erb:161
+#: ../../../app/views/pushes/_files_form.html.erb:148
 #: ../../../app/views/pushes/_form.html.erb:12
-#: ../../../app/views/pushes/_form.html.erb:134
+#: ../../../app/views/pushes/_form.html.erb:180
 #: ../../../app/views/pushes/_qr_form.html.erb:12
-#: ../../../app/views/pushes/_qr_form.html.erb:137
+#: ../../../app/views/pushes/_qr_form.html.erb:162
 #: ../../../app/views/pushes/_url_form.html.erb:12
-#: ../../../app/views/pushes/_url_form.html.erb:115
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:72
+#: ../../../app/views/pushes/_url_form.html.erb:109
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:82
 msgid "Save"
 msgstr "บันทึก"
 
@@ -1637,168 +2618,166 @@ msgstr "บันทึก"
 msgid "Saved!"
 msgstr "รอดแล้ว!"
 
-#: ../../../app/views/pushes/_files_form.html.erb:30
+#: ../../../app/views/pushes/_files_form.html.erb:28
 msgid "Uploaded Files"
 msgstr "ไฟล์ที่อัปโหลด"
 
-#: ../../../app/views/pushes/_files_form.html.erb:46
+#: ../../../app/views/pushes/_files_form.html.erb:44
 msgid "Are you sure you want to delete this file?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์นี้?"
 
-#: ../../../app/views/pushes/_files_form.html.erb:62
+#: ../../../app/views/pushes/_files_form.html.erb:57
 msgid "Add Files..."
 msgstr "เพิ่มไฟล์..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:77
+#: ../../../app/views/pushes/_files_form.html.erb:72
 msgid "You can upload up to %{count} files per push."
 msgstr "คุณสามารถอัปโหลดไฟล์ได้สูงสุด %{count} ไฟล์ต่อการส่ง"
 
-#: ../../../app/views/pushes/_files_form.html.erb:82
-#: ../../../app/views/pushes/_form.html.erb:56
-#: ../../../app/views/pushes/_qr_form.html.erb:57
-#: ../../../app/views/pushes/_url_form.html.erb:43
+#: ../../../app/views/pushes/_files_form.html.erb:76
+#: ../../../app/views/pushes/_form.html.erb:109
+#: ../../../app/views/pushes/_qr_form.html.erb:89
+#: ../../../app/views/pushes/_url_form.html.erb:44
 msgid "Expire secret link and delete after:"
 msgstr "ลิงค์ลับหมดอายุและลบหลังจาก:"
 
-#: ../../../app/views/pushes/_files_form.html.erb:118
-#: ../../../app/views/pushes/_form.html.erb:91
-#: ../../../app/views/pushes/_qr_form.html.erb:92
-#: ../../../app/views/pushes/_url_form.html.erb:80
-#: ../../../app/views/pushes/preview.html.erb:61
-#: ../../../app/views/pushes/preview.html.erb:63
+#: ../../../app/views/pushes/_files_form.html.erb:110
+#: ../../../app/views/pushes/_form.html.erb:142
+#: ../../../app/views/pushes/_qr_form.html.erb:122
+#: ../../../app/views/pushes/_url_form.html.erb:79
 #: ../../../app/views/pushes/print_preview.html.erb:16
 msgid "(whichever comes first)"
 msgstr "(แล้วแต่ระยะใดถึงก่อน)"
 
+#: ../../../app/views/pushes/_files_form.html.erb:115
+#: ../../../app/views/pushes/_form.html.erb:147
+#: ../../../app/views/pushes/_qr_form.html.erb:127
+#: ../../../app/views/pushes/_url_form.html.erb:84
+#: ../../../app/views/pushes/audit.html.erb:76
+msgid "Passphrase"
+msgstr "รหัสผ่าน"
+
+#: ../../../app/views/pushes/_files_form.html.erb:118
+#: ../../../app/views/pushes/_form.html.erb:150
+#: ../../../app/views/pushes/_qr_form.html.erb:130
+#: ../../../app/views/pushes/_url_form.html.erb:87
+msgid "Optional: Require recipients to enter a passphrase to view this push"
+msgstr "ทางเลือก: กำหนดให้ผู้รับต้องป้อนข้อความรหัสผ่านเพื่อดูพุชนี้"
+
 #: ../../../app/views/pushes/_files_form.html.erb:129
-#: ../../../app/views/pushes/_form.html.erb:102
-#: ../../../app/views/pushes/_qr_form.html.erb:104
-#: ../../../app/views/pushes/_url_form.html.erb:92
+#: ../../../app/views/pushes/_form.html.erb:161
+#: ../../../app/views/pushes/_qr_form.html.erb:142
+#: ../../../app/views/pushes/_url_form.html.erb:99
 msgid "Use a 1-click retrieval step"
 msgstr "ใช้ขั้นตอนการดึง 1 คลิก"
 
 #: ../../../app/views/pushes/_files_form.html.erb:130
-#: ../../../app/views/pushes/_form.html.erb:103
-#: ../../../app/views/pushes/_qr_form.html.erb:105
-#: ../../../app/views/pushes/audit.html.erb:73
+#: ../../../app/views/pushes/_form.html.erb:162
+#: ../../../app/views/pushes/_qr_form.html.erb:143
+#: ../../../app/views/pushes/audit.html.erb:70
 msgid "Helps to avoid chat systems and URL scanners from eating up views."
 msgstr "ช่วยหลีกเลี่ยงระบบแชทและตัวสแกน URL ไม่ให้กินยอดวิว"
 
 #: ../../../app/views/pushes/_files_form.html.erb:138
-#: ../../../app/views/pushes/_form.html.erb:111
-#: ../../../app/views/pushes/_qr_form.html.erb:114
+#: ../../../app/views/pushes/_form.html.erb:170
+#: ../../../app/views/pushes/_qr_form.html.erb:152
 msgid "Allow immediate deletion"
 msgstr "อนุญาตให้ลบทันที"
 
 #: ../../../app/views/pushes/_files_form.html.erb:139
-#: ../../../app/views/pushes/_form.html.erb:112
-#: ../../../app/views/pushes/_qr_form.html.erb:115
+#: ../../../app/views/pushes/_form.html.erb:171
+#: ../../../app/views/pushes/_qr_form.html.erb:153
 msgid "Allow users to delete this push once retrieved."
 msgstr "อนุญาตให้ผู้ใช้ลบการพุชนี้เมื่อเรียกข้อมูลแล้ว"
 
-#: ../../../app/views/pushes/_files_form.html.erb:149
-#: ../../../app/views/pushes/_form.html.erb:122
-#: ../../../app/views/pushes/_qr_form.html.erb:125
-#: ../../../app/views/pushes/_url_form.html.erb:103
-#: ../../../app/views/pushes/audit.html.erb:78
-msgid "Passphrase Lockdown"
-msgstr "ล็อคข้อความรหัสผ่าน"
-
-#: ../../../app/views/pushes/_files_form.html.erb:152
-#: ../../../app/views/pushes/_form.html.erb:125
-#: ../../../app/views/pushes/_qr_form.html.erb:128
-#: ../../../app/views/pushes/_url_form.html.erb:106
-msgid "Optional: Require recipients to enter a passphrase to view this push"
-msgstr "ทางเลือก: กำหนดให้ผู้รับต้องป้อนข้อความรหัสผ่านเพื่อดูพุชนี้"
-
-#: ../../../app/views/pushes/_files_form.html.erb:161
-#: ../../../app/views/pushes/_form.html.erb:134
-#: ../../../app/views/pushes/_qr_form.html.erb:137
-#: ../../../app/views/pushes/_url_form.html.erb:115
+#: ../../../app/views/pushes/_files_form.html.erb:148
+#: ../../../app/views/pushes/_form.html.erb:180
+#: ../../../app/views/pushes/_qr_form.html.erb:162
+#: ../../../app/views/pushes/_url_form.html.erb:109
 msgid "the above settings as the page default."
 msgstr "การตั้งค่าข้างต้นเป็นค่าเริ่มต้นของเพจ"
 
-#: ../../../app/views/pushes/_files_form.html.erb:175
-#: ../../../app/views/pushes/_files_form.html.erb:198
-#: ../../../app/views/pushes/_form.html.erb:161
-#: ../../../app/views/pushes/_form.html.erb:171
-#: ../../../app/views/pushes/_qr_form.html.erb:164
-#: ../../../app/views/pushes/_qr_form.html.erb:174
-#: ../../../app/views/pushes/_url_form.html.erb:128
-#: ../../../app/views/pushes/_url_form.html.erb:138
+#: ../../../app/views/pushes/_files_form.html.erb:158
+#: ../../../app/views/pushes/_files_form.html.erb:181
+#: ../../../app/views/pushes/_form.html.erb:190
+#: ../../../app/views/pushes/_form.html.erb:200
+#: ../../../app/views/pushes/_qr_form.html.erb:172
+#: ../../../app/views/pushes/_qr_form.html.erb:182
+#: ../../../app/views/pushes/_url_form.html.erb:119
+#: ../../../app/views/pushes/_url_form.html.erb:129
 msgid "Optional"
 msgstr "ไม่จำเป็น"
 
-#: ../../../app/views/pushes/_files_form.html.erb:178
-#: ../../../app/views/pushes/_form.html.erb:164
-#: ../../../app/views/pushes/_qr_form.html.erb:167
-#: ../../../app/views/pushes/_url_form.html.erb:131
+#: ../../../app/views/pushes/_files_form.html.erb:161
+#: ../../../app/views/pushes/_form.html.erb:193
+#: ../../../app/views/pushes/_qr_form.html.erb:175
+#: ../../../app/views/pushes/_url_form.html.erb:122
 msgid "A name shown in the dashboard, notifications and emails."
 msgstr "ชื่อที่แสดงในแดชบอร์ด การแจ้งเตือน และอีเมล์"
 
-#: ../../../app/views/pushes/_files_form.html.erb:183
+#: ../../../app/views/pushes/_files_form.html.erb:166
 msgid "Message"
 msgstr "ข้อความ"
 
-#: ../../../app/views/pushes/_files_form.html.erb:186
+#: ../../../app/views/pushes/_files_form.html.erb:169
 msgid "Optional: A message to be included with the push"
 msgstr "ทางเลือก: ข้อความที่จะรวมไว้กับพุช"
 
-#: ../../../app/views/pushes/_files_form.html.erb:190
+#: ../../../app/views/pushes/_files_form.html.erb:173
 msgid "Encrypted and visible to the receiving party"
 msgstr "เข้ารหัสและมองเห็นได้โดยฝ่ายรับ"
 
-#: ../../../app/views/pushes/_files_form.html.erb:195
-#: ../../../app/views/pushes/_form.html.erb:168
-#: ../../../app/views/pushes/_qr_form.html.erb:171
-#: ../../../app/views/pushes/_url_form.html.erb:135
-#: ../../../app/views/pushes/audit.html.erb:15
-msgid "Reference Note"
-msgstr "หมายเหตุอ้างอิง"
+#: ../../../app/views/pushes/_files_form.html.erb:178
+#: ../../../app/views/pushes/_form.html.erb:197
+#: ../../../app/views/pushes/_qr_form.html.erb:179
+#: ../../../app/views/pushes/_url_form.html.erb:126
+#: ../../../app/views/pushes/index.html.erb:35
+msgid "Note"
+msgstr "บันทึก"
 
-#: ../../../app/views/pushes/_files_form.html.erb:201
-#: ../../../app/views/pushes/_form.html.erb:174
-#: ../../../app/views/pushes/_qr_form.html.erb:177
-#: ../../../app/views/pushes/_url_form.html.erb:141
+#: ../../../app/views/pushes/_files_form.html.erb:184
+#: ../../../app/views/pushes/_form.html.erb:203
+#: ../../../app/views/pushes/_qr_form.html.erb:185
+#: ../../../app/views/pushes/_url_form.html.erb:132
 msgid "Encrypted and visible only to you"
 msgstr "เข้ารหัสและมองเห็นได้เฉพาะคุณเท่านั้น"
 
-#: ../../../app/views/pushes/_files_form.html.erb:207
+#: ../../../app/views/pushes/_files_form.html.erb:189
 msgid ""
 "Once expired, all files and content of the push will be deleted immediately an"
 "d entirely."
 msgstr "เมื่อหมดอายุ ไฟล์และเนื้อหาทั้งหมดของพุชจะถูกลบทันทีและทั้งหมด"
 
-#: ../../../app/views/pushes/_files_form.html.erb:212
-#: ../../../app/views/pushes/_url_form.html.erb:153
+#: ../../../app/views/pushes/_files_form.html.erb:190
+#: ../../../app/views/pushes/_url_form.html.erb:138
 msgid "An audit log of activity will be available."
 msgstr "จะมีบันทึกการตรวจสอบกิจกรรม"
 
-#: ../../../app/views/pushes/_files_form.html.erb:221
-#: ../../../app/views/pushes/_form.html.erb:188
-#: ../../../app/views/pushes/_qr_form.html.erb:191
-#: ../../../app/views/pushes/_url_form.html.erb:162
+#: ../../../app/views/pushes/_files_form.html.erb:199
+#: ../../../app/views/pushes/_form.html.erb:218
+#: ../../../app/views/pushes/_qr_form.html.erb:200
+#: ../../../app/views/pushes/_url_form.html.erb:147
 msgid "Updating..."
 msgstr "กำลังอัปเดต..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:221
-#: ../../../app/views/pushes/_form.html.erb:188
-#: ../../../app/views/pushes/_qr_form.html.erb:191
-#: ../../../app/views/pushes/_url_form.html.erb:162
+#: ../../../app/views/pushes/_files_form.html.erb:199
+#: ../../../app/views/pushes/_form.html.erb:218
+#: ../../../app/views/pushes/_qr_form.html.erb:200
+#: ../../../app/views/pushes/_url_form.html.erb:147
 msgid "Update Push"
 msgstr "อัปเดตการส่ง"
 
-#: ../../../app/views/pushes/_files_form.html.erb:223
-#: ../../../app/views/pushes/_form.html.erb:190
-#: ../../../app/views/pushes/_qr_form.html.erb:193
-#: ../../../app/views/pushes/_url_form.html.erb:164
+#: ../../../app/views/pushes/_files_form.html.erb:201
+#: ../../../app/views/pushes/_form.html.erb:220
+#: ../../../app/views/pushes/_qr_form.html.erb:202
+#: ../../../app/views/pushes/_url_form.html.erb:149
 msgid "Pushing..."
 msgstr "กำลังส่ง..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:223
-#: ../../../app/views/pushes/_form.html.erb:190
-#: ../../../app/views/pushes/_qr_form.html.erb:193
-#: ../../../app/views/pushes/_url_form.html.erb:164
+#: ../../../app/views/pushes/_files_form.html.erb:201
+#: ../../../app/views/pushes/_form.html.erb:220
+#: ../../../app/views/pushes/_qr_form.html.erb:202
+#: ../../../app/views/pushes/_url_form.html.erb:149
 msgid "Push It!"
 msgstr "ผลักดันมัน!"
 
@@ -1806,50 +2785,76 @@ msgstr "ผลักดันมัน!"
 msgid "Securely Send a Password"
 msgstr "ส่งรหัสผ่านอย่างปลอดภัย"
 
-#: ../../../app/views/pushes/_form.html.erb:36
+#: ../../../app/views/pushes/_form.html.erb:39
+msgid "Content is hidden for privacy. Click the field below to reveal and edit."
+msgstr "เนื้อหาถูกซ่อนไว้เพื่อความเป็นส่วนตัว คลิกที่ช่องด้านล่างเพื่อแสดงและแก้ไข"
+
+#: ../../../app/views/pushes/_form.html.erb:43
+#: ../../../app/views/pushes/_form.html.erb:60
 msgid "Enter the Password or Text to push..."
 msgstr "ใส่รหัสผ่านหรือข้อความที่จะกด..."
 
-#: ../../../app/views/pushes/_form.html.erb:48
-#: ../../../app/views/pushes/_qr_form.html.erb:49
+#: ../../../app/views/pushes/_form.html.erb:56
+#: ../../../app/views/pushes/_form.html.erb:75
+#: ../../../app/views/pushes/_form.html.erb:76
+#: ../../../app/views/pushes/_qr_form.html.erb:36
+#: ../../../app/views/pushes/_qr_form.html.erb:56
+#: ../../../app/views/pushes/_qr_form.html.erb:57
+msgid "Hide payload"
+msgstr "ซ่อนข้อมูลเพย์โหลด"
+
+#: ../../../app/views/pushes/_form.html.erb:57
+#: ../../../app/views/pushes/_qr_form.html.erb:37
+msgid "Show payload"
+msgstr "แสดงเพย์โหลด"
+
+#: ../../../app/views/pushes/_form.html.erb:85
+#: ../../../app/views/pushes/_qr_form.html.erb:65
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:55
 msgid "Characters"
 msgstr "ตัวละคร"
 
-#: ../../../app/views/pushes/_form.html.erb:147
-#: ../../../app/views/pushes/_qr_form.html.erb:150
+#: ../../../app/views/pushes/_form.html.erb:92
+#: ../../../app/views/pushes/_qr_form.html.erb:72
+msgid "Password Generator"
+msgstr "ตัวสร้างรหัสผ่าน"
+
+#: ../../../app/views/pushes/_form.html.erb:96
+#: ../../../app/views/pushes/_qr_form.html.erb:76
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:18
 msgid "Generate Password"
 msgstr "สร้างรหัสผ่าน"
 
-#: ../../../app/views/pushes/_form.html.erb:154
-#: ../../../app/views/pushes/_qr_form.html.erb:157
-msgid "Use the button above to generate a random password."
-msgstr "ใช้ปุ่มด้านบนเพื่อสร้างรหัสผ่านแบบสุ่ม"
+#: ../../../app/views/pushes/_form.html.erb:100
+#: ../../../app/views/pushes/_qr_form.html.erb:80
+msgid "Configure Generator"
+msgstr "กำหนดค่าเครื่องกำเนิดไฟฟ้า"
 
-#: ../../../app/views/pushes/_form.html.erb:179
-#: ../../../app/views/pushes/_qr_form.html.erb:182
+#: ../../../app/views/pushes/_form.html.erb:208
+#: ../../../app/views/pushes/_qr_form.html.erb:190
 msgid ""
-"Tip: Only enter a password into the box.  Other identifying information can co"
-"mpromise security."
+"Tip: Only enter a password into the box. Other identifying information can com"
+"promise security."
 msgstr ""
-"เคล็ดลับ: ป้อนรหัสผ่านในช่องเท่านั้น ข้อมูลระบุอื่นๆ อาจทำให้ความปลอดภัยลดลงได"
-"้"
+"คำแนะนำ: กรุณาป้อนรหัสผ่านลงในช่องเท่านั้น ข้อมูลระบุตัวตนอื่นๆ อาจส่งผลต่อควา"
+"มปลอดภัย"
 
-#: ../../../app/views/pushes/_form.html.erb:180
-#: ../../../app/views/pushes/_qr_form.html.erb:183
+#: ../../../app/views/pushes/_form.html.erb:209
+#: ../../../app/views/pushes/_qr_form.html.erb:191
 msgid ""
 "All passwords are encrypted prior to storage and are available to only those w"
-"ith the secret link.  Once expired, encrypted passwords are unequivocally dele"
-"ted from the database."
+"ith the secret link. Once expired, encrypted passwords are unequivocally delet"
+"ed from the database."
 msgstr ""
-"รหัสผ่านทั้งหมดจะถูกเข้ารหัสก่อนการจัดเก็บและใช้ได้กับผู้ที่มีลิงก์ลับเท่านั้น"
-" เมื่อหมดอายุ รหัสผ่านที่เข้ารหัสจะถูกลบออกจากฐานข้อมูลอย่างชัดเจน"
+"รหัสผ่านทั้งหมดจะถูกเข้ารหัสก่อนจัดเก็บ และสามารถเข้าถึงได้เฉพาะผู้ที่มีลิงก์ล"
+"ับเท่านั้น เมื่อหมดอายุแล้ว รหัสผ่านที่เข้ารหัสไว้จะถูกลบออกจากฐานข้อมูลอย่างถ"
+"าวร"
 
 #: ../../../app/views/pushes/_qr_form.html.erb:1
 msgid "Securely Send a QR Code"
 msgstr "ส่งรหัส QR อย่างปลอดภัย"
 
-#: ../../../app/views/pushes/_qr_form.html.erb:36
+#: ../../../app/views/pushes/_qr_form.html.erb:40
 msgid "Enter up to 1024 characters..."
 msgstr "ใส่ตัวอักษรได้ไม่เกิน 1,024 ตัวอักษร..."
 
@@ -1868,23 +2873,23 @@ msgstr "รหัสผ่านของคุณถูกเบลอ คล�
 msgid "Securely Send URLs"
 msgstr "ส่ง URL อย่างปลอดภัย"
 
-#: ../../../app/views/pushes/_url_form.html.erb:28
+#: ../../../app/views/pushes/_url_form.html.erb:26
 msgid "URL Redirection"
 msgstr "การเปลี่ยนเส้นทาง URL"
 
-#: ../../../app/views/pushes/_url_form.html.erb:32
+#: ../../../app/views/pushes/_url_form.html.erb:30
 msgid "Enter the URL to redirect to..."
 msgstr "ป้อน URL เพื่อเปลี่ยนเส้นทางไปที่..."
 
-#: ../../../app/views/pushes/_url_form.html.erb:93
+#: ../../../app/views/pushes/_url_form.html.erb:100
 msgid "Helps to avoid chat systems and URL scanners from eating up redirects."
 msgstr "ช่วยหลีกเลี่ยงระบบแชทและตัวสแกน URL ไม่ให้กินการเปลี่ยนเส้นทาง"
 
-#: ../../../app/views/pushes/_url_form.html.erb:147
+#: ../../../app/views/pushes/_url_form.html.erb:137
 msgid "A secret URL will be generated that will redirect to the URL specified."
 msgstr "URL ลับจะถูกสร้างขึ้นเพื่อเปลี่ยนเส้นทางไปยัง URL ที่ระบุ"
 
-#: ../../../app/views/pushes/_url_form.html.erb:152
+#: ../../../app/views/pushes/_url_form.html.erb:138
 msgid "Upon expiration, the push URL will be deleted entirely."
 msgstr "เมื่อหมดอายุ URL พุชจะถูกลบทั้งหมด"
 
@@ -1893,27 +2898,33 @@ msgid "Audit Log for %{push_id}"
 msgstr "บันทึกการตรวจสอบสำหรับ %{push_id}"
 
 #: ../../../app/views/pushes/audit.html.erb:4
-msgid "Audit Log for Push ID: %{push_id}"
-msgstr "บันทึกการตรวจสอบสำหรับ Push ID: %{push_id}"
+#: ../../../app/views/pushes/index.html.erb:107
+#: ../../../app/views/pushes/preview.html.erb:120
+msgid "Audit Log"
+msgstr "บันทึกการตรวจสอบ"
 
-#: ../../../app/views/pushes/audit.html.erb:6
-msgid "Pushed on %{date}"
-msgstr "กดไปที่ %{date}"
+#: ../../../app/views/pushes/audit.html.erb:7
+msgid "Pushed on"
+msgstr "ผลักดันต่อไป"
 
-#: ../../../app/views/pushes/audit.html.erb:9
+#: ../../../app/views/pushes/audit.html.erb:10
 msgid "Secret URL for this push"
 msgstr "URL ลับสำหรับการพุชนี้"
 
 #: ../../../app/views/pushes/audit.html.erb:16
+msgid "Reference Note"
+msgstr "หมายเหตุอ้างอิง"
+
+#: ../../../app/views/pushes/audit.html.erb:17
 msgid "Visible Only To You"
 msgstr "มองเห็นได้เฉพาะคุณเท่านั้น"
 
-#: ../../../app/views/pushes/audit.html.erb:28
+#: ../../../app/views/pushes/audit.html.erb:29
 msgid "Settings"
 msgstr "การตั้งค่า"
 
-#: ../../../app/views/pushes/audit.html.erb:32
-#: ../../../app/views/pushes/audit.html.erb:41
+#: ../../../app/views/pushes/audit.html.erb:34
+#: ../../../app/views/pushes/audit.html.erb:42
 msgid "Expire after"
 msgstr "หมดอายุหลังจาก"
 
@@ -1921,7 +2932,7 @@ msgstr "หมดอายุหลังจาก"
 msgid "The push expires after this number of views."
 msgstr "การพุชจะหมดอายุหลังจากจำนวนการดูนี้"
 
-#: ../../../app/views/pushes/audit.html.erb:45
+#: ../../../app/views/pushes/audit.html.erb:44
 msgid "The push expires after this number of days."
 msgstr "การพุชจะหมดอายุหลังจากจำนวนวันดังกล่าว"
 
@@ -1929,68 +2940,48 @@ msgstr "การพุชจะหมดอายุหลังจากจำ
 msgid "Deletable by Viewers"
 msgstr "ลบได้โดยผู้ชม"
 
-#: ../../../app/views/pushes/audit.html.erb:54
-#: ../../../app/views/pushes/audit.html.erb:68
-msgid "True"
-msgstr "จริง"
-
-#: ../../../app/views/pushes/audit.html.erb:56
-#: ../../../app/views/pushes/audit.html.erb:70
-msgid "False"
-msgstr "เท็จ"
-
-#: ../../../app/views/pushes/audit.html.erb:59
+#: ../../../app/views/pushes/audit.html.erb:57
 msgid "This allows end users to delete content once retrieved."
 msgstr "ซึ่งช่วยให้ผู้ใช้สามารถลบเนื้อหาเมื่อได้รับข้อมูลแล้ว"
 
-#: ../../../app/views/pushes/audit.html.erb:65
+#: ../../../app/views/pushes/audit.html.erb:64
 msgid "1-click Retrieval Step"
 msgstr "1 คลิกขั้นตอนการดึงข้อมูล"
 
-#: ../../../app/views/pushes/audit.html.erb:81
-#: ../../../app/views/pushes/audit.html.erb:140
-msgid "No"
-msgstr "ไม่"
-
-#: ../../../app/views/pushes/audit.html.erb:83
-#: ../../../app/views/pushes/audit.html.erb:142
-msgid "Yes"
-msgstr "ใช่"
-
-#: ../../../app/views/pushes/audit.html.erb:86
+#: ../../../app/views/pushes/audit.html.erb:82
 msgid "Require recipients to enter a passphrase to view this push."
 msgstr "กำหนดให้ผู้รับต้องป้อนข้อความรหัสผ่านเพื่อดูพุชนี้"
 
-#: ../../../app/views/pushes/audit.html.erb:92
+#: ../../../app/views/pushes/audit.html.erb:88
 msgid "Current Status"
 msgstr "สถานะปัจจุบัน"
 
-#: ../../../app/views/pushes/audit.html.erb:96
+#: ../../../app/views/pushes/audit.html.erb:93
 msgid "State:"
 msgstr "สถานะ:"
 
-#: ../../../app/views/pushes/audit.html.erb:101
-#: ../../../app/views/shared/_dashboard_header.html.erb:10
+#: ../../../app/views/pushes/audit.html.erb:98
+#: ../../../app/views/shared/_dashboard_header.html.erb:14
 msgid "Active"
 msgstr "คล่องแคล่ว"
 
-#: ../../../app/views/pushes/audit.html.erb:102
+#: ../../../app/views/pushes/audit.html.erb:99
 msgid "Active and still available for viewing."
 msgstr "ใช้งานอยู่และยังสามารถรับชมได้"
 
-#: ../../../app/views/pushes/audit.html.erb:108
+#: ../../../app/views/pushes/audit.html.erb:106
 msgid "Successful Views"
 msgstr "การดูที่ประสบความสำเร็จ"
 
-#: ../../../app/views/pushes/audit.html.erb:109
+#: ../../../app/views/pushes/audit.html.erb:107
 msgid "The number of times this push has been viewed before expiration."
 msgstr "จำนวนครั้งที่มีการดูพุชนี้ก่อนหมดอายุ"
 
-#: ../../../app/views/pushes/audit.html.erb:114
+#: ../../../app/views/pushes/audit.html.erb:113
 msgid "Failed View Attempts"
 msgstr "ความพยายามในการดูล้มเหลว"
 
-#: ../../../app/views/pushes/audit.html.erb:115
+#: ../../../app/views/pushes/audit.html.erb:114
 msgid "The number of times this push has been viewed after expiration."
 msgstr "จำนวนครั้งที่มีการดูพุชนี้หลังจากหมดอายุ"
 
@@ -2008,16 +2999,16 @@ msgstr "จำนวนวันก่อนที่การพุชนี้
 msgid "Payload"
 msgstr "น้ำหนักบรรทุก"
 
-#: ../../../app/views/pushes/audit.html.erb:135
+#: ../../../app/views/pushes/audit.html.erb:136
 msgid "Contains Message for Receiver"
 msgstr "มีข้อความสำหรับผู้รับ"
 
 #: ../../../app/views/pushes/audit.html.erb:138
-#: ../../../app/views/pushes/audit.html.erb:153
+#: ../../../app/views/pushes/audit.html.erb:152
 msgid "Deleted"
 msgstr "ลบแล้ว"
 
-#: ../../../app/views/pushes/audit.html.erb:145
+#: ../../../app/views/pushes/audit.html.erb:144
 msgid "Has a text payload been added to this push?"
 msgstr "เพย์โหลดข้อความถูกเพิ่มในการพุชนี้หรือไม่"
 
@@ -2025,155 +3016,138 @@ msgstr "เพย์โหลดข้อความถูกเพิ่มใ
 msgid "Message Length"
 msgstr "ความยาวของข้อความ"
 
-#: ../../../app/views/pushes/audit.html.erb:155
+#: ../../../app/views/pushes/audit.html.erb:154
 msgid "Not Applicable"
 msgstr "ไม่สามารถใช้ได้"
 
-#: ../../../app/views/pushes/audit.html.erb:160
+#: ../../../app/views/pushes/audit.html.erb:158
 msgid "The length of the attached text payload."
 msgstr "ความยาวของเพย์โหลดข้อความที่แนบมา"
 
-#: ../../../app/views/pushes/audit.html.erb:165
+#: ../../../app/views/pushes/audit.html.erb:164
 msgid "Number of Files Attached"
 msgstr "จำนวนไฟล์ที่แนบ"
 
-#: ../../../app/views/pushes/audit.html.erb:173
+#: ../../../app/views/pushes/audit.html.erb:170
 msgid "The number of files attached to this push. This value will be 0 when expired."
 msgstr "จำนวนไฟล์ที่แนบมากับพุชนี้ ค่านี้จะเป็น 0 เมื่อหมดอายุ"
 
-#: ../../../app/views/pushes/audit.html.erb:179
+#: ../../../app/views/pushes/audit.html.erb:176
 #: ../../../app/views/pushes/show.html.erb:28
 msgid "Attached Files"
 msgstr "ไฟล์ที่แนบมา"
 
-#: ../../../app/views/pushes/audit.html.erb:185
-msgid "Filename:"
-msgstr "ชื่อไฟล์:"
-
-#: ../../../app/views/pushes/audit.html.erb:187
-msgid "Size: "
+#: ../../../app/views/pushes/audit.html.erb:184
+msgid "Size:"
 msgstr "ขนาด:"
 
-#: ../../../app/views/pushes/audit.html.erb:192
+#: ../../../app/views/pushes/audit.html.erb:189
 msgid "All attached files have been deleted."
 msgstr "ลบไฟล์แนบทั้งหมดแล้ว"
 
-#: ../../../app/views/pushes/audit.html.erb:207
+#: ../../../app/views/pushes/audit.html.erb:201
+#: ../../../app/views/pushes/edit.html.erb:1
+msgid "Edit Push"
+msgstr "แก้ไขพุช"
+
+#: ../../../app/views/pushes/audit.html.erb:204
 msgid "Expire Now"
 msgstr "หมดอายุตอนนี้"
 
-#: ../../../app/views/pushes/audit.html.erb:215
+#: ../../../app/views/pushes/audit.html.erb:212
 msgid "Delete This Push?"
 msgstr "ลบการผลักดันนี้หรือไม่?"
 
-#: ../../../app/views/pushes/audit.html.erb:219
+#: ../../../app/views/pushes/audit.html.erb:216
 msgid "This will expire this secret link and"
 msgstr "นี่จะทำให้ลิงค์ลับนี้หมดอายุและ"
 
-#: ../../../app/views/pushes/audit.html.erb:219
+#: ../../../app/views/pushes/audit.html.erb:216
 msgid "remove all content from the database forever"
 msgstr "ลบเนื้อหาทั้งหมดออกจากฐานข้อมูลอย่างถาวร"
 
-#: ../../../app/views/pushes/audit.html.erb:220
+#: ../../../app/views/pushes/audit.html.erb:217
 msgid ""
 "The audit log (including future attempted views) will still be maintained goin"
 "g forward."
 msgstr "บันทึกการตรวจสอบ (รวมถึงมุมมองที่พยายามในอนาคต) จะยังคงอยู่ต่อไป"
 
-#: ../../../app/views/pushes/audit.html.erb:237
-msgid "Start of Audit Log"
-msgstr "เริ่มต้นบันทึกการตรวจสอบ"
+#: ../../../app/views/pushes/audit.html.erb:234
+msgid "Activity Log"
+msgstr "บันทึกกิจกรรม"
 
-#: ../../../app/views/pushes/audit.html.erb:243
+#: ../../../app/views/pushes/audit.html.erb:241
 msgid ""
 "As the push receives activity, a log of each with identifying information will"
 " show up here."
 msgstr "เมื่อพุชได้รับกิจกรรม บันทึกของแต่ละรายการพร้อมข้อมูลที่ระบุจะแสดงขึ้นที่นี่"
 
-#: ../../../app/views/pushes/audit.html.erb:247
-msgid "End of Audit Log"
-msgstr "สิ้นสุดบันทึกการตรวจสอบ"
-
-#: ../../../app/views/pushes/edit.html.erb:1
-#: ../../../app/views/pushes/preview.html.erb:98
-msgid "Edit Push"
-msgstr "แก้ไขพุช"
-
-#: ../../../app/views/pushes/edit.html.erb:4
+#: ../../../app/views/pushes/edit.html.erb:6
 msgid "Editing Push"
 msgstr "การแก้ไข Push"
 
-#: ../../../app/views/pushes/index.html.erb:9
-msgid "You currently have no active pushes."
-msgstr "ขณะนี้คุณไม่มีการผลักดันที่ใช้งานอยู่"
-
-#: ../../../app/views/pushes/index.html.erb:11
-msgid "You currently have no expired pushes."
-msgstr "ขณะนี้คุณไม่มีการผลักดันที่หมดอายุ"
+#: ../../../app/views/pushes/index.html.erb:1
+#: ../../../app/views/shared/_dashboard_header.html.erb:5
+#: ../../../app/views/shared/_header.html.erb:19
+msgid "Dashboard"
+msgstr "แผงควบคุม"
 
 #: ../../../app/views/pushes/index.html.erb:13
-msgid "You currently have no pushes."
-msgstr "ขณะนี้คุณไม่มีการผลักดันใดๆ"
+msgid "No active pushes"
+msgstr "ไม่มีการผลักดันที่ใช้งานอยู่"
 
-#: ../../../app/views/pushes/index.html.erb:19
-msgid "Push a Password Now"
-msgstr "กดรหัสผ่านทันที"
+#: ../../../app/views/pushes/index.html.erb:15
+msgid "No expired pushes"
+msgstr "ไม่มีการแจ้งเตือนหมดอายุ"
 
-#: ../../../app/views/pushes/index.html.erb:28
-msgid "Expired Pushes"
-msgstr "การผลักดันที่หมดอายุ"
+#: ../../../app/views/pushes/index.html.erb:17
+msgid "No pushes yet"
+msgstr "ยังไม่มีการผลักดันใดๆ"
 
-#: ../../../app/views/pushes/index.html.erb:30
-msgid "All Pushes"
-msgstr "การผลักดันทั้งหมด"
+#: ../../../app/views/pushes/index.html.erb:21
+msgid "Create your first secure push to share passwords, files, or URLs."
+msgstr "สร้างการแจ้งเตือนแบบพุชที่ปลอดภัยครั้งแรกของคุณเพื่อแชร์รหัสผ่าน ไฟล์ หรือ URL"
 
-#: ../../../app/views/pushes/index.html.erb:37
-msgid "Name or ID"
-msgstr "ชื่อ หรือ ID"
+#: ../../../app/views/pushes/index.html.erb:24
+msgid "Create Your First Push"
+msgstr "สร้างแรงผลักดันแรกของคุณ"
 
-#: ../../../app/views/pushes/index.html.erb:38
-msgid "Kind"
-msgstr "ใจดี"
+#: ../../../app/views/pushes/index.html.erb:32
+msgid "Name / ID"
+msgstr "ชื่อ/รหัสประจำตัว"
 
-#: ../../../app/views/pushes/index.html.erb:40
-msgid "Note"
-msgstr "บันทึก"
-
-#: ../../../app/views/pushes/index.html.erb:41
-msgid "Remaining"
-msgstr "ที่เหลืออยู่"
+#: ../../../app/views/pushes/index.html.erb:36
+msgid "Status"
+msgstr "สถานะ"
 
 #: ../../../app/views/pushes/index.html.erb:55
-msgid "File(s)"
+msgid "File"
 msgstr "ไฟล์"
 
-#: ../../../app/views/pushes/index.html.erb:57
+#: ../../../app/views/pushes/index.html.erb:59
 msgid "URL"
 msgstr "ที่อยู่"
 
-#: ../../../app/views/pushes/index.html.erb:59
-msgid "QR Code"
-msgstr "รหัส QR"
+#: ../../../app/views/pushes/index.html.erb:63
+msgid "QR"
+msgstr "คิวอาร์"
 
-#: ../../../app/views/pushes/index.html.erb:61
+#: ../../../app/views/pushes/index.html.erb:67
 msgid "Text"
 msgstr "ข้อความ"
 
-#: ../../../app/views/pushes/index.html.erb:77
-msgid "%{views} views or %{days} days"
-msgstr "%{views} มุมมองหรือ %{days} วัน"
+#: ../../../app/views/pushes/index.html.erb:93
+msgid "%{views}v / %{days}d"
+msgstr "%{views}v / %{days}d"
 
-#: ../../../app/views/pushes/index.html.erb:80
+#: ../../../app/views/pushes/index.html.erb:98
 msgid "Push Controls"
 msgstr "การควบคุมแบบกด"
 
-#: ../../../app/views/pushes/index.html.erb:83
+#: ../../../app/views/pushes/index.html.erb:100
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:10
 msgid "Preview"
 msgstr "ดูตัวอย่าง"
-
-#: ../../../app/views/pushes/index.html.erb:90
-msgid "Audit"
-msgstr "การตรวจสอบ"
 
 #: ../../../app/views/pushes/new.html.erb:1
 msgid "Securely Send a Password, Text or File"
@@ -2200,115 +3174,118 @@ msgid "Click Here to Proceed"
 msgstr "คลิกที่นี่เพื่อดำเนินการต่อ"
 
 #: ../../../app/views/pushes/preview.html.erb:1
-#: ../../../app/views/pushes/preview.html.erb:6
 msgid "Push Preview"
 msgstr "ดูตัวอย่างการกด"
 
-#: ../../../app/views/pushes/preview.html.erb:8
-msgid "Use this secret link to share it:"
-msgstr "ใช้ลิงค์ลับนี้เพื่อแบ่งปัน:"
+#: ../../../app/views/pushes/preview.html.erb:10
+msgid "Push Created"
+msgstr "สร้างการผลักดัน"
 
-#: ../../../app/views/pushes/preview.html.erb:14
+#: ../../../app/views/pushes/preview.html.erb:12
+msgid "Copy the link or message below to share this push securely."
+msgstr "คัดลอกลิงก์หรือข้อความด้านล่างเพื่อแชร์การแจ้งเตือนนี้อย่างปลอดภัย"
+
+#: ../../../app/views/pushes/preview.html.erb:28
+msgid "QR code"
+msgstr "รหัส QR"
+
+#: ../../../app/views/pushes/preview.html.erb:30
+msgid "Scan to open the secret link on a mobile device."
+msgstr "สแกนเพื่อเปิดลิงก์ลับบนอุปกรณ์มือถือ"
+
+#: ../../../app/views/pushes/preview.html.erb:34
 msgid "Print & Share"
 msgstr "พิมพ์และแบ่งปัน"
 
-#: ../../../app/views/pushes/preview.html.erb:19
-msgid "Generate a Printable Page for End Users"
-msgstr "สร้างหน้าที่พิมพ์ได้สำหรับผู้ใช้ปลายทาง"
+#: ../../../app/views/pushes/preview.html.erb:38
+msgid "Generate a printable page"
+msgstr "สร้างหน้าเว็บที่สามารถพิมพ์ได้"
 
-#: ../../../app/views/pushes/preview.html.erb:24
-#: ../../../app/views/pushes/preview.html.erb:26
-msgid "Optional Custom Message"
-msgstr "ข้อความที่กำหนดเองเพิ่มเติม"
+#: ../../../app/views/pushes/preview.html.erb:41
+msgid "Optional custom message"
+msgstr "ข้อความที่กำหนดเอง (ไม่บังคับ)"
 
-#: ../../../app/views/pushes/preview.html.erb:35
-msgid "Show Expiration Details"
-msgstr "แสดงรายละเอียดการหมดอายุ"
+#: ../../../app/views/pushes/preview.html.erb:45
+msgid "Show expiration details"
+msgstr "แสดงรายละเอียดวันหมดอายุ"
 
-#: ../../../app/views/pushes/preview.html.erb:42
+#: ../../../app/views/pushes/preview.html.erb:49
 msgid "Include ID"
 msgstr "รวมบัตรประจำตัว"
 
-#: ../../../app/views/pushes/preview.html.erb:47
+#: ../../../app/views/pushes/preview.html.erb:52
 msgid "Generate"
 msgstr "สร้าง"
 
-#: ../../../app/views/pushes/preview.html.erb:56
-#: ../../../app/views/pushes/show.html.erb:41
-#: ../../../app/views/pushes/show.html.erb:75
-msgid "This secret link and all content will be deleted in"
-msgstr "ลิงค์ลับนี้และเนื้อหาทั้งหมดจะถูกลบใน"
-
-#: ../../../app/views/pushes/preview.html.erb:57
-#: ../../../app/views/pushes/print_preview.html.erb:13
-#: ../../../app/views/pushes/show.html.erb:43
-#: ../../../app/views/pushes/show.html.erb:77
-msgid "day"
-msgid_plural "days"
-msgstr[0] "วัน"
-msgstr[1] ""
-
-#: ../../../app/views/pushes/preview.html.erb:59
-#: ../../../app/views/pushes/print_preview.html.erb:15
-msgid "view"
-msgid_plural "views"
-msgstr[0] "มุมมอง"
-msgstr[1] ""
-
-#: ../../../app/views/pushes/preview.html.erb:65
-msgid "can be"
-msgstr "เป็นไปได้"
-
-#: ../../../app/views/pushes/preview.html.erb:65
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "deleted by viewers."
-msgstr "ลบโดยผู้ชม"
-
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "can NOT be"
-msgstr "ไม่สามารถ"
-
 #: ../../../app/views/pushes/preview.html.erb:73
-msgid "It also includes a"
-msgstr "นอกจากนี้ยังรวมถึงก"
+msgid "Expires when the first limit is reached"
+msgstr "หมดอายุเมื่อถึงขีดจำกัดแรก"
 
-#: ../../../app/views/pushes/preview.html.erb:73
+#: ../../../app/views/pushes/preview.html.erb:83
+msgid "Viewers can delete this push."
+msgstr "ผู้ชมสามารถลบการแจ้งเตือนนี้ได้"
+
+#: ../../../app/views/pushes/preview.html.erb:85
+msgid "Viewers cannot delete this push."
+msgstr "ผู้ชมไม่สามารถลบการแจ้งเตือนนี้ได้"
+
+#: ../../../app/views/pushes/preview.html.erb:91
+msgid "Includes a"
+msgstr "รวมถึง"
+
+#: ../../../app/views/pushes/preview.html.erb:91
 msgid "1-click preliminary retrieval step"
 msgstr "ขั้นตอนการเรียกข้อมูลเบื้องต้น 1 คลิก"
 
-#: ../../../app/views/pushes/preview.html.erb:77
-msgid "View This Push Now"
-msgstr "ดูกดนี้เลย"
+#: ../../../app/views/pushes/preview.html.erb:103
+msgid "View This Push"
+msgstr "ดูการแจ้งเตือนนี้"
 
-#: ../../../app/views/pushes/preview.html.erb:82
-msgid "(will burn a view) or"
-msgstr "(จะเบิร์นวิว) หรือ"
-
-#: ../../../app/views/pushes/preview.html.erb:84
-#: ../../../app/views/pushes/preview.html.erb:86
-#: ../../../app/views/pushes/preview.html.erb:88
+#: ../../../app/views/pushes/preview.html.erb:107
+#: ../../../app/views/pushes/preview.html.erb:111
+#: ../../../app/views/pushes/preview.html.erb:115
 msgid "Push Another"
 msgstr "ดันอีก"
 
-#: ../../../app/views/pushes/preview.html.erb:95
-msgid "View Audit Log"
-msgstr "ดูบันทึกการตรวจสอบ"
+#: ../../../app/views/pushes/preview.html.erb:128
+#: ../../../app/views/pushes/preview.html.erb:142
+msgid "Notify by Email"
+msgstr "แจ้งทางอีเมล"
 
-#: ../../../app/views/pushes/preview.html.erb:103
-msgid ""
-"Tip: Pushing to an international user?  Change the secret link language using "
-"the dropdown menu to the right of the URL."
-msgstr ""
-"เคล็ดลับ: ส่งไปยังผู้ใช้ต่างประเทศหรือไม่ เปลี่ยนภาษาของลิงก์ลับโดยใช้เมนูแบบเ"
-"ลื่อนลงทางด้านขวาของ URL"
+#: ../../../app/views/pushes/preview.html.erb:147
+#: ../../../app/views/shared/_notify_emails_to.html.erb:7
+msgid "You have reached the maximum number of emails you can send today."
+msgstr "คุณส่งอีเมลครบจำนวนสูงสุดที่สามารถส่งได้ในวันนี้แล้ว"
 
-#: ../../../app/views/pushes/preview.html.erb:104
+#: ../../../app/views/pushes/preview.html.erb:152
+msgid "Email Recipients"
+msgstr "ผู้รับอีเมล"
+
+#: ../../../app/views/pushes/preview.html.erb:159
+msgid "email1@example.com, email2@example.com"
+msgstr "email1@example.com, email2@example.com"
+
+#: ../../../app/views/pushes/preview.html.erb:164
+msgid "Enter email addresses separated by commas (maximum 5 emails)."
+msgstr "กรุณาป้อนที่อยู่อีเมลโดยคั่นด้วยเครื่องหมายจุลภาค (ไม่เกิน 5 อีเมล)"
+
+#: ../../../app/views/pushes/preview.html.erb:168
+msgid "Send Emails"
+msgstr "ส่งอีเมล"
+
+#: ../../../app/views/pushes/preview.html.erb:181
 msgid ""
-"Alternatively auto-detection will select a language based on end-user browser "
-"settings."
+"Tip: Change the secret link language using the dropdown to the right of the UR"
+"L."
+msgstr "คำแนะนำ: เปลี่ยนภาษาของลิงก์ลับโดยใช้เมนูแบบเลื่อนลงทางด้านขวาของ URL"
+
+#: ../../../app/views/pushes/preview.html.erb:183
+msgid ""
+"Alternatively, auto-detection will select a language based on the recipient's "
+"browser settings."
 msgstr ""
-"อีกทางหนึ่ง การตรวจจับอัตโนมัติจะเลือกภาษาตามการตั้งค่าเบราว์เซอร์ของผู้ใช้ปลา"
-"ยทาง"
+"หรืออีกทางเลือกหนึ่ง ระบบตรวจจับอัตโนมัติจะเลือกภาษาตามการตั้งค่าเบราว์เซอร์ขอ"
+"งผู้รับ"
 
 #: ../../../app/views/pushes/print_preview.html.erb:1
 msgid "Your Secret URL"
@@ -2337,6 +3314,11 @@ msgstr "ข้อความต่อไปนี้ถูกส่งถึง
 #: ../../../app/views/pushes/show.html.erb:15
 msgid "The message is blurred out.  Click below to reveal it."
 msgstr "ข้อความเบลอไปหมด คลิกด้านล่างเพื่อเปิดเผย"
+
+#: ../../../app/views/pushes/show.html.erb:41
+#: ../../../app/views/pushes/show.html.erb:75
+msgid "This secret link and all content will be deleted in"
+msgstr "ลิงค์ลับนี้และเนื้อหาทั้งหมดจะถูกลบใน"
 
 #: ../../../app/views/pushes/show.html.erb:46
 #: ../../../app/views/pushes/show.html.erb:80
@@ -2391,6 +3373,19 @@ msgid ""
 "URL."
 msgstr "หากจำเป็น โปรดติดต่อบุคคลหรือองค์กรที่ให้ URL ลับนี้แก่คุณ"
 
+#: ../../../app/views/shared/_additional_options.html.erb:3
+msgid "Additional Options"
+msgstr "ตัวเลือกเพิ่มเติม"
+
+#: ../../../app/views/shared/_additional_options.html.erb:13
+msgid "Show / Hide"
+msgstr "แสดง / ซ่อน"
+
+#: ../../../app/views/shared/_brand_logo.html.erb:15
+#: ../../../app/views/users/first_runs/new.html.erb:11
+msgid "Password Pusher Logo"
+msgstr "โลโก้ตัวดันรหัสผ่าน"
+
 #: ../../../app/views/shared/_cookie_consent.html.erb:6
 msgid ""
 "Browser cookies help make this tool work. By using it, you agree the use of th"
@@ -2399,14 +3394,13 @@ msgstr ""
 "คุกกี้ของเบราว์เซอร์ช่วยให้เครื่องมือนี้ทำงานได้ ในการใช้งานแสดงว่าคุณยอมรับกา"
 "รใช้คุกกี้เหล่านี้"
 
-#: ../../../app/views/shared/_dashboard_header.html.erb:3
-#: ../../../app/views/shared/_header.html.erb:30
-msgid "Dashboard"
-msgstr "แผงควบคุม"
+#: ../../../app/views/shared/_dashboard_header.html.erb:9
+msgid "Filter pushes"
+msgstr "ตัวกรองผลักดัน"
 
-#: ../../../app/views/shared/_dashboard_header.html.erb:13
-msgid "New"
-msgstr "ใหม่"
+#: ../../../app/views/shared/_dashboard_header.html.erb:22
+msgid "New Push"
+msgstr "ดันใหม่"
 
 #: ../../../app/views/shared/_delete_user_button.html.erb:6
 msgid ""
@@ -2418,57 +3412,54 @@ msgstr ""
 "ี้อย่างถาวร การกระทำนี้ไม่สามารถย้อนกลับได้ คุณแน่ใจหรือไม่ว่าต้องการดำเนินการ"
 "ต่อ?"
 
-#: ../../../app/views/shared/_footer.html.erb:22
-msgid "Front Page"
-msgstr "หน้าแรก"
+#: ../../../app/views/shared/_footer.html.erb:17
+msgid "About"
+msgstr "เกี่ยวกับ"
 
-#: ../../../app/views/shared/_footer.html.erb:30
-msgid "Docker Containers"
-msgstr "คอนเทนเนอร์นักเทียบท่า"
+#: ../../../app/views/shared/_footer.html.erb:18
+msgid "API"
+msgstr "API"
 
-#: ../../../app/views/shared/_footer.html.erb:34
-msgid "FAQ"
-msgstr "คำถามที่พบบ่อย"
-
-#: ../../../app/views/shared/_footer.html.erb:35
-msgid "JSON API"
-msgstr "JSON API"
-
-#: ../../../app/views/shared/_footer.html.erb:36
-msgid "Key Generator"
-msgstr "เครื่องกำเนิดคีย์"
-
-#: ../../../app/views/shared/_footer.html.erb:39
-msgid "Source Code"
-msgstr "รหัสแหล่งที่มา"
-
-#: ../../../app/views/shared/_footer.html.erb:43
-msgid "Tools"
-msgstr "เครื่องมือ"
-
-#: ../../../app/views/shared/_footer.html.erb:51
-msgid "Overview"
-msgstr "ภาพรวม"
-
-#: ../../../app/views/shared/_header.html.erb:37
+#: ../../../app/views/shared/_header.html.erb:25
 msgid "Account"
 msgstr "บัญชี"
 
-#: ../../../app/views/shared/_header.html.erb:55
+#: ../../../app/views/shared/_header.html.erb:40
 msgid "Edit Login Details"
 msgstr "แก้ไขรายละเอียดการเข้าสู่ระบบ"
 
-#: ../../../app/views/shared/_header.html.erb:71
+#: ../../../app/views/shared/_header.html.erb:53
 msgid "Log Out"
 msgstr "ออกจากระบบ"
 
-#: ../../../app/views/shared/_header.html.erb:78
+#: ../../../app/views/shared/_header.html.erb:60
 msgid "Log In"
 msgstr "เข้าสู่ระบบ"
 
-#: ../../../app/views/shared/_header.html.erb:82
+#: ../../../app/views/shared/_header.html.erb:63
 msgid "Sign Up"
 msgstr "ลงชื่อ"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:4
+msgid "Auto-Dispatch: Send Secret Link To"
+msgstr "การส่งอัตโนมัติ: ส่งลิงก์ลับไปยัง"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:14
+msgid "recipient@example.com, another@example.com"
+msgstr "recipient@example.com, another@example.com"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:18
+msgid "Separate multiple addresses with commas (max 5)."
+msgstr "คั่นที่อยู่หลายรายการด้วยเครื่องหมายจุลภาค (สูงสุด 5 ตัว)"
+
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:11
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:12
+msgid "Select the language for the email notifications"
+msgstr "เลือกภาษาสำหรับการแจ้งเตือนทางอีเมล"
+
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:17
+msgid "Email Notification Language"
+msgstr "ภาษาสำหรับการแจ้งเตือนทางอีเมล"
 
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:5
 msgid "Confirm Password Generation"
@@ -2486,66 +3477,318 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "Configure Password Generation"
 msgstr "กำหนดค่าการสร้างรหัสผ่าน"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:11
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:12
 msgid "Test Area"
 msgstr "พื้นที่ทดสอบ"
 
 #: ../../../app/views/shared/_pw_generator_modal.html.erb:16
-msgid "Number of Syllables"
-msgstr "จำนวนพยางค์"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:20
-msgid "Minimum Syllable Length"
-msgstr "ความยาวพยางค์ขั้นต่ำ"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:24
-msgid "Maximum Syllable Length"
-msgstr "ความยาวพยางค์สูงสุด"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:31
-msgid "Include numbers"
-msgstr "รวมตัวเลข"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:35
-msgid "Use Titlecase"
-msgstr "ใช้ตัวพิมพ์ชื่อเรื่อง"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:39
-msgid "Use Separators"
-msgstr "ใช้ตัวคั่น"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:43
 msgid "Test"
 msgstr "ทดสอบ"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:50
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:22
+msgid "Structure"
+msgstr "โครงสร้าง"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:24
+msgid "Number of Syllables"
+msgstr "จำนวนพยางค์"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:28
+msgid "Minimum Syllable Length"
+msgstr "ความยาวพยางค์ขั้นต่ำ"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:32
+msgid "Maximum Syllable Length"
+msgstr "ความยาวพยางค์สูงสุด"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:37
+msgid "Options"
+msgstr "ตัวเลือก"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:40
+msgid "Include numbers"
+msgstr "รวมตัวเลข"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:44
+msgid "Use Titlecase"
+msgstr "ใช้ตัวพิมพ์ชื่อเรื่อง"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:48
+msgid "Use Separators"
+msgstr "ใช้ตัวคั่น"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:59
 msgid "Separators"
 msgstr "ตัวคั่น"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:56
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:65
 msgid "Vowels"
 msgstr "สระ"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:62
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:71
 msgid "Consonants"
 msgstr "พยัญชนะ"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:71
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:79
 msgid "Reset to Defaults"
 msgstr "รีเซ็ตเป็นค่าเริ่มต้น"
 
-#: ../../../app/views/shared/_topnav.html.erb:4
+#: ../../../app/views/shared/_share_message.html.erb:5
+msgid "Optional message to share"
+msgstr "ข้อความเพิ่มเติมที่สามารถแชร์ได้ (ไม่บังคับ)"
+
+#: ../../../app/views/shared/_share_message.html.erb:6
+msgid ""
+"Copy and paste this into your email or chat. It includes the secret link and e"
+"xpiration details."
+msgstr ""
+"คัดลอกและวางข้อความนี้ลงในอีเมลหรือแชทของคุณ ข้อความนี้มีลิงก์ลับและรายละเอียด"
+"วันหมดอายุ"
+
+#: ../../../app/views/shared/_share_message.html.erb:12
+#: ../../../app/views/shared/_share_message.html.erb:14
+msgid "Copy message"
+msgstr "คัดลอกข้อความ"
+
+#: ../../../app/views/shared/_topnav.html.erb:5
 msgid "Passwords"
 msgstr "รหัสผ่าน"
 
-#: ../../../app/views/shared/_topnav.html.erb:8
-msgid "Files"
-msgstr "ไฟล์"
-
-#: ../../../app/views/shared/_topnav.html.erb:13
-msgid "URLs"
-msgstr "URL"
-
-#: ../../../app/views/shared/_topnav.html.erb:18
+#: ../../../app/views/shared/_topnav.html.erb:25
 msgid "QR Codes"
-msgstr "รหัส QR ᴮᴱᵀᴬ"
+msgstr "รหัส QR"
+
+#: ../../../app/views/users/first_runs/new.html.erb:1
+msgid "Password Pusher — First Run Setup"
+msgstr "โปรแกรม Password Pusher — การตั้งค่าการใช้งานครั้งแรก"
+
+#: ../../../app/views/users/first_runs/new.html.erb:22
+msgid "Open Source Edition"
+msgstr "รุ่นโอเพนซอร์ส"
+
+#: ../../../app/views/users/first_runs/new.html.erb:27
+msgid "First Run Setup"
+msgstr "การตั้งค่าการทำงานครั้งแรก"
+
+#: ../../../app/views/users/first_runs/new.html.erb:29
+msgid ""
+"Securely share sensitive information with automatic expiration & deletion. Tra"
+"ck access with full audit logs."
+msgstr ""
+"แบ่งปันข้อมูลสำคัญได้อย่างปลอดภัยด้วยระบบหมดอายุและลบข้อมูลอัตโนมัติ ติดตามการ"
+"เข้าถึงด้วยบันทึกการตรวจสอบอย่างครบถ้วน"
+
+#: ../../../app/views/users/first_runs/new.html.erb:38
+#: ../../../app/views/users/first_runs/new.html.erb:98
+msgid "Create Admin Account"
+msgstr "สร้างบัญชี"
+
+#: ../../../app/views/users/first_runs/new.html.erb:39
+msgid "This account will have full access to manage your Password Pusher instance."
+msgstr ""
+"บัญชีนี้จะมีสิทธิ์เข้าถึงอย่างเต็มที่ในการจัดการอินสแตนซ์ Password Pusher ของค"
+"ุณ"
+
+#: ../../../app/views/users/first_runs/new.html.erb:49
+msgid "Boot Code Required"
+msgstr "ต้องใช้รหัสบูต"
+
+#: ../../../app/views/users/first_runs/new.html.erb:50
+msgid "Enter the boot code shown in the application logs during startup."
+msgstr "ป้อนรหัสบูตที่ปรากฏในบันทึกของแอปพลิเคชันระหว่างการเริ่มต้นระบบ"
+
+#: ../../../app/views/users/first_runs/new.html.erb:57
+#: ../../../app/views/users/first_runs/new.html.erb:61
+msgid "Boot Code"
+msgstr "รหัสบูต"
+
+#: ../../../app/views/users/first_runs/new.html.erb:93
+msgid "Your account will be created and you'll be signed in automatically."
+msgstr "บัญชีของคุณจะถูกสร้างขึ้นและคุณจะเข้าสู่ระบบโดยอัตโนมัติ"
+
+#: ../../../app/views/users/first_runs/new.html.erb:111
+msgid "How to retrieve the boot code"
+msgstr "วิธีดึงรหัสบูต"
+
+#: ../../../app/views/users/first_runs/new.html.erb:112
+msgid ""
+"The boot code is printed to the application logs when the server starts. Use o"
+"ne of the following:"
+msgstr ""
+"รหัสการบูตจะถูกพิมพ์ลงในบันทึกแอปพลิเคชันเมื่อเซิร์ฟเวอร์เริ่มต้นทำงาน ใช้หนึ่"
+"งในวิธีต่อไปนี้:"
+
+#: ../../../app/views/users/first_runs/new.html.erb:115
+msgid "Docker"
+msgstr "ด็อกเกอร์"
+
+#: ../../../app/views/users/first_runs/new.html.erb:119
+msgid "Docker Compose"
+msgstr "ด็อกเกอร์ คอมโพซี"
+
+#: ../../../app/views/users/first_runs/new.html.erb:123
+msgid "Look for a line containing the boot code in the output."
+msgstr "มองหาบรรทัดที่มีรหัสบูตในผลลัพธ์"
+
+#: ../../../app/views/users/first_runs/new.html.erb:132
+msgid "What you can do with Password Pusher"
+msgstr "สิ่งที่คุณสามารถทำได้ด้วย Password Pusher"
+
+#: ../../../app/views/users/first_runs/new.html.erb:143
+msgid "Encrypted & ephemeral"
+msgstr "เข้ารหัสและไม่คงอยู่ถาวร"
+
+#: ../../../app/views/users/first_runs/new.html.erb:144
+msgid ""
+"Secrets are stored encrypted and removed automatically after they expire or ar"
+"e viewed."
+msgstr ""
+"ข้อมูลลับจะถูกจัดเก็บในรูปแบบเข้ารหัส และจะถูกลบออกโดยอัตโนมัติหลังจากหมดอายุห"
+"รือถูกดูเรียบร้อยแล้ว"
+
+#: ../../../app/views/users/first_runs/new.html.erb:152
+msgid "Passwords, text & files"
+msgstr "รหัสผ่าน ข้อความ และไฟล์"
+
+#: ../../../app/views/users/first_runs/new.html.erb:153
+msgid ""
+"Share passwords, notes, URLs, and files with configurable expiration and view "
+"limits."
+msgstr "แชร์รหัสผ่าน บันทึกย่อ URL และไฟล์ พร้อมกำหนดวันหมดอายุและจำนวนการดูได้เอง"
+
+#: ../../../app/views/users/first_runs/new.html.erb:161
+msgid "100% open source"
+msgstr "โอเพนซอร์ส 100%"
+
+#: ../../../app/views/users/first_runs/new.html.erb:162
+msgid "Self-host with Docker or your own stack. No vendor lock-in, full transparency."
+msgstr ""
+"โฮสต์เองได้ด้วย Docker หรือเทคโนโลยีที่คุณสร้างเอง ไม่ผูกติดกับผู้ให้บริการราย"
+"ใดรายหนึ่ง โปร่งใสอย่างเต็มที่"
+
+#: ../../../app/views/users/first_runs/new.html.erb:172
+msgid "Helpful links"
+msgstr "ลิงก์ที่เป็นประโยชน์"
+
+#: ../../../app/views/users/first_runs/new.html.erb:178
+msgid "Configuration"
+msgstr "การกำหนดค่า"
+
+#: ../../../app/views/users/first_runs/new.html.erb:184
+msgid "Installation"
+msgstr "การติดตั้ง"
+
+#: ../../../app/views/users/first_runs/new.html.erb:196
+msgid "FAQ"
+msgstr "คำถามที่พบบ่อย"
+
+#: ../../../app/views/users/first_runs/new.html.erb:202
+msgid "Docker images"
+msgstr "อิมเมจ Docker"
+
+#: ../../../app/views/users/first_runs/new.html.erb:208
+msgid "JSON API"
+msgstr "JSON API"
+
+#: ../../../app/views/users/first_runs/new.html.erb:224
+msgid "Thanks for choosing Password Pusher!"
+msgstr "ขอบคุณที่เลือกใช้ Password Pusher!"
+
+#: ../../../app/views/users/sessions/otp.html.erb:4
+msgid "Enter the 6-digit code from your authenticator app or a backup code."
+msgstr "ป้อนรหัส 6 หลักจากแอปยืนยันตัวตนของคุณหรือรหัสสำรอง"
+
+#: ../../../app/views/users/sessions/otp.html.erb:8
+#: ../../../app/views/users/two_factor/verify.html.erb:19
+msgid "Code"
+msgstr "รหัส"
+
+#: ../../../app/views/users/sessions/otp.html.erb:9
+#: ../../../app/views/users/two_factor/verify.html.erb:20
+msgid "Verification code"
+msgstr "รหัสยืนยัน"
+
+#: ../../../app/views/users/sessions/otp.html.erb:11
+msgid "Verify"
+msgstr "ตรวจสอบ"
+
+#: ../../../app/views/users/two_factor/_mfa_required_banner.html.erb:3
+msgid ""
+"Two-factor authentication is required by the administrator. You must complete "
+"setup to access the application."
+msgstr ""
+"ผู้ดูแลระบบต้องการการยืนยันตัวตนสองขั้นตอน คุณต้องทำการตั้งค่าให้เสร็จสมบูรณ์เ"
+"พื่อเข้าถึงแอปพลิเคชัน"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:1
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:6
+msgid "Save your backup codes"
+msgstr "บันทึกรหัสสำรองของคุณ"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:12
+msgid ""
+"Store these codes in a safe place. Each can be used once if you lose your auth"
+"enticator device."
+msgstr ""
+"เก็บรหัสเหล่านี้ไว้ในที่ปลอดภัย แต่ละรหัสสามารถใช้ได้เพียงครั้งเดียวหากคุณทำอุ"
+"ปกรณ์ยืนยันตัวตนหาย"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:17
+msgid "Save or copy these codes now"
+msgstr "บันทึกหรือคัดลอกรหัสเหล่านี้ไว้ตอนนี้"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:18
+msgid ""
+"You will not be able to see this list again after you continue. If you lose yo"
+"ur device and your backup codes, you may need an administrator to reset your a"
+"ccount."
+msgstr ""
+"คุณจะไม่สามารถดูรายการนี้ได้อีกหลังจากดำเนินการต่อ หากคุณทำอุปกรณ์และรหัสสำรอง"
+"หาย คุณอาจต้องขอให้ผู้ดูแลระบบรีเซ็ตบัญชีของคุณ"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:24
+msgid "Recovery codes"
+msgstr "รหัสกู้คืน"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:25
+msgid "total"
+msgstr "ทั้งหมด"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:41
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:42
+msgid "Copy all codes"
+msgstr "คัดลอกรหัสทั้งหมด"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:46
+msgid ""
+"Backup codes are saved but can only be shown once. If you did not save them, d"
+"isable two-factor authentication and set it up again."
+msgstr ""
+"รหัสสำรองจะถูกบันทึกไว้ แต่สามารถแสดงได้เพียงครั้งเดียว หากคุณไม่ได้บันทึกไว้ "
+"ให้ปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนแล้วตั้งค่าใหม่อีกครั้ง"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:52
+msgid "Continue to verify"
+msgstr "ดำเนินการตรวจสอบต่อไป"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:1
+msgid "Verify authenticator"
+msgstr "ตรวจสอบตัวยืนยันตัวตน"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:6
+msgid "Scan this QR code"
+msgstr "สแกนคิวอาร์โค้ดนี้"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:10
+msgid ""
+"Add this account to your authenticator app, then enter the 6-digit code to con"
+"firm."
+msgstr "เพิ่มบัญชีนี้ลงในแอปยืนยันตัวตนของคุณ จากนั้นป้อนรหัส 6 หลักเพื่อยืนยัน"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:14
+msgid "If you cannot scan the code, enter this secret manually:"
+msgstr "หากคุณไม่สามารถสแกนรหัสได้ โปรดป้อนรหัสลับนี้ด้วยตนเอง:"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:23
+msgid "Enable two-factor authentication"
+msgstr "เปิดใช้งานการตรวจสอบปัจจัยสองชั้น"

@@ -7,18 +7,10 @@ class ApplicationHelperTest < ActionView::TestCase
 
   setup do
     @push = pushes(:test_push)
-    # Ensure Settings are available
-    @original_title = Settings.brand.title
-    @original_enabled_language_codes = Settings.enabled_language_codes.dup
-    @original_override_base_url = Settings.override_base_url
   end
 
   teardown do
-    # Restore original settings
-    Settings.brand.title = @original_title
-    Settings.enabled_language_codes = @original_enabled_language_codes
-    Settings.override_base_url = @original_override_base_url
-    ENV.delete("FORCE_SSL")
+    Settings.reload!
   end
 
   # Test title method
@@ -146,6 +138,40 @@ class ApplicationHelperTest < ActionView::TestCase
     assert url.start_with?("https://custom.example.com")
   end
 
+  test "secret_url does not corrupt https URLs when FORCE_SSL is set" do
+    Settings.override_base_url = "https://custom.example.com"
+    @request.env["HTTPS"] = "off"
+
+    ENV.stub(:key?, ->(key) { key == "FORCE_SSL" }) do
+      url = secret_url(@push)
+
+      assert url.start_with?("https://custom.example.com/p/#{@push.url_token}")
+      assert_not_includes url, "httpss"
+    end
+  end
+
+  test "secret_url upgrades http to https when FORCE_SSL is set and request is not ssl" do
+    Settings.override_base_url = "http://custom.example.com"
+    @request.env["HTTPS"] = "off"
+
+    ENV.stub(:key?, ->(key) { key == "FORCE_SSL" }) do
+      url = secret_url(@push)
+
+      assert url.start_with?("https://custom.example.com/p/#{@push.url_token}")
+    end
+  end
+
+  test "secret_url leaves https URLs unchanged when FORCE_SSL is set and request is ssl" do
+    Settings.override_base_url = "https://custom.example.com"
+    @request.env["HTTPS"] = "on"
+
+    ENV.stub(:key?, ->(key) { key == "FORCE_SSL" }) do
+      url = secret_url(@push)
+
+      assert_equal "https://custom.example.com/p/#{@push.url_token}", url
+    end
+  end
+
   # Test qr_code method
   test "qr_code generates SVG QR code" do
     test_url = "https://example.com/test"
@@ -180,5 +206,46 @@ class ApplicationHelperTest < ActionView::TestCase
     qr = qr_code("https://example.com")
     assert qr.html_safe?
     assert qr.is_a?(ActiveSupport::SafeBuffer)
+  end
+
+  # Test brand_logo_srcs
+  test "brand_logo_srcs uses stock assets when neither logo is set" do
+    Settings.brand.light_logo = nil
+    Settings.brand.dark_logo = nil
+
+    srcs = brand_logo_srcs
+
+    assert_equal asset_path(ApplicationHelper::STOCK_LIGHT_LOGO), srcs[:light]
+    assert_equal asset_path(ApplicationHelper::STOCK_DARK_LOGO), srcs[:dark]
+  end
+
+  test "brand_logo_srcs uses light logo for both modes when only light is set" do
+    Settings.brand.light_logo = "/logos/acme.png"
+    Settings.brand.dark_logo = nil
+
+    srcs = brand_logo_srcs
+
+    assert_equal "/logos/acme.png", srcs[:light]
+    assert_equal "/logos/acme.png", srcs[:dark]
+  end
+
+  test "brand_logo_srcs uses dark logo for both modes when only dark is set" do
+    Settings.brand.light_logo = nil
+    Settings.brand.dark_logo = "/logos/acme-dark.png"
+
+    srcs = brand_logo_srcs
+
+    assert_equal "/logos/acme-dark.png", srcs[:light]
+    assert_equal "/logos/acme-dark.png", srcs[:dark]
+  end
+
+  test "brand_logo_srcs uses each custom logo when both are set" do
+    Settings.brand.light_logo = "/logos/acme.png"
+    Settings.brand.dark_logo = "/logos/acme-dark.png"
+
+    srcs = brand_logo_srcs
+
+    assert_equal "/logos/acme.png", srcs[:light]
+    assert_equal "/logos/acme-dark.png", srcs[:dark]
   end
 end

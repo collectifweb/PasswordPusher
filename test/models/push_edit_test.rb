@@ -5,10 +5,13 @@ require "test_helper"
 class PushEditTest < ActiveSupport::TestCase
   setup do
     @user = users(:luca)
-    Settings.enable_logins = true
     Settings.enable_url_pushes = true
     Settings.enable_qr_pushes = true
     Settings.enable_file_pushes = true
+  end
+
+  teardown do
+    Settings.reload!
   end
 
   test "should update text push with valid payload" do
@@ -388,5 +391,45 @@ class PushEditTest < ActiveSupport::TestCase
     # Validation should fail
     assert_not push.valid?
     assert_includes push.errors[:files], "You can only attach up to #{max_files} files per push."
+  end
+
+  test "owned_by? requires an authenticated matching owner" do
+    owner = users(:luca)
+    other = users(:one)
+
+    owned = Push.create!(kind: "text", payload: "owned", user: owner)
+    assert owned.owned_by?(owner)
+    assert_not owned.owned_by?(other)
+    assert_not owned.owned_by?(nil)
+    assert_not owned.owned_by?(User.new)
+
+    anonymous = Push.create!(kind: "text", payload: "anon")
+    assert_nil anonymous.user_id
+    assert_not anonymous.owned_by?(nil)
+    assert_not anonymous.owned_by?(other)
+    assert_not anonymous.owned_by?(User.new)
+  end
+
+  test "deletable_by? requires authenticated owner or explicit viewer deletion" do
+    owner = users(:luca)
+    other = users(:one)
+
+    owned = Push.create!(kind: "text", payload: "owned", user: owner, deletable_by_viewer: false)
+    assert owned.deletable_by?(owner)
+    assert_not owned.deletable_by?(other)
+    assert_not owned.deletable_by?(nil)
+
+    anonymous = Push.create!(kind: "text", payload: "anon", deletable_by_viewer: false)
+    assert_nil anonymous.user_id
+    assert_not anonymous.deletable_by?(nil)
+    assert_not anonymous.deletable_by?(other)
+
+    anonymous_deletable = Push.create!(kind: "text", payload: "anon-del", deletable_by_viewer: true)
+    assert anonymous_deletable.deletable_by?(nil)
+    assert anonymous_deletable.deletable_by?(other)
+
+    url_push = Push.create!(kind: "url", payload: "https://example.com", deletable_by_viewer: nil)
+    assert_not url_push.deletable_by?(nil)
+    assert_not url_push.deletable_by?(other)
   end
 end

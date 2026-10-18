@@ -339,7 +339,7 @@ eu:
         currently_waiting_confirmation_for_email: 'Une honetan berrespenaren zain:
           %{email}'
         leave_blank_if_you_don_t_want_to_change_it: utzi hutsik ez baduzu aldatu nahi
-        title: Editatu %{resource}
+        title: Editatu profila
         unhappy: Zoritxarrez?
         update: Eguneratu
         we_need_your_current_password_to_confirm_your_changes: zure uneko pasahitza
@@ -356,8 +356,7 @@ eu:
         login_html: Edo %{link}
         submitting: Bidaltzen...
         terms_html: "%{terms} eta %{privacy} onartzen ditut"
-      signed_up: Ongi etorri! Behar bezala erregistratu zara. Mesedez, egiaztatu zure
-        posta elektronikoa berrespen-esteka bat izateko.
+      signed_up: Ongi etorri! Arrakastaz eman duzu izena.
       signed_up_but_inactive: Behar bezala erregistratu zara. Hala ere, ezin izan
         dizugu saioa hasi zure kontua oraindik aktibatuta ez dagoelako.
       signed_up_but_locked: Behar bezala erregistratu zara. Hala ere, ezin izan dizugu
@@ -474,3 +473,43 @@ eu:
       previous: "‹ Aurrekoa"
       next: Hurrengoa ›
       truncate: "…"
+  madmin:
+    layout:
+      open_menu: Ireki menua
+      admin_suffix: Administratzailea
+    navigation:
+      dashboard: Kontrol Panel
+      github: Madmin GitHub-en
+    dashboard:
+      title: Madmin Aginte-panela
+      hint_html: Sortu <code>app/views/madmin/dashboard/show.html.erb</code> zure
+        aginte-panela pertsonalizatzeko.
+    actions:
+      all: Denak
+      view: Ikusi
+      edit: Editatu
+      delete: Ezabatu
+      new: Berria
+      remove: Kendu
+      cancel: Utzi
+    search:
+      placeholder: Bilatu
+    titles:
+      new: Berria %{name}
+      edit: Editatu %{name}
+    form:
+      errors:
+        one: Errore bat egon da zure bidalketan
+        other: "%{count} errore egon dira zure bidalketarekin"
+    confirmations:
+      delete: Ziur zaude?
+      remove_with_changes: Ziur zaude? Beste edozein aldaketa galduko duzu.
+    nested_form:
+      add_new: "+ Gehitu berria"
+    fields:
+      attachment:
+        one: "%{count} eranskina"
+        other: "%{count} eranskinak"
+    missing_resource:
+      message: "%{resource} falta da."
+      create_hint: 'Sortu hau exekutatuz:'

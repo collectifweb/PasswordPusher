@@ -1,93 +1,14 @@
 /*
- * CSS overrides for the Collectif palette.
- * Loaded last, so it wins over theme defaults.
+ * This file is intentionally left blank.
+ *
+ * Use file file to place CSS overrides in.  It is loaded last and will take precedence.
  */
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --bs-primary: #268b78;
-        --bs-primary-rgb: 38, 139, 120;
-        --bs-link-color: #268b78;
-        --bs-link-hover-color: #1f725f;
-        --bs-body-color: #2f2e2e;
-        --bs-gray-100: rgba(0, 0, 0, 0.045);
-        --bs-light: rgba(0, 0, 0, 0.045);
-    }
-}
+/*
+ Example:
 
-/* ===== CW Customizations ===== */
-
-/* Cache les cases "1-click retrieval step" + "Allow immediate deletion" */
-.list-group.mx-0 {
-    display: none !important;
+.container {
+    color: #000;
+    background-color: #1acaca;
 }
-
-/* Cache le bouton générateur de mot de passe et sa configuration */
-#generate_password,
-#configure_generator {
-    display: none !important;
-}
-.btn-group[aria-label="Password Generator button group with nested dropdown"] {
-    display: none !important;
-}
-.btn-group[aria-label="Password Generator button group with nested dropdown"] + p {
-    display: none !important;
-}
-
-/* Cache le séparateur hr entre générateur et astuces */
-.col-12.col-sm-4 .row.my-3.px-5 {
-    display: none !important;
-}
-
-/* Cache la colonne de droite entière (générateur + astuces) */
-.col-12.col-sm-4.p-3.mt-3 {
-    display: none !important;
-}
-
-/* Cache les liens de navigation dans le footer */
-footer .nav.col-md-5.justify-content-end {
-    display: none !important;
-}
-
-/* ===== Éléments masqués par cw-custom.js (sliders, "whichever") ===== */
-.cw-hidden {
-    display: none !important;
-}
-
-/* ===== Sélecteurs d'expiration CW ===== */
-#cw-expiration .form-label {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-}
-#cw-expiration .form-select {
-    max-width: 18rem;
-}
-#cw-expiration .form-check {
-    margin-left: 0.1rem;
-}
-
-/* ===== Passphrase optionnelle ===== */
-#cw-passphrase-wrap .form-check {
-    margin-left: 0.1rem;
-}
-
-/* ===== Bloc preview après création ===== */
-#cw-preview-block #cw-big-copy {
-    min-width: 18rem;
-    box-shadow: 0 4px 14px rgba(38, 139, 120, 0.25);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-#cw-preview-block #cw-big-copy:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(38, 139, 120, 0.35);
-}
-#cw-preview-block .lead {
-    color: #2f2e2e;
-}
-
-/* Sur la page preview, on rend la barre URL plus discrète puisque le gros
-   bouton "Copier le lien" est l'action principale */
-#cw-preview-block ~ * .input-group#secret_url,
-#secret_url[readonly] {
-    opacity: 0.85;
-}
+*/

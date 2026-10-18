@@ -35,3 +35,30 @@ Settings.reload!
 load_legacy_environment_variables
 
 # rubocop:enable Layout/LineLength
+
+module SettingsExtensions
+  def notify_by_email_available?
+    notify_by_email&.enabled != false &&
+      !disable_logins &&
+      mail&.smtp_address.present?
+  end
+end
+
+Settings.extend(SettingsExtensions)
+
+# Prepend so we override Config's theme_mode reader (extend alone loses to
+# singleton methods Config defines on Settings).
+module ThemeModeExtension
+  THEME_MODES = %w[auto light dark].freeze
+
+  def theme_mode
+    raw = super.to_s.strip.downcase
+    THEME_MODES.include?(raw) ? raw : "auto"
+  end
+
+  def theme_mode_locked?
+    theme_mode != "auto"
+  end
+end
+
+Settings.singleton_class.prepend(ThemeModeExtension)

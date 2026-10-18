@@ -12,11 +12,6 @@
         Administration Center
       <% end %>
     </h1>
-    <div class="mt-2">
-      <span class="badge bg-warning text-dark px-2 py-1 fw-semibold" style="font-size: 0.7rem;">
-        BETA
-      </span>
-    </div>
   </div>
 </div>
 
@@ -65,6 +60,13 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
         </svg>
         Audit Logs
+      <% end %>
+
+      <%= link_to madmin_notify_by_emails_path, class: "d-flex align-items-center px-3 py-2 text-decoration-none rounded-3 transition-all #{'bg-primary bg-opacity-10 text-primary fw-semibold' if current_page?(madmin_notify_by_emails_path)} #{'text-dark hover-bg-light' unless current_page?(madmin_notify_by_emails_path)}" do %>
+        <svg class="me-3" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        Notify By Emails
       <% end %>
     </div>
   </div>

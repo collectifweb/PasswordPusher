@@ -4,17 +4,16 @@ require "application_system_test_case"
 
 class PasswordGeneratorTest < ApplicationSystemTestCase
   setup do
-    Settings.enable_logins = true
     Settings.enable_password_pushes = true
     Rails.application.reload_routes!
 
     @user = users(:luca)
-    @user.confirm
     login_as(@user, scope: :user)
   end
 
   teardown do
-    logout(:user)
+    Settings.reload!
+    Rails.application.reload_routes!
   end
 
   test "generate password button generates password" do
@@ -29,9 +28,7 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
 
     # Click generate button
     generate_button.click
-
-    # Password should appear in the form
-    sleep 0.5 # Wait for JavaScript to execute
+    wait_until_field_has_value("push_payload")
     new_value = payload_input.value
 
     assert_not_equal initial_value, new_value
@@ -46,12 +43,20 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
     payload_input = find("textarea#push_payload")
 
     generate_button.click
-    sleep 0.5
-
-    # Password should be in the textarea
+    wait_until_field_has_value("push_payload")
     generated_password = payload_input.value
     assert generated_password.present?
     assert generated_password.length >= 8 # Minimum reasonable password length
+  end
+
+  test "generate password updates the character counter" do
+    visit new_push_path(tab: "text")
+
+    find("button[data-action*='pwgen#producePassword']", match: :first, wait: 5).click
+    wait_until_field_has_value("push_payload")
+
+    payload = find("textarea#push_payload").value
+    assert_equal payload.length.to_s, find("[data-passwords-target='currentChars']", match: :first).text
   end
 
   test "configure generator dialog opens" do
@@ -68,6 +73,60 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
     sleep 0.5
     # Look for common configuration fields
     assert_selector "input", wait: 2
+  end
+
+  test "configure modal keeps a stable size when switching generator types" do
+    visit new_push_path(tab: "text")
+    find("button[data-action*='pwgen#configureGenerator']", match: :first, wait: 5).click
+    assert_selector "#configureModal.show", wait: 5
+
+    dialog = find("#configureModal .pwgen-modal-content", match: :first)
+    passphrase_height = dialog.native.size.height
+
+    find("label.pwgen-type-label[for='pwgen_type_password']", match: :first).click
+    password_height = dialog.native.size.height
+
+    find("label.pwgen-type-label[for='pwgen_type_pin']", match: :first).click
+    pin_height = dialog.native.size.height
+
+    assert_in_delta passphrase_height, password_height, 8
+    assert_in_delta passphrase_height, pin_height, 8
+  end
+
+  test "configure preview entropy updates when passphrase word count changes" do
+    visit new_push_path(tab: "text")
+    find("button[data-action*='pwgen#configureGenerator']", match: :first, wait: 5).click
+    assert_selector "#configureModal.show", wait: 5
+
+    find("button[data-action*='pwgen#testGenerate']", match: :first).click
+    entropy = find("[data-pwgen-target='entropyArea']", match: :first, wait: 5)
+    assert_text(/bits/, wait: 5)
+    original_bits = entropy.text
+
+    find("input[data-pwgen-target='wordCountInput']", match: :first).set("10")
+    find("button[data-action*='pwgen#testGenerate']", match: :first).click
+
+    updated_bits = nil
+    Timeout.timeout(8) do
+      loop do
+        updated_bits = find("[data-pwgen-target='entropyArea']", match: :first).text
+        break if updated_bits != original_bits && updated_bits.include?("bits")
+        sleep 0.05
+      end
+    end
+    assert_not_equal original_bits, updated_bits
+  end
+
+  test "configure preview entropy clears when switching away from passphrase" do
+    visit new_push_path(tab: "text")
+    find("button[data-action*='pwgen#configureGenerator']", match: :first, wait: 5).click
+    assert_selector "#configureModal.show", wait: 5
+
+    find("button[data-action*='pwgen#testGenerate']", match: :first).click
+    assert_text(/bits/, wait: 5)
+
+    find("label.pwgen-type-label[for='pwgen_type_password']", match: :first).click
+    within("#configureModal") { assert_no_text(/bits/) }
   end
 
   test "test generate functionality in dialog" do
@@ -98,12 +157,11 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
 
     sleep 0.5
 
-    # Change a setting (e.g., number of syllables)
-    syllables_input = find("input[data-pwgen-target='numSyllablesInput']", match: :first, wait: 5)
-    original_value = syllables_input.value.to_i
-    new_value = (original_value + 2).to_s
-
-    fill_in syllables_input[:id] || syllables_input[:name], with: new_value
+    # Change a setting (e.g., number of words)
+    word_count_input = find("input[data-pwgen-target='wordCountInput']", match: :first, wait: 5)
+    original_value = word_count_input.value.to_i
+    new_value = (original_value + 1).to_s
+    word_count_input.set(new_value)
 
     # Save settings (if there's a save button)
     save_buttons = all("button[data-action*='pwgen#saveSettings']")
@@ -122,10 +180,9 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
 
     sleep 0.5
 
-    # Settings should be persisted
-    find("input[data-pwgen-target='numSyllablesInput']", match: :first, wait: 5)
-    # Note: Cookie persistence may require page reload, so we check if value was saved
-    # The exact behavior depends on implementation
+    # Settings should be persisted (word count we set before navigating away)
+    word_count_after = find("input[data-pwgen-target='wordCountInput']", match: :first, wait: 5)
+    assert_equal new_value, word_count_after.value, "Generator word count setting should persist after save and revisit"
   end
 
   test "password generator is available on password form" do
@@ -198,13 +255,13 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
 
     # Generate first password
     generate_button.click
-    sleep 0.5
+    wait_until_field_has_value("push_payload")
     first_password = payload_input.value
 
     # Clear and generate second password
     payload_input.set("")
     generate_button.click
-    sleep 0.5
+    wait_until_field_changes("push_payload", from: "")
     second_password = payload_input.value
 
     # Passwords should be different (very high probability)
@@ -217,13 +274,13 @@ class PasswordGeneratorTest < ApplicationSystemTestCase
     # Generate password
     generate_button = find("button[data-action*='pwgen#producePassword']", match: :first, wait: 5)
     generate_button.click
-    sleep 0.5
+    wait_until_field_has_value("push_payload")
 
     # Submit the form
     click_button "Push It!"
 
     # Should create push successfully
     assert_current_path %r{/p/[a-zA-Z0-9_-]+/preview}, wait: 5
-    assert_text "Push Preview", wait: 5
+    assert_text "Push Created", wait: 5
   end
 end

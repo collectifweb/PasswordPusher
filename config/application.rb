@@ -10,6 +10,21 @@ require "version"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# cssbundling-rails attaches `css:build` to `test:prepare`, `assets:precompile`, etc. That runs
+# `yarn build:css` → build_themes.js unless SKIP_CSS_BUILD is set.
+#
+# Policy: skip the rake CSS build in test so the suite stays fast. Development `bin/dev` uses the
+# CSS watcher; do not skip on development `assets:precompile` or Propshaft will fingerprint stale
+# `app/assets/builds/application-*.css` (leftover `../flags/` URLs warn for every icon).
+# In production (Docker, Hatchbox, etc.), build only the active theme (PWP__THEME).
+# CI/test jobs can run `yarn build:css:single` where digested CSS is required.
+# Local full rebuild of every theme: `yarn build:css:all` manually.
+if ENV["RAILS_ENV"] == "production"
+  ENV["BUILD_CSS_SINGLE"] ||= "1"
+elsif ENV["RAILS_ENV"] == "test"
+  ENV["SKIP_CSS_BUILD"] ||= "1"
+end
+
 module PasswordPusher
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -22,7 +37,7 @@ module PasswordPusher
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks])
+    config.autoload_lib(ignore: %w[assets tasks pwpush/generator/wordlists])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -36,6 +51,8 @@ module PasswordPusher
     # Use the ApplicationController for authentication
     config.mission_control.jobs.base_controller_class = "ApplicationController"
     config.mission_control.jobs.http_basic_auth_enabled = false
+
+    config.active_storage.variant_processor = :disabled
 
     # We already authenticate /admin routes
     ::MissionControl::Jobs.http_basic_auth_enabled = false if defined?(::MissionControl::Jobs)

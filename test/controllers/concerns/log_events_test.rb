@@ -10,12 +10,12 @@ end
 class LogEventsTest < ActionController::TestCase
   tests LogEventsTestController
   include Devise::Test::ControllerHelpers
+  include ActiveJob::TestHelper
 
   setup do
     @push = pushes(:test_push)
     @user = users(:luca)
-    @user.confirm
-    AuditLog.delete_all
+    AuditLog.destroy_all
   end
 
   # Test log_view method
@@ -162,6 +162,52 @@ class LogEventsTest < ActionController::TestCase
     assert_not_equal @push, log.push
   end
 
+  test "log_creation_email_send creates an audit_log and notify_by_email" do
+    @request.env["REMOTE_ADDR"] = "172.16.0.1"
+    @request.env["HTTP_USER_AGENT"] = "TestAgent/1.0"
+    @request.env["HTTP_REFERER"] = "https://test.com"
+
+    sign_in @user
+
+    @push.notify_by_email_recipients = "test@test.com"
+    @push.notify_by_email_locale = "en"
+    @push.notify_by_email_creator = @user
+
+    assert_difference "AuditLog.count", 1 do
+      assert_difference "NotifyByEmail.count", 1 do
+        @controller.log_creation_email_send(@push)
+      end
+    end
+
+    assert_equal 1, AuditLog.count
+    log = AuditLog.last
+    assert_equal :creation_email_send, log.kind.to_sym
+    assert_equal @push, log.push
+    assert_equal "172.16.0.1", log.ip
+    assert_equal "TestAgent/1.0", log.user_agent
+    assert_equal "https://test.com", log.referrer
+
+    notify_by_email = NotifyByEmail.last
+    assert_equal "test@test.com", notify_by_email.recipients
+    assert_equal "en", notify_by_email.locale
+    assert_equal @push, notify_by_email.push
+    assert_equal "pending", notify_by_email.status
+  end
+
+  test "log_creation_email_send does not create audit_log or notify_by_email record when notify_by_email_recipients is blank" do
+    sign_in @user
+
+    @push.notify_by_email_recipients = ""
+
+    refute_enqueued_jobs do
+      assert_no_difference "AuditLog.count" do
+        assert_no_difference "NotifyByEmail.count" do
+          @controller.log_creation_email_send(@push)
+        end
+      end
+    end
+  end
+
   # Test log_failed_passphrase method
   test "log_failed_passphrase creates failed_passphrase audit log" do
     @request.env["REMOTE_ADDR"] = "192.168.0.1"
@@ -197,14 +243,29 @@ class LogEventsTest < ActionController::TestCase
   end
 
   # Test log_event method - IP address handling
-  test "log_event uses HTTP_X_FORWARDED_FOR when present" do
+  test "log_event ignores spoofed X-Forwarded-For from untrusted clients" do
     @request.env["HTTP_X_FORWARDED_FOR"] = "203.0.113.50, 192.168.1.1"
+    @request.env["REMOTE_ADDR"] = "203.0.113.99"
+
+    @controller.log_view(@push)
+
+    log = AuditLog.last
+    assert_equal "203.0.113.99", log.ip
+  end
+
+  test "log_event uses client IP from X-Forwarded-For when REMOTE_ADDR is a trusted proxy" do
+    original_trusted_proxies = Rails.application.config.action_dispatch.trusted_proxies
+    Rails.application.config.action_dispatch.trusted_proxies = [IPAddr.new("10.0.0.0/8")]
+
+    @request.env["HTTP_X_FORWARDED_FOR"] = "203.0.113.50, 10.0.0.1"
     @request.env["REMOTE_ADDR"] = "10.0.0.1"
 
     @controller.log_view(@push)
 
     log = AuditLog.last
-    assert_equal "203.0.113.50, 192.168.1.1", log.ip
+    assert_equal "203.0.113.50", log.ip
+  ensure
+    Rails.application.config.action_dispatch.trusted_proxies = original_trusted_proxies
   end
 
   test "log_event uses REMOTE_ADDR when HTTP_X_FORWARDED_FOR is nil" do
@@ -223,7 +284,6 @@ class LogEventsTest < ActionController::TestCase
     @controller.log_view(@push)
 
     log = AuditLog.last
-    # Now correctly falls back to REMOTE_ADDR when HTTP_X_FORWARDED_FOR is empty
     assert_equal "10.0.0.3", log.ip
   end
 
@@ -315,7 +375,7 @@ class LogEventsTest < ActionController::TestCase
     kinds = [:creation, :view, :failed_view, :expire, :failed_passphrase, :owner_view, :admin_view]
 
     kinds.each do |kind|
-      AuditLog.delete_all
+      AuditLog.destroy_all
       push = Push.create!(
         kind: "text",
         payload: "test",
@@ -355,6 +415,47 @@ class LogEventsTest < ActionController::TestCase
 
       assert_equal 1, AuditLog.count, "Expected 1 audit log for kind: #{kind}"
       assert_equal kind.to_s, AuditLog.last.kind, "Expected kind #{kind} but got #{AuditLog.last.kind}"
+    end
+  end
+
+  def with_max_audit_logs_per_push_or_pull(value)
+    original_value = AuditLog::MAX_AUDIT_LOGS_PER_PUSH_OR_PULL
+    AuditLog.send(:remove_const, :MAX_AUDIT_LOGS_PER_PUSH_OR_PULL)
+    AuditLog.const_set(:MAX_AUDIT_LOGS_PER_PUSH_OR_PULL, value)
+
+    yield
+  ensure
+    AuditLog.send(:remove_const, :MAX_AUDIT_LOGS_PER_PUSH_OR_PULL)
+    AuditLog.const_set(:MAX_AUDIT_LOGS_PER_PUSH_OR_PULL, original_value)
+  end
+
+  test "log_event does not create audit log when push has max audit logs" do
+    with_max_audit_logs_per_push_or_pull(3) do
+      @request.env["REMOTE_ADDR"] = "203.0.113.195"
+      @request.env["HTTP_USER_AGENT"] = "Test Agent"
+
+      needed = AuditLog::MAX_AUDIT_LOGS_PER_PUSH_OR_PULL - @push.audit_logs.count
+      needed.times { @push.audit_logs.create!(kind: :view, ip: "127.0.0.1", user_agent: "Test", referrer: nil, user: @user) }
+      assert_equal AuditLog::MAX_AUDIT_LOGS_PER_PUSH_OR_PULL, @push.audit_logs.count, "push should have exactly max audit logs"
+
+      assert_no_difference("@push.audit_logs.count") do
+        @controller.log_event(@push, :view)
+      end
+    end
+  end
+
+  test "log_event still creates audit log when push has one fewer than max" do
+    with_max_audit_logs_per_push_or_pull(3) do
+      @request.env["REMOTE_ADDR"] = "203.0.113.195"
+      @request.env["HTTP_USER_AGENT"] = "Test Agent"
+
+      needed = (AuditLog::MAX_AUDIT_LOGS_PER_PUSH_OR_PULL - 1) - @push.audit_logs.count
+      needed.times { @push.audit_logs.create!(kind: :view, ip: "127.0.0.1", user_agent: "Test", referrer: nil, user: @user) }
+      assert_equal AuditLog::MAX_AUDIT_LOGS_PER_PUSH_OR_PULL - 1, @push.audit_logs.count
+
+      assert_difference("@push.audit_logs.count", 1) do
+        @controller.log_event(@push, :view)
+      end
     end
   end
 end

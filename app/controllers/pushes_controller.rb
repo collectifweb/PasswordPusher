@@ -3,64 +3,76 @@
 class PushesController < BaseController
   include SetPushAttributes
   include LogEvents
+  include Pwpush::AssignNotifiableByEmailFields
 
+  before_action :clear_flash_for_delivery_pages, only: %i[show preliminary], prepend: true
   before_action :set_push, except: %i[new create index]
   before_action :check_allowed
 
+  rate_limit to: 5, within: 1.minute, only: :notify_emails,
+    by: -> { current_user&.id },
+    with: -> { redirect_to preview_push_path(@push), alert: I18n._("Too many email notification requests. Please try again in a minute.") }
+
+  rate_limit to: 5, within: 1.minute, only: :access,
+    by: -> { params[:id] },
+    scope: :passphrase_attempts, name: "per-push",
+    with: -> { redirect_to passphrase_push_path(@push), alert: I18n._("Too many passphrase attempts. Please try again in a minute.") }
+
+  rate_limit to: 5, within: 1.minute, only: :show,
+    if: -> { params[:passphrase].present? },
+    by: -> { params[:id] },
+    scope: :passphrase_attempts, name: "per-push",
+    with: -> { redirect_to passphrase_push_path(@push), alert: I18n._("Too many passphrase attempts. Please try again in a minute.") }
+
   def show
-    # This push may have expired since the last view.  Validate the push
-    # expiration before doing anything.
+    # Expire pushes that are already past days/views so passphrase-protected
+    # exhausted pushes still skip the passphrase gate (legacy behavior).
     @push.check_limits
 
-    if @push.expired
-      log_view(@push)
-      render template: "pushes/show_expired", layout: "naked"
-      return
-    else
-      @payload = @push.payload
-    end
-
-    # Passphrase handling
-    if @push.passphrase.present?
-      # Construct the passphrase cookie name
+    # Passphrase gate before any payload access or view claim
+    if @push.passphrase.present? && !@push.expired?
       name = "#{@push.url_token}-p"
 
       # The passphrase can be passed in the params or in the cookie (default)
-      # JSON requests must pass the passphrase in the params
       has_passphrase = ActiveSupport::SecurityUtils.secure_compare(@push.passphrase.to_s, params[:passphrase].to_s) ||
         ActiveSupport::SecurityUtils.secure_compare(@push.passphrase_ciphertext.to_s, cookies[name].to_s)
 
       unless has_passphrase
-        # Passphrase hasn't been provided or is incorrect
-        # Redirect to the passphrase page
         redirect_to passphrase_push_path(@push.url_token)
         return
       end
 
-      # Delete the cookie
       cookies.delete name
     end
 
-    log_view(@push)
+    result = @push.claim_view!(
+      viewer: user_signed_in? ? current_user : nil,
+      admin: user_signed_in? && current_user.admin?,
+      ip: request.remote_ip,
+      user_agent: request.env["HTTP_USER_AGENT"],
+      referrer: request.env["HTTP_REFERER"]
+    )
+
+    if result.expired?
+      render template: "pushes/show_expired", layout: "naked"
+      return
+    end
+
+    @payload = result.payload
     expires_now
 
     # Optionally blur the text payload
     @blur_css_class = @push.settings_for_kind.enable_blur ? "spoiler" : ""
 
     if @push.kind == "url"
-      # Redirect to the URL
-      redirect_to @push.payload, allow_other_host: true, status: :see_other
+      redirect_to @payload, allow_other_host: true, status: :see_other
     else
       render layout: "bare"
     end
 
-    # If files are attached, we can't expire immediately as the viewer still needs
-    # to download the files.  In the case of files, this push will be expired on the
-    # next ExpirePushesJob run or next view attempt.  Whichever comes first.
-    if !@push.files.attached? && !@push.views_remaining.positive?
-      # Expire if this is the last view for this push
-      @push.expire!
-    end
+    # Expire after response so the last successful view still renders the payload
+    # with expired=false (legacy behavior). The view was already logged under lock.
+    @push.expire! if result.expire_after_response
   end
 
   # GET /p/:url_token/passphrase
@@ -113,13 +125,13 @@ class PushesController < BaseController
   # GET /p/:url_token/edit
   def edit
     # Verify the push belongs to the current user
-    if @push.user_id != current_user.id
+    unless @push.owned_by?(current_user)
       redirect_to :root, notice: I18n._("That push doesn't belong to you.")
       return
     end
 
     # Can't edit expired pushes
-    redirect_to @push, notice: I18n._("That push has already expired and cannot be edited.") if @push.expired
+    redirect_to pushes_path, notice: I18n._("That push has already expired and cannot be edited.") if @push.expired
   end
 
   def create
@@ -127,11 +139,18 @@ class PushesController < BaseController
 
     @push.user_id = current_user.id if user_signed_in?
 
+    if @push.settings_for_kind.nil?
+      redirect_to new_push_path, alert: _("That push type is not supported.")
+      return
+    end
+
     assign_deletable_by_viewer(@push, push_params)
     assign_retrieval_step(@push, push_params)
+    assign_notify_by_email_fields(@push, required: false)
 
     if @push.save
       log_creation(@push)
+      log_creation_email_send(@push)
 
       redirect_to preview_push_path(@push)
     else
@@ -153,14 +172,14 @@ class PushesController < BaseController
   # PATCH/PUT /p/:url_token
   def update
     # Verify the push belongs to the current user
-    if @push.user_id != current_user.id
+    unless @push.owned_by?(current_user)
       redirect_to :root, notice: I18n._("That push doesn't belong to you.")
       return
     end
 
     # Can't edit expired pushes
     if @push.expired
-      redirect_to @push, notice: I18n._("That push has already expired and cannot be edited.")
+      redirect_to pushes_path, notice: I18n._("That push has already expired and cannot be edited.")
       return
     end
 
@@ -241,6 +260,29 @@ class PushesController < BaseController
   def preview
     @secret_url = helpers.secret_url(@push)
     @qr_code = helpers.qr_code(@secret_url)
+    @share_message = helpers.push_share_message_text(@push, secret_url: @secret_url)
+  end
+
+  def notify_emails
+    authenticate_user!
+
+    unless @push.owned_by?(current_user)
+      redirect_to :root, notice: I18n._("That push doesn't belong to you.")
+      return
+    end
+
+    @push.assign_attributes(notify_emails_params)
+    assign_notify_by_email_fields(@push, required: true)
+
+    if @push.valid?
+      log_creation_email_send(@push)
+      redirect_to preview_push_path(@push), notice: I18n._("Recipient(s) are added to the queue to be sent.")
+    else
+      @secret_url = helpers.secret_url(@push)
+      @qr_code = helpers.qr_code(@secret_url)
+
+      render action: "preview", status: :unprocessable_content
+    end
   end
 
   def print_preview
@@ -271,7 +313,16 @@ class PushesController < BaseController
   end
 
   def audit
-    if @push.user_id != current_user.id
+    unless current_user
+      # When disable_logins is true, new_user_session_path returns 404—send users to root instead
+      if Settings.disable_logins
+        redirect_to root_path, notice: I18n._("The audit log is only available when signed in.")
+      else
+        redirect_to new_user_session_path, notice: I18n._("You must be signed in to view the audit log.")
+      end
+      return
+    end
+    unless @push.owned_by?(current_user)
       redirect_to :root, notice: I18n._("That push doesn't belong to you.")
       return
     end
@@ -281,7 +332,7 @@ class PushesController < BaseController
 
   def expire
     # Check if the push is deletable by the viewer or if the user is the owner
-    unless @push.deletable_by_viewer || (@push.user == current_user)
+    unless @push.deletable_by?(current_user)
       redirect_to :root, notice: I18n._("That push is not deletable by viewers and does not belong to you.")
       return
     end
@@ -301,7 +352,7 @@ class PushesController < BaseController
 
   def delete_file
     # Verify the push belongs to the current user
-    if @push.user_id != current_user.id
+    unless @push.owned_by?(current_user)
       redirect_to :root, notice: I18n._("That push doesn't belong to you.")
       return
     end
@@ -341,14 +392,23 @@ class PushesController < BaseController
       Push.includes(:audit_logs)
         .where(user_id: current_user.id)
         .page(params[:page])
-        .order(created_at: :desc)
+        .order(expired: :asc, created_at: :desc)
     end
   end
 
   private
 
+  def clear_flash_for_delivery_pages
+    flash.clear
+  end
+
   def set_push
-    @push = Push.includes(:audit_logs).find_by!(url_token: params[:id])
+    @push = if action_name == "audit"
+      # If notify_by_email is included unnecessarily, it will cause memory usage unnecessarily.
+      Push.includes(audit_logs: :notify_by_email).find_by!(url_token: params[:id])
+    else
+      Push.includes(:audit_logs).find_by!(url_token: params[:id])
+    end
   rescue ActiveRecord::RecordNotFound
     # Showing a 404 reveals that this Secret URL never existed
     # which is an information leak (not a secret anymore)
@@ -365,16 +425,14 @@ class PushesController < BaseController
   end
 
   def push_params
+    base = %i[kind name expire_after_days expire_after_views retrieval_step payload note passphrase notify_emails_to notify_emails_to_locale]
     case params.dig(:push, :kind)
     when "url"
-      params.require(:push).permit(:kind, :name, :expire_after_days, :expire_after_views,
-        :retrieval_step, :payload, :note, :passphrase)
+      params.require(:push).permit(*base)
     when "file"
-      params.require(:push).permit(:kind, :name, :expire_after_days, :expire_after_views, :deletable_by_viewer,
-        :retrieval_step, :payload, :note, :passphrase, files: [])
+      params.require(:push).permit(*(base + [:deletable_by_viewer, {files: []}]))
     else
-      params.require(:push).permit(:kind, :name, :expire_after_days, :expire_after_views, :deletable_by_viewer,
-        :retrieval_step, :payload, :note, :passphrase)
+      params.require(:push).permit(*(base + [:deletable_by_viewer]))
     end
   rescue => e
     Rails.logger.error("Error in push_params: #{e.message}")
@@ -382,17 +440,15 @@ class PushesController < BaseController
   end
 
   def update_params
+    base = %i[name expire_after_days expire_after_views retrieval_step payload note passphrase]
     # Don't allow kind to be changed after creation for security
     case @push.kind
     when "url"
-      params.require(:push).permit(:name, :expire_after_days, :expire_after_views,
-        :retrieval_step, :payload, :note, :passphrase)
+      params.require(:push).permit(*base)
     when "file"
-      params.require(:push).permit(:name, :expire_after_days, :expire_after_views, :deletable_by_viewer,
-        :retrieval_step, :payload, :note, :passphrase, files: [])
+      params.require(:push).permit(*(base + [:deletable_by_viewer, {files: []}]))
     else
-      params.require(:push).permit(:name, :expire_after_days, :expire_after_views, :deletable_by_viewer,
-        :retrieval_step, :payload, :note, :passphrase)
+      params.require(:push).permit(*(base + [:deletable_by_viewer]))
     end
   rescue => e
     Rails.logger.error("Error in update_params: #{e.message}")
@@ -401,6 +457,10 @@ class PushesController < BaseController
 
   def print_preview_params
     params.permit(:id, :locale, :message, :show_expiration, :show_id)
+  end
+
+  def notify_emails_params
+    params.require(:push).permit(:notify_emails_to, :notify_emails_to_locale)
   end
 
   def set_kind_by_tab
@@ -430,15 +490,21 @@ class PushesController < BaseController
 
   def check_allowed
     if action_name == "index"
-      if Settings.enable_logins
-        authenticate_user!
-      else
-        redirect_to :root
+      # Dashboard requires login; when logins are disabled, sign_in URL is 404—redirect to root instead
+      if Settings.disable_logins && !user_signed_in?
+        redirect_to root_path, notice: I18n._("The push dashboard is not available while logins are disabled.")
         return
       end
+      authenticate_user!
     end
 
-    @push_kind = if %w[preview print_preview preliminary passphrase access show expire audit edit update delete_file].include?(action_name)
+    # Audit requires sign-in; when logins are disabled, sign_in URL is 404—redirect to root instead
+    if action_name == "audit" && Settings.disable_logins && !user_signed_in?
+      redirect_to root_path, notice: I18n._("The audit log is only available when signed in.")
+      return
+    end
+
+    @push_kind = if %w[preview print_preview preliminary passphrase access show expire audit edit update delete_file notify_emails].include?(action_name)
       @push.kind
     elsif action_name == "new"
       case params["tab"]
@@ -452,14 +518,17 @@ class PushesController < BaseController
         "text"
       end
     elsif action_name == "create"
-      push_params.dig(:push, :kind) || "text"
+      # Use params, not push_params: permit returns the push slice flat; dig(:push, :kind) is always nil
+      params.dig(:push, :kind).presence || "text"
     end
 
     case @push_kind
     when "file"
-      # File pushes only enabled when logins are enabled.
-
-      if Settings.enable_logins && Settings.enable_file_pushes
+      if Settings.disable_logins
+        redirect_to new_push_path(tab: "text"), notice: I18n._("File pushes are unavailable while logins are disabled.")
+        return
+      end
+      if Settings.enable_file_pushes
         unless %w[preliminary passphrase access show expire].include?(action_name)
           authenticate_user!
         end
@@ -468,32 +537,35 @@ class PushesController < BaseController
       end
 
     when "url"
-      # URL pushes only enabled when logins are enabled.
-      if Settings.enable_logins && Settings.enable_url_pushes
-        unless %w[preliminary passphrase access show expire].include?(action_name)
+      if !Settings.enable_url_pushes
+        redirect_to root_path, notice: I18n._("URL pushes are disabled.")
+        return
+      end
+
+      if !Settings.allow_anonymous
+        unless %w[new create preview print_preview preliminary passphrase access show expire].include?(action_name)
           authenticate_user!
         end
-      else
-        redirect_to root_path, notice: I18n._("URL pushes are disabled.")
       end
 
     when "qr"
-      # QR code pushes only enabled when logins are enabled.
-      if Settings.enable_logins && Settings.enable_qr_pushes
-        unless %w[preliminary passphrase access show expire].include?(action_name)
+      if !Settings.enable_qr_pushes
+        redirect_to root_path, notice: I18n._("QR code pushes are disabled.")
+        return
+      end
+
+      if !Settings.allow_anonymous
+        unless %w[new create preview print_preview preliminary passphrase access show expire].include?(action_name)
           authenticate_user!
         end
-      else
-        redirect_to root_path, notice: I18n._("QR code pushes are disabled.")
       end
+
     when "text"
       unless %w[new create preview print_preview preliminary passphrase access show expire].include?(action_name)
         authenticate_user!
       end
 
-      if %w[new create].include?(action_name) && Settings.enable_logins && !Settings.allow_anonymous
-        # Require authentication if allow_anonymous is false
-        # See config/settings.yml
+      if %w[new create].include?(action_name) && !Settings.allow_anonymous
         authenticate_user!
       end
     end

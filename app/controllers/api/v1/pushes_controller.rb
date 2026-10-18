@@ -3,8 +3,15 @@
 class Api::V1::PushesController < Api::BaseController
   include SetPushAttributes
   include LogEvents
+  include Pwpush::AssignNotifiableByEmailFields
 
   before_action :set_push, only: %i[show preview audit destroy]
+
+  rate_limit to: 5, within: 1.minute, only: :show,
+    if: -> { params[:passphrase].present? },
+    by: -> { params[:id] },
+    scope: :passphrase_attempts, name: "per-push",
+    with: -> { render json: {error: I18n._("Too many passphrase attempts. Please try again in a minute.")}, status: :too_many_requests }
 
   resource_description do
     name "Pushes"
@@ -31,25 +38,18 @@ class Api::V1::PushesController < Api::BaseController
     https://docs.pwpush.com/docs/json-api/
   EOS
   def show
-    # This push may have expired since the last view.  Validate the url
-    # expiration before doing anything.
+    # Expire pushes that are already past days/views so passphrase-protected
+    # exhausted pushes still skip the passphrase gate (legacy behavior).
     @push.check_limits
 
-    if @push.expired
-      log_view(@push)
-      render template: "pushes/show", status: :ok
-      return
-    end
-
-    # Passphrase handling
-    if @push.passphrase.present?
+    # Passphrase gate before any payload access or view claim
+    if @push.passphrase.present? && !@push.expired?
       # JSON requests must pass the passphrase in the params
       has_passphrase = ActiveSupport::SecurityUtils.secure_compare(@push.passphrase.to_s, params[:passphrase].to_s)
 
       unless has_passphrase
         log_failed_passphrase(@push)
 
-        # Passphrase hasn't been provided or is incorrect
         render json: {
           error: "That passphrase is incorrect.",
           message: "This push requires a passphrase. Please provide it using the 'passphrase' parameter (e.g. ?passphrase=mysecret)",
@@ -59,18 +59,20 @@ class Api::V1::PushesController < Api::BaseController
       end
     end
 
-    log_view(@push)
-    expires_now
+    result = @push.claim_view!(
+      viewer: user_signed_in? ? current_user : nil,
+      admin: user_signed_in? && current_user.admin?,
+      ip: request.remote_ip,
+      user_agent: request.env["HTTP_USER_AGENT"],
+      referrer: request.env["HTTP_REFERER"]
+    )
 
+    expires_now
     render template: "pushes/show", status: :ok
 
-    # If files are attached, we can't expire immediately as the viewer still needs
-    # to download the files.  In the case of files, this push will be expired on the
-    # next ExpirePushesJob run or next view attempt.  Whichever comes first.
-    if !@push.files.attached? && !@push.views_remaining.positive?
-      # Expire if this is the last view for this push
-      @push.expire!
-    end
+    # Expire after response so the last successful view still reports
+    # expired=false with payload (legacy API shape). View was logged under lock.
+    @push.expire! if result.expire_after_response
   end
 
   api :POST, "/p.json", "Create a new push."
@@ -147,13 +149,15 @@ class Api::V1::PushesController < Api::BaseController
       }
   EOS
   def create
-    # Require authentication if allow_anonymous is false
-    # See config/settings.yml
-    authenticate_user! if Settings.enable_logins && !Settings.allow_anonymous
+    permitted_params = push_params
 
-    @push = Push.new(push_params)
+    # Require authentication if anonymous creation is disabled or
+    # when creating file pushes / uploading attachments.
+    authenticate_user! if requires_authentication_for_create?(permitted_params)
 
-    if !push_params[:kind].present?
+    @push = Push.new(permitted_params)
+
+    if !permitted_params[:kind].present?
       # These are used to determine the default kind based on the request path
       # for old push records. Their paths are generated based on their kind.
       # And, QR code pushes are created by using `/p/` path.
@@ -162,7 +166,7 @@ class Api::V1::PushesController < Api::BaseController
         "file"
       elsif request.path.include?("/r.json")
         "url"
-      elsif request.path.include?("/p.json") && push_params.key?(:files)
+      elsif request.path.include?("/p.json") && permitted_params.key?(:files)
         "file"
       else
         "text"
@@ -171,8 +175,10 @@ class Api::V1::PushesController < Api::BaseController
 
     @push.user = current_user if user_signed_in?
 
-    assign_deletable_by_viewer(@push, push_params)
-    assign_retrieval_step(@push, push_params)
+    assign_deletable_by_viewer(@push, permitted_params)
+    assign_retrieval_step(@push, permitted_params)
+
+    assign_notify_by_email_fields(@push, required: false)
 
     if @push.save
       log_creation(@push)
@@ -216,6 +222,7 @@ class Api::V1::PushesController < Api::BaseController
     - Event type (view, failed_view, expire, etc)
 
     Results are paginated with a maximum of 50 audit log entries per page and 200 pages total.
+    Pagination metadata is returned in response headers (Link, X-Page, X-Per-Page, X-Total, X-Total-Pages).
 
     Authentication is required. Only the owner of the push can retrieve its audit log.
     Requests for pushes not owned by the authenticated user will receive a 403 Forbidden response.
@@ -251,7 +258,7 @@ class Api::V1::PushesController < Api::BaseController
     https://docs.pwpush.com/docs/json-api/
   EOS
   def audit
-    if @push.user != current_user
+    unless @push.owned_by?(current_user)
       render json: {error: I18n._("That push doesn't belong to you.")}, status: :forbidden
       return
     end
@@ -262,7 +269,13 @@ class Api::V1::PushesController < Api::BaseController
     @audit_logs = @push.audit_logs
       .order(created_at: :desc)
       .page(page)
-      .per(50)
+      .per(API_PAGE_SIZE)
+
+    set_pagination_headers(
+      page: @audit_logs.current_page,
+      per_page: @audit_logs.limit_value,
+      total: @audit_logs.total_count
+    )
 
     @secret_url = helpers.secret_url(@push)
     render json: {views: @audit_logs}.to_json(except: %i[user_id push_id id])
@@ -297,7 +310,7 @@ class Api::V1::PushesController < Api::BaseController
     https://docs.pwpush.com/docs/json-api/
   EOS
   def destroy
-    if (@push.user == current_user) || @push.deletable_by_viewer
+    if @push.deletable_by?(current_user)
       unless @push.expired?
         # Deletable by the owner or viewer
         @push.expire!
@@ -318,6 +331,7 @@ class Api::V1::PushesController < Api::BaseController
 
     Returns the list of pushes that are still active.
     Results are paginated with a maximum of 50 pushes per page and 200 pages total.
+    Pagination metadata is returned in response headers (Link, X-Page, X-Per-Page, X-Total, X-Total-Pages).
 
     == Parameters
 
@@ -350,19 +364,21 @@ class Api::V1::PushesController < Api::BaseController
     https://docs.pwpush.com/docs/json-api/
   EOS
   def active
-    unless Settings.enable_logins
-      render json: {error: I18n._("You must be logged in to view your active pushes.")}, status: :unauthorized
-      return
-    end
-
+    authenticate_user!
     page = validate_page_parameter
     return if page.nil?
 
     @pushes = Push.includes(:audit_logs)
       .where(user_id: current_user.id, expired: false)
       .page(page)
-      .per(50)
+      .per(API_PAGE_SIZE)
       .order(created_at: :desc)
+
+    set_pagination_headers(
+      page: @pushes.current_page,
+      per_page: @pushes.limit_value,
+      total: @pushes.total_count
+    )
 
     render template: "pushes/index", status: :ok
   end
@@ -374,6 +390,7 @@ class Api::V1::PushesController < Api::BaseController
 
     Returns the list of pushes that have expired.
     Results are paginated with a maximum of 50 pushes per page and 200 pages total.
+    Pagination metadata is returned in response headers (Link, X-Page, X-Per-Page, X-Total, X-Total-Pages).
 
     == Parameters
 
@@ -406,46 +423,37 @@ class Api::V1::PushesController < Api::BaseController
     https://docs.pwpush.com/docs/json-api/
   EOS
   def expired
-    unless Settings.enable_logins
-      render json: {error: I18n._("You must be logged in to view your expired pushes.")}, status: :unauthorized
-      return
-    end
-
+    authenticate_user!
     page = validate_page_parameter
     return if page.nil?
 
     @pushes = Push.includes(:audit_logs)
       .where(user_id: current_user.id, expired: true)
       .page(page)
-      .per(50)
+      .per(API_PAGE_SIZE)
       .order(created_at: :desc)
+
+    set_pagination_headers(
+      page: @pushes.current_page,
+      per_page: @pushes.limit_value,
+      total: @pushes.total_count
+    )
 
     render template: "pushes/index", status: :ok
   end
 
   private
 
-  # validate_page_parameter
-  #
-  # Validates and sanitizes the page parameter for pagination
-  # Returns the validated page number or renders an error response
-  #
-  # @return [Integer, nil] validated page number or nil if error rendered
-  def validate_page_parameter
-    begin
-      page = Integer(params[:page] || 1)
-      page = [page, 1].max  # Ensure minimum of 1
-    rescue ArgumentError, TypeError
-      render json: {error: "Invalid page parameter"}, status: :bad_request
-      return nil
-    end
+  def requires_authentication_for_create?(permitted_params)
+    return true unless Settings.allow_anonymous
+    return true if request.path.start_with?("/f")
 
-    if page > 200
-      render json: {error: "Invalid page parameter"}, status: :bad_request
-      return nil
-    end
-
-    page
+    # Keep auth semantics aligned with API surface:
+    # - v1 /p.json treats files key presence as file intent
+    # - v2 /api/v2/pushes should do the same for auth gating
+    ((request.path.include?("/p.json") || params["controller"] == "api/v2/pushes") &&
+      permitted_params.key?(:files)) ||
+      permitted_params[:kind] == "file"
   end
 
   def set_push

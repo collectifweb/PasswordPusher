@@ -7,12 +7,7 @@ class PasswordEditTest < ActionDispatch::IntegrationTest
 
   setup do
     @luca = users(:luca)
-    @luca.confirm
     sign_in @luca
-  end
-
-  teardown do
-    sign_out :user
   end
 
   test "authenticated user can access edit page for their own push" do
@@ -95,8 +90,12 @@ class PasswordEditTest < ActionDispatch::IntegrationTest
     # Reveal zone with instructions is present
     assert_select ".payload-reveal-zone", 1
     assert_match(/Content is hidden for privacy/, response.body)
+
+    # Hide-while-typing toggle is not shown when edit blur zone is active
+    assert_select "[data-controller='payload-visibility']", 0
+    assert_select "button[data-action='payload-visibility#toggle']", 0
   ensure
-    Settings.pw.enable_blur = true
+    Settings.reload!
   end
 
   test "can update push with valid data" do
@@ -189,7 +188,7 @@ class PasswordEditTest < ActionDispatch::IntegrationTest
     push.update_columns(expired: true, expired_on: Time.current, payload_ciphertext: nil)
 
     get edit_push_path(push)
-    assert_redirected_to push_path(push)
+    assert_redirected_to pushes_path
 
     patch push_path(push), params: {
       push: {
@@ -197,7 +196,7 @@ class PasswordEditTest < ActionDispatch::IntegrationTest
         payload: "New password"
       }
     }
-    assert_redirected_to push_path(push)
+    assert_redirected_to pushes_path
   end
 
   test "can update passphrase" do

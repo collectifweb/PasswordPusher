@@ -23,6 +23,16 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     assert text_area.attribute("required").value == "required"
   end
 
+  def test_payload_visibility_toggle_present
+    get new_push_path(tab: "text")
+    assert_response :success
+
+    assert_select "[data-controller='payload-visibility']", 1
+    assert_select "button[data-action='payload-visibility#toggle']", 1
+    assert_select "button[data-action='payload-visibility#toggle'][aria-label='Hide payload']", 1
+    assert_select "textarea#push_payload[data-payload-visibility-target='input']", 1
+  end
+
   def test_password_creation
     get new_push_path(tab: "text")
     assert_response :success
@@ -33,7 +43,9 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     # Preview page
     follow_redirect!
     assert_response :success
-    assert_select "h2", "Push Preview"
+    assert_select "h2", "Push Created"
+    assert_match "Optional message to share", response.body
+    assert_select "textarea#share-message-text", minimum: 1
 
     # Password page
     get request.url.sub("/preview", "")
@@ -51,6 +63,15 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     assert(pre.first.content.include?("testpw"))
   end
 
+  def test_unknown_kind_is_rejected
+    assert_no_difference("Push.count") do
+      post pushes_path, params: {push: {kind: "not-a-kind", payload: "secret"}}
+    end
+
+    assert_redirected_to new_push_path
+    assert_equal "That push type is not supported.", flash[:alert]
+  end
+
   def test_ascii_8bit_password_creation
     get "/"
     assert_response :success
@@ -61,7 +82,7 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     # Preview page
     follow_redirect!
     assert_response :success
-    assert_select "h2", "Push Preview"
+    assert_select "h2", "Push Created"
 
     # Password page
     get request.url.sub("/preview", "")
@@ -89,7 +110,7 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     # Preview page
     follow_redirect!
     assert_response :success
-    assert_select "h2", "Push Preview"
+    assert_select "h2", "Push Created"
 
     # Password page
     get request.url.sub("/preview", "")
@@ -128,7 +149,7 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     assert(deletable_checkbox.length == 1)
 
     # DELETABLE_PASSWORDS_DEFAULT determines initial check state
-    if Settings.pw.deletable_pushes_default == true
+    if Settings.pw.deletable_pushes_default
       assert(deletable_checkbox.first.attributes["checked"].value == "checked")
     else
       assert(deletable_checkbox.first.attributes["checked"].nil?)
@@ -185,5 +206,35 @@ class PasswordCreationTest < ActionDispatch::IntegrationTest
     # HTML Form Checkboxes: when NOT checked the form attribute isn't submitted
     # at all so we set false - NOT deletable by viewers
     assert(delete_button.empty?)
+  end
+
+  def test_password_creation_with_auto_dispatch_emails
+    Settings.mail.smtp_address = "smtp.example.com"
+    @user = users(:luca)
+    sign_in @user
+
+    get new_push_path(tab: "text")
+    assert_response :success
+
+    job = assert_enqueued_with(job: SendNotifyByEmailJob) do
+      post pushes_path, params: {
+        push: {
+          kind: "text",
+          payload: "testpw",
+          notify_emails_to: "test@example.com",
+          notify_emails_to_locale: "fr"
+        }
+      }
+      assert_response :redirect
+
+      follow_redirect!
+      assert_response :success
+    end
+
+    assert_emails 1 do
+      job.perform_now
+    end
+  ensure
+    Settings.reload!
   end
 end

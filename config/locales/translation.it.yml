@@ -376,7 +376,7 @@ it:
         cancel_my_account: Rimuovi il mio account
         currently_waiting_confirmation_for_email: 'In attesa di conferma per: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lascia in bianco se non vuoi cambiarla
-        title: Modifica %{resource}
+        title: Modifica profilo
         unhappy: Scontento
         update: Aggiorna
         we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della
@@ -483,3 +483,43 @@ it:
       previous: "&lsaquo; Prec."
       next: Succ. &rsaquo;
       truncate: "&hellip;"
+  madmin:
+    layout:
+      open_menu: Aprire il menu
+      admin_suffix: Admin
+    navigation:
+      dashboard: Cruscotto
+      github: Madmin su GitHub
+    dashboard:
+      title: Pannello di controllo Madmin
+      hint_html: Crea il file <code>app/views/madmin/dashboard/show.html.erb</code>
+        per personalizzare la tua dashboard.
+    actions:
+      all: Tutto
+      view: Visualizza
+      edit: Modificare
+      delete: Cancellare
+      new: Nuovo
+      remove: Rimuovere
+      cancel: Annulla
+    search:
+      placeholder: Ricerca
+    titles:
+      new: Nuovo %{name}
+      edit: Modifica %{name}
+    form:
+      errors:
+        one: Si è verificato 1 errore durante l'invio
+        other: Si sono verificati %{count} errori durante l'invio
+    confirmations:
+      delete: Sei sicuro?
+      remove_with_changes: Sei sicuro? Perderai tutte le altre modifiche.
+    nested_form:
+      add_new: "+ Aggiungi nuovo"
+    fields:
+      attachment:
+        one: "%{count} allegato"
+        other: "%{count} allegati"
+    missing_resource:
+      message: Manca %{resource}.
+      create_hint: 'Per crearlo, esegui il seguente comando:'

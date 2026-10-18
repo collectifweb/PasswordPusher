@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pwpush 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2026-01-29 01:43+0100\n"
-"PO-Revision-Date: 2026-01-29 00:43+0000\n"
+"POT-Creation-Date: 2026-08-21 03:07+0200\n"
+"PO-Revision-Date: 2026-08-21 01:08+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -18,115 +18,345 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "\n"
 
+#: ../../../app/controllers/admin/custom_css_controller.rb:11
+msgid "Custom CSS updated successfully."
+msgstr "カスタムCSSの更新に成功しました。"
+
+#: ../../../app/controllers/admin/custom_css_controller.rb:13
+msgid "Error updating CSS: %{error}"
+msgstr "CSSの更新エラー: %{error}"
+
 #: ../../../app/controllers/admin/users_controller.rb:49
 msgid "You cannot delete your own account."
 msgstr "自分のアカウントを削除することはできません。"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:255
-#: ../../../app/controllers/pushes_controller.rb:117
-#: ../../../app/controllers/pushes_controller.rb:157
-#: ../../../app/controllers/pushes_controller.rb:275
-#: ../../../app/controllers/pushes_controller.rb:305
+#: ../../../app/controllers/api/v1/pushes_controller.rb:14
+#: ../../../app/controllers/pushes_controller.rb:19
+#: ../../../app/controllers/pushes_controller.rb:25
+msgid "Too many passphrase attempts. Please try again in a minute."
+msgstr "パスフレーズの入力回数が多すぎます。1分ほどお待ちください。"
+
+#: ../../../app/controllers/api/v1/pushes_controller.rb:261
+#: ../../../app/controllers/api/v2/pushes_controller.rb:58
+#: ../../../app/controllers/api/v2/pushes_controller.rb:78
+#: ../../../app/controllers/pushes_controller.rb:129
+#: ../../../app/controllers/pushes_controller.rb:171
+#: ../../../app/controllers/pushes_controller.rb:265
+#: ../../../app/controllers/pushes_controller.rb:321
+#: ../../../app/controllers/pushes_controller.rb:351
 msgid "That push doesn't belong to you."
 msgstr "そのプッシュはあなたのものではありません。"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:309
+#: ../../../app/controllers/api/v1/pushes_controller.rb:315
 msgid "That push is not deletable by viewers."
 msgstr "そのプッシュは、閲覧者が削除することはできません。"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:354
-msgid "You must be logged in to view your active pushes."
-msgstr "アクティブなプッシュを表示するにはログインする必要があります。"
+#: ../../../app/controllers/api/v2/pushes_controller.rb:12
+#: ../../../app/controllers/pushes_controller.rb:14
+msgid "Too many email notification requests. Please try again in a minute."
+msgstr "メール通知リクエストが多すぎます。しばらくしてからもう一度お試しください。"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:410
-msgid "You must be logged in to view your expired pushes."
-msgstr "期限切れのプッシュを表示するには、ログインする必要があります。"
+#: ../../../app/controllers/api/v2/pushes_controller.rb:87
+#: ../../../app/controllers/pushes_controller.rb:274
+#: ../../../app/views/pages/api.html.erb:245
+msgid "Recipient(s) are added to the queue to be sent."
+msgstr "受信者が送信待ちリストに追加されます。"
 
-#: ../../../app/controllers/pushes_controller.rb:97
+#: ../../../app/controllers/concerns/enforce_required_mfa.rb:19
+#: ../../../test/controllers/api/base_controller_test.rb:50
+#: ../../../test/integration/require_mfa_test.rb:27
+#: ../../../test/integration/require_mfa_test.rb:58
+#: ../../../test/integration/require_mfa_test.rb:74
+msgid "Two-factor authentication is required. Please set it up to continue."
+msgstr "二段階認証が必要です。設定を完了してから続行してください。"
+
+#: ../../../app/controllers/pushes_controller.rb:109
 msgid ""
 "That passphrase is incorrect.  Please try again or contact the person or organ"
 "ization that sent you this link."
 msgstr "そのパスフレーズは正しくありません。もう一度お試しいただくか、このリンクを送信した個人または組織にお問い合わせください。"
 
-#: ../../../app/controllers/pushes_controller.rb:122
-#: ../../../app/controllers/pushes_controller.rb:163
+#: ../../../app/controllers/pushes_controller.rb:134
+#: ../../../app/controllers/pushes_controller.rb:177
 msgid "That push has already expired and cannot be edited."
 msgstr "そのプッシュはすでに期限が切れているため、編集できません。"
 
-#: ../../../app/controllers/pushes_controller.rb:188
+#: ../../../app/controllers/pushes_controller.rb:202
 msgid "must be at least %{count} (days already elapsed + 1)."
 msgstr "少なくとも %{count} (経過日数 + 1) である必要があります。"
 
-#: ../../../app/controllers/pushes_controller.rb:197
+#: ../../../app/controllers/pushes_controller.rb:211
 msgid "must be at least %{count} (views already consumed + 1)."
 msgstr "少なくとも %{count} (すでに消費されたビュー + 1) である必要があります。"
 
-#: ../../../app/controllers/pushes_controller.rb:222
-#: ../../../app/models/push.rb:114
+#: ../../../app/controllers/pushes_controller.rb:236
+#: ../../../app/models/push.rb:121
 msgid "You can only attach up to %{count} files per push."
 msgstr "1 回のプッシュで添付できるファイルは最大 %{count} 個です。"
 
-#: ../../../app/controllers/pushes_controller.rb:235
+#: ../../../app/controllers/pushes_controller.rb:249
 msgid "Push was successfully updated."
 msgstr "プッシュが正常に更新されました。"
 
-#: ../../../app/controllers/pushes_controller.rb:285
+#: ../../../app/controllers/pushes_controller.rb:314
+#: ../../../app/controllers/pushes_controller.rb:498
+#: ../../../test/integration/disable_logins_test.rb:54
+msgid "The audit log is only available when signed in."
+msgstr "監査ログは、ログインしている場合のみ利用可能です。"
+
+#: ../../../app/controllers/pushes_controller.rb:316
+msgid "You must be signed in to view the audit log."
+msgstr "監査ログを表示するには、ログインする必要があります。"
+
+#: ../../../app/controllers/pushes_controller.rb:331
 msgid "That push is not deletable by viewers and does not belong to you."
 msgstr "そのプッシュは閲覧者によって削除することはできず、あなたのものではありません。"
 
-#: ../../../app/controllers/pushes_controller.rb:290
-#: ../../../app/controllers/pushes_controller.rb:311
+#: ../../../app/controllers/pushes_controller.rb:336
+#: ../../../app/controllers/pushes_controller.rb:357
 msgid "That push has already expired."
 msgstr "そのプッシュはすでに期限切れです。"
 
-#: ../../../app/controllers/pushes_controller.rb:298
-#: ../../../app/views/pushes/audit.html.erb:99
+#: ../../../app/controllers/pushes_controller.rb:344
+#: ../../../app/views/pushes/audit.html.erb:96
 msgid "The push content has been deleted and the secret URL expired."
 msgstr "プッシュ コンテンツが削除され、シークレット URL が期限切れになりました。"
 
-#: ../../../app/controllers/pushes_controller.rb:317
+#: ../../../app/controllers/pushes_controller.rb:363
 msgid "You cannot delete the last file from a file push."
 msgstr "ファイル プッシュから最後のファイルを削除することはできません。"
 
-#: ../../../app/controllers/pushes_controller.rb:326
+#: ../../../app/controllers/pushes_controller.rb:372
 msgid "File was successfully deleted."
 msgstr "ファイルは正常に削除されました。"
 
-#: ../../../app/controllers/pushes_controller.rb:328
+#: ../../../app/controllers/pushes_controller.rb:374
 msgid "File not found."
 msgstr "ファイルが見つかりません。"
 
-#: ../../../app/controllers/pushes_controller.rb:467
-#: ../../../app/models/push.rb:208
+#: ../../../app/controllers/pushes_controller.rb:490
+#: ../../../test/integration/disable_logins_test.rb:144
+msgid "The push dashboard is not available while logins are disabled."
+msgstr "ログインが無効になっている間は、プッシュ通知ダッシュボードは利用できません。"
+
+#: ../../../app/controllers/pushes_controller.rb:523
+#: ../../../test/integration/disable_logins_test.rb:135
+msgid "File pushes are unavailable while logins are disabled."
+msgstr "ログインが無効になっている間は、ファイルのプッシュは利用できません。"
+
+#: ../../../app/controllers/pushes_controller.rb:531
+#: ../../../app/models/push.rb:297
 msgid "File pushes are disabled."
 msgstr "ファイルプッシュは無効です。"
 
-#: ../../../app/controllers/pushes_controller.rb:477
-#: ../../../app/models/push.rb:212
+#: ../../../app/controllers/pushes_controller.rb:536
+#: ../../../app/models/push.rb:301
+#: ../../../test/controllers/urls_controller_test.rb:110
+#: ../../../test/controllers/urls_controller_test.rb:127
 msgid "URL pushes are disabled."
 msgstr "URL プッシュは無効です。"
 
-#: ../../../app/controllers/pushes_controller.rb:487
-#: ../../../app/models/push.rb:216
+#: ../../../app/controllers/pushes_controller.rb:548
+#: ../../../app/models/push.rb:305
+#: ../../../test/controllers/qr_push_controller_test.rb:128
+#: ../../../test/controllers/qr_push_controller_test.rb:144
 msgid "QR code pushes are disabled."
 msgstr "QR コードのプッシュは無効です。"
 
-#: ../../../app/models/push.rb:123 ../../../app/models/push.rb:141
-#: ../../../app/models/push.rb:155
+#: ../../../app/controllers/users/first_runs_controller.rb:34
+msgid "Administrator account created successfully!"
+msgstr "管理者アカウントが正常に作成されました！"
+
+#: ../../../app/controllers/users/first_runs_controller.rb:64
+msgid ""
+"Invalid or missing boot code. Please check the application logs for the boot c"
+"ode."
+msgstr "ブートコードが無効または欠落しています。アプリケーションログでブートコードを確認してください。"
+
+#: ../../../app/controllers/users/sessions_controller.rb:55
+msgid "Session expired. Please sign in again."
+msgstr "セッションの有効期限が切れました。再度ログインしてください。"
+
+#: ../../../app/controllers/users/sessions_controller.rb:67
+#: ../../../app/controllers/users/two_factor_controller.rb:25
+msgid "Incorrect verification code."
+msgstr "認証コードが間違っています。"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:23
+msgid "Two-factor authentication is now enabled."
+msgstr "二段階認証が有効になりました。"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:34
+#: ../../../test/integration/require_mfa_test.rb:105
+msgid ""
+"Two-factor authentication cannot be disabled because it is required by the adm"
+"inistrator."
+msgstr "二段階認証は管理者によって必須とされているため、無効にすることはできません。"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:40
+#: ../../../test/integration/require_mfa_test.rb:122
+msgid "Two-factor authentication has been disabled."
+msgstr "二段階認証は無効になっています。"
+
+#: ../../../app/helpers/pushes_helper.rb:15
+#: ../../../app/helpers/share_message_helper.rb:46
+#: ../../../app/views/pushes/preview.html.erb:76
+#: ../../../app/views/pushes/print_preview.html.erb:13
+#: ../../../app/views/pushes/show.html.erb:43
+#: ../../../app/views/pushes/show.html.erb:77
+msgid "day"
+msgid_plural "days"
+msgstr[0] "日間"
+msgstr[1] ""
+
+#: ../../../app/helpers/share_message_helper.rb:14
+msgid "The link and content will be deleted upon expiration."
+msgstr "リンクとコンテンツは、有効期限が切れると削除されます。"
+
+#: ../../../app/helpers/share_message_helper.rb:18
+msgid "A secure link has been shared with you."
+msgstr "安全なリンクが共有されました。"
+
+#: ../../../app/helpers/share_message_helper.rb:20
+#: ../../../app/views/push_created_mailer/notify.html.erb:6
+msgid "Please find the secret link below to access the sensitive information."
+msgstr "以下の秘密のリンクを見つけて、機密情報にアクセスしてください。"
+
+#: ../../../app/helpers/share_message_helper.rb:22
+#: ../../../app/views/pushes/preview.html.erb:18
+msgid "Secret link"
+msgstr "秘密のリンク"
+
+#: ../../../app/helpers/share_message_helper.rb:24
+msgid "IMPORTANT NOTES:"
+msgstr "重要な注意事項："
+
+#: ../../../app/helpers/share_message_helper.rb:47
+#: ../../../app/views/pushes/preview.html.erb:78
+#: ../../../app/views/pushes/print_preview.html.erb:15
+msgid "view"
+msgid_plural "views"
+msgstr[0] "ビュー"
+msgstr[1] ""
+
+#: ../../../app/helpers/share_message_helper.rb:49
+msgid "This link is valid for %{days}, or %{views}, whichever occurs first."
+msgstr "このリンクは、%{days}または%{views}のいずれか先に発生した方に対して有効です。"
+
+#: ../../../app/helpers/share_message_helper.rb:53
+#: ../../../app/views/push_created_mailer/notify.html.erb:14
+msgid ""
+"For added security, you may be prompted to enter a passphrase (provided separa"
+"tely) to access the content."
+msgstr "セキュリティを強化するために、コンテンツにアクセスするためにパスフレーズ（別途提供）を入力するよう求められる場合があります。"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:47
+msgid "No emails were sent successfully."
+msgstr "メールは正常に送信されませんでした。"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:49
+msgid "Some emails could not be sent."
+msgstr "一部のメールは送信できませんでした。"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:56
+msgid "An unexpected error occurred while sending the email."
+msgstr "メール送信中に予期せぬエラーが発生しました。"
+
+#: ../../../app/mailers/push_created_mailer.rb:14
+msgid "Someone"
+msgstr "誰か"
+
+#: ../../../app/mailers/push_created_mailer.rb:15
+msgid "You have received a push"
+msgstr "プッシュ通知を受け取りました"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:34
+msgid "Recipient emails"
+msgstr "受信者のメール"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:36
+msgid "Notification language"
+msgstr "通知言語"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:61
+msgid "are not available"
+msgstr "利用できません"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:62
+msgid "is not available"
+msgstr "利用できません"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:63
+msgid "Notify by email feature is not enabled"
+msgstr "メール通知機能は有効になっていません"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:71
+msgid "are not allowed for unknown users"
+msgstr "不明なユーザーには許可されていません"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:72
+msgid "is not allowed for unknown users"
+msgstr "不明なユーザーには許可されていません"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:78
+msgid "are allowed only for owners"
+msgstr "所有者のみに許可されています"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:79
+msgid "is allowed only for owners"
+msgstr "所有者のみに許可されています"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:85
+msgid "The maximum number of emails has been reached for today"
+msgstr "本日送信可能なメールの最大数に達しました"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:99
+msgid ""
+"You can notify up to %{count} email(s) and you have already sent emails to %{t"
+"otal_count} recipients"
+msgstr "最大%{count}件のメールアドレスに通知できます。既に%{total_count}件の受信者にメールを送信済みです。"
+
+#: ../../../app/models/push.rb:130 ../../../app/models/push.rb:148
+#: ../../../app/models/push.rb:162
 msgid "Payload is required."
 msgstr "ペイロードが必要です。"
 
-#: ../../../app/models/push.rb:128
+#: ../../../app/models/push.rb:135
 msgid "The payload is too large.  You can only push up to %{count} bytes."
 msgstr "ペイロードが大きすぎます。プッシュできるのは最大 %{count} バイトまでです。"
 
-#: ../../../app/models/push.rb:138
+#: ../../../app/models/push.rb:145 ../../../test/models/url_test.rb:68
+#: ../../../test/models/url_test.rb:78 ../../../test/models/url_test.rb:88
 msgid "must be a valid HTTP or HTTPS URL."
 msgstr "有効な HTTP または HTTPS URL である必要があります。"
 
-#: ../../../app/models/push.rb:152
+#: ../../../app/models/push.rb:159
 msgid "The QR code payload is too large.  You can only push up to %{count} bytes."
 msgstr "QR コードのペイロードが大きすぎます。プッシュできるのは最大 %{count} バイトまでです。"
+
+#: ../../../app/models/push.rb:348
+msgid "are not available for expired pushes"
+msgstr "期限切れのプッシュ通知には利用できません"
+
+#: ../../../app/models/push.rb:349
+msgid "is not available for expired pushes"
+msgstr "期限切れのプッシュ通知には利用できません"
+
+#: ../../../app/validators/multiple_emails_validator.rb:20
+msgid "has commas used in the wrong way"
+msgstr "コンマの使い方が間違っている"
+
+#: ../../../app/validators/multiple_emails_validator.rb:25
+msgid "contains duplicate emails"
+msgstr "重複メールを含む"
+
+#: ../../../app/validators/multiple_emails_validator.rb:29
+msgid "contains more than %{count} email(s)"
+msgstr "%{count} 個以上のメールが含まれています"
+
+#: ../../../app/validators/multiple_emails_validator.rb:33
+msgid "contains invalid email(s)"
+msgstr "無効な電子メールが含まれています。"
 
 #: ../../../app/views/admin/_navigation.html.erb:9
 msgid "Password Pusher"
@@ -134,13 +364,9 @@ msgstr "パスワードプッシャー"
 
 #: ../../../app/views/admin/_navigation.html.erb:12
 #: ../../../app/views/admin/index.html.erb:11
-#: ../../../app/views/shared/_header.html.erb:46
+#: ../../../app/views/shared/_header.html.erb:32
 msgid "Administration Center"
 msgstr "管理"
-
-#: ../../../app/views/admin/_navigation.html.erb:17
-msgid "BETA"
-msgstr "ベータ"
 
 #: ../../../app/views/admin/_navigation.html.erb:31
 msgid "Administration Home"
@@ -163,12 +389,108 @@ msgstr "データエクスプローラー"
 
 #: ../../../app/views/admin/_navigation.html.erb:57
 #: ../../../app/views/admin/index.html.erb:146
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:34
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:37
 msgid "Background Jobs"
 msgstr "バックグラウンドジョブ"
 
+#: ../../../app/views/admin/_navigation.html.erb:64
+#: ../../../app/views/admin/custom_css/edit.html.erb:1
+#: ../../../app/views/admin/custom_css/edit.html.erb:6
+msgid "Custom CSS"
+msgstr "カスタムCSS"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:7
+msgid ""
+"Add custom CSS styles to override the default appearance of your Password Push"
+"er instance."
+msgstr "カスタムCSSスタイルを追加して、Password Pusherインスタンスのデフォルトの外観を上書きします。"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:16
+msgid "Use Caution"
+msgstr "注意して使用してください"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:17
+msgid ""
+"Custom CSS can break the application layout or make it unusable. Test your cha"
+"nges carefully. Invalid CSS will be ignored by browsers."
+msgstr ""
+"カスタムCSSはアプリケーションのレイアウトを崩したり、使用不能にしたりする可能性があります。変更内容は慎重にテストしてください。無効なCSSはブラウザによ"
+"って無視されます。"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:27
+msgid "Looking for Themes?"
+msgstr "テーマをお探しですか？"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:29
+msgid ""
+"Password Pusher includes 26 built-in themes that can be set via the %{code_sta"
+"rt}PWP__THEME%{code_end} environment variable. No custom CSS needed for most b"
+"randing changes."
+msgstr ""
+"Password Pusherには、%{code_start}PWP__THEME%{code_end}環境変数で設定できる26種類の組み込みテーマが含まれ"
+"ています。ほとんどのブランディング変更にはカスタムCSSは不要です。"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:31
+msgid "View the Theme Gallery"
+msgstr "テーマギャラリーを見る"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:41
+msgid "Custom Stylesheet"
+msgstr "カスタムスタイルシート"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:45
+msgid ""
+"/* Add your custom CSS here */\n"
+"\n"
+"body {\n"
+"  background-color: #f5f5f5;\n"
+"}"
+msgstr "/* ここにカスタムCSSを追加してください */ body { background-color: #f5f5f5; }"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:51
+msgid ""
+"CSS entered here will be injected into every page. Changes take effect immedia"
+"tely after saving."
+msgstr "ここに入力したCSSはすべてのページに挿入されます。変更は保存後すぐに反映されます。"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:57
+msgid "Tip: Use Ctrl+Enter (or Cmd+Enter on Mac) to save quickly"
+msgstr "ヒント：Ctrl+Enter（Macの場合はCmd+Enter）で素早く保存できます"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:59
+msgid "Save Custom CSS"
+msgstr "カスタムCSSを保存する"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:68
+msgid "Common Customization Examples"
+msgstr "一般的なカスタマイズ例"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:72
+msgid "Make the password textarea larger with monospace font"
+msgstr "パスワード入力欄を等幅フォントで大きくする"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:82
+msgid "Style the Generate Password button with gradient"
+msgstr "グラデーションを使って「パスワード生成」ボタンを装飾する"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:92
+msgid "Customize slider appearance"
+msgstr "スライダーの外観をカスタマイズする"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:104
+msgid "Style the Push It button"
+msgstr "「プッシュイット」ボタンをスタイリッシュに"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:116
+msgid "Highlight the passphrase field when focused"
+msgstr "パスフレーズ入力欄にフォーカスが当たったら、その欄をハイライト表示する"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:125
+msgid "Add card-style borders to form sections"
+msgstr "カードスタイルの枠線を追加してセクションを作成します"
+
 #: ../../../app/views/admin/index.html.erb:1
-#: ../../../app/views/layouts/admin.html.erb:38
+#: ../../../app/views/layouts/admin.html.erb:47
 msgid "Administration"
 msgstr "管理"
 
@@ -195,9 +517,6 @@ msgid "Total Pushes"
 msgstr "合計プッシュ数"
 
 #: ../../../app/views/admin/index.html.erb:80
-#: ../../../app/views/pushes/index.html.erb:1
-#: ../../../app/views/pushes/index.html.erb:26
-#: ../../../app/views/pushes/index.html.erb:34
 msgid "Active Pushes"
 msgstr "アクティブプッシュ"
 
@@ -275,7 +594,9 @@ msgid "View changelog and download updates"
 msgstr "変更履歴を表示し、アップデートをダウンロードする"
 
 #: ../../../app/views/admin/index.html.erb:262
-#: ../../../app/views/shared/_footer.html.erb:52
+#: ../../../app/views/pages/about.html.erb:102
+#: ../../../app/views/shared/_footer.html.erb:19
+#: ../../../app/views/users/first_runs/new.html.erb:190
 msgid "Documentation"
 msgstr "ドキュメンテーション"
 
@@ -355,13 +676,16 @@ msgstr "現在の管理者"
 
 #: ../../../app/views/admin/users/index.html.erb:50
 #: ../../../app/views/admin/users/index.html.erb:142
+#: ../../../app/views/devise/registrations/edit.html.erb:16
 #: ../../../app/views/devise/sessions/new.html.erb:7
+#: ../../../app/views/users/first_runs/new.html.erb:69
+#: ../../../app/views/users/first_runs/new.html.erb:72
 msgid "Email"
 msgstr "Eメール"
 
 #: ../../../app/views/admin/users/index.html.erb:51
 #: ../../../app/views/admin/users/index.html.erb:143
-#: ../../../app/views/pushes/index.html.erb:39
+#: ../../../app/views/pushes/index.html.erb:34
 msgid "Created"
 msgstr "作成した"
 
@@ -374,6 +698,7 @@ msgstr "最終サインイン"
 #: ../../../app/views/admin/users/index.html.erb:145
 #: ../../../app/views/madmin/application/index.html.erb:63
 #: ../../../app/views/madmin/users/index.html.erb:63
+#: ../../../app/views/pushes/index.html.erb:37
 msgid "Actions"
 msgstr "行動"
 
@@ -435,6 +760,13 @@ msgstr "常連ユーザーなし"
 msgid "All users in the system are administrators."
 msgstr "システムのすべてのユーザーは管理者です。"
 
+#: ../../../app/views/application/_push_expiration.html.erb:2
+#: ../../../app/views/pushes/audit.html.erb:95
+#: ../../../app/views/pushes/index.html.erb:88
+#: ../../../app/views/shared/_dashboard_header.html.erb:17
+msgid "Expired"
+msgstr "期限切れ"
+
 #: ../../../app/views/application/_push_expiration.html.erb:3
 msgid "The file download links above will expire in:"
 msgstr "上記のファイルのダウンロード リンクの有効期限は以下のとおりです:"
@@ -443,25 +775,20 @@ msgstr "上記のファイルのダウンロード リンクの有効期限は�
 msgid "You can refresh the page to regenerate new download links if views remain."
 msgstr "ビューが残っている場合は、ページを更新して新しいダウンロード リンクを再生成できます。"
 
-#: ../../../app/views/application/_push_expiration.html.erb:16
-#: ../../../app/views/pushes/audit.html.erb:98
-#: ../../../app/views/pushes/index.html.erb:75
-#: ../../../app/views/shared/_dashboard_header.html.erb:11
-msgid "Expired"
-msgstr "期限切れ"
-
-#: ../../../app/views/application/_secret_url_bar.html.erb:14
+#: ../../../app/views/application/_secret_url_bar.html.erb:15
 msgid "Secret Link Language"
 msgstr "秘密のリンク言語"
 
-#: ../../../app/views/application/_secret_url_bar.html.erb:19
+#: ../../../app/views/application/_secret_url_bar.html.erb:20
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:25
 msgid "Autodetect the recipient's language"
 msgstr "自動検出"
 
-#: ../../../app/views/application/_secret_url_bar.html.erb:38
-#: ../../../app/views/pages/generate_key.html.erb:26
-#: ../../../app/views/pages/generate_key.html.erb:39
+#: ../../../app/views/application/_secret_url_bar.html.erb:39
+#: ../../../app/views/pages/generate_key.html.erb:36
+#: ../../../app/views/pages/generate_key.html.erb:46
 #: ../../../app/views/shared/_copy_button.html.erb:2
+#: ../../../app/views/shared/_share_message.html.erb:11
 msgid "Copy to Clipboard"
 msgstr "クリップボードにコピー"
 
@@ -512,8 +839,7 @@ msgstr "ユーザーエージェント:"
 #: ../../../app/views/audit_logs/_log_owner_view.html.erb:13
 #: ../../../app/views/audit_logs/_log_view.html.erb:10
 #: ../../../app/views/audit_logs/_log_view.html.erb:12
-#: ../../../app/views/pushes/audit.html.erb:19
-#: ../../../app/views/pushes/index.html.erb:67
+#: ../../../app/views/pushes/audit.html.erb:20
 msgid "None"
 msgstr "なし"
 
@@ -531,6 +857,34 @@ msgstr "参照元:"
 #: ../../../app/views/audit_logs/_log_creation.html.erb:3
 msgid "Created on %{date} by %{user}"
 msgstr "%{user} によって %{date} にプッシュが作成されました"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:22
+msgid "Email notification(s) queued on %{date}"
+msgstr "%{date}でキューに登録されたメール通知"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:29
+msgid "Status:"
+msgstr "状態："
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:33
+msgid "To:"
+msgstr "宛先:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:38
+msgid "Sent:"
+msgstr "送信済み："
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:44
+msgid "Error:"
+msgstr "エラー："
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:49
+msgid "Proceed At:"
+msgstr "続行先:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:49
+msgid "Not yet"
+msgstr "まだ"
 
 #: ../../../app/views/audit_logs/_log_edit.html.erb:3
 msgid "Edited on %{date} by %{user}"
@@ -560,115 +914,99 @@ msgstr "%{user}による%{date}の表示に成功しました"
 msgid "Click Here to Confirm Your Account"
 msgstr "アカウントを確認するにはここをクリックしてください"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:8
-#: ../../../app/views/devise/mailer/email_changed.html.erb:8
-#: ../../../app/views/devise/mailer/password_change.html.erb:8
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:8
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:8
-#: ../../../app/views/layouts/application.html.erb:8
-#: ../../../app/views/layouts/bare.html.erb:8
-#: ../../../app/views/layouts/login.html.erb:8
-#: ../../../app/views/layouts/naked.html.erb:8
-msgid ""
-"Password Pusher is an application to securely send passwords over the web. Lin"
-"ks to passwords expire after a certain number of views and/or time has passed."
-msgstr ""
-"Password Pusher は、Web 経由でパスワードを安全に送信するためのアプリケーションです。パスワードへのリンクは、一定の閲覧回数や時間が経過す"
-"ると失効します。"
-
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:1
 msgid "Confirm your new account"
 msgstr "新しいアカウントを確認します"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:20
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:2
 msgid ""
 "Your account has been created but you must confirm that you own this email add"
 "ress."
 msgstr "アカウントが作成されましたが、このメール アドレスを所有していることを確認する必要があります。"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:23
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:5
 msgid "You can confirm your account email by"
 msgstr "アカウントのメールを確認するには、"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:24
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:22
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:6
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:4
 msgid "by clicking this link"
 msgstr "このリンクをクリックして"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:25
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:23
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:7
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:5
 msgid "or by copying and pasting the following URL into your browser:"
 msgstr "または、次の URL をコピーしてブラウザに貼り付けます。"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:32
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:14
 msgid "If you didn't create an account, no action is required."
 msgstr "アカウントを作成していない場合は、何もする必要はありません。"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:19
+#: ../../../app/views/devise/mailer/email_changed.html.erb:1
 msgid "Your email is being changed"
 msgstr "あなたのメールアドレスは変更されています"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:21
+#: ../../../app/views/devise/mailer/email_changed.html.erb:3
 msgid "We're contacting you to notify you that your email at"
 msgstr "あなたのメールアドレスが"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:25
+#: ../../../app/views/devise/mailer/email_changed.html.erb:7
 msgid "is being changed to %s"
 msgstr "%s に変更中です"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:27
+#: ../../../app/views/devise/mailer/email_changed.html.erb:9
 msgid "has been changed to %s"
 msgstr "%s に変更されました"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:19
+#: ../../../app/views/devise/mailer/password_change.html.erb:1
 msgid "Password Change"
 msgstr "パスワードの変更"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:21
+#: ../../../app/views/devise/mailer/password_change.html.erb:3
 msgid "We're contacting you to notify you that your password has been changed on"
 msgstr "にパスワードが変更されたことをお知らせするためにご連絡しています"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:24
+#: ../../../app/views/devise/mailer/password_change.html.erb:6
 msgid ""
 "If you didn't initiate this and it wasn't your intention, please contact us as"
 " soon as possible."
 msgstr "これを開始したのではなく、意図していない場合は、できるだけ早くご連絡ください。"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:1
 msgid "Password Change Request"
 msgstr "パスワード変更リクエスト"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:21
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:3
 msgid ""
 "Someone has requested a link to change your password. You can proceed with thi"
 "s action"
 msgstr "パスワードを変更するためのリンクを誰かがリクエストしました。このアクションを続行できます"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:31
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:13
 msgid "If you didn't request this change, you can safely delete this email."
 msgstr "この変更をリクエストしていない場合は、このメールを安全に削除できます。"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:32
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:14
 msgid ""
 "Your password won't change until you access the link above and create a new on"
 "e."
 msgstr "上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:1
 msgid "Unlock Your Account"
 msgstr "アカウントのロックを解除する"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:22
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:4
 msgid ""
 "Your account has been locked due to an excessive number of unsuccessful sign i"
 "n attempts."
 msgstr "サインインに何度も失敗したため、アカウントがロックされました。"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:26
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:8
 msgid "Click this link"
 msgstr "このリンクをクリックしてください"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:27
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:9
 msgid ""
 "to unlock your account or by copying and pasting the following URL into your b"
 "rowser:"
@@ -686,133 +1024,169 @@ msgstr "新しいパスワードを確認"
 msgid "A minimum of %d characters is required but the more the better."
 msgstr "最低 %d 文字が必要ですが、多いほど良いです。"
 
-#: ../../../app/views/devise/registrations/edit.html.erb:10
-msgid "Change Email"
-msgstr "メールアドレスを変更"
-
-#: ../../../app/views/devise/registrations/edit.html.erb:46
+#: ../../../app/views/devise/registrations/edit.html.erb:53
 msgid "Current Password"
 msgstr "現在のパスワード"
 
-#: ../../../app/views/devise/registrations/token.html.erb:2
-#: ../../../app/views/shared/_header.html.erb:63
+#: ../../../app/views/devise/registrations/edit.html.erb:65
+#: ../../../app/views/users/sessions/otp.html.erb:1
+#: ../../../app/views/users/sessions/otp.html.erb:3
+msgid "Two-factor authentication"
+msgstr "2要素認証"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:66
+msgid "Add a second step to your sign-in using an authenticator app (TOTP)."
+msgstr "認証アプリ（TOTP）を使用して、サインインに2段階認証を追加してください。"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:68
+msgid "Disable two-factor authentication"
+msgstr "2要素認証を無効にする"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:71
+#: ../../../app/views/devise/registrations/token.html.erb:59
+#: ../../../app/views/pushes/show.html.erb:115
+msgid "Are you sure?"
+msgstr "本気ですか？"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:73
+msgid "Set up two-factor authentication"
+msgstr "二段階認証を設定する"
+
+#: ../../../app/views/devise/registrations/token.html.erb:1
+#: ../../../app/views/devise/registrations/token.html.erb:6
+#: ../../../app/views/shared/_header.html.erb:46
 msgid "API Token"
 msgstr "APIトークン"
 
-#: ../../../app/views/devise/registrations/token.html.erb:4
+#: ../../../app/views/devise/registrations/token.html.erb:9
 msgid ""
 "This token is specific to your account.  It can be used with command line appl"
 "ications, the JSON API, 3rd party integrations and more."
 msgstr "このトークンは、アカウントに固有です。コマンド ライン アプリケーション、JSON API、サード パーティの統合などで使用できます。"
 
-#: ../../../app/views/devise/registrations/token.html.erb:7
+#: ../../../app/views/devise/registrations/token.html.erb:13
 msgid "Make sure to keep this token secure.  It provides full access to your account."
 msgstr "このトークンは安全に保管してください。アカウントへのフルアクセスを提供します。"
 
-#: ../../../app/views/devise/registrations/token.html.erb:10
-msgid ""
-"If needed, you can regenerate a new token below which will invalidate this exi"
-"sting token."
-msgstr "必要に応じて、この既存のトークンを無効にする新しいトークンを再生成できます。"
-
-#: ../../../app/views/devise/registrations/token.html.erb:14
+#: ../../../app/views/devise/registrations/token.html.erb:16
 #: ../../../app/views/pushes/show.html.erb:4
 #: ../../../app/views/pushes/show.html.erb:64
 msgid "Copied!"
 msgstr "コピーしました！"
 
-#: ../../../app/views/devise/registrations/token.html.erb:15
+#: ../../../app/views/devise/registrations/token.html.erb:17
+msgid "Current Token"
+msgstr "現在のトークン"
+
+#: ../../../app/views/devise/registrations/token.html.erb:18
 msgid "Your API token is blurred out.  Click below to reveal it."
 msgstr "API トークンがぼやけています。下をクリックすると表示されます。"
 
-#: ../../../app/views/devise/registrations/token.html.erb:27
+#: ../../../app/views/devise/registrations/token.html.erb:35
+#: ../../../app/views/devise/registrations/token.html.erb:41
+msgid "Regenerate Token"
+msgstr "トークンの再生成"
+
+#: ../../../app/views/devise/registrations/token.html.erb:37
 msgid "To delete this token and regenerate a new one, use the button below."
 msgstr "このトークンを削除して新しいトークンを再生成するには、下のボタンを使用します。"
 
-#: ../../../app/views/devise/registrations/token.html.erb:30
+#: ../../../app/views/devise/registrations/token.html.erb:38
 msgid ""
 "Note that this will invalidate any tools that may be using the existing key an"
 "d will have to be updated with the new token."
 msgstr "これにより、既存のキーを使用している可能性のあるツールが無効になり、新しいトークンで更新する必要があることに注意してください。"
 
-#: ../../../app/views/devise/registrations/token.html.erb:34
-msgid "Regenerate Token"
-msgstr "トークンの再生成"
-
-#: ../../../app/views/devise/registrations/token.html.erb:42
+#: ../../../app/views/devise/registrations/token.html.erb:52
 msgid "Delete and generate a new API token?"
 msgstr "新しい API トークンを削除して生成しますか?"
 
-#: ../../../app/views/devise/registrations/token.html.erb:46
+#: ../../../app/views/devise/registrations/token.html.erb:56
 msgid "This will delete this token and "
 msgstr "これにより、このトークンが削除され、"
 
-#: ../../../app/views/devise/registrations/token.html.erb:47
+#: ../../../app/views/devise/registrations/token.html.erb:57
 msgid "invalidate any tools that may be using it"
 msgstr "それを使用している可能性のあるツールを無効にする"
 
-#: ../../../app/views/devise/registrations/token.html.erb:48
+#: ../../../app/views/devise/registrations/token.html.erb:58
 msgid "A new token will be generated in its place."
 msgstr "その場所に新しいトークンが生成されます。"
 
-#: ../../../app/views/devise/registrations/token.html.erb:49
-#: ../../../app/views/pushes/audit.html.erb:221
-#: ../../../app/views/pushes/show.html.erb:115
-msgid "Are you sure?"
-msgstr "本気ですか？"
-
-#: ../../../app/views/devise/registrations/token.html.erb:52
+#: ../../../app/views/devise/registrations/token.html.erb:62
 #: ../../../app/views/madmin/application/_form.html.erb:212
-#: ../../../app/views/madmin/users/_form.html.erb:80
-#: ../../../app/views/pushes/audit.html.erb:224
+#: ../../../app/views/madmin/users/_form.html.erb:82
+#: ../../../app/views/pushes/audit.html.erb:220
 #: ../../../app/views/pushes/show.html.erb:118
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:17
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: ../../../app/views/devise/registrations/token.html.erb:53
+#: ../../../app/views/devise/registrations/token.html.erb:63
 msgid "Delete & Regenerate"
 msgstr "削除して再生成"
 
-#: ../../../app/views/devise/registrations/token.html.erb:53
-#: ../../../app/views/pushes/audit.html.erb:225
+#: ../../../app/views/devise/registrations/token.html.erb:63
+#: ../../../app/views/pushes/audit.html.erb:221
 #: ../../../app/views/pushes/show.html.erb:119
 msgid "Processing..."
 msgstr "処理..."
 
 #: ../../../app/views/devise/sessions/new.html.erb:12
+#: ../../../app/views/users/first_runs/new.html.erb:79
+#: ../../../app/views/users/first_runs/new.html.erb:81
 msgid "Password"
 msgstr "パスワード"
 
-#: ../../../app/views/layouts/admin.html.erb:11
+#: ../../../app/views/layouts/admin.html.erb:6
+#: ../../../app/views/layouts/application.html.erb:6
+#: ../../../app/views/layouts/login.html.erb:6
+#: ../../../app/views/layouts/madmin/application.html.erb:6
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:21
+msgid "Use light theme"
+msgstr "ライトテーマを使用する"
+
+#: ../../../app/views/layouts/admin.html.erb:7
+#: ../../../app/views/layouts/application.html.erb:7
+#: ../../../app/views/layouts/login.html.erb:7
+#: ../../../app/views/layouts/madmin/application.html.erb:7
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:20
+msgid "Use dark theme"
+msgstr "ダークテーマを使用する"
+
+#: ../../../app/views/layouts/admin.html.erb:8
+#: ../../../app/views/layouts/application.html.erb:8
+#: ../../../app/views/layouts/login.html.erb:8
+#: ../../../app/views/layouts/madmin/application.html.erb:8
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:7
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:8
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:22
+#: ../../../app/views/shared/_theme_toggle.html.erb:9
+#: ../../../app/views/shared/_theme_toggle.html.erb:10
+msgid "Use system theme"
+msgstr "システムテーマを使用する"
+
+#: ../../../app/views/layouts/admin.html.erb:20
 msgid "Administration - Password Pusher"
 msgstr "管理 - パスワードプッシャー"
 
-#: ../../../app/views/layouts/admin.html.erb:52
+#: ../../../app/views/layouts/admin.html.erb:63
 msgid "System Active"
 msgstr "システムアクティブ"
 
-#: ../../../app/views/layouts/admin.html.erb:60
+#: ../../../app/views/layouts/admin.html.erb:71
 msgid "Back to App"
 msgstr "アプリに戻る"
 
-#: ../../../app/views/layouts/login.html.erb:33
-#: ../../../app/views/shared/_footer.html.erb:11
-#: ../../../app/views/shared/_footer.html.erb:15
-#: ../../../app/views/shared/_header.html.erb:9
-#: ../../../app/views/shared/_header.html.erb:13
-msgid "Password Pusher Logo"
-msgstr "パスワードプッシャーのロゴ"
-
-#: ../../../app/views/layouts/madmin/application.html.erb:12
+#: ../../../app/views/layouts/madmin/application.html.erb:21
 msgid "Data Explorer - Administration - Password Pusher"
 msgstr "データエクスプローラー - 管理 - パスワードプッシャー"
 
-#: ../../../app/views/layouts/madmin/application.html.erb:20
+#: ../../../app/views/layouts/madmin/application.html.erb:29
 msgid "Staging Environment"
 msgstr "ステージング環境"
 
-#: ../../../app/views/layouts/madmin/application.html.erb:20
+#: ../../../app/views/layouts/madmin/application.html.erb:29
 msgid ""
 "This is a staging site for testing and data is reset frequently. Please use %{"
 "production_link} unless you are testing new features."
@@ -821,22 +1195,22 @@ msgstr ""
 "。"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:20
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:23
 msgid "Back to Administration Center"
 msgstr "管理センターに戻る"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:36
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:39
 msgid "Monitor and manage background job processing and queues"
 msgstr "バックグラウンドジョブの処理とキューを監視および管理する"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:47
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:50
 msgid "What are Background Jobs?"
 msgstr "バックグラウンド ジョブとは何ですか?"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:50
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
 msgid ""
 "Background jobs handle tasks that run asynchronously without blocking the main"
 " application. In Password Pusher, these include:"
@@ -845,47 +1219,47 @@ msgstr ""
 "クが含まれます。"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
 msgid "Email notifications"
 msgstr "メール通知"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
 msgid "Sending push expiration alerts and admin notifications"
 msgstr "プッシュ有効期限アラートと管理者通知の送信"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:54
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:57
 msgid "Push cleanup"
 msgstr "プッシュクリーンアップ"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:54
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:57
 msgid "Automatically removing expired pushes from the database"
 msgstr "期限切れのプッシュをデータベースから自動的に削除する"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:55
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:58
 msgid "File processing"
 msgstr "ファイル処理"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:55
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:58
 msgid "Handling file uploads and any post-processing tasks."
 msgstr "ファイルのアップロードと後処理タスクを処理します。"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
 msgid "Audit logging"
 msgstr "監査ログ"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
 msgid "Recording system events and user actions"
 msgstr "システムイベントとユーザーアクションの記録"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:62
 msgid ""
 "Use the tabs below to monitor job queues, view failed jobs, and manage job pro"
 "cessing."
@@ -937,8 +1311,8 @@ msgstr "%{name}を編集"
 #: ../../../app/views/madmin/application/edit.html.erb:13
 #: ../../../app/views/madmin/application/index.html.erb:77
 #: ../../../app/views/madmin/application/show.html.erb:25
-#: ../../../app/views/pushes/audit.html.erb:204
-#: ../../../app/views/pushes/index.html.erb:86
+#: ../../../app/views/pushes/index.html.erb:103
+#: ../../../app/views/pushes/preview.html.erb:123
 msgid "Edit"
 msgstr "編集"
 
@@ -969,7 +1343,7 @@ msgstr "検索"
 
 #: ../../../app/views/madmin/application/index.html.erb:40
 #: ../../../app/views/madmin/users/index.html.erb:40
-#: ../../../app/views/shared/_dashboard_header.html.erb:9
+#: ../../../app/views/shared/_dashboard_header.html.erb:11
 msgid "All"
 msgstr "全て"
 
@@ -979,7 +1353,7 @@ msgstr "全て"
 #: ../../../app/views/pushes/_form.html.erb:9
 #: ../../../app/views/pushes/_qr_form.html.erb:9
 #: ../../../app/views/pushes/_url_form.html.erb:9
-#: ../../../app/views/pushes/audit.html.erb:34
+#: ../../../app/views/pushes/audit.html.erb:35
 msgid "View"
 msgid_plural "Views"
 msgstr[0] "ビュー"
@@ -995,7 +1369,7 @@ msgstr "%{name}の詳細を表示"
 
 #: ../../../app/views/madmin/application/show.html.erb:26
 #: ../../../app/views/madmin/users/index.html.erb:78
-#: ../../../app/views/pushes/audit.html.erb:225
+#: ../../../app/views/pushes/audit.html.erb:222
 #: ../../../app/views/pushes/show.html.erb:119
 #: ../../../app/views/shared/_delete_user_button.html.erb:12
 msgid "Delete"
@@ -1150,6 +1524,7 @@ msgid "Manage user accounts and permissions"
 msgstr "ユーザーアカウントと権限を管理する"
 
 #: ../../../app/views/madmin/dashboard/show.html.erb:124
+#: ../../../app/views/pushes/index.html.erb:29
 msgid "Pushes"
 msgstr "プッシュ"
 
@@ -1213,11 +1588,11 @@ msgstr "ユーザー情報"
 msgid "The email address for the new user account."
 msgstr "新しいユーザー アカウントの電子メール アドレス。"
 
-#: ../../../app/views/madmin/users/_form.html.erb:50
+#: ../../../app/views/madmin/users/_form.html.erb:51
 msgid "Auto-confirm account"
 msgstr "アカウントの自動確認"
 
-#: ../../../app/views/madmin/users/_form.html.erb:53
+#: ../../../app/views/madmin/users/_form.html.erb:54
 msgid ""
 "If checked, the user account will be automatically confirmed and ready to use."
 " Otherwise, the user will need to confirm their email address."
@@ -1225,90 +1600,215 @@ msgstr ""
 "チェックを入れると、ユーザーアカウントは自動的に確認され、使用できるようになります。チェックを入れない場合は、ユーザーはメールアドレスを確認する必要がありま"
 "す。"
 
-#: ../../../app/views/madmin/users/_form.html.erb:68
+#: ../../../app/views/madmin/users/_form.html.erb:70
 msgid "Password Information"
 msgstr "パスワード情報"
 
-#: ../../../app/views/madmin/users/_form.html.erb:70
+#: ../../../app/views/madmin/users/_form.html.erb:72
 msgid ""
 "A secure password will be automatically generated for this user. The user can "
 "reset their password using the \"Forgot Password\" link on the login page."
 msgstr "このユーザーに対して安全なパスワードが自動的に生成されます。ユーザーはログインページの「パスワードを忘れた場合」リンクからパスワードをリセットできます。"
 
-#: ../../../app/views/madmin/users/_form.html.erb:85
+#: ../../../app/views/madmin/users/_form.html.erb:87
 msgid "Create User"
 msgstr "ユーザーを作成"
 
 #: ../../../app/views/pages/about.html.erb:1
+#: ../../../app/views/pages/about.html.erb:6
 msgid "About Password Pusher"
 msgstr "パスワードプッシャーについて"
 
-#: ../../../app/views/pages/about.html.erb:2
-#: ../../../app/views/shared/_footer.html.erb:48
-msgid "About"
-msgstr "パスワードプッシャーについて"
-
-#: ../../../app/views/pages/about.html.erb:7
+#: ../../../app/views/pages/about.html.erb:8
 msgid ""
-"Password Pusher is a tool used for sharing passwords and other sensitive infor"
-"mation with other people securely."
-msgstr "Password Pusher は、パスワードやその他の機密情報を他のユーザーと安全に共有するために使用されるツールです。"
+"Open source software for securely sharing passwords, text, URLs, and files. Tr"
+"usted by thousands of organizations worldwide."
+msgstr "パスワード、テキスト、URL、ファイルを安全に共有するためのオープンソースソフトウェア。世界中の数千もの組織で信頼されています。"
 
-#: ../../../app/views/pages/about.html.erb:10
+#: ../../../app/views/pages/about.html.erb:13
+msgid "What It Is"
+msgstr "それは何なのか"
+
+#: ../../../app/views/pages/about.html.erb:15
 msgid ""
-"With Password Pusher, you can create a unique, one-time URL that will expire a"
-"fter a certain amount of time or after it has been accessed a certain number o"
-"f times, ensuring that your information remains private and secure."
+"Password Pusher is a tool for sharing sensitive information securely. You crea"
+"te a unique, one-time link that expires after a set number of views or a set t"
+"ime. Recipients open the link, see the content once, and the data is no longer"
+" available—reducing the risk of credentials living in email or chat."
 msgstr ""
-"Password Pusher を使用すると、一定時間後または一定回数アクセスした後に有効期限が切れる一意の 1 回限りの URL を作成して、情報のプライ"
-"バシーと安全性を確保できます。"
-
-#: ../../../app/views/pages/about.html.erb:11
-msgid ""
-"It is often used by individuals and organizations to share login credentials o"
-"r other sensitive data with colleagues, clients, or partners."
-msgstr "個人や組織が、ログイン資格情報やその他の機密データを同僚、クライアント、またはパートナーと共有するためによく使用されます。"
-
-#: ../../../app/views/pages/about.html.erb:14
-msgid ""
-"Password Pusher is a simple and convenient solution for securely sharing passw"
-"ords without the need for email or other less secure communication methods."
-msgstr ""
-"Password Pusher は、電子メールやその他の安全性の低い通信方法を必要とせずに、パスワードを安全に共有するためのシンプルで便利なソリューションで"
+"Password Pusherは、機密情報を安全に共有するためのツールです。設定した閲覧回数または一定時間後に期限切れとなる、固有のワンタイムリンクを作成し"
+"ます。受信者はリンクを開き、コンテンツを一度閲覧すると、データは利用できなくなります。これにより、認証情報がメールやチャットに残ってしまうリスクを軽減できま"
 "す。"
 
-#: ../../../app/views/pages/about.html.erb:17
-msgid "Hosted at"
-msgstr "私たちによってホストされている"
-
-#: ../../../app/views/pages/about.html.erb:19
-msgid "or you can run your own private instance wherever you like."
-msgstr "または、好きな場所で独自のプライベート インスタンスを実行できます。"
+#: ../../../app/views/pages/about.html.erb:18
+msgid ""
+"It is open source, free to use and modify, and designed to be self-hosted so y"
+"our data never leaves your infrastructure."
+msgstr "これはオープンソースであり、無料で利用および変更でき、自己ホスト型に設計されているため、データがインフラストラクチャから外部に出ることはありません。"
 
 #: ../../../app/views/pages/about.html.erb:23
-msgid "The source code is"
-msgstr "ソースコードは"
-
-#: ../../../app/views/pages/about.html.erb:24
-#: ../../../app/views/pages/about.html.erb:41
-msgid "on Github"
-msgstr "Githubで公開されています"
+msgid "The Story"
+msgstr "ストーリー"
 
 #: ../../../app/views/pages/about.html.erb:25
-msgid "It’s opensource and free for anyone to use, review or modify."
-msgstr "ソース コードは %{github_link} で入手できます。これはオープンソースであり、誰でも無料で使用、レビュー、変更できます。"
+msgid ""
+"Password Pusher began in December 2011 with a simple goal: stop sending passwo"
+"rds over email. The first commit was on"
+msgstr ""
+"Password Pusherは2011年12月に、シンプルな目標を掲げて始まりました。それは、電子メールでパスワードを送信するのをやめることです。最初のコ"
+"ミットは"
 
-#: ../../../app/views/pages/about.html.erb:28
+#: ../../../app/views/pages/about.html.erb:27
+msgid "The public service at pwpush.com went live shortly after."
+msgstr "pwpush.comでの公共サービスはその後まもなく開始された。"
+
+#: ../../../app/views/pages/about.html.erb:30
+msgid ""
+"Over the years it grew into a full-featured application—passwords, URLs, file "
+"uploads, QR codes, a JSON API, dozens of languages, and a large self-hosted co"
+"mmunity. Today it is used by companies, teams, and individuals who want a simp"
+"le, auditable way to share secrets without leaving them in inboxes or messagin"
+"g apps."
+msgstr ""
+"長年にわたり、このアプリケーションはパスワード、URL、ファイルアップロード、QRコード、JSON API、数十種類の言語、そして大規模なセルフホスティング"
+"型コミュニティなど、多機能な機能を備えるまでに成長しました。現在では、企業、チーム、そして個人が、受信トレイやメッセージアプリに機密情報を残さずに、シンプル"
+"で監査可能な方法で共有するために利用しています。"
+
+#: ../../../app/views/pages/about.html.erb:33
+msgid "In 2024,"
+msgstr "2024年には、"
+
+#: ../../../app/views/pages/about.html.erb:35
+msgid ""
+"was formed to further the open source Password Pusher project: maintaining the"
+" codebase, hosting the public service at pwpush.com, publishing documentation,"
+" and offering a Pro edition for teams that want additional features and suppor"
+"t. The open source version remains free and self-hostable."
+msgstr ""
+"この組織は、オープンソースのPassword Pusherプロジェクトをさらに発展させるために設立されました。具体的には、コードベースの保守、pwpush."
+"comでの公開サービスのホスティング、ドキュメントの公開、そして追加機能とサポートを必要とするチーム向けのPro版の提供などを行っています。オープンソース版"
+"は引き続き無料で、セルフホスティングが可能です。"
+
+#: ../../../app/views/pages/about.html.erb:40
+msgid "What You Can Do"
+msgstr "あなたができること"
+
+#: ../../../app/views/pages/about.html.erb:46
+msgid "Passwords & text"
+msgstr "パスワードとテキスト"
+
+#: ../../../app/views/pages/about.html.erb:47
+msgid "Share one-time secrets with expiration by views or time."
+msgstr "閲覧数または時間経過で有効期限が切れる、一度限りの秘密情報を共有します。"
+
+#: ../../../app/views/pages/about.html.erb:55
+#: ../../../app/views/shared/_topnav.html.erb:18
+msgid "URLs"
+msgstr "URL"
+
+#: ../../../app/views/pages/about.html.erb:56
+msgid "Send links that redirect only after the recipient opens the push."
+msgstr "受信者がプッシュ通知を開封した後にのみリダイレクトされるリンクを送信する。"
+
+#: ../../../app/views/pages/about.html.erb:64
+#: ../../../app/views/shared/_topnav.html.erb:11
+msgid "Files"
+msgstr "ファイル"
+
+#: ../../../app/views/pages/about.html.erb:65
+msgid "Upload files that expire after retrieval or time."
+msgstr "取得期限または一定時間経過後に期限切れとなるファイルをアップロードします。"
+
+#: ../../../app/views/pages/about.html.erb:73
+msgid "QR codes"
+msgstr "QRコード"
+
+#: ../../../app/views/pages/about.html.erb:74
+msgid "Generate expiring QR codes for credentials or links."
+msgstr "認証情報やリンク用の有効期限付きQRコードを生成します。"
+
+#: ../../../app/views/pages/about.html.erb:80
+msgid ""
+"Optional passphrase protection, view/expiration limits, optional deletion by v"
+"iewer, JSON API, and more. See the"
+msgstr "オプションのパスフレーズ保護、閲覧/有効期限制限、閲覧者によるオプションの削除、JSON APIなど。"
+
+#: ../../../app/views/pages/about.html.erb:81
+msgid "documentation"
+msgstr "ドキュメント"
+
+#: ../../../app/views/pages/about.html.erb:82
+msgid "for details."
+msgstr "詳細は"
+
+#: ../../../app/views/pages/about.html.erb:87
+msgid "Security & Self-Hosting"
+msgstr "セキュリティとセルフホスティング"
+
+#: ../../../app/views/pages/about.html.erb:89
+msgid ""
+"Payloads are encrypted at rest. You control where data lives: run Password Pus"
+"her on your own servers, in your cloud, or in Docker. Thousands of companies a"
+"nd teams self-host it so sensitive data never touches third-party SaaS."
+msgstr ""
+"ペイロードは保存時に暗号化されます。データの保存場所は自由に選択できます。Password Pusherは、自社サーバー、クラウド、またはDocker上で実"
+"行可能です。数千もの企業やチームが自社でホストしているため、機密データがサードパーティのSaaSに触れることはありません。"
+
+#: ../../../app/views/pages/about.html.erb:92
+msgid ""
+"No account is required for basic use; optional user accounts and sign-in let t"
+"eams track their own pushes. The source code is open so you can review and ada"
+"pt it."
+msgstr ""
+"基本的な利用にはアカウントは不要です。オプションのユーザーアカウントとサインイン機能を使用すると、チームでプッシュ状況を追跡できます。ソースコードは公開され"
+"ているため、レビューや改変が可能です。"
+
+#: ../../../app/views/pages/about.html.erb:97
+msgid "Get Started"
+msgstr "始める"
+
+#: ../../../app/views/pages/about.html.erb:103
+msgid "Installation, configuration, API, and FAQ."
+msgstr "インストール、設定、API、およびよくある質問。"
+
+#: ../../../app/views/pages/about.html.erb:104
+msgid "docs.pwpush.com"
+msgstr "docs.pwpush.com"
+
+#: ../../../app/views/pages/about.html.erb:111
+#: ../../../app/views/users/first_runs/new.html.erb:214
+msgid "Source code"
+msgstr "ソースコード"
+
+#: ../../../app/views/pages/about.html.erb:112
+msgid "Open source on GitHub. Use, review, or contribute."
+msgstr "GitHubでオープンソースとして公開されています。利用、レビュー、貢献にご参加ください。"
+
+#: ../../../app/views/pages/about.html.erb:113
+msgid "GitHub"
+msgstr "GitHub"
+
+#: ../../../app/views/pages/about.html.erb:120
+msgid "Hosted option"
+msgstr "ホスティングオプション"
+
+#: ../../../app/views/pages/about.html.erb:121
+msgid "Use the public service or run your own instance."
+msgstr "公開サービスを利用するか、独自のインスタンスを運用してください。"
+
+#: ../../../app/views/pages/about.html.erb:130
 msgid "The Author"
 msgstr "著者"
 
-#: ../../../app/views/pages/about.html.erb:31
-msgid "My name is Peter Giacomo Lombardo. You can find me on"
-msgstr "私の名前はピーター・ジャコモ・ロンバルドです。 SNSは、 %{linkedin}、%{github}、ブログは %{blog} です"
+#: ../../../app/views/pages/about.html.erb:132
+msgid ""
+"Password Pusher is created and maintained by Peter Giacomo Lombardo. You can f"
+"ind him on"
+msgstr "Password PusherはPeter Giacomo Lombardoによって作成および管理されています。彼の連絡先は"
 
-#: ../../../app/views/pages/about.html.erb:34
-#: ../../../app/views/pages/about.html.erb:40
-#: ../../../app/views/pushes/preview.html.erb:58
+#: ../../../app/views/pages/about.html.erb:135
+#: ../../../app/views/pages/about.html.erb:141
+#: ../../../app/views/pushes/preview.html.erb:77
 #: ../../../app/views/pushes/print_preview.html.erb:14
 #: ../../../app/views/pushes/show.html.erb:46
 #: ../../../app/views/pushes/show.html.erb:49
@@ -1317,235 +1817,654 @@ msgstr "私の名前はピーター・ジャコモ・ロンバルドです。 SN
 msgid "or"
 msgstr "また"
 
-#: ../../../app/views/pages/about.html.erb:38
-msgid "For updates, you can"
-msgstr "更新については、次のことができます。"
+#: ../../../app/views/pages/about.html.erb:139
+msgid "For news and updates,"
+msgstr "ニュースや最新情報については、"
 
-#: ../../../app/views/pages/about.html.erb:39
-msgid "follow me on Twitter"
-msgstr "Twitterをフォローしてください"
+#: ../../../app/views/pages/about.html.erb:140
+msgid "follow on X"
+msgstr "X をフォローする"
 
-#: ../../../app/views/pages/about.html.erb:44
-msgid "Want to Help Out?"
-msgstr "手伝いたいですか？"
+#: ../../../app/views/pages/about.html.erb:142
+msgid "subscribe to the newsletter"
+msgstr "ニュースレターを購読する"
 
-#: ../../../app/views/pages/about.html.erb:48
-msgid "By far the biggest help is to spread the word"
-msgstr "断然最大の助けは言葉を広めることです"
+#: ../../../app/views/pages/about.html.erb:149
+msgid ""
+"Apnotic was created to manage and build out the Password Pusher project—mainta"
+"ining the open source codebase, the public service, documentation, and related"
+" products."
+msgstr ""
+"Apnoticは、Password Pusherプロジェクトを管理・構築し、オープンソースコードベース、パブリックサービス、ドキュメント、関連製品を維持する"
+"ために設立されました。"
 
-#: ../../../app/views/pages/about.html.erb:50
-msgid "Share and suggest Password Pusher to colleagues and friends."
-msgstr "Password Pusher を同僚や友人と共有して提案します。"
+#: ../../../app/views/pages/about.html.erb:150
+msgid "Learn more at apnotic.com"
+msgstr "詳しくはapnotic.comをご覧ください。"
 
-#: ../../../app/views/pages/about.html.erb:53
-msgid "You can also"
-msgstr "あなたもすることができます"
+#: ../../../app/views/pages/about.html.erb:152
+msgid "Why choose Apnotic?"
+msgstr "アプノティックを選ぶ理由"
 
-#: ../../../app/views/pages/about.html.erb:56
-msgid "Star the Github project"
-msgstr "Github プロジェクトにスターを付ける"
+#: ../../../app/views/pages/about.html.erb:154
+msgid "Apnotic is built on principles of trust, reliability, and exceptional service."
+msgstr "Apnoticは、信頼、信頼性、卓越したサービスの原則に基づいて構築されています。"
 
-#: ../../../app/views/pages/about.html.erb:57
-msgid "It's gasoline for the algos that trend Password Pusher."
-msgstr "これは、Password Pusher のトレンドであるアルゴリズムのガソリンです。"
+#: ../../../app/views/pages/about.html.erb:157
+msgid "Privately held, zero debt, and financially responsible"
+msgstr "株式非公開、負債ゼロ、財務責任あり"
 
-#: ../../../app/views/pages/about.html.erb:60
-msgid "Sign up for the"
-msgstr "にサインアップ"
+#: ../../../app/views/pages/about.html.erb:158
+msgid "Fanatical customer service and support"
+msgstr "熱狂的なカスタマーサービスとサポート"
 
-#: ../../../app/views/pages/about.html.erb:61
-msgid "newsletter"
-msgstr "ニュースレター"
+#: ../../../app/views/pages/about.html.erb:159
+msgid "No venture capital pressure—we build for customers, not investors"
+msgstr "ベンチャーキャピタルからのプレッシャーはない。"
 
-#: ../../../app/views/pages/about.html.erb:62
-msgid "to get updates on important releases, security issues, tips and more."
-msgstr "重要なリリース、セキュリティの問題、ヒントなどの最新情報を入手できます。"
+#: ../../../app/views/pages/about.html.erb:160
+msgid "Run by industry veterans with decades of experience"
+msgstr "数十年の経験を持つ業界のベテランが運営"
 
-#: ../../../app/views/pages/about.html.erb:65
-msgid "Follow Password Pusher on"
-msgstr "パスワードプッシャーをフォローする"
+#: ../../../app/views/pages/about.html.erb:161
+msgid "Talk directly with the founder and team"
+msgstr "創業者やチームと直接話す"
 
-#: ../../../app/views/pages/about.html.erb:68
-#: ../../../app/views/pages/about.html.erb:91
-#: ../../../app/views/pushes/preview.html.erb:65
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "and"
-msgstr "と"
+#: ../../../app/views/pages/about.html.erb:162
+msgid "15+ years of proven track record with Password Pusher"
+msgstr "パスワードプッシャーで15年以上の実績"
 
-#: ../../../app/views/pages/about.html.erb:72
-msgid "Fix an issue, add a feature or write some documentation."
-msgstr "問題を修正したり、機能を追加したり、ドキュメントを作成したりします。"
+#: ../../../app/views/pages/about.html.erb:167
+msgid "Want to Help?"
+msgstr "お手伝いいただけますか？"
 
-#: ../../../app/views/pages/about.html.erb:72
-msgid "See the Github project."
-msgstr "Github プロジェクトを参照してください。"
+#: ../../../app/views/pages/about.html.erb:169
+msgid "The biggest help is to spread the word."
+msgstr "一番の助けになるのは、情報を広めることです。"
 
-#: ../../../app/views/pages/about.html.erb:75
-msgid "Sign up to Digital Ocean"
-msgstr "デジタルオーシャンにサインアップ"
+#: ../../../app/views/pages/about.html.erb:170
+msgid "Share Password Pusher with colleagues and friends."
+msgstr "Password Pusherを同僚や友人と共有しましょう。"
 
-#: ../../../app/views/pages/about.html.erb:76
-msgid "with this link"
-msgstr "このリンクで"
+#: ../../../app/views/pages/about.html.erb:174
+msgid "Star the project on GitHub"
+msgstr "GitHubでプロジェクトにスターを付けてください"
 
-#: ../../../app/views/pages/about.html.erb:77
-msgid "to get Password Pusher a hosting credit."
-msgstr "Password Pusher のホスティング クレジットを取得します。"
+#: ../../../app/views/pages/about.html.erb:175
+msgid "it helps others discover the project."
+msgstr "それは他の人がプロジェクトを見つけるのに役立ちます。"
 
-#: ../../../app/views/pages/about.html.erb:81
-msgid "Thank you for supporting Password Pusher!"
-msgstr "パスワードプッシャーをサポートしていただきありがとうございます。"
+#: ../../../app/views/pages/about.html.erb:178
+msgid "Subscribe to the newsletter"
+msgstr "ニュースレターを購読する"
 
-#: ../../../app/views/pages/about.html.erb:83
-#: ../../../app/views/shared/_footer.html.erb:25
+#: ../../../app/views/pages/about.html.erb:179
+msgid "releases, security notes, and tips."
+msgstr "リリース情報、セキュリティに関する注意事項、およびヒント。"
+
+#: ../../../app/views/pages/about.html.erb:182
+msgid "Fix a bug, add a feature, or improve the docs."
+msgstr "バグを修正したり、機能を追加したり、ドキュメントを改善したりする。"
+
+#: ../../../app/views/pages/about.html.erb:183
+msgid "See the GitHub project"
+msgstr "GitHubプロジェクトをご覧ください"
+
+#: ../../../app/views/pages/about.html.erb:189
 msgid "Resources"
 msgstr "資力"
 
-#: ../../../app/views/pages/about.html.erb:86
+#: ../../../app/views/pages/about.html.erb:191
 msgid ""
-"If you are giving a presentation, authoring a blog post or video about Passwor"
-"d Pusher, feel free to contact me for any questions."
+"Presenting or writing about Password Pusher? Media kits and slide decks are av"
+"ailable in"
+msgstr "Password Pusherについてプレゼンテーションや記事を書く予定ですか？メディアキットとスライドデッキは以下から入手できます。"
+
+#: ../../../app/views/pages/about.html.erb:192
+msgid "PowerPoint"
+msgstr "パワーポイント"
+
+#: ../../../app/views/pages/about.html.erb:193
+msgid "and"
+msgstr "と"
+
+#: ../../../app/views/pages/about.html.erb:194
+msgid "Keynote"
+msgstr "基調"
+
+#: ../../../app/views/pages/about.html.erb:195
+msgid "formats. For questions or assets, reach out via the links above."
+msgstr "各種フォーマットに対応しています。ご質問や資料のご提供については、上記のリンクからお問い合わせください。"
+
+#: ../../../app/views/pages/about.html.erb:200
+msgid "Thank you for using and supporting Password Pusher."
+msgstr "Password Pusherをご利用いただき、またご支援いただきありがとうございます。"
+
+#: ../../../app/views/pages/api.html.erb:4
+msgid "API v2"
+msgstr "API v2"
+
+#: ../../../app/views/pages/api.html.erb:6
+msgid ""
+"Complete JSON API documentation for creating, retrieving and managing pushes i"
+"n the open-source edition."
+msgstr "オープンソース版におけるプッシュの作成、取得、管理に関する完全なJSON APIドキュメント。"
+
+#: ../../../app/views/pages/api.html.erb:11
+msgid "Authentication"
+msgstr "認証"
+
+#: ../../../app/views/pages/api.html.erb:13
+msgid "Authenticate requests with a Bearer token in the Authorization header."
+msgstr "Authorizationヘッダーにベアラートークンを含めてリクエストを認証します。"
+
+#: ../../../app/views/pages/api.html.erb:17
+msgid "Create an API token in your account settings at"
+msgstr "アカウント設定でAPIトークンを作成してください。"
+
+#: ../../../app/views/pages/api.html.erb:23
+msgid "Public endpoints:"
+msgstr "公開エンドポイント:"
+
+#: ../../../app/views/pages/api.html.erb:24
+msgid "Authenticated endpoints:"
+msgstr "認証済みエンドポイント:"
+
+#: ../../../app/views/pages/api.html.erb:25
+msgid "Anonymous access setting:"
+msgstr "匿名アクセス設定:"
+
+#: ../../../app/views/pages/api.html.erb:25
+msgid "When anonymous pushes are disabled, API endpoints require authentication."
+msgstr "匿名プッシュが無効になっている場合、APIエンドポイントには認証が必要になります。"
+
+#: ../../../app/views/pages/api.html.erb:32
+msgid "Base URL"
+msgstr "ベースURL"
+
+#: ../../../app/views/pages/api.html.erb:33
+msgid "All endpoints are relative to your installation host:"
+msgstr "すべてのエンドポイントは、インストール先のホストからの相対パスです。"
+
+#: ../../../app/views/pages/api.html.erb:40
+msgid "Version Endpoint"
+msgstr "バージョンエンドポイント"
+
+#: ../../../app/views/pages/api.html.erb:42
+msgid ""
+"Returns API version, application details, and a features hash describing which"
+" capabilities are enabled on this instance."
+msgstr "APIバージョン、アプリケーションの詳細、およびこのインスタンスで有効になっている機能を示す機能ハッシュを返します。"
+
+#: ../../../app/views/pages/api.html.erb:43
+#: ../../../app/views/pages/api.html.erb:155
+#: ../../../app/views/pages/api.html.erb:164
+#: ../../../app/views/pages/api.html.erb:174
+#: ../../../app/views/pages/api.html.erb:184
+#: ../../../app/views/pages/api.html.erb:195
+#: ../../../app/views/pages/api.html.erb:206
+#: ../../../app/views/pages/api.html.erb:235
+msgid "cURL example:"
+msgstr "cURLの例："
+
+#: ../../../app/views/pages/api.html.erb:75
+msgid "Features Hash"
+msgstr "特徴 ハッシュ"
+
+#: ../../../app/views/pages/api.html.erb:77
+msgid "Whether anonymous API usage is allowed (Settings.allow_anonymous)"
+msgstr "匿名APIの使用を許可するかどうか（設定.allow_anonymous）"
+
+#: ../../../app/views/pages/api.html.erb:78
+msgid "Bearer token authentication support"
+msgstr "ベアラートークン認証のサポート"
+
+#: ../../../app/views/pages/api.html.erb:79
+msgid "Accounts API availability (not available in OSS)"
+msgstr "アカウントAPIの利用可否（OSS版では利用不可）"
+
+#: ../../../app/views/pages/api.html.erb:80
+msgid "Push creation and management via API"
+msgstr "APIによるプッシュの作成と管理"
+
+#: ../../../app/views/pages/api.html.erb:81
+msgid ""
+"Auto-Dispatch email notifications (Settings.notify_by_email.enabled, requires "
+"SMTP and logins)"
+msgstr "自動メール通知（設定.notify_by_email.enabled、SMTPとログインが必要です）"
+
+#: ../../../app/views/pages/api.html.erb:82
+msgid "File attachments on pushes (Settings.enable_file_pushes)"
+msgstr "プッシュ通知時のファイル添付（設定.enable_file_pushes）"
+
+#: ../../../app/views/pages/api.html.erb:83
+msgid "URL push type (Settings.enable_url_pushes)"
+msgstr "URLプッシュタイプ（設定.enable_url_pushes）"
+
+#: ../../../app/views/pages/api.html.erb:84
+msgid "QR code push type (Settings.enable_qr_pushes)"
+msgstr "QRコードプッシュタイプ（設定.enable_qr_pushes）"
+
+#: ../../../app/views/pages/api.html.erb:85
+msgid "Requests API availability (not available in OSS)"
+msgstr "APIの利用可否に関するリクエスト（OSSでは利用不可）"
+
+#: ../../../app/views/pages/api.html.erb:91
+msgid "Push Endpoints"
+msgstr "プッシュエンドポイント"
+
+#: ../../../app/views/pages/api.html.erb:96
+msgid "Create a new push."
+msgstr "新しいプッシュを作成します。"
+
+#: ../../../app/views/pages/api.html.erb:97
+#: ../../../app/views/pages/api.html.erb:218
+msgid "Body format:"
+msgstr "本文の形式:"
+
+#: ../../../app/views/pages/api.html.erb:102
+#: ../../../app/views/pages/api.html.erb:223
+msgid "Parameter"
+msgstr "パラメータ"
+
+#: ../../../app/views/pages/api.html.erb:103
+#: ../../../app/views/pages/api.html.erb:224
+#: ../../../app/views/pushes/index.html.erb:33
+msgid "Type"
+msgstr "タイプ"
+
+#: ../../../app/views/pages/api.html.erb:104
+#: ../../../app/views/pages/api.html.erb:225
+msgid "Required"
+msgstr "必須"
+
+#: ../../../app/views/pages/api.html.erb:105
+#: ../../../app/views/pages/api.html.erb:226
+msgid "Description"
+msgstr "説明"
+
+#: ../../../app/views/pages/api.html.erb:109
+#: ../../../app/views/pages/api.html.erb:230
+#: ../../../app/views/pushes/audit.html.erb:53
+#: ../../../app/views/pushes/audit.html.erb:66
+#: ../../../app/views/pushes/audit.html.erb:80
+#: ../../../app/views/pushes/audit.html.erb:142
+msgid "Yes"
+msgstr "はい"
+
+#: ../../../app/views/pages/api.html.erb:109
+msgid "Secret text payload for text, URL or QR pushes."
+msgstr "テキスト、URL、またはQRコード送信用の秘密テキストペイロード。"
+
+#: ../../../app/views/pages/api.html.erb:110
+#: ../../../app/views/pages/api.html.erb:111
+#: ../../../app/views/pages/api.html.erb:112
+#: ../../../app/views/pages/api.html.erb:113
+#: ../../../app/views/pages/api.html.erb:114
+#: ../../../app/views/pages/api.html.erb:115
+#: ../../../app/views/pages/api.html.erb:116
+#: ../../../app/views/pages/api.html.erb:117
+#: ../../../app/views/pages/api.html.erb:118
+#: ../../../app/views/pages/api.html.erb:119
+#: ../../../app/views/pages/api.html.erb:120
+#: ../../../app/views/pages/api.html.erb:231
+#: ../../../app/views/pushes/audit.html.erb:55
+#: ../../../app/views/pushes/audit.html.erb:68
+#: ../../../app/views/pushes/audit.html.erb:78
+#: ../../../app/views/pushes/audit.html.erb:140
+msgid "No"
+msgstr "いいえ"
+
+#: ../../../app/views/pages/api.html.erb:110
+msgid ""
+"Files to attach. When present, the push type becomes file unless kind is expli"
+"citly provided."
+msgstr "添付するファイル。ファイルが存在する場合、種類が明示的に指定されていない限り、プッシュタイプはファイルになります。"
+
+#: ../../../app/views/pages/api.html.erb:111
+msgid "Push type: text, file, url, or qr. Defaults to text when not provided."
+msgstr "プッシュ通知の種類：テキスト、ファイル、URL、またはQRコード。指定がない場合はデフォルトでテキストが使用されます。"
+
+#: ../../../app/views/pages/api.html.erb:112
+msgid "Expiration window in days. If omitted, instance defaults are used."
+msgstr "有効期限（日数）。省略した場合、インスタンスのデフォルト値が使用されます。"
+
+#: ../../../app/views/pages/api.html.erb:113
+msgid "Maximum allowed retrieval count. If omitted, instance defaults are used."
+msgstr "取得可能な最大回数。省略した場合、インスタンスのデフォルト値が使用されます。"
+
+#: ../../../app/views/pages/api.html.erb:114
+msgid "Allows the recipient to expire the push."
+msgstr "受信者がプッシュ通知を期限切れにできるようにします。"
+
+#: ../../../app/views/pages/api.html.erb:115
+msgid "Adds an extra retrieval confirmation step."
+msgstr "取得確認の手順が1つ追加されます。"
+
+#: ../../../app/views/pages/api.html.erb:116
+msgid "Requires this passphrase to retrieve the payload."
+msgstr "ペイロードを取得するには、このパスフレーズが必要です。"
+
+#: ../../../app/views/pages/api.html.erb:117
+msgid "Optional label shown to the owner."
+msgstr "所有者に表示されるオプションのラベル。"
+
+#: ../../../app/views/pages/api.html.erb:118
+msgid "Optional owner-only note."
+msgstr "所有者のみを対象とした任意記載事項。"
+
+#: ../../../app/views/pages/api.html.erb:119
+msgid ""
+"Optional recipients for the push creation email. Comma-separated list of email"
+" addresses. Maximum 5 emails. Requires authentication when provided."
+msgstr "プッシュ通知メールの送信先（任意）。メールアドレスをカンマ区切りで指定します。最大5件まで指定可能です。指定する場合は認証が必要です。"
+
+#: ../../../app/views/pages/api.html.erb:120
+msgid ""
+"Optional locale for the push creation email. See the list of available locales"
+" in the"
+msgstr "プッシュ作成メールのオプションのロケール。利用可能なロケールの一覧については、"
+
+#: ../../../app/views/pages/api.html.erb:120
+#: ../../../app/views/pages/api.html.erb:231
+#: ../../../app/views/pages/api.html.erb:258
+msgid "Supported Locales"
+msgstr "サポートされている地域"
+
+#: ../../../app/views/pages/api.html.erb:136
+msgid "cURL example (JSON body):"
+msgstr "cURLの例（JSONボディ）："
+
+#: ../../../app/views/pages/api.html.erb:153
+msgid ""
+"Retrieve a push payload by token. This counts as a view and may expire the pus"
+"h when limits are reached."
+msgstr "トークンを使用してプッシュペイロードを取得します。これはビューとしてカウントされ、制限に達するとプッシュが期限切れになる場合があります。"
+
+#: ../../../app/views/pages/api.html.erb:154
+#: ../../../app/views/pages/api.html.erb:173
+#: ../../../app/views/pages/api.html.erb:194
+#: ../../../app/views/pages/api.html.erb:205
+msgid "Query parameters:"
+msgstr "クエリパラメータ:"
+
+#: ../../../app/views/pages/api.html.erb:154
+msgid "optional, required when the push is passphrase-protected"
+msgstr "オプション。プッシュ通知がパスフレーズで保護されている場合は必須。"
+
+#: ../../../app/views/pages/api.html.erb:163
+msgid ""
+"Returns the fully-qualified secret URL for a push without retrieving its paylo"
+"ad."
+msgstr "ペイロードを取得せずに、プッシュ通知の完全修飾シークレットURLを返します。"
+
+#: ../../../app/views/pages/api.html.erb:172
+msgid ""
+"Return audit log entries for a push. Authentication and ownership are required"
+"."
+msgstr "プッシュ通知の監査ログエントリを返します。認証と所有権が必要です。"
+
+#: ../../../app/views/pages/api.html.erb:173
+#: ../../../app/views/pages/api.html.erb:194
+#: ../../../app/views/pages/api.html.erb:205
+msgid "optional, integer, default 1, valid range 1 to 200"
+msgstr "オプション、整数、デフォルト値 1、有効範囲 1 ～ 200"
+
+#: ../../../app/views/pages/api.html.erb:183
+msgid ""
+"Expire a push immediately. Allowed for owners (when authenticated) or for reci"
+"pients when the push was created with deletable_by_viewer enabled."
 msgstr ""
-"Password Pusher に関するプレゼンテーション、ブログ投稿、またはビデオの作成を行っている場合は、ご不明な点がございましたら、お気軽にお問い合わ"
-"せください。"
+"プッシュ通知を即座に期限切れにします。所有者（認証済みの場合）または、deletable_by_viewer が有効になっているプッシュ通知が作成された受信"
+"者に対して許可されます。"
 
-#: ../../../app/views/pages/about.html.erb:89
-msgid "We have media resources and a full explanation of features available in"
-msgstr "メディア リソースと利用可能な機能の完全な説明は、"
+#: ../../../app/views/pages/api.html.erb:193
+msgid "List active pushes for the authenticated user."
+msgstr "認証済みユーザーに対するアクティブなプッシュ通知の一覧を表示します。"
 
-#: ../../../app/views/pages/about.html.erb:90
-msgid "Windows Powerpoint"
-msgstr "Windows パワーポイント"
+#: ../../../app/views/pages/api.html.erb:204
+msgid "List expired pushes for the authenticated user."
+msgstr "認証済みユーザーの期限切れプッシュ通知の一覧を表示します。"
 
-#: ../../../app/views/pages/about.html.erb:92
-msgid "Mac Keynote"
-msgstr "マック基調講演"
+#: ../../../app/views/pages/api.html.erb:215
+msgid "Send an email to notify the push creation to the specified recipients."
+msgstr "プッシュ通知の作成を、指定された受信者にメールで通知します。"
 
-#: ../../../app/views/pages/about.html.erb:93
-msgid "formats."
-msgstr "フォーマット。"
-
-#: ../../../app/views/pages/about.html.erb:99
-msgid "Birthday"
-msgstr "誕生日"
-
-#: ../../../app/views/pages/about.html.erb:101
-msgid "More Than 11 Years Old"
-msgstr "11歳以上"
-
-#: ../../../app/views/pages/about.html.erb:103
-msgid "The first git commit to Password Pusher was on"
-msgstr "Password Pusher への最初の git commit はオンでした"
-
-#: ../../../app/views/pages/about.html.erb:107
-msgid "pwpush.com went live shortly thereafter."
-msgstr "pwpush.com はその後まもなく稼働を開始しました。"
-
-#: ../../../app/views/pages/about.html.erb:113
-msgid "The Original Theme"
-msgstr "オリジナルテーマ"
-
-#: ../../../app/views/pages/about.html.erb:114
+#: ../../../app/views/pages/api.html.erb:216
 msgid ""
-"The original site design consisted of a dark background with a bold yellow fon"
-"t."
-msgstr "元のサイト デザインは、暗い背景に太字の黄色のフォントで構成されていました。"
+"Authentication and ownership are required. Only the push owner may send email "
+"notifications."
+msgstr "認証と所有権が必要です。プッシュ通知の所有者のみがメール通知を送信できます。"
 
-#: ../../../app/views/pages/about.html.erb:117
-msgid "Follow for news, changes & updates."
-msgstr "フォローして、ニュース、変更、更新を確認してください。"
+#: ../../../app/views/pages/api.html.erb:217
+msgid ""
+"This endpoint is only available when email auto-dispatch is enabled and SMTP i"
+"s configured. When disabled, the route is not registered and requests return 4"
+"04 Not Found."
+msgstr ""
+"このエンドポイントは、メールの自動配信が有効でSMTPが設定されている場合にのみ利用可能です。無効になっている場合、ルートは登録されず、リクエストは404 "
+"Not Foundエラーを返します。"
+
+#: ../../../app/views/pages/api.html.erb:230
+msgid "Comma-separated list of email addresses. Maximum 5 emails."
+msgstr "カンマ区切りのメールアドレス一覧。最大5件まで。"
+
+#: ../../../app/views/pages/api.html.erb:231
+msgid "Locale for the email notification. See the list of available locales in the"
+msgstr "メール通知のロケール。利用可能なロケールの一覧については、"
+
+#: ../../../app/views/pages/api.html.erb:243
+msgid "Success response (201):"
+msgstr "成功応答 (201):"
+
+#: ../../../app/views/pages/api.html.erb:247
+msgid "Validation error response (422):"
+msgstr "検証エラー応答 (422):"
+
+#: ../../../app/views/pages/api.html.erb:248
+msgid "Field-level errors are returned as a JSON object keyed by parameter name:"
+msgstr "フィールドレベルのエラーは、パラメータ名をキーとするJSONオブジェクトとして返されます。"
+
+#: ../../../app/views/pages/api.html.erb:259
+msgid ""
+"The following locales are supported for API requests that accept a locale para"
+"meter:"
+msgstr "ロケールパラメータを受け入れるAPIリクエストでは、以下のロケールがサポートされています。"
+
+#: ../../../app/views/pages/api.html.erb:264
+msgid "Locale Code"
+msgstr "ロケールコード"
+
+#: ../../../app/views/pages/api.html.erb:265
+msgid "Language"
+msgstr "言語"
+
+#: ../../../app/views/pages/api.html.erb:283
+msgid "HTTP Status Codes"
+msgstr "HTTPステータスコード"
+
+#: ../../../app/views/pages/api.html.erb:285
+msgid "Successful request"
+msgstr "リクエストが成功しました"
+
+#: ../../../app/views/pages/api.html.erb:286
+msgid "Push created or email notification queued"
+msgstr "プッシュ通知が作成されたか、メール通知がキューに追加されました"
+
+#: ../../../app/views/pages/api.html.erb:287
+msgid "Invalid request parameters"
+msgstr "無効なリクエストパラメータ"
+
+#: ../../../app/views/pages/api.html.erb:288
+msgid "Authentication required or invalid token"
+msgstr "認証が必要か、トークンが無効です。"
+
+#: ../../../app/views/pages/api.html.erb:289
+msgid "Forbidden for current user"
+msgstr "現在のユーザーには禁止されています"
+
+#: ../../../app/views/pages/api.html.erb:290
+msgid ""
+"Resource not found (includes unavailable notify_emails route when email auto-d"
+"ispatch is disabled)"
+msgstr "リソースが見つかりません（メール自動配信が無効になっている場合、利用できないnotify_emailsルートも含まれます）。"
+
+#: ../../../app/views/pages/api.html.erb:291
+msgid "Validation error"
+msgstr "検証エラー"
+
+#: ../../../app/views/pages/api.html.erb:292
+msgid "Too many email notification requests (notify_emails endpoint only)"
+msgstr "メール通知リクエストが多すぎます（notify_emailsエンドポイントのみ）"
+
+#: ../../../app/views/pages/api.html.erb:298
+msgid "For legacy API v1 documentation, see"
+msgstr "旧バージョンの API v1 のドキュメントについては、以下を参照してください。"
 
 #: ../../../app/views/pages/generate_key.html.erb:1
 msgid "Generate Key"
 msgstr "キーの生成"
 
-#: ../../../app/views/pages/generate_key.html.erb:3
-msgid "Generate an Encryption Key"
-msgstr "暗号化キーを生成する"
+#: ../../../app/views/pages/generate_key.html.erb:9
+msgid "Encryption Key Generator"
+msgstr "キージェネレーター"
 
-#: ../../../app/views/pages/generate_key.html.erb:6
+#: ../../../app/views/pages/generate_key.html.erb:12
 msgid ""
-"This page is used as a helper tool to generate a random encryption key for pri"
-"vately hosted instances of Password Pusher."
+"Generate a secure encryption key for your self-hosted Password Pusher instance"
+"."
+msgstr "セルフホスト型のPassword Pusherインスタンス用に、安全な暗号化キーを生成します。"
+
+#: ../../../app/views/pages/generate_key.html.erb:20
+msgid "Why Use a Custom Key?"
+msgstr "なぜカスタムキーを使うのか？"
+
+#: ../../../app/views/pages/generate_key.html.erb:23
+msgid ""
+"Password Pusher encrypts all sensitive data in the database using a master enc"
+"ryption key. While a default key is provided for convenience, using your own u"
+"nique key provides the highest level of security for your private instance."
 msgstr ""
-"このページは、Password Pusher の非公開でホストされているインスタンスのランダムな暗号化キーを生成するためのヘルパー ツールとして使用されます"
-"。"
+"Password Pusherは、マスター暗号化キーを使用してデータベース内のすべての機密データを暗号化します。利便性のためにデフォルトのキーが提供されてい"
+"ますが、独自のキーを使用することで、プライベートインスタンスのセキュリティを最高レベルで確保できます。"
 
-#: ../../../app/views/pages/generate_key.html.erb:10
-msgid ""
-"Password Pusher encrypts sensitive data in the database.  This requires a rand"
-"omly generated encryption key for each application instance."
-msgstr ""
-"Password Pusher は、データベース内の機密データを暗号化します。これには、アプリケーション インスタンスごとにランダムに生成された暗号化キーが"
-"必要です。"
+#: ../../../app/views/pages/generate_key.html.erb:29
+msgid "Your Generated Key"
+msgstr "生成されたキー"
 
-#: ../../../app/views/pages/generate_key.html.erb:14
-msgid ""
-"You can use the randomly generated code below to configure your Password Pushe"
-"r instance."
-msgstr "以下のランダムに生成されたコードを使用して、Password Pusher インスタンスを構成できます。"
+#: ../../../app/views/pages/generate_key.html.erb:33
+msgid "Raw Encryption Key"
+msgstr "生の暗号化キー"
 
-#: ../../../app/views/pages/generate_key.html.erb:22
-msgid "Generated Encryption Key"
-msgstr "生成された暗号鍵"
+#: ../../../app/views/pages/generate_key.html.erb:43
+msgid "Environment Variable Format"
+msgstr "環境変数フォーマット"
 
-#: ../../../app/views/pages/generate_key.html.erb:32
-msgid "You can apply this key to your application by setting the environment variable"
-msgstr "環境変数を設定することで、このキーをアプリケーションに適用できます。"
+#: ../../../app/views/pages/generate_key.html.erb:51
+msgid "Set this environment variable in your deployment configuration."
+msgstr "デプロイメント構成でこの環境変数を設定してください。"
 
-#: ../../../app/views/pages/generate_key.html.erb:45
-msgid "Reload this page to re-generate a new key."
-msgstr "このページを再読み込みして、新しいキーを再生成してください。"
-
-#: ../../../app/views/pages/generate_key.html.erb:49
-msgid "Notes:"
-msgstr "ノート："
-
-#: ../../../app/views/pages/generate_key.html.erb:52
-msgid "If an encryption key isn't provided, a default key will be used."
-msgstr "暗号化キーが指定されていない場合は、既定のキーが使用されます。"
-
-#: ../../../app/views/pages/generate_key.html.erb:55
-msgid ""
-"The best security for private instances of Password Pusher is to use your own "
-"custom encryption key although it is not required."
-msgstr "Password Pusher のプライベート インスタンスの最適なセキュリティは、必須ではありませんが独自のカスタム暗号化キーを使用することです。"
-
-#: ../../../app/views/pages/generate_key.html.erb:58
-msgid ""
-"The risk in using the default key is lessened if you keep your instance secure"
-" and your push expirations short.  e.g.  1 day/1 view versus 100 days/100 view"
-"s."
-msgstr ""
-"インスタンスを安全に保ち、プッシュの有効期限を短くすると、デフォルトのキーを使用するリスクが軽減されます。例: 1 日/1 ビュー対 100 日/100 ビ"
-"ュー。"
-
-#: ../../../app/views/pages/generate_key.html.erb:61
-msgid "Once a push expires, all encrypted data is deleted."
-msgstr "プッシュの有効期限が切れると、暗号化されたデータはすべて削除されます。"
+#: ../../../app/views/pages/generate_key.html.erb:57
+msgid "Generate New Key"
+msgstr "新しいキーを生成する"
 
 #: ../../../app/views/pages/generate_key.html.erb:64
+msgid "Important Notes"
+msgstr "重要な注意事項"
+
+#: ../../../app/views/pages/generate_key.html.erb:72
+msgid "Default Key Available"
+msgstr "デフォルトキーが利用可能です"
+
+#: ../../../app/views/pages/generate_key.html.erb:75
 msgid ""
-"Changing an encryption key where old pushes already exist will make those olde"
-"r pushes unreadable.  In other words, the payloads will be garbled.  New pushe"
-"s going forward will work fine."
-msgstr ""
-"古いプッシュが既に存在する暗号化キーを変更すると、それらの古いプッシュが読み取れなくなります。つまり、ペイロードが文字化けします。今後の新しいプッシュは正常"
-"に機能します。"
+"A default key is used if none is provided. This works but is less secure than "
+"a custom key."
+msgstr "鍵が指定されていない場合は、デフォルトの鍵が使用されます。これは機能しますが、カスタム鍵よりもセキュリティが劣ります。"
 
-#: ../../../app/views/pages/generate_key.html.erb:67
+#: ../../../app/views/pages/generate_key.html.erb:85
+msgid "Reduce Risk"
+msgstr "リスクを軽減する"
+
+#: ../../../app/views/pages/generate_key.html.erb:88
 msgid ""
-"Key generation can also be done from the command line in the application sourc"
-"e by executing: "
-msgstr "鍵の生成は、アプリケーション ソースのコマンド ラインから次のコマンドを実行して実行することもできます。"
+"Using short push expirations (e.g., 1 day/1 view) reduces risk even with the d"
+"efault key."
+msgstr "プッシュ通知の有効期限を短く設定する（例：1日/1ビュー）ことで、デフォルトキーを使用した場合でもリスクを軽減できます。"
 
-#: ../../../app/views/pages/generate_key.html.erb:79
-msgid "See also the Password Pusher"
-msgstr "パスワードプッシャーも参照してください"
+#: ../../../app/views/pages/generate_key.html.erb:98
+msgid "Data Deletion"
+msgstr "データ削除"
 
-#: ../../../app/views/pages/generate_key.html.erb:80
-msgid "Configuration documentation"
-msgstr "構成ドキュメント"
+#: ../../../app/views/pages/generate_key.html.erb:101
+msgid ""
+"Once a push expires, all encrypted data is permanently deleted from the databa"
+"se."
+msgstr "プッシュ通知の有効期限が切れると、暗号化されたデータはすべてデータベースから完全に削除されます。"
+
+#: ../../../app/views/pages/generate_key.html.erb:111
+msgid "Key Changes"
+msgstr "主な変更点"
+
+#: ../../../app/views/pages/generate_key.html.erb:114
+msgid "Changing keys makes existing pushes unreadable. New pushes will work normally."
+msgstr "キーを変更すると、既存のプッシュ通知が読み取れなくなります。新しいプッシュ通知は正常に機能します。"
+
+#: ../../../app/views/pages/generate_key.html.erb:124
+msgid "Command Line Alternative"
+msgstr "コマンドラインの代替手段"
+
+#: ../../../app/views/pages/generate_key.html.erb:127
+msgid "You can also generate keys from the command line in the application source:"
+msgstr "アプリケーションのソースコード内でコマンドラインからキーを生成することもできます。"
+
+#: ../../../app/views/pages/generate_key.html.erb:130
+msgid "In your Password Pusher directory"
+msgstr "Password Pusherディレクトリ内"
+
+#: ../../../app/views/pages/generate_key.html.erb:140
+msgid "Learn More"
+msgstr "さらに詳しく"
+
+#: ../../../app/views/pages/generate_key.html.erb:143
+msgid "For detailed configuration options and deployment strategies, see the"
+msgstr "詳細な構成オプションと展開戦略については、以下を参照してください。"
+
+#: ../../../app/views/pages/generate_key.html.erb:145
+msgid "Configuration Documentation"
+msgstr "設定ドキュメント"
+
+#: ../../../app/views/pages/generate_key.html.erb:153
+msgid "Keys are generated server-side using cryptographically secure random bytes."
+msgstr "鍵は、暗号学的に安全なランダムバイトを使用してサーバー側で生成されます。"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:2
+msgid "%{sender} has sent you a push"
+msgstr "%{sender} からプッシュ通知が届きました"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:9
+msgid "Secret link:"
+msgstr "秘密のリンク："
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:11
+msgid "Important Notes:"
+msgstr "重要な注意事項:"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:13
+msgid ""
+"This link is valid for %{remaining}, or until %{views} views, whichever occurs"
+" first."
+msgstr "このリンクは%{remaining}の間有効で、または%{views}回の表示まで、いずれか早い方が適用されます。"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:15
+msgid "Upon expiration, this secret link and all content are permanently deleted."
+msgstr "有効期限が切れると、この秘密のリンクとすべてのコンテンツは永久に削除されます。"
+
+#: ../../../app/views/pushes/_error.html.erb:3
+msgid "%{count} error prohibited this push from being saved:"
+msgid_plural "%{count} errors prohibited this push from being saved:"
+msgstr[0] "%{count} エラーにより、このプッシュは保存できませんでした。"
+msgstr[1] ""
 
 #: ../../../app/views/pushes/_files_form.html.erb:1
 msgid "Securely Send Files"
@@ -1562,36 +2481,36 @@ msgstr[0] "日間"
 msgstr[1] ""
 
 #: ../../../app/views/pushes/_files_form.html.erb:7
-#: ../../../app/views/pushes/_files_form.html.erb:95
+#: ../../../app/views/pushes/_files_form.html.erb:90
 #: ../../../app/views/pushes/_form.html.erb:7
-#: ../../../app/views/pushes/_form.html.erb:69
+#: ../../../app/views/pushes/_form.html.erb:123
 #: ../../../app/views/pushes/_qr_form.html.erb:7
-#: ../../../app/views/pushes/_qr_form.html.erb:70
+#: ../../../app/views/pushes/_qr_form.html.erb:103
 #: ../../../app/views/pushes/_url_form.html.erb:7
-#: ../../../app/views/pushes/_url_form.html.erb:56
+#: ../../../app/views/pushes/_url_form.html.erb:58
 msgid "Days"
 msgstr "日間"
 
 #: ../../../app/views/pushes/_files_form.html.erb:10
-#: ../../../app/views/pushes/_files_form.html.erb:113
+#: ../../../app/views/pushes/_files_form.html.erb:107
 #: ../../../app/views/pushes/_form.html.erb:10
-#: ../../../app/views/pushes/_form.html.erb:86
+#: ../../../app/views/pushes/_form.html.erb:139
 #: ../../../app/views/pushes/_qr_form.html.erb:10
-#: ../../../app/views/pushes/_qr_form.html.erb:87
+#: ../../../app/views/pushes/_qr_form.html.erb:119
 #: ../../../app/views/pushes/_url_form.html.erb:10
-#: ../../../app/views/pushes/_url_form.html.erb:75
+#: ../../../app/views/pushes/_url_form.html.erb:76
 msgid "Views"
 msgstr "ビュー"
 
 #: ../../../app/views/pushes/_files_form.html.erb:12
-#: ../../../app/views/pushes/_files_form.html.erb:161
+#: ../../../app/views/pushes/_files_form.html.erb:148
 #: ../../../app/views/pushes/_form.html.erb:12
-#: ../../../app/views/pushes/_form.html.erb:134
+#: ../../../app/views/pushes/_form.html.erb:180
 #: ../../../app/views/pushes/_qr_form.html.erb:12
-#: ../../../app/views/pushes/_qr_form.html.erb:137
+#: ../../../app/views/pushes/_qr_form.html.erb:162
 #: ../../../app/views/pushes/_url_form.html.erb:12
-#: ../../../app/views/pushes/_url_form.html.erb:115
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:72
+#: ../../../app/views/pushes/_url_form.html.erb:109
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:82
 msgid "Save"
 msgstr "保存"
 
@@ -1602,168 +2521,166 @@ msgstr "保存"
 msgid "Saved!"
 msgstr "保存しました！"
 
-#: ../../../app/views/pushes/_files_form.html.erb:30
+#: ../../../app/views/pushes/_files_form.html.erb:28
 msgid "Uploaded Files"
 msgstr "アップロードされたファイル"
 
-#: ../../../app/views/pushes/_files_form.html.erb:46
+#: ../../../app/views/pushes/_files_form.html.erb:44
 msgid "Are you sure you want to delete this file?"
 msgstr "このファイルを削除してもよろしいですか?"
 
-#: ../../../app/views/pushes/_files_form.html.erb:62
+#: ../../../app/views/pushes/_files_form.html.erb:57
 msgid "Add Files..."
 msgstr "追加ファイル..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:77
+#: ../../../app/views/pushes/_files_form.html.erb:72
 msgid "You can upload up to %{count} files per push."
 msgstr "プッシュごとに最大%{count}ファイルをアップロードできます。"
 
-#: ../../../app/views/pushes/_files_form.html.erb:82
-#: ../../../app/views/pushes/_form.html.erb:56
-#: ../../../app/views/pushes/_qr_form.html.erb:57
-#: ../../../app/views/pushes/_url_form.html.erb:43
+#: ../../../app/views/pushes/_files_form.html.erb:76
+#: ../../../app/views/pushes/_form.html.erb:109
+#: ../../../app/views/pushes/_qr_form.html.erb:89
+#: ../../../app/views/pushes/_url_form.html.erb:44
 msgid "Expire secret link and delete after:"
 msgstr "リンクを期限切れにする条件を設定する"
 
-#: ../../../app/views/pushes/_files_form.html.erb:118
-#: ../../../app/views/pushes/_form.html.erb:91
-#: ../../../app/views/pushes/_qr_form.html.erb:92
-#: ../../../app/views/pushes/_url_form.html.erb:80
-#: ../../../app/views/pushes/preview.html.erb:61
-#: ../../../app/views/pushes/preview.html.erb:63
+#: ../../../app/views/pushes/_files_form.html.erb:110
+#: ../../../app/views/pushes/_form.html.erb:142
+#: ../../../app/views/pushes/_qr_form.html.erb:122
+#: ../../../app/views/pushes/_url_form.html.erb:79
 #: ../../../app/views/pushes/print_preview.html.erb:16
 msgid "(whichever comes first)"
 msgstr "（いずれか早い方）"
 
+#: ../../../app/views/pushes/_files_form.html.erb:115
+#: ../../../app/views/pushes/_form.html.erb:147
+#: ../../../app/views/pushes/_qr_form.html.erb:127
+#: ../../../app/views/pushes/_url_form.html.erb:84
+#: ../../../app/views/pushes/audit.html.erb:76
+msgid "Passphrase"
+msgstr "パスフレーズロック"
+
+#: ../../../app/views/pushes/_files_form.html.erb:118
+#: ../../../app/views/pushes/_form.html.erb:150
+#: ../../../app/views/pushes/_qr_form.html.erb:130
+#: ../../../app/views/pushes/_url_form.html.erb:87
+msgid "Optional: Require recipients to enter a passphrase to view this push"
+msgstr "Option: 表示にはパスフレーズの入力が必要になります"
+
 #: ../../../app/views/pushes/_files_form.html.erb:129
-#: ../../../app/views/pushes/_form.html.erb:102
-#: ../../../app/views/pushes/_qr_form.html.erb:104
-#: ../../../app/views/pushes/_url_form.html.erb:92
+#: ../../../app/views/pushes/_form.html.erb:161
+#: ../../../app/views/pushes/_qr_form.html.erb:142
+#: ../../../app/views/pushes/_url_form.html.erb:99
 msgid "Use a 1-click retrieval step"
 msgstr "ワンクリック取得ステップを使用する"
 
 #: ../../../app/views/pushes/_files_form.html.erb:130
-#: ../../../app/views/pushes/_form.html.erb:103
-#: ../../../app/views/pushes/_qr_form.html.erb:105
-#: ../../../app/views/pushes/audit.html.erb:73
+#: ../../../app/views/pushes/_form.html.erb:162
+#: ../../../app/views/pushes/_qr_form.html.erb:143
+#: ../../../app/views/pushes/audit.html.erb:70
 msgid "Helps to avoid chat systems and URL scanners from eating up views."
 msgstr "チャット システムや URL スキャナーがビューを食い尽くすのを防ぐのに役立ちます。"
 
 #: ../../../app/views/pushes/_files_form.html.erb:138
-#: ../../../app/views/pushes/_form.html.erb:111
-#: ../../../app/views/pushes/_qr_form.html.erb:114
+#: ../../../app/views/pushes/_form.html.erb:170
+#: ../../../app/views/pushes/_qr_form.html.erb:152
 msgid "Allow immediate deletion"
 msgstr "即時削除を許可する"
 
 #: ../../../app/views/pushes/_files_form.html.erb:139
-#: ../../../app/views/pushes/_form.html.erb:112
-#: ../../../app/views/pushes/_qr_form.html.erb:115
+#: ../../../app/views/pushes/_form.html.erb:171
+#: ../../../app/views/pushes/_qr_form.html.erb:153
 msgid "Allow users to delete this push once retrieved."
 msgstr "取得したプッシュをユーザーが削除できるようにします。"
 
-#: ../../../app/views/pushes/_files_form.html.erb:149
-#: ../../../app/views/pushes/_form.html.erb:122
-#: ../../../app/views/pushes/_qr_form.html.erb:125
-#: ../../../app/views/pushes/_url_form.html.erb:103
-#: ../../../app/views/pushes/audit.html.erb:78
-msgid "Passphrase Lockdown"
-msgstr "パスフレーズ"
-
-#: ../../../app/views/pushes/_files_form.html.erb:152
-#: ../../../app/views/pushes/_form.html.erb:125
-#: ../../../app/views/pushes/_qr_form.html.erb:128
-#: ../../../app/views/pushes/_url_form.html.erb:106
-msgid "Optional: Require recipients to enter a passphrase to view this push"
-msgstr "Option: 表示にはパスフレーズの入力が必要になります"
-
-#: ../../../app/views/pushes/_files_form.html.erb:161
-#: ../../../app/views/pushes/_form.html.erb:134
-#: ../../../app/views/pushes/_qr_form.html.erb:137
-#: ../../../app/views/pushes/_url_form.html.erb:115
+#: ../../../app/views/pushes/_files_form.html.erb:148
+#: ../../../app/views/pushes/_form.html.erb:180
+#: ../../../app/views/pushes/_qr_form.html.erb:162
+#: ../../../app/views/pushes/_url_form.html.erb:109
 msgid "the above settings as the page default."
 msgstr "上記の設定をページのデフォルトとして使用します。"
 
-#: ../../../app/views/pushes/_files_form.html.erb:175
-#: ../../../app/views/pushes/_files_form.html.erb:198
-#: ../../../app/views/pushes/_form.html.erb:161
-#: ../../../app/views/pushes/_form.html.erb:171
-#: ../../../app/views/pushes/_qr_form.html.erb:164
-#: ../../../app/views/pushes/_qr_form.html.erb:174
-#: ../../../app/views/pushes/_url_form.html.erb:128
-#: ../../../app/views/pushes/_url_form.html.erb:138
+#: ../../../app/views/pushes/_files_form.html.erb:158
+#: ../../../app/views/pushes/_files_form.html.erb:181
+#: ../../../app/views/pushes/_form.html.erb:190
+#: ../../../app/views/pushes/_form.html.erb:200
+#: ../../../app/views/pushes/_qr_form.html.erb:172
+#: ../../../app/views/pushes/_qr_form.html.erb:182
+#: ../../../app/views/pushes/_url_form.html.erb:119
+#: ../../../app/views/pushes/_url_form.html.erb:129
 msgid "Optional"
 msgstr "オプション"
 
-#: ../../../app/views/pushes/_files_form.html.erb:178
-#: ../../../app/views/pushes/_form.html.erb:164
-#: ../../../app/views/pushes/_qr_form.html.erb:167
-#: ../../../app/views/pushes/_url_form.html.erb:131
+#: ../../../app/views/pushes/_files_form.html.erb:161
+#: ../../../app/views/pushes/_form.html.erb:193
+#: ../../../app/views/pushes/_qr_form.html.erb:175
+#: ../../../app/views/pushes/_url_form.html.erb:122
 msgid "A name shown in the dashboard, notifications and emails."
 msgstr "ダッシュボード、通知、メールに表示される名前。"
 
-#: ../../../app/views/pushes/_files_form.html.erb:183
+#: ../../../app/views/pushes/_files_form.html.erb:166
 msgid "Message"
 msgstr "メッセージ"
 
-#: ../../../app/views/pushes/_files_form.html.erb:186
+#: ../../../app/views/pushes/_files_form.html.erb:169
 msgid "Optional: A message to be included with the push"
 msgstr "オプション: プッシュに含めるメッセージ"
 
-#: ../../../app/views/pushes/_files_form.html.erb:190
+#: ../../../app/views/pushes/_files_form.html.erb:173
 msgid "Encrypted and visible to the receiving party"
 msgstr "暗号化され、受信者に表示されます"
 
-#: ../../../app/views/pushes/_files_form.html.erb:195
-#: ../../../app/views/pushes/_form.html.erb:168
-#: ../../../app/views/pushes/_qr_form.html.erb:171
-#: ../../../app/views/pushes/_url_form.html.erb:135
-#: ../../../app/views/pushes/audit.html.erb:15
-msgid "Reference Note"
-msgstr "参考書"
+#: ../../../app/views/pushes/_files_form.html.erb:178
+#: ../../../app/views/pushes/_form.html.erb:197
+#: ../../../app/views/pushes/_qr_form.html.erb:179
+#: ../../../app/views/pushes/_url_form.html.erb:126
+#: ../../../app/views/pushes/index.html.erb:35
+msgid "Note"
+msgstr "ノート"
 
-#: ../../../app/views/pushes/_files_form.html.erb:201
-#: ../../../app/views/pushes/_form.html.erb:174
-#: ../../../app/views/pushes/_qr_form.html.erb:177
-#: ../../../app/views/pushes/_url_form.html.erb:141
+#: ../../../app/views/pushes/_files_form.html.erb:184
+#: ../../../app/views/pushes/_form.html.erb:203
+#: ../../../app/views/pushes/_qr_form.html.erb:185
+#: ../../../app/views/pushes/_url_form.html.erb:132
 msgid "Encrypted and visible only to you"
 msgstr "暗号化され、自分だけに表示されます"
 
-#: ../../../app/views/pushes/_files_form.html.erb:207
+#: ../../../app/views/pushes/_files_form.html.erb:189
 msgid ""
 "Once expired, all files and content of the push will be deleted immediately an"
 "d entirely."
 msgstr "有効期限が切れると、プッシュのすべてのファイルとコンテンツはすぐに完全に削除されます。"
 
-#: ../../../app/views/pushes/_files_form.html.erb:212
-#: ../../../app/views/pushes/_url_form.html.erb:153
+#: ../../../app/views/pushes/_files_form.html.erb:190
+#: ../../../app/views/pushes/_url_form.html.erb:138
 msgid "An audit log of activity will be available."
 msgstr "アクティビティの監査ログが利用可能になります。"
 
-#: ../../../app/views/pushes/_files_form.html.erb:221
-#: ../../../app/views/pushes/_form.html.erb:188
-#: ../../../app/views/pushes/_qr_form.html.erb:191
-#: ../../../app/views/pushes/_url_form.html.erb:162
+#: ../../../app/views/pushes/_files_form.html.erb:199
+#: ../../../app/views/pushes/_form.html.erb:218
+#: ../../../app/views/pushes/_qr_form.html.erb:200
+#: ../../../app/views/pushes/_url_form.html.erb:147
 msgid "Updating..."
 msgstr "更新中..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:221
-#: ../../../app/views/pushes/_form.html.erb:188
-#: ../../../app/views/pushes/_qr_form.html.erb:191
-#: ../../../app/views/pushes/_url_form.html.erb:162
+#: ../../../app/views/pushes/_files_form.html.erb:199
+#: ../../../app/views/pushes/_form.html.erb:218
+#: ../../../app/views/pushes/_qr_form.html.erb:200
+#: ../../../app/views/pushes/_url_form.html.erb:147
 msgid "Update Push"
 msgstr "アップデートプッシュ"
 
-#: ../../../app/views/pushes/_files_form.html.erb:223
-#: ../../../app/views/pushes/_form.html.erb:190
-#: ../../../app/views/pushes/_qr_form.html.erb:193
-#: ../../../app/views/pushes/_url_form.html.erb:164
+#: ../../../app/views/pushes/_files_form.html.erb:201
+#: ../../../app/views/pushes/_form.html.erb:220
+#: ../../../app/views/pushes/_qr_form.html.erb:202
+#: ../../../app/views/pushes/_url_form.html.erb:149
 msgid "Pushing..."
 msgstr "押す..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:223
-#: ../../../app/views/pushes/_form.html.erb:190
-#: ../../../app/views/pushes/_qr_form.html.erb:193
-#: ../../../app/views/pushes/_url_form.html.erb:164
+#: ../../../app/views/pushes/_files_form.html.erb:201
+#: ../../../app/views/pushes/_form.html.erb:220
+#: ../../../app/views/pushes/_qr_form.html.erb:202
+#: ../../../app/views/pushes/_url_form.html.erb:149
 msgid "Push It!"
 msgstr "変換する"
 
@@ -1771,48 +2688,73 @@ msgstr "変換する"
 msgid "Securely Send a Password"
 msgstr "パスワードを安全に送信する"
 
-#: ../../../app/views/pushes/_form.html.erb:36
+#: ../../../app/views/pushes/_form.html.erb:39
+msgid "Content is hidden for privacy. Click the field below to reveal and edit."
+msgstr "プライバシー保護のため、コンテンツは非表示になっています。下のフィールドをクリックすると表示・編集できます。"
+
+#: ../../../app/views/pushes/_form.html.erb:43
+#: ../../../app/views/pushes/_form.html.erb:60
 msgid "Enter the Password or Text to push..."
 msgstr "パスワードまたはプッシュするテキストを入力してください..."
 
-#: ../../../app/views/pushes/_form.html.erb:48
-#: ../../../app/views/pushes/_qr_form.html.erb:49
+#: ../../../app/views/pushes/_form.html.erb:56
+#: ../../../app/views/pushes/_form.html.erb:75
+#: ../../../app/views/pushes/_form.html.erb:76
+#: ../../../app/views/pushes/_qr_form.html.erb:36
+#: ../../../app/views/pushes/_qr_form.html.erb:56
+#: ../../../app/views/pushes/_qr_form.html.erb:57
+msgid "Hide payload"
+msgstr "ペイロードを非表示にする"
+
+#: ../../../app/views/pushes/_form.html.erb:57
+#: ../../../app/views/pushes/_qr_form.html.erb:37
+msgid "Show payload"
+msgstr "ペイロードを表示"
+
+#: ../../../app/views/pushes/_form.html.erb:85
+#: ../../../app/views/pushes/_qr_form.html.erb:65
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:55
 msgid "Characters"
 msgstr "文字"
 
-#: ../../../app/views/pushes/_form.html.erb:147
-#: ../../../app/views/pushes/_qr_form.html.erb:150
+#: ../../../app/views/pushes/_form.html.erb:92
+#: ../../../app/views/pushes/_qr_form.html.erb:72
+msgid "Password Generator"
+msgstr "パスワードジェネレータ"
+
+#: ../../../app/views/pushes/_form.html.erb:96
+#: ../../../app/views/pushes/_qr_form.html.erb:76
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:18
 msgid "Generate Password"
 msgstr "パスワードの生成"
 
-#: ../../../app/views/pushes/_form.html.erb:154
-#: ../../../app/views/pushes/_qr_form.html.erb:157
-msgid "Use the button above to generate a random password."
-msgstr "上のボタンを使用してランダムなパスワードを生成します。"
+#: ../../../app/views/pushes/_form.html.erb:100
+#: ../../../app/views/pushes/_qr_form.html.erb:80
+msgid "Configure Generator"
+msgstr "ジェネレーターの設定"
 
-#: ../../../app/views/pushes/_form.html.erb:179
-#: ../../../app/views/pushes/_qr_form.html.erb:182
+#: ../../../app/views/pushes/_form.html.erb:208
+#: ../../../app/views/pushes/_qr_form.html.erb:190
 msgid ""
-"Tip: Only enter a password into the box.  Other identifying information can co"
-"mpromise security."
-msgstr "ヒント: ボックスにはパスワードのみを入力してください。その他の識別情報は、セキュリティを損なう可能性があります。"
+"Tip: Only enter a password into the box. Other identifying information can com"
+"promise security."
+msgstr "ヒント：入力欄にはパスワードのみを入力してください。その他の個人情報を入力すると、セキュリティが損なわれる可能性があります。"
 
-#: ../../../app/views/pushes/_form.html.erb:180
-#: ../../../app/views/pushes/_qr_form.html.erb:183
+#: ../../../app/views/pushes/_form.html.erb:209
+#: ../../../app/views/pushes/_qr_form.html.erb:191
 msgid ""
 "All passwords are encrypted prior to storage and are available to only those w"
-"ith the secret link.  Once expired, encrypted passwords are unequivocally dele"
-"ted from the database."
+"ith the secret link. Once expired, encrypted passwords are unequivocally delet"
+"ed from the database."
 msgstr ""
-"すべてのパスワードは保存前に暗号化され、秘密のリンクを知っている人だけが利用できます。有効期限が切れると、暗号化されたパスワードはサイトから完全に削除されま"
-"す。"
+"すべてのパスワードは保存前に暗号化され、秘密のリンクを知っている人だけがアクセスできます。有効期限が切れた暗号化パスワードは、データベースから完全に削除され"
+"ます。"
 
 #: ../../../app/views/pushes/_qr_form.html.erb:1
 msgid "Securely Send a QR Code"
 msgstr "QRコードを安全に送信する"
 
-#: ../../../app/views/pushes/_qr_form.html.erb:36
+#: ../../../app/views/pushes/_qr_form.html.erb:40
 msgid "Enter up to 1024 characters..."
 msgstr "最大 1024 文字を入力してください..."
 
@@ -1831,23 +2773,23 @@ msgstr "パスワードがぼやけています。下をクリックすると表
 msgid "Securely Send URLs"
 msgstr "URL を安全に送信する"
 
-#: ../../../app/views/pushes/_url_form.html.erb:28
+#: ../../../app/views/pushes/_url_form.html.erb:26
 msgid "URL Redirection"
 msgstr "URL リダイレクト"
 
-#: ../../../app/views/pushes/_url_form.html.erb:32
+#: ../../../app/views/pushes/_url_form.html.erb:30
 msgid "Enter the URL to redirect to..."
 msgstr "リダイレクト先の URL を入力してください..."
 
-#: ../../../app/views/pushes/_url_form.html.erb:93
+#: ../../../app/views/pushes/_url_form.html.erb:100
 msgid "Helps to avoid chat systems and URL scanners from eating up redirects."
 msgstr "チャット システムや URL スキャナーがリダイレクトを食い尽くすのを防ぐのに役立ちます。"
 
-#: ../../../app/views/pushes/_url_form.html.erb:147
+#: ../../../app/views/pushes/_url_form.html.erb:137
 msgid "A secret URL will be generated that will redirect to the URL specified."
 msgstr "指定した URL にリダイレクトするシークレット URL が生成されます。"
 
-#: ../../../app/views/pushes/_url_form.html.erb:152
+#: ../../../app/views/pushes/_url_form.html.erb:138
 msgid "Upon expiration, the push URL will be deleted entirely."
 msgstr "有効期限が切れると、プッシュ URL は完全に削除されます。"
 
@@ -1856,27 +2798,33 @@ msgid "Audit Log for %{push_id}"
 msgstr "%{push_id} の監査ログ"
 
 #: ../../../app/views/pushes/audit.html.erb:4
-msgid "Audit Log for Push ID: %{push_id}"
-msgstr "プッシュID: %{push_id}の監査ログ"
+#: ../../../app/views/pushes/index.html.erb:107
+#: ../../../app/views/pushes/preview.html.erb:120
+msgid "Audit Log"
+msgstr "監査ログ"
 
-#: ../../../app/views/pushes/audit.html.erb:6
-msgid "Pushed on %{date}"
-msgstr "%{date} にプッシュされました"
+#: ../../../app/views/pushes/audit.html.erb:7
+msgid "Pushed on"
+msgstr "押し進めた"
 
-#: ../../../app/views/pushes/audit.html.erb:9
+#: ../../../app/views/pushes/audit.html.erb:10
 msgid "Secret URL for this push"
 msgstr "このプッシュのシークレット URL"
 
 #: ../../../app/views/pushes/audit.html.erb:16
+msgid "Reference Note"
+msgstr "参考書"
+
+#: ../../../app/views/pushes/audit.html.erb:17
 msgid "Visible Only To You"
 msgstr "自分だけに見える"
 
-#: ../../../app/views/pushes/audit.html.erb:28
+#: ../../../app/views/pushes/audit.html.erb:29
 msgid "Settings"
 msgstr "設定"
 
-#: ../../../app/views/pushes/audit.html.erb:32
-#: ../../../app/views/pushes/audit.html.erb:41
+#: ../../../app/views/pushes/audit.html.erb:34
+#: ../../../app/views/pushes/audit.html.erb:42
 msgid "Expire after"
 msgstr "期限切れ"
 
@@ -1884,7 +2832,7 @@ msgstr "期限切れ"
 msgid "The push expires after this number of views."
 msgstr "この数のビューが経過すると、プッシュは期限切れになります。"
 
-#: ../../../app/views/pushes/audit.html.erb:45
+#: ../../../app/views/pushes/audit.html.erb:44
 msgid "The push expires after this number of days."
 msgstr "この日数が経過すると、プッシュは期限切れになります。"
 
@@ -1892,68 +2840,48 @@ msgstr "この日数が経過すると、プッシュは期限切れになりま
 msgid "Deletable by Viewers"
 msgstr "閲覧者が削除可能"
 
-#: ../../../app/views/pushes/audit.html.erb:54
-#: ../../../app/views/pushes/audit.html.erb:68
-msgid "True"
-msgstr "真実"
-
-#: ../../../app/views/pushes/audit.html.erb:56
-#: ../../../app/views/pushes/audit.html.erb:70
-msgid "False"
-msgstr "間違い"
-
-#: ../../../app/views/pushes/audit.html.erb:59
+#: ../../../app/views/pushes/audit.html.erb:57
 msgid "This allows end users to delete content once retrieved."
 msgstr "これにより、エンド ユーザーは取得したコンテンツを削除できます。"
 
-#: ../../../app/views/pushes/audit.html.erb:65
+#: ../../../app/views/pushes/audit.html.erb:64
 msgid "1-click Retrieval Step"
 msgstr "ワンクリック検索ステップ"
 
-#: ../../../app/views/pushes/audit.html.erb:81
-#: ../../../app/views/pushes/audit.html.erb:140
-msgid "No"
-msgstr "いいえ"
-
-#: ../../../app/views/pushes/audit.html.erb:83
-#: ../../../app/views/pushes/audit.html.erb:142
-msgid "Yes"
-msgstr "はい"
-
-#: ../../../app/views/pushes/audit.html.erb:86
+#: ../../../app/views/pushes/audit.html.erb:82
 msgid "Require recipients to enter a passphrase to view this push."
 msgstr "このプッシュを表示するには、受信者がパスフレーズを入力する必要があります。"
 
-#: ../../../app/views/pushes/audit.html.erb:92
+#: ../../../app/views/pushes/audit.html.erb:88
 msgid "Current Status"
 msgstr "現在のステータス"
 
-#: ../../../app/views/pushes/audit.html.erb:96
+#: ../../../app/views/pushes/audit.html.erb:93
 msgid "State:"
 msgstr "州："
 
-#: ../../../app/views/pushes/audit.html.erb:101
-#: ../../../app/views/shared/_dashboard_header.html.erb:10
+#: ../../../app/views/pushes/audit.html.erb:98
+#: ../../../app/views/shared/_dashboard_header.html.erb:14
 msgid "Active"
 msgstr "アクティブ"
 
-#: ../../../app/views/pushes/audit.html.erb:102
+#: ../../../app/views/pushes/audit.html.erb:99
 msgid "Active and still available for viewing."
 msgstr "アクティブで、まだ表示できます。"
 
-#: ../../../app/views/pushes/audit.html.erb:108
+#: ../../../app/views/pushes/audit.html.erb:106
 msgid "Successful Views"
 msgstr "成功したビュー"
 
-#: ../../../app/views/pushes/audit.html.erb:109
+#: ../../../app/views/pushes/audit.html.erb:107
 msgid "The number of times this push has been viewed before expiration."
 msgstr "有効期限が切れる前にこのプッシュが表示された回数。"
 
-#: ../../../app/views/pushes/audit.html.erb:114
+#: ../../../app/views/pushes/audit.html.erb:113
 msgid "Failed View Attempts"
 msgstr "失敗した表示試行"
 
-#: ../../../app/views/pushes/audit.html.erb:115
+#: ../../../app/views/pushes/audit.html.erb:114
 msgid "The number of times this push has been viewed after expiration."
 msgstr "このプッシュが有効期限後に表示された回数。"
 
@@ -1971,16 +2899,16 @@ msgstr "最大ビュー数に達しない場合に、このプッシュが期限
 msgid "Payload"
 msgstr "ペイロード"
 
-#: ../../../app/views/pushes/audit.html.erb:135
+#: ../../../app/views/pushes/audit.html.erb:136
 msgid "Contains Message for Receiver"
 msgstr "受信者へのメッセージを含む"
 
 #: ../../../app/views/pushes/audit.html.erb:138
-#: ../../../app/views/pushes/audit.html.erb:153
+#: ../../../app/views/pushes/audit.html.erb:152
 msgid "Deleted"
 msgstr "削除しました"
 
-#: ../../../app/views/pushes/audit.html.erb:145
+#: ../../../app/views/pushes/audit.html.erb:144
 msgid "Has a text payload been added to this push?"
 msgstr "このプッシュにテキスト ペイロードが追加されましたか?"
 
@@ -1988,155 +2916,138 @@ msgstr "このプッシュにテキスト ペイロードが追加されまし�
 msgid "Message Length"
 msgstr "メッセージの長さ"
 
-#: ../../../app/views/pushes/audit.html.erb:155
+#: ../../../app/views/pushes/audit.html.erb:154
 msgid "Not Applicable"
 msgstr "適用できない"
 
-#: ../../../app/views/pushes/audit.html.erb:160
+#: ../../../app/views/pushes/audit.html.erb:158
 msgid "The length of the attached text payload."
 msgstr "添付されたテキスト ペイロードの長さ。"
 
-#: ../../../app/views/pushes/audit.html.erb:165
+#: ../../../app/views/pushes/audit.html.erb:164
 msgid "Number of Files Attached"
 msgstr "添付ファイル数"
 
-#: ../../../app/views/pushes/audit.html.erb:173
+#: ../../../app/views/pushes/audit.html.erb:170
 msgid "The number of files attached to this push. This value will be 0 when expired."
 msgstr "このプッシュに添付されたファイルの数。有効期限が切れると、この値は 0 になります。"
 
-#: ../../../app/views/pushes/audit.html.erb:179
+#: ../../../app/views/pushes/audit.html.erb:176
 #: ../../../app/views/pushes/show.html.erb:28
 msgid "Attached Files"
 msgstr "添付ファイル"
 
-#: ../../../app/views/pushes/audit.html.erb:185
-msgid "Filename:"
-msgstr "ファイル名："
-
-#: ../../../app/views/pushes/audit.html.erb:187
-msgid "Size: "
+#: ../../../app/views/pushes/audit.html.erb:184
+msgid "Size:"
 msgstr "サイズ："
 
-#: ../../../app/views/pushes/audit.html.erb:192
+#: ../../../app/views/pushes/audit.html.erb:189
 msgid "All attached files have been deleted."
 msgstr "添付ファイルはすべて削除されました。"
 
-#: ../../../app/views/pushes/audit.html.erb:207
+#: ../../../app/views/pushes/audit.html.erb:201
+#: ../../../app/views/pushes/edit.html.erb:1
+msgid "Edit Push"
+msgstr "編集プッシュ"
+
+#: ../../../app/views/pushes/audit.html.erb:204
 msgid "Expire Now"
 msgstr "今すぐ期限切れ"
 
-#: ../../../app/views/pushes/audit.html.erb:215
+#: ../../../app/views/pushes/audit.html.erb:212
 msgid "Delete This Push?"
 msgstr "このプッシュを削除しますか?"
 
-#: ../../../app/views/pushes/audit.html.erb:219
+#: ../../../app/views/pushes/audit.html.erb:216
 msgid "This will expire this secret link and"
 msgstr "これにより、この秘密のリンクが期限切れになり、"
 
-#: ../../../app/views/pushes/audit.html.erb:219
+#: ../../../app/views/pushes/audit.html.erb:216
 msgid "remove all content from the database forever"
 msgstr "データベースからすべてのコンテンツを永久に削除する"
 
-#: ../../../app/views/pushes/audit.html.erb:220
+#: ../../../app/views/pushes/audit.html.erb:217
 msgid ""
 "The audit log (including future attempted views) will still be maintained goin"
 "g forward."
 msgstr "監査ログ (今後試行されるビューを含む) は、今後も維持されます。"
 
-#: ../../../app/views/pushes/audit.html.erb:237
-msgid "Start of Audit Log"
-msgstr "監査ログの開始"
+#: ../../../app/views/pushes/audit.html.erb:234
+msgid "Activity Log"
+msgstr "アクティビティログ"
 
-#: ../../../app/views/pushes/audit.html.erb:243
+#: ../../../app/views/pushes/audit.html.erb:241
 msgid ""
 "As the push receives activity, a log of each with identifying information will"
 " show up here."
 msgstr "プッシュがアクティビティを受信すると、識別情報を含むそれぞれのログがここに表示されます。"
 
-#: ../../../app/views/pushes/audit.html.erb:247
-msgid "End of Audit Log"
-msgstr "監査ログの終わり"
-
-#: ../../../app/views/pushes/edit.html.erb:1
-#: ../../../app/views/pushes/preview.html.erb:98
-msgid "Edit Push"
-msgstr "編集プッシュ"
-
-#: ../../../app/views/pushes/edit.html.erb:4
+#: ../../../app/views/pushes/edit.html.erb:6
 msgid "Editing Push"
 msgstr "編集プッシュ"
 
-#: ../../../app/views/pushes/index.html.erb:9
-msgid "You currently have no active pushes."
-msgstr "現在アクティブなプッシュはありません。"
-
-#: ../../../app/views/pushes/index.html.erb:11
-msgid "You currently have no expired pushes."
-msgstr "現在、期限切れのプッシュはありません。"
+#: ../../../app/views/pushes/index.html.erb:1
+#: ../../../app/views/shared/_dashboard_header.html.erb:5
+#: ../../../app/views/shared/_header.html.erb:19
+msgid "Dashboard"
+msgstr "ダッシュボード"
 
 #: ../../../app/views/pushes/index.html.erb:13
-msgid "You currently have no pushes."
-msgstr "現在プッシュはありません。"
+msgid "No active pushes"
+msgstr "アクティブなプッシュはありません"
 
-#: ../../../app/views/pushes/index.html.erb:19
-msgid "Push a Password Now"
-msgstr "今すぐパスワードをプッシュ"
+#: ../../../app/views/pushes/index.html.erb:15
+msgid "No expired pushes"
+msgstr "期限切れのプッシュ通知はありません"
 
-#: ../../../app/views/pushes/index.html.erb:28
-msgid "Expired Pushes"
-msgstr "期限切れプッシュ"
+#: ../../../app/views/pushes/index.html.erb:17
+msgid "No pushes yet"
+msgstr "まだ押されていません"
 
-#: ../../../app/views/pushes/index.html.erb:30
-msgid "All Pushes"
-msgstr "すべてのプッシュ"
+#: ../../../app/views/pushes/index.html.erb:21
+msgid "Create your first secure push to share passwords, files, or URLs."
+msgstr "パスワード、ファイル、またはURLを共有するための、最初の安全なプッシュ通知を作成しましょう。"
 
-#: ../../../app/views/pushes/index.html.erb:37
-msgid "Name or ID"
-msgstr "名前またはID"
+#: ../../../app/views/pushes/index.html.erb:24
+msgid "Create Your First Push"
+msgstr "最初のプッシュを作成する"
 
-#: ../../../app/views/pushes/index.html.erb:38
-msgid "Kind"
-msgstr "種類"
+#: ../../../app/views/pushes/index.html.erb:32
+msgid "Name / ID"
+msgstr "氏名／ID"
 
-#: ../../../app/views/pushes/index.html.erb:40
-msgid "Note"
-msgstr "ノート"
-
-#: ../../../app/views/pushes/index.html.erb:41
-msgid "Remaining"
-msgstr "残り"
+#: ../../../app/views/pushes/index.html.erb:36
+msgid "Status"
+msgstr "状態"
 
 #: ../../../app/views/pushes/index.html.erb:55
-msgid "File(s)"
+msgid "File"
 msgstr "ファイル"
 
-#: ../../../app/views/pushes/index.html.erb:57
+#: ../../../app/views/pushes/index.html.erb:59
 msgid "URL"
 msgstr "メールアドレス"
 
-#: ../../../app/views/pushes/index.html.erb:59
-msgid "QR Code"
-msgstr "QRコード"
+#: ../../../app/views/pushes/index.html.erb:63
+msgid "QR"
+msgstr "QR"
 
-#: ../../../app/views/pushes/index.html.erb:61
+#: ../../../app/views/pushes/index.html.erb:67
 msgid "Text"
 msgstr "文章"
 
-#: ../../../app/views/pushes/index.html.erb:77
-msgid "%{views} views or %{days} days"
-msgstr "%{views} 回視聴または %{days} 日"
+#: ../../../app/views/pushes/index.html.erb:93
+msgid "%{views}v / %{days}d"
+msgstr "%{views}v / %{days}d"
 
-#: ../../../app/views/pushes/index.html.erb:80
+#: ../../../app/views/pushes/index.html.erb:98
 msgid "Push Controls"
 msgstr "プッシュ コントロール"
 
-#: ../../../app/views/pushes/index.html.erb:83
+#: ../../../app/views/pushes/index.html.erb:100
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:10
 msgid "Preview"
 msgstr "プレビュー"
-
-#: ../../../app/views/pushes/index.html.erb:90
-msgid "Audit"
-msgstr "監査"
 
 #: ../../../app/views/pushes/new.html.erb:1
 msgid "Securely Send a Password, Text or File"
@@ -2163,111 +3074,116 @@ msgid "Click Here to Proceed"
 msgstr "ここをクリックして続行します"
 
 #: ../../../app/views/pushes/preview.html.erb:1
-#: ../../../app/views/pushes/preview.html.erb:6
 msgid "Push Preview"
 msgstr "プッシュプレビュー"
 
-#: ../../../app/views/pushes/preview.html.erb:8
-msgid "Use this secret link to share it:"
-msgstr "この秘密のリンクを使用して共有してください:"
+#: ../../../app/views/pushes/preview.html.erb:10
+msgid "Push Created"
+msgstr "プッシュが作成されました"
 
-#: ../../../app/views/pushes/preview.html.erb:14
+#: ../../../app/views/pushes/preview.html.erb:12
+msgid "Copy the link or message below to share this push securely."
+msgstr "このプッシュ通知を安全に共有するには、以下のリンクまたはメッセージをコピーしてください。"
+
+#: ../../../app/views/pushes/preview.html.erb:28
+msgid "QR code"
+msgstr "QRコード"
+
+#: ../../../app/views/pushes/preview.html.erb:30
+msgid "Scan to open the secret link on a mobile device."
+msgstr "スキャンして、モバイル端末で秘密のリンクを開いてください。"
+
+#: ../../../app/views/pushes/preview.html.erb:34
 msgid "Print & Share"
 msgstr "印刷して共有"
 
-#: ../../../app/views/pushes/preview.html.erb:19
-msgid "Generate a Printable Page for End Users"
-msgstr "エンドユーザー向けの印刷可能なページを生成する"
+#: ../../../app/views/pushes/preview.html.erb:38
+msgid "Generate a printable page"
+msgstr "印刷可能なページを生成する"
 
-#: ../../../app/views/pushes/preview.html.erb:24
-#: ../../../app/views/pushes/preview.html.erb:26
-msgid "Optional Custom Message"
+#: ../../../app/views/pushes/preview.html.erb:41
+msgid "Optional custom message"
 msgstr "オプションのカスタムメッセージ"
 
-#: ../../../app/views/pushes/preview.html.erb:35
-msgid "Show Expiration Details"
-msgstr "有効期限の詳細を表示"
+#: ../../../app/views/pushes/preview.html.erb:45
+msgid "Show expiration details"
+msgstr "有効期限の詳細を表示する"
 
-#: ../../../app/views/pushes/preview.html.erb:42
+#: ../../../app/views/pushes/preview.html.erb:49
 msgid "Include ID"
 msgstr "IDを含める"
 
-#: ../../../app/views/pushes/preview.html.erb:47
+#: ../../../app/views/pushes/preview.html.erb:52
 msgid "Generate"
 msgstr "生成する"
 
-#: ../../../app/views/pushes/preview.html.erb:56
-#: ../../../app/views/pushes/show.html.erb:41
-#: ../../../app/views/pushes/show.html.erb:75
-msgid "This secret link and all content will be deleted in"
-msgstr "この秘密のリンクとすべてのコンテンツは で削除されます"
-
-#: ../../../app/views/pushes/preview.html.erb:57
-#: ../../../app/views/pushes/print_preview.html.erb:13
-#: ../../../app/views/pushes/show.html.erb:43
-#: ../../../app/views/pushes/show.html.erb:77
-msgid "day"
-msgid_plural "days"
-msgstr[0] "日間"
-msgstr[1] ""
-
-#: ../../../app/views/pushes/preview.html.erb:59
-#: ../../../app/views/pushes/print_preview.html.erb:15
-msgid "view"
-msgid_plural "views"
-msgstr[0] "ビュー"
-msgstr[1] ""
-
-#: ../../../app/views/pushes/preview.html.erb:65
-msgid "can be"
-msgstr "することができます"
-
-#: ../../../app/views/pushes/preview.html.erb:65
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "deleted by viewers."
-msgstr "閲覧者により削除されました。"
-
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "can NOT be"
-msgstr "することはできません"
-
 #: ../../../app/views/pushes/preview.html.erb:73
-msgid "It also includes a"
-msgstr "また、"
+msgid "Expires when the first limit is reached"
+msgstr "最初の制限に達すると期限切れになります"
 
-#: ../../../app/views/pushes/preview.html.erb:73
+#: ../../../app/views/pushes/preview.html.erb:83
+msgid "Viewers can delete this push."
+msgstr "視聴者はこのプッシュ通知を削除できます。"
+
+#: ../../../app/views/pushes/preview.html.erb:85
+msgid "Viewers cannot delete this push."
+msgstr "視聴者はこのプッシュ通知を削除できません。"
+
+#: ../../../app/views/pushes/preview.html.erb:91
+msgid "Includes a"
+msgstr "含まれる"
+
+#: ../../../app/views/pushes/preview.html.erb:91
 msgid "1-click preliminary retrieval step"
 msgstr "ワンクリック仮検索ステップ"
 
-#: ../../../app/views/pushes/preview.html.erb:77
-msgid "View This Push Now"
-msgstr "このプッシュを今すぐ表示"
+#: ../../../app/views/pushes/preview.html.erb:103
+msgid "View This Push"
+msgstr "このプッシュを見る"
 
-#: ../../../app/views/pushes/preview.html.erb:82
-msgid "(will burn a view) or"
-msgstr "（ビューを焼きます）または"
-
-#: ../../../app/views/pushes/preview.html.erb:84
-#: ../../../app/views/pushes/preview.html.erb:86
-#: ../../../app/views/pushes/preview.html.erb:88
+#: ../../../app/views/pushes/preview.html.erb:107
+#: ../../../app/views/pushes/preview.html.erb:111
+#: ../../../app/views/pushes/preview.html.erb:115
 msgid "Push Another"
 msgstr "もう一押し"
 
-#: ../../../app/views/pushes/preview.html.erb:95
-msgid "View Audit Log"
-msgstr "監査ログを表示"
+#: ../../../app/views/pushes/preview.html.erb:128
+#: ../../../app/views/pushes/preview.html.erb:142
+msgid "Notify by Email"
+msgstr "メールで通知"
 
-#: ../../../app/views/pushes/preview.html.erb:103
-msgid ""
-"Tip: Pushing to an international user?  Change the secret link language using "
-"the dropdown menu to the right of the URL."
-msgstr "ヒント: 国際ユーザーにプッシュしますか? URL の右側にあるドロップダウン メニューを使用して、シークレット リンクの言語を変更します。"
+#: ../../../app/views/pushes/preview.html.erb:147
+#: ../../../app/views/shared/_notify_emails_to.html.erb:7
+msgid "You have reached the maximum number of emails you can send today."
+msgstr "本日送信できるメールの最大数に達しました。"
 
-#: ../../../app/views/pushes/preview.html.erb:104
+#: ../../../app/views/pushes/preview.html.erb:152
+msgid "Email Recipients"
+msgstr "メール受信者"
+
+#: ../../../app/views/pushes/preview.html.erb:159
+msgid "email1@example.com, email2@example.com"
+msgstr "email1@example.com、email2@example.com"
+
+#: ../../../app/views/pushes/preview.html.erb:164
+msgid "Enter email addresses separated by commas (maximum 5 emails)."
+msgstr "メールアドレスをカンマで区切って入力してください（最大5件）。"
+
+#: ../../../app/views/pushes/preview.html.erb:168
+msgid "Send Emails"
+msgstr "メールを送信する"
+
+#: ../../../app/views/pushes/preview.html.erb:181
 msgid ""
-"Alternatively auto-detection will select a language based on end-user browser "
-"settings."
-msgstr "あるいは、自動検出により、エンドユーザーのブラウザ設定に基づいて言語を選択します。"
+"Tip: Change the secret link language using the dropdown to the right of the UR"
+"L."
+msgstr "ヒントURLの右側にあるドロップダウンを使用して、秘密のリンクの言語を変更します。"
+
+#: ../../../app/views/pushes/preview.html.erb:183
+msgid ""
+"Alternatively, auto-detection will select a language based on the recipient's "
+"browser settings."
+msgstr "あるいは、自動検出機能を使えば、受信者のブラウザ設定に基づいて言語を選択できます。"
 
 #: ../../../app/views/pushes/print_preview.html.erb:1
 msgid "Your Secret URL"
@@ -2296,6 +3212,11 @@ msgstr "次のメッセージは、以下のファイルとともに送信され
 #: ../../../app/views/pushes/show.html.erb:15
 msgid "The message is blurred out.  Click below to reveal it."
 msgstr "メッセージがぼやけています。下をクリックすると表示されます。"
+
+#: ../../../app/views/pushes/show.html.erb:41
+#: ../../../app/views/pushes/show.html.erb:75
+msgid "This secret link and all content will be deleted in"
+msgstr "この秘密のリンクとすべてのコンテンツは で削除されます"
 
 #: ../../../app/views/pushes/show.html.erb:46
 #: ../../../app/views/pushes/show.html.erb:80
@@ -2350,20 +3271,32 @@ msgid ""
 "URL."
 msgstr "必要に応じて、この秘密の URL を提供した個人または組織に連絡してください。"
 
+#: ../../../app/views/shared/_additional_options.html.erb:3
+msgid "Additional Options"
+msgstr "追加オプション"
+
+#: ../../../app/views/shared/_additional_options.html.erb:13
+msgid "Show / Hide"
+msgstr "表示 / 非表示"
+
+#: ../../../app/views/shared/_brand_logo.html.erb:15
+#: ../../../app/views/users/first_runs/new.html.erb:11
+msgid "Password Pusher Logo"
+msgstr "パスワードプッシャーのロゴ"
+
 #: ../../../app/views/shared/_cookie_consent.html.erb:6
 msgid ""
 "Browser cookies help make this tool work. By using it, you agree the use of th"
 "ese cookies."
 msgstr "ブラウザの Cookie は、このツールの動作に役立ちます。これを使用すると、これらの Cookie の使用に同意したことになります。"
 
-#: ../../../app/views/shared/_dashboard_header.html.erb:3
-#: ../../../app/views/shared/_header.html.erb:30
-msgid "Dashboard"
-msgstr "ダッシュボード"
+#: ../../../app/views/shared/_dashboard_header.html.erb:9
+msgid "Filter pushes"
+msgstr "フィルタープッシュ"
 
-#: ../../../app/views/shared/_dashboard_header.html.erb:13
-msgid "New"
-msgstr "新しい"
+#: ../../../app/views/shared/_dashboard_header.html.erb:22
+msgid "New Push"
+msgstr "新しいプッシュ"
 
 #: ../../../app/views/shared/_delete_user_button.html.erb:6
 msgid ""
@@ -2374,57 +3307,54 @@ msgstr ""
 "⚠️ 警告: %{email} を削除すると、このユーザーが作成したすべての %{count} 件のプッシュも完全に削除されます。この操作は元に戻せません。"
 "続行してもよろしいですか？"
 
-#: ../../../app/views/shared/_footer.html.erb:22
-msgid "Front Page"
-msgstr "表紙"
+#: ../../../app/views/shared/_footer.html.erb:17
+msgid "About"
+msgstr "パスワードプッシャーについて"
 
-#: ../../../app/views/shared/_footer.html.erb:30
-msgid "Docker Containers"
-msgstr "Docker コンテナ"
+#: ../../../app/views/shared/_footer.html.erb:18
+msgid "API"
+msgstr "翻訳"
 
-#: ../../../app/views/shared/_footer.html.erb:34
-msgid "FAQ"
-msgstr "よくある質問"
-
-#: ../../../app/views/shared/_footer.html.erb:35
-msgid "JSON API"
-msgstr "JSON API"
-
-#: ../../../app/views/shared/_footer.html.erb:36
-msgid "Key Generator"
-msgstr "キージェネレーター"
-
-#: ../../../app/views/shared/_footer.html.erb:39
-msgid "Source Code"
-msgstr "ソースコード"
-
-#: ../../../app/views/shared/_footer.html.erb:43
-msgid "Tools"
-msgstr "ツール"
-
-#: ../../../app/views/shared/_footer.html.erb:51
-msgid "Overview"
-msgstr "概要"
-
-#: ../../../app/views/shared/_header.html.erb:37
+#: ../../../app/views/shared/_header.html.erb:25
 msgid "Account"
 msgstr "アカウント"
 
-#: ../../../app/views/shared/_header.html.erb:55
+#: ../../../app/views/shared/_header.html.erb:40
 msgid "Edit Login Details"
 msgstr "ログイン情報の編集"
 
-#: ../../../app/views/shared/_header.html.erb:71
+#: ../../../app/views/shared/_header.html.erb:53
 msgid "Log Out"
 msgstr "ログアウト"
 
-#: ../../../app/views/shared/_header.html.erb:78
+#: ../../../app/views/shared/_header.html.erb:60
 msgid "Log In"
 msgstr "ログイン"
 
-#: ../../../app/views/shared/_header.html.erb:82
+#: ../../../app/views/shared/_header.html.erb:63
 msgid "Sign Up"
 msgstr "サインアップ"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:4
+msgid "Auto-Dispatch: Send Secret Link To"
+msgstr "自動送信: 秘密のリンクを送信"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:14
+msgid "recipient@example.com, another@example.com"
+msgstr "recipient@example.com、another@example.com"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:18
+msgid "Separate multiple addresses with commas (max 5)."
+msgstr "複数の住所はカンマで区切ってください（最大5件）。"
+
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:11
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:12
+msgid "Select the language for the email notifications"
+msgstr "メール通知の言語を選択してください"
+
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:17
+msgid "Email Notification Language"
+msgstr "メール通知言語"
 
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:5
 msgid "Confirm Password Generation"
@@ -2442,66 +3372,300 @@ msgstr "本当に続行しますか?"
 msgid "Configure Password Generation"
 msgstr "パスワード生成の構成"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:11
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:12
 msgid "Test Area"
 msgstr "テストエリア"
 
 #: ../../../app/views/shared/_pw_generator_modal.html.erb:16
-msgid "Number of Syllables"
-msgstr "音節数"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:20
-msgid "Minimum Syllable Length"
-msgstr "最小音節長"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:24
-msgid "Maximum Syllable Length"
-msgstr "最大音節長"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:31
-msgid "Include numbers"
-msgstr "数字を含める"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:35
-msgid "Use Titlecase"
-msgstr "タイトルケースを使用"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:39
-msgid "Use Separators"
-msgstr "セパレーターを使用する"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:43
 msgid "Test"
 msgstr "テスト"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:50
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:22
+msgid "Structure"
+msgstr "構造"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:24
+msgid "Number of Syllables"
+msgstr "音節数"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:28
+msgid "Minimum Syllable Length"
+msgstr "最小音節長"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:32
+msgid "Maximum Syllable Length"
+msgstr "最大音節長"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:37
+msgid "Options"
+msgstr "オプション"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:40
+msgid "Include numbers"
+msgstr "数字を含める"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:44
+msgid "Use Titlecase"
+msgstr "タイトルケースを使用"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:48
+msgid "Use Separators"
+msgstr "セパレーターを使用する"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:59
 msgid "Separators"
 msgstr "セパレーター"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:56
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:65
 msgid "Vowels"
 msgstr "母音"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:62
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:71
 msgid "Consonants"
 msgstr "子音"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:71
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:79
 msgid "Reset to Defaults"
 msgstr "既定値にリセット"
 
-#: ../../../app/views/shared/_topnav.html.erb:4
+#: ../../../app/views/shared/_share_message.html.erb:5
+msgid "Optional message to share"
+msgstr "共有したいメッセージ"
+
+#: ../../../app/views/shared/_share_message.html.erb:6
+msgid ""
+"Copy and paste this into your email or chat. It includes the secret link and e"
+"xpiration details."
+msgstr "これをコピーしてメールまたはチャットに貼り付けてください。秘密のリンクと有効期限の詳細が含まれています。"
+
+#: ../../../app/views/shared/_share_message.html.erb:12
+#: ../../../app/views/shared/_share_message.html.erb:14
+msgid "Copy message"
+msgstr "コピーメッセージ"
+
+#: ../../../app/views/shared/_topnav.html.erb:5
 msgid "Passwords"
 msgstr "パスワード"
 
-#: ../../../app/views/shared/_topnav.html.erb:8
-msgid "Files"
-msgstr "ファイル"
-
-#: ../../../app/views/shared/_topnav.html.erb:13
-msgid "URLs"
-msgstr "URL"
-
-#: ../../../app/views/shared/_topnav.html.erb:18
+#: ../../../app/views/shared/_topnav.html.erb:25
 msgid "QR Codes"
 msgstr "QRコード"
+
+#: ../../../app/views/users/first_runs/new.html.erb:1
+msgid "Password Pusher — First Run Setup"
+msgstr "パスワードプッシャー - 初回起動時のセットアップ"
+
+#: ../../../app/views/users/first_runs/new.html.erb:22
+msgid "Open Source Edition"
+msgstr "オープンソース版"
+
+#: ../../../app/views/users/first_runs/new.html.erb:27
+msgid "First Run Setup"
+msgstr "初走行のセットアップ"
+
+#: ../../../app/views/users/first_runs/new.html.erb:29
+msgid ""
+"Securely share sensitive information with automatic expiration & deletion. Tra"
+"ck access with full audit logs."
+msgstr "機密情報を安全に共有。有効期限切れと自動削除機能付き。完全な監査ログでアクセス状況を追跡。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:38
+#: ../../../app/views/users/first_runs/new.html.erb:98
+msgid "Create Admin Account"
+msgstr "アカウントを作成する"
+
+#: ../../../app/views/users/first_runs/new.html.erb:39
+msgid "This account will have full access to manage your Password Pusher instance."
+msgstr "このアカウントは、Password Pusherインスタンスを管理するための完全なアクセス権を持ちます。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:49
+msgid "Boot Code Required"
+msgstr "ブートコードが必要"
+
+#: ../../../app/views/users/first_runs/new.html.erb:50
+msgid "Enter the boot code shown in the application logs during startup."
+msgstr "起動時にアプリケーションログに表示されるブートコードを入力してください。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:57
+#: ../../../app/views/users/first_runs/new.html.erb:61
+msgid "Boot Code"
+msgstr "ブートコード"
+
+#: ../../../app/views/users/first_runs/new.html.erb:93
+msgid "Your account will be created and you'll be signed in automatically."
+msgstr "アカウントが作成され、自動的にログインされます。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:111
+msgid "How to retrieve the boot code"
+msgstr "ブートコードの取得方法"
+
+#: ../../../app/views/users/first_runs/new.html.erb:112
+msgid ""
+"The boot code is printed to the application logs when the server starts. Use o"
+"ne of the following:"
+msgstr "ブートコードは、サーバー起動時にアプリケーションログに出力されます。以下のいずれかを使用してください。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:115
+msgid "Docker"
+msgstr "ドッカー"
+
+#: ../../../app/views/users/first_runs/new.html.erb:119
+msgid "Docker Compose"
+msgstr "Docker Compose"
+
+#: ../../../app/views/users/first_runs/new.html.erb:123
+msgid "Look for a line containing the boot code in the output."
+msgstr "出力結果の中から、ブートコードを含む行を探してください。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:132
+msgid "What you can do with Password Pusher"
+msgstr "Password Pusherでできること"
+
+#: ../../../app/views/users/first_runs/new.html.erb:143
+msgid "Encrypted & ephemeral"
+msgstr "暗号化され、一時的なもの"
+
+#: ../../../app/views/users/first_runs/new.html.erb:144
+msgid ""
+"Secrets are stored encrypted and removed automatically after they expire or ar"
+"e viewed."
+msgstr "秘密情報は暗号化されて保存され、有効期限が切れるか閲覧されると自動的に削除されます。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:152
+msgid "Passwords, text & files"
+msgstr "パスワード、テキスト、ファイル"
+
+#: ../../../app/views/users/first_runs/new.html.erb:153
+msgid ""
+"Share passwords, notes, URLs, and files with configurable expiration and view "
+"limits."
+msgstr "パスワード、メモ、URL、ファイルを共有する際に、有効期限や閲覧制限を設定できます。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:161
+msgid "100% open source"
+msgstr "100%オープンソース"
+
+#: ../../../app/views/users/first_runs/new.html.erb:162
+msgid "Self-host with Docker or your own stack. No vendor lock-in, full transparency."
+msgstr "Dockerまたは独自のスタックを使用してセルフホストできます。ベンダーロックインなし、完全な透明性。"
+
+#: ../../../app/views/users/first_runs/new.html.erb:172
+msgid "Helpful links"
+msgstr "役立つリンク"
+
+#: ../../../app/views/users/first_runs/new.html.erb:178
+msgid "Configuration"
+msgstr "構成"
+
+#: ../../../app/views/users/first_runs/new.html.erb:184
+msgid "Installation"
+msgstr "インストール"
+
+#: ../../../app/views/users/first_runs/new.html.erb:196
+msgid "FAQ"
+msgstr "よくある質問"
+
+#: ../../../app/views/users/first_runs/new.html.erb:202
+msgid "Docker images"
+msgstr "Dockerイメージ"
+
+#: ../../../app/views/users/first_runs/new.html.erb:208
+msgid "JSON API"
+msgstr "JSON API"
+
+#: ../../../app/views/users/first_runs/new.html.erb:224
+msgid "Thanks for choosing Password Pusher!"
+msgstr "Password Pusherをお選びいただきありがとうございます！"
+
+#: ../../../app/views/users/sessions/otp.html.erb:4
+msgid "Enter the 6-digit code from your authenticator app or a backup code."
+msgstr "認証アプリに表示される6桁のコード、またはバックアップコードを入力してください。"
+
+#: ../../../app/views/users/sessions/otp.html.erb:8
+#: ../../../app/views/users/two_factor/verify.html.erb:19
+msgid "Code"
+msgstr "コード"
+
+#: ../../../app/views/users/sessions/otp.html.erb:9
+#: ../../../app/views/users/two_factor/verify.html.erb:20
+msgid "Verification code"
+msgstr "検証コード"
+
+#: ../../../app/views/users/sessions/otp.html.erb:11
+msgid "Verify"
+msgstr "確認する"
+
+#: ../../../app/views/users/two_factor/_mfa_required_banner.html.erb:3
+msgid ""
+"Two-factor authentication is required by the administrator. You must complete "
+"setup to access the application."
+msgstr "管理者による二段階認証が必要です。アプリケーションにアクセスするには、設定を完了する必要があります。"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:1
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:6
+msgid "Save your backup codes"
+msgstr "バックアップコードを保存してください"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:12
+msgid ""
+"Store these codes in a safe place. Each can be used once if you lose your auth"
+"enticator device."
+msgstr "これらのコードは安全な場所に保管してください。認証デバイスを紛失した場合に、それぞれ1回ずつ使用できます。"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:17
+msgid "Save or copy these codes now"
+msgstr "これらのコードを今すぐ保存またはコピーしてください"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:18
+msgid ""
+"You will not be able to see this list again after you continue. If you lose yo"
+"ur device and your backup codes, you may need an administrator to reset your a"
+"ccount."
+msgstr ""
+"続行すると、このリストは二度と表示されなくなります。デバイスとバックアップコードを紛失した場合は、アカウントのリセットに管理者の協力が必要になる場合がありま"
+"す。"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:24
+msgid "Recovery codes"
+msgstr "復旧コード"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:25
+msgid "total"
+msgstr "合計"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:41
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:42
+msgid "Copy all codes"
+msgstr "すべてのコードをコピーする"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:46
+msgid ""
+"Backup codes are saved but can only be shown once. If you did not save them, d"
+"isable two-factor authentication and set it up again."
+msgstr "バックアップコードは保存されますが、一度しか表示できません。保存していない場合は、二段階認証を無効にして再度設定してください。"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:52
+msgid "Continue to verify"
+msgstr "引き続き検証します"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:1
+msgid "Verify authenticator"
+msgstr "認証システムを確認"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:6
+msgid "Scan this QR code"
+msgstr "このQRコードをスキャンしてください"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:10
+msgid ""
+"Add this account to your authenticator app, then enter the 6-digit code to con"
+"firm."
+msgstr "このアカウントを認証アプリに追加し、6桁のコードを入力して確認してください。"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:14
+msgid "If you cannot scan the code, enter this secret manually:"
+msgstr "コードをスキャンできない場合は、この秘密情報を手動で入力してください。"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:23
+msgid "Enable two-factor authentication"
+msgstr "2要素認証を有効にする"

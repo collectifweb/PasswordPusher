@@ -13,7 +13,7 @@ class PasswordPassphraseTest < ActionDispatch::IntegrationTest
     # Preview page
     follow_redirect!
     assert_response :success
-    assert_select "h2", "Push Preview"
+    assert_select "h2", "Push Created"
 
     # Attempt to retrieve the password without the passphrase
     get request.url.sub("/preview", "")
@@ -45,7 +45,6 @@ class PasswordPassphraseTest < ActionDispatch::IntegrationTest
   end
 
   def test_password_access_cookies
-    previous_secure_cookies = Settings.secure_cookies
     Settings.secure_cookies = true
 
     push = pushes(:test_push)
@@ -69,8 +68,8 @@ class PasswordPassphraseTest < ActionDispatch::IntegrationTest
     assert p_tags[0].text == "Please obtain and securely store this content in a secure manner, such as in a password manager."
     assert p_tags[1].text == "Your password is blurred out.  Click below to reveal it."
     assert p_tags[2].text.include?("This secret link and all content will be deleted")
-
-    Settings.secure_cookies = previous_secure_cookies
+  ensure
+    Settings.reload!
   end
 
   def test_password_bad_passphrase
@@ -83,7 +82,7 @@ class PasswordPassphraseTest < ActionDispatch::IntegrationTest
     # Preview page
     follow_redirect!
     assert_response :success
-    assert_select "h2", "Push Preview"
+    assert_select "h2", "Push Created"
 
     # Attempt to retrieve the password without the passphrase
     get request.url.sub("/preview", "")
@@ -129,7 +128,7 @@ class PasswordPassphraseTest < ActionDispatch::IntegrationTest
     # Preview page
     follow_redirect!
     assert_response :success
-    assert_select "h2", "Push Preview"
+    assert_select "h2", "Push Created"
 
     # Attempt to access the file push page
     @push_url = request.url.sub("/preview", "")

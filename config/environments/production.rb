@@ -55,11 +55,15 @@ Rails.application.configure do
   config.force_ssl = ENV.key?("FORCE_SSL")
 
   # The list of trusted proxies from which we will accept proxy related headers.
+  # Covers common private / non-routable IPv4 ranges (RFC 1918, loopback, link-local, RFC 6598).
   config.action_dispatch.trusted_proxies = [
-    "127.0.0.1",         # Localhost
-    /^::1$/,             # IPv6 localhost
-    /192\.168\.\d{1,3}\.\d{1,3}/, # Local network
-    /10\.\d{1,3}\.\d{1,3}\.\d{1,3}/ # Private networks
+    /^::1$/, # IPv6 localhost
+    /127\.\d{1,3}\.\d{1,3}\.\d{1,3}/, # IPv4 loopback (127.0.0.0/8)
+    /10\.\d{1,3}\.\d{1,3}\.\d{1,3}/, # RFC 1918: 10.0.0.0/8
+    /172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}/, # RFC 1918: 172.16.0.0/12 (e.g. Docker bridge)
+    /192\.168\.\d{1,3}\.\d{1,3}/, # RFC 1918: 192.168.0.0/16
+    /169\.254\.\d{1,3}\.\d{1,3}/, # IPv4 link-local (169.254.0.0/16)
+    /100\.(6[4-9]|[7-9][0-9]|1[0-1][0-9]|12[0-7])\.\d{1,3}\.\d{1,3}/ # RFC 6598: 100.64.0.0/10
   ]
 
   if Settings.trusted_proxies.present?
@@ -121,11 +125,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Enable DNS rebinding protection and other `Host` header attacks.
-  config.hosts = [
-    "secrets.collectifweb.ca"
-  ]
+  # config.hosts = [
+  #   "example.com",     # Allow requests from example.com
+  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
+  # ]
   # Skip DNS rebinding protection for the default health check endpoint.
-  config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   if Settings.mail
     config.action_mailer.perform_caching = false
@@ -158,16 +163,21 @@ Rails.application.configure do
       config.action_mailer.smtp_settings[:password] = Settings.mail.smtp_password
     end
 
+    # The mail gem maps String names ("none" / "peer") to OpenSSL::SSL::VERIFY_* constants.
+    # A Symbol like :none raises TypeError during TLS handshake. Leave Integers alone —
+    # config.env_parse_values can turn PWP__MAIL__SMTP_OPENSSL_VERIFY_MODE=0 into an Integer.
     if !Settings.mail.smtp_openssl_verify_mode.nil?
-      config.action_mailer.smtp_settings[:openssl_verify_mode] = Settings.mail.smtp_openssl_verify_mode.to_sym
+      mode = Settings.mail.smtp_openssl_verify_mode
+      config.action_mailer.smtp_settings[:openssl_verify_mode] = mode.is_a?(Symbol) ? mode.to_s : mode
     end
 
     if !Settings.mail.smtp_enable_starttls_auto.nil?
       config.action_mailer.smtp_settings[:enable_starttls_auto] = Settings.mail.smtp_enable_starttls_auto
     end
 
-    if !Settings.mail.smtp_enable_starttls.nil?
-      config.action_mailer.smtp_settings[:enable_starttls] = Settings.mail.smtp_enable_starttls
+    # settings.yml / PWP__MAIL__SMTP_STARTTLS maps to smtp_starttls
+    if !Settings.mail.smtp_starttls.nil?
+      config.action_mailer.smtp_settings[:enable_starttls] = Settings.mail.smtp_starttls
     end
   end
 

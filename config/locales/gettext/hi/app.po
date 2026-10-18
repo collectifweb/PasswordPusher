@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pwpush 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2026-01-29 01:43+0100\n"
-"PO-Revision-Date: 2026-01-29 00:43+0000\n"
+"POT-Creation-Date: 2026-08-21 03:07+0200\n"
+"PO-Revision-Date: 2026-08-21 01:08+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi\n"
 "Language: hi\n"
@@ -18,31 +18,63 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 "\n"
 
+#: ../../../app/controllers/admin/custom_css_controller.rb:11
+msgid "Custom CSS updated successfully."
+msgstr "कस्टम सीएसएस सफलतापूर्वक अपडेट हो गया।"
+
+#: ../../../app/controllers/admin/custom_css_controller.rb:13
+msgid "Error updating CSS: %{error}"
+msgstr "सीएसएस अपडेट करने में त्रुटि: %{error}"
+
 #: ../../../app/controllers/admin/users_controller.rb:49
 msgid "You cannot delete your own account."
 msgstr "आप अपना खाता स्वयं नहीं हटा सकते।"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:255
-#: ../../../app/controllers/pushes_controller.rb:117
-#: ../../../app/controllers/pushes_controller.rb:157
-#: ../../../app/controllers/pushes_controller.rb:275
-#: ../../../app/controllers/pushes_controller.rb:305
+#: ../../../app/controllers/api/v1/pushes_controller.rb:14
+#: ../../../app/controllers/pushes_controller.rb:19
+#: ../../../app/controllers/pushes_controller.rb:25
+msgid "Too many passphrase attempts. Please try again in a minute."
+msgstr ""
+"बहुत अधिक बार पासफ़्रेज़ डालने का प्रयास किया गया। कृपया एक मिनट बाद पुनः प्रय"
+"ास करें।"
+
+#: ../../../app/controllers/api/v1/pushes_controller.rb:261
+#: ../../../app/controllers/api/v2/pushes_controller.rb:58
+#: ../../../app/controllers/api/v2/pushes_controller.rb:78
+#: ../../../app/controllers/pushes_controller.rb:129
+#: ../../../app/controllers/pushes_controller.rb:171
+#: ../../../app/controllers/pushes_controller.rb:265
+#: ../../../app/controllers/pushes_controller.rb:321
+#: ../../../app/controllers/pushes_controller.rb:351
 msgid "That push doesn't belong to you."
 msgstr "वह धक्का आपका नहीं है."
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:309
+#: ../../../app/controllers/api/v1/pushes_controller.rb:315
 msgid "That push is not deletable by viewers."
 msgstr "वह पुश दर्शकों द्वारा हटाया नहीं जा सकता."
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:354
-msgid "You must be logged in to view your active pushes."
-msgstr "अपने सक्रिय पुश देखने के लिए आपको लॉग इन होना होगा।"
+#: ../../../app/controllers/api/v2/pushes_controller.rb:12
+#: ../../../app/controllers/pushes_controller.rb:14
+msgid "Too many email notification requests. Please try again in a minute."
+msgstr ""
+"बहुत सारे ईमेल नोटिफिकेशन अनुरोध प्राप्त हुए हैं। कृपया एक मिनट बाद पुनः प्रया"
+"स करें।"
 
-#: ../../../app/controllers/api/v1/pushes_controller.rb:410
-msgid "You must be logged in to view your expired pushes."
-msgstr "अपने समाप्त हो चुके पुश देखने के लिए आपको लॉग इन होना होगा।"
+#: ../../../app/controllers/api/v2/pushes_controller.rb:87
+#: ../../../app/controllers/pushes_controller.rb:274
+#: ../../../app/views/pages/api.html.erb:245
+msgid "Recipient(s) are added to the queue to be sent."
+msgstr "प्राप्तकर्ता(ओं) को भेजने के लिए कतार में जोड़ दिया जाता है।"
 
-#: ../../../app/controllers/pushes_controller.rb:97
+#: ../../../app/controllers/concerns/enforce_required_mfa.rb:19
+#: ../../../test/controllers/api/base_controller_test.rb:50
+#: ../../../test/integration/require_mfa_test.rb:27
+#: ../../../test/integration/require_mfa_test.rb:58
+#: ../../../test/integration/require_mfa_test.rb:74
+msgid "Two-factor authentication is required. Please set it up to continue."
+msgstr "दो-कारक प्रमाणीकरण आवश्यक है। कृपया जारी रखने के लिए इसे सेट अप करें।"
+
+#: ../../../app/controllers/pushes_controller.rb:109
 msgid ""
 "That passphrase is incorrect.  Please try again or contact the person or organ"
 "ization that sent you this link."
@@ -50,87 +82,297 @@ msgstr ""
 "वह पासफ़्रेज़ ग़लत है. कृपया पुनः प्रयास करें या उस व्यक्ति या संगठन से संपर्क"
 " करें जिसने आपको यह लिंक भेजा है।"
 
-#: ../../../app/controllers/pushes_controller.rb:122
-#: ../../../app/controllers/pushes_controller.rb:163
+#: ../../../app/controllers/pushes_controller.rb:134
+#: ../../../app/controllers/pushes_controller.rb:177
 msgid "That push has already expired and cannot be edited."
 msgstr ""
 "वह पुश नोटिफिकेशन पहले ही समाप्त हो चुका है और इसे संपादित नहीं किया जा सकता ह"
 "ै।"
 
-#: ../../../app/controllers/pushes_controller.rb:188
+#: ../../../app/controllers/pushes_controller.rb:202
 msgid "must be at least %{count} (days already elapsed + 1)."
 msgstr "कम से कम %{count} (बीते हुए दिन + 1) होने चाहिए।"
 
-#: ../../../app/controllers/pushes_controller.rb:197
+#: ../../../app/controllers/pushes_controller.rb:211
 msgid "must be at least %{count} (views already consumed + 1)."
 msgstr "कम से कम %{count} (पहले से देखे गए व्यूज + 1) होने चाहिए।"
 
-#: ../../../app/controllers/pushes_controller.rb:222
-#: ../../../app/models/push.rb:114
+#: ../../../app/controllers/pushes_controller.rb:236
+#: ../../../app/models/push.rb:121
 msgid "You can only attach up to %{count} files per push."
 msgstr "आप प्रति पुश अधिकतम %{count} फ़ाइलें ही संलग्न कर सकते हैं."
 
-#: ../../../app/controllers/pushes_controller.rb:235
+#: ../../../app/controllers/pushes_controller.rb:249
 msgid "Push was successfully updated."
 msgstr "पुश सफलतापूर्वक अद्यतन किया गया."
 
-#: ../../../app/controllers/pushes_controller.rb:285
+#: ../../../app/controllers/pushes_controller.rb:314
+#: ../../../app/controllers/pushes_controller.rb:498
+#: ../../../test/integration/disable_logins_test.rb:54
+msgid "The audit log is only available when signed in."
+msgstr "ऑडिट लॉग केवल लॉग इन करने पर ही उपलब्ध होता है।"
+
+#: ../../../app/controllers/pushes_controller.rb:316
+msgid "You must be signed in to view the audit log."
+msgstr "ऑडिट लॉग देखने के लिए आपको लॉग इन करना होगा।"
+
+#: ../../../app/controllers/pushes_controller.rb:331
 msgid "That push is not deletable by viewers and does not belong to you."
 msgstr "वह पुश दर्शकों द्वारा हटाया नहीं जा सकता और वह आपका नहीं है।"
 
-#: ../../../app/controllers/pushes_controller.rb:290
-#: ../../../app/controllers/pushes_controller.rb:311
+#: ../../../app/controllers/pushes_controller.rb:336
+#: ../../../app/controllers/pushes_controller.rb:357
 msgid "That push has already expired."
 msgstr "वह धक्का पहले ही समाप्त हो चुका है।"
 
-#: ../../../app/controllers/pushes_controller.rb:298
-#: ../../../app/views/pushes/audit.html.erb:99
+#: ../../../app/controllers/pushes_controller.rb:344
+#: ../../../app/views/pushes/audit.html.erb:96
 msgid "The push content has been deleted and the secret URL expired."
 msgstr "पुश सामग्री हटा दी गई है और गुप्त यूआरएल समाप्त हो गया है।"
 
-#: ../../../app/controllers/pushes_controller.rb:317
+#: ../../../app/controllers/pushes_controller.rb:363
 msgid "You cannot delete the last file from a file push."
 msgstr "आप फाइल पुश से आखिरी फाइल को डिलीट नहीं कर सकते।"
 
-#: ../../../app/controllers/pushes_controller.rb:326
+#: ../../../app/controllers/pushes_controller.rb:372
 msgid "File was successfully deleted."
 msgstr "फाइल सफलतापूर्वक डिलीट हो गई।"
 
-#: ../../../app/controllers/pushes_controller.rb:328
+#: ../../../app/controllers/pushes_controller.rb:374
 msgid "File not found."
 msgstr "फ़ाइल प्राप्त नहीं हुई।"
 
-#: ../../../app/controllers/pushes_controller.rb:467
-#: ../../../app/models/push.rb:208
+#: ../../../app/controllers/pushes_controller.rb:490
+#: ../../../test/integration/disable_logins_test.rb:144
+msgid "The push dashboard is not available while logins are disabled."
+msgstr "लॉगिन अक्षम होने पर पुश डैशबोर्ड उपलब्ध नहीं होता है।"
+
+#: ../../../app/controllers/pushes_controller.rb:523
+#: ../../../test/integration/disable_logins_test.rb:135
+msgid "File pushes are unavailable while logins are disabled."
+msgstr "लॉगिन अक्षम होने पर फाइल पुश करना अनुपलब्ध है।"
+
+#: ../../../app/controllers/pushes_controller.rb:531
+#: ../../../app/models/push.rb:297
 msgid "File pushes are disabled."
 msgstr "फ़ाइल पुश अक्षम हैं."
 
-#: ../../../app/controllers/pushes_controller.rb:477
-#: ../../../app/models/push.rb:212
+#: ../../../app/controllers/pushes_controller.rb:536
+#: ../../../app/models/push.rb:301
+#: ../../../test/controllers/urls_controller_test.rb:110
+#: ../../../test/controllers/urls_controller_test.rb:127
 msgid "URL pushes are disabled."
 msgstr "यूआरएल पुश अक्षम हैं."
 
-#: ../../../app/controllers/pushes_controller.rb:487
-#: ../../../app/models/push.rb:216
+#: ../../../app/controllers/pushes_controller.rb:548
+#: ../../../app/models/push.rb:305
+#: ../../../test/controllers/qr_push_controller_test.rb:128
+#: ../../../test/controllers/qr_push_controller_test.rb:144
 msgid "QR code pushes are disabled."
 msgstr "क्यूआर कोड पुशिंग अक्षम है."
 
-#: ../../../app/models/push.rb:123 ../../../app/models/push.rb:141
-#: ../../../app/models/push.rb:155
+#: ../../../app/controllers/users/first_runs_controller.rb:34
+msgid "Administrator account created successfully!"
+msgstr "प्रशासक खाता सफलतापूर्वक बनाया गया!"
+
+#: ../../../app/controllers/users/first_runs_controller.rb:64
+msgid ""
+"Invalid or missing boot code. Please check the application logs for the boot c"
+"ode."
+msgstr ""
+"बूट कोड अमान्य है या अनुपलब्ध है। कृपया बूट कोड के लिए एप्लिकेशन लॉग की जांच क"
+"रें।"
+
+#: ../../../app/controllers/users/sessions_controller.rb:55
+msgid "Session expired. Please sign in again."
+msgstr "सत्र समाप्त हो गया है। कृपया दोबारा लॉग इन करें।"
+
+#: ../../../app/controllers/users/sessions_controller.rb:67
+#: ../../../app/controllers/users/two_factor_controller.rb:25
+msgid "Incorrect verification code."
+msgstr "गलत सत्यापन कोड।"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:23
+msgid "Two-factor authentication is now enabled."
+msgstr "दो-कारक प्रमाणीकरण अब सक्षम हो गया है।"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:34
+#: ../../../test/integration/require_mfa_test.rb:105
+msgid ""
+"Two-factor authentication cannot be disabled because it is required by the adm"
+"inistrator."
+msgstr ""
+"दो-कारक प्रमाणीकरण को अक्षम नहीं किया जा सकता क्योंकि यह प्रशासक द्वारा आवश्यक"
+" है।"
+
+#: ../../../app/controllers/users/two_factor_controller.rb:40
+#: ../../../test/integration/require_mfa_test.rb:122
+msgid "Two-factor authentication has been disabled."
+msgstr "दो-कारक प्रमाणीकरण अक्षम कर दिया गया है।"
+
+#: ../../../app/helpers/pushes_helper.rb:15
+#: ../../../app/helpers/share_message_helper.rb:46
+#: ../../../app/views/pushes/preview.html.erb:76
+#: ../../../app/views/pushes/print_preview.html.erb:13
+#: ../../../app/views/pushes/show.html.erb:43
+#: ../../../app/views/pushes/show.html.erb:77
+msgid "day"
+msgid_plural "days"
+msgstr[0] "दिन"
+msgstr[1] "दिन"
+
+#: ../../../app/helpers/share_message_helper.rb:14
+msgid "The link and content will be deleted upon expiration."
+msgstr "लिंक और सामग्री की समय सीमा समाप्त होने पर उसे हटा दिया जाएगा।"
+
+#: ../../../app/helpers/share_message_helper.rb:18
+msgid "A secure link has been shared with you."
+msgstr "आपके साथ एक सुरक्षित लिंक साझा किया गया है।"
+
+#: ../../../app/helpers/share_message_helper.rb:20
+#: ../../../app/views/push_created_mailer/notify.html.erb:6
+msgid "Please find the secret link below to access the sensitive information."
+msgstr "कृपया संवेदनशील जानकारी तक पहुँचने के लिए नीचे दिए गए गुप्त लिंक को देखें।"
+
+#: ../../../app/helpers/share_message_helper.rb:22
+#: ../../../app/views/pushes/preview.html.erb:18
+msgid "Secret link"
+msgstr "गुप्त लिंक"
+
+#: ../../../app/helpers/share_message_helper.rb:24
+msgid "IMPORTANT NOTES:"
+msgstr "महत्वपूर्ण नोट्स:"
+
+#: ../../../app/helpers/share_message_helper.rb:47
+#: ../../../app/views/pushes/preview.html.erb:78
+#: ../../../app/views/pushes/print_preview.html.erb:15
+msgid "view"
+msgid_plural "views"
+msgstr[0] "देखना"
+msgstr[1] "दृश्य"
+
+#: ../../../app/helpers/share_message_helper.rb:49
+msgid "This link is valid for %{days}, or %{views}, whichever occurs first."
+msgstr "यह लिंक %{days} या %{views} में से जो भी पहले आए, उसके लिए मान्य है।"
+
+#: ../../../app/helpers/share_message_helper.rb:53
+#: ../../../app/views/push_created_mailer/notify.html.erb:14
+msgid ""
+"For added security, you may be prompted to enter a passphrase (provided separa"
+"tely) to access the content."
+msgstr ""
+"अतिरिक्त सुरक्षा के लिए, आपको सामग्री तक पहुँचने के लिए एक पासफ़्रेज़ (अलग से "
+"प्रदान किया गया) दर्ज करने के लिए कहा जा सकता है।"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:47
+msgid "No emails were sent successfully."
+msgstr "कोई भी ईमेल सफलतापूर्वक नहीं भेजा जा सका।"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:49
+msgid "Some emails could not be sent."
+msgstr "कुछ ईमेल भेजे नहीं जा सके।"
+
+#: ../../../app/jobs/send_notify_by_email_job.rb:56
+msgid "An unexpected error occurred while sending the email."
+msgstr "ईमेल भेजते समय एक अप्रत्याशित त्रुटि उत्पन्न हुई।"
+
+#: ../../../app/mailers/push_created_mailer.rb:14
+msgid "Someone"
+msgstr "कोई"
+
+#: ../../../app/mailers/push_created_mailer.rb:15
+msgid "You have received a push"
+msgstr "आपको धक्का लगा है"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:34
+msgid "Recipient emails"
+msgstr "प्राप्तकर्ता ईमेल"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:36
+msgid "Notification language"
+msgstr "अधिसूचना भाषा"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:61
+msgid "are not available"
+msgstr "उपलब्ध नहीं हैं"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:62
+msgid "is not available"
+msgstr "उपलब्ध नहीं है"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:63
+msgid "Notify by email feature is not enabled"
+msgstr "ईमेल द्वारा सूचना देने की सुविधा सक्षम नहीं है।"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:71
+msgid "are not allowed for unknown users"
+msgstr "अज्ञात उपयोगकर्ताओं के लिए अनुमति नहीं है"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:72
+msgid "is not allowed for unknown users"
+msgstr "अज्ञात उपयोगकर्ताओं के लिए इसकी अनुमति नहीं है"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:78
+msgid "are allowed only for owners"
+msgstr "केवल मालिकों को ही अनुमति है"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:79
+msgid "is allowed only for owners"
+msgstr "यह सुविधा केवल मालिकों के लिए ही उपलब्ध है।"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:85
+msgid "The maximum number of emails has been reached for today"
+msgstr "आज के लिए ईमेल भेजने की अधिकतम सीमा पूरी हो चुकी है।"
+
+#: ../../../app/models/concerns/pwpush/notifiable_by_email.rb:99
+msgid ""
+"You can notify up to %{count} email(s) and you have already sent emails to %{t"
+"otal_count} recipients"
+msgstr ""
+"आप अधिकतम %{count} ईमेल पते पर सूचना भेज सकते हैं और आप पहले ही %{total_count}"
+" प्राप्तकर्ताओं को ईमेल भेज चुके हैं।"
+
+#: ../../../app/models/push.rb:130 ../../../app/models/push.rb:148
+#: ../../../app/models/push.rb:162
 msgid "Payload is required."
 msgstr "पेलोड आवश्यक है."
 
-#: ../../../app/models/push.rb:128
+#: ../../../app/models/push.rb:135
 msgid "The payload is too large.  You can only push up to %{count} bytes."
 msgstr "पेलोड बहुत बड़ा है। आप केवल %{count} बाइट्स तक ही पुश कर सकते हैं।"
 
-#: ../../../app/models/push.rb:138
+#: ../../../app/models/push.rb:145 ../../../test/models/url_test.rb:68
+#: ../../../test/models/url_test.rb:78 ../../../test/models/url_test.rb:88
 msgid "must be a valid HTTP or HTTPS URL."
 msgstr "एक मान्य HTTP या HTTPS URL होना चाहिए।"
 
-#: ../../../app/models/push.rb:152
+#: ../../../app/models/push.rb:159
 msgid "The QR code payload is too large.  You can only push up to %{count} bytes."
 msgstr "QR कोड पेलोड बहुत बड़ा है। आप केवल %{count} बाइट्स तक ही पुश कर सकते हैं।"
+
+#: ../../../app/models/push.rb:348
+msgid "are not available for expired pushes"
+msgstr "एक्सपायर हो चुके पुश नोटिफिकेशन के लिए उपलब्ध नहीं हैं"
+
+#: ../../../app/models/push.rb:349
+msgid "is not available for expired pushes"
+msgstr "एक्सपायर हो चुके पुश नोटिफिकेशन के लिए उपलब्ध नहीं है"
+
+#: ../../../app/validators/multiple_emails_validator.rb:20
+msgid "has commas used in the wrong way"
+msgstr "अल्पविराम का गलत तरीके से उपयोग किया गया है"
+
+#: ../../../app/validators/multiple_emails_validator.rb:25
+msgid "contains duplicate emails"
+msgstr "डुप्लिकेट ईमेल शामिल हैं"
+
+#: ../../../app/validators/multiple_emails_validator.rb:29
+msgid "contains more than %{count} email(s)"
+msgstr "इसमें %{count} से अधिक ईमेल हैं"
+
+#: ../../../app/validators/multiple_emails_validator.rb:33
+msgid "contains invalid email(s)"
+msgstr "इसमें अमान्य ईमेल शामिल हैं"
 
 #: ../../../app/views/admin/_navigation.html.erb:9
 msgid "Password Pusher"
@@ -138,13 +380,9 @@ msgstr "पासवर्ड पुशर"
 
 #: ../../../app/views/admin/_navigation.html.erb:12
 #: ../../../app/views/admin/index.html.erb:11
-#: ../../../app/views/shared/_header.html.erb:46
+#: ../../../app/views/shared/_header.html.erb:32
 msgid "Administration Center"
 msgstr "प्रशासन"
-
-#: ../../../app/views/admin/_navigation.html.erb:17
-msgid "BETA"
-msgstr "बीटा"
 
 #: ../../../app/views/admin/_navigation.html.erb:31
 msgid "Administration Home"
@@ -167,12 +405,114 @@ msgstr "डेटा एक्सप्लोरर"
 
 #: ../../../app/views/admin/_navigation.html.erb:57
 #: ../../../app/views/admin/index.html.erb:146
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:34
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:37
 msgid "Background Jobs"
 msgstr "बैकग्राउंड जॉब्स"
 
+#: ../../../app/views/admin/_navigation.html.erb:64
+#: ../../../app/views/admin/custom_css/edit.html.erb:1
+#: ../../../app/views/admin/custom_css/edit.html.erb:6
+msgid "Custom CSS"
+msgstr "कस्टम सीएसएस"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:7
+msgid ""
+"Add custom CSS styles to override the default appearance of your Password Push"
+"er instance."
+msgstr ""
+"अपने पासवर्ड पुशर इंस्टेंस के डिफ़ॉल्ट स्वरूप को बदलने के लिए कस्टम सीएसएस स्ट"
+"ाइल जोड़ें।"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:16
+msgid "Use Caution"
+msgstr "चेतावनी का उपयोग करें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:17
+msgid ""
+"Custom CSS can break the application layout or make it unusable. Test your cha"
+"nges carefully. Invalid CSS will be ignored by browsers."
+msgstr ""
+"कस्टम CSS एप्लिकेशन के लेआउट को बिगाड़ सकता है या उसे अनुपयोगी बना सकता है। अप"
+"ने बदलावों का सावधानीपूर्वक परीक्षण करें। अमान्य CSS को ब्राउज़र अनदेखा कर दें"
+"गे।"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:27
+msgid "Looking for Themes?"
+msgstr "थीम खोज रहे हैं?"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:29
+msgid ""
+"Password Pusher includes 26 built-in themes that can be set via the %{code_sta"
+"rt}PWP__THEME%{code_end} environment variable. No custom CSS needed for most b"
+"randing changes."
+msgstr ""
+"पासवर्ड पुशर में 26 अंतर्निहित थीम शामिल हैं जिन्हें %{code_start}PWP__THEME%{"
+"code_end} पर्यावरण चर के माध्यम से सेट किया जा सकता है। अधिकांश ब्रांडिंग परिव"
+"र्तनों के लिए किसी कस्टम CSS की आवश्यकता नहीं है।"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:31
+msgid "View the Theme Gallery"
+msgstr "थीम गैलरी देखें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:41
+msgid "Custom Stylesheet"
+msgstr "कस्टम स्टाइलशीट"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:45
+msgid ""
+"/* Add your custom CSS here */\n"
+"\n"
+"body {\n"
+"  background-color: #f5f5f5;\n"
+"}"
+msgstr "/* यहां अपना कस्टम CSS जोड़ें */ body { background-color: #f5f5f5; }"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:51
+msgid ""
+"CSS entered here will be injected into every page. Changes take effect immedia"
+"tely after saving."
+msgstr ""
+"यहां दर्ज किया गया CSS कोड हर पेज में लागू हो जाएगा। सेव करने के तुरंत बाद बदल"
+"ाव प्रभावी हो जाएंगे।"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:57
+msgid "Tip: Use Ctrl+Enter (or Cmd+Enter on Mac) to save quickly"
+msgstr "सुझाव: जल्दी सेव करने के लिए Ctrl+Enter (या Mac पर Cmd+Enter) का उपयोग करें।"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:59
+msgid "Save Custom CSS"
+msgstr "कस्टम सीएसएस सहेजें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:68
+msgid "Common Customization Examples"
+msgstr "सामान्य अनुकूलन उदाहरण"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:72
+msgid "Make the password textarea larger with monospace font"
+msgstr "पासवर्ड टेक्स्ट एरिया को मोनोस्पेस फॉन्ट के साथ बड़ा करें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:82
+msgid "Style the Generate Password button with gradient"
+msgstr "जनरेट पासवर्ड बटन को ग्रेडिएंट से स्टाइल करें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:92
+msgid "Customize slider appearance"
+msgstr "स्लाइडर की दिखावट को अनुकूलित करें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:104
+msgid "Style the Push It button"
+msgstr "पुश इट बटन को स्टाइल करें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:116
+msgid "Highlight the passphrase field when focused"
+msgstr "फोकस होने पर पासफ़्रेज़ फ़ील्ड को हाइलाइट करें"
+
+#: ../../../app/views/admin/custom_css/edit.html.erb:125
+msgid "Add card-style borders to form sections"
+msgstr "सेक्शन बनाने के लिए कार्ड-स्टाइल बॉर्डर जोड़ें"
+
 #: ../../../app/views/admin/index.html.erb:1
-#: ../../../app/views/layouts/admin.html.erb:38
+#: ../../../app/views/layouts/admin.html.erb:47
 msgid "Administration"
 msgstr "प्रशासन"
 
@@ -199,9 +539,6 @@ msgid "Total Pushes"
 msgstr "कुल पुश"
 
 #: ../../../app/views/admin/index.html.erb:80
-#: ../../../app/views/pushes/index.html.erb:1
-#: ../../../app/views/pushes/index.html.erb:26
-#: ../../../app/views/pushes/index.html.erb:34
 msgid "Active Pushes"
 msgstr "सक्रिय धक्का"
 
@@ -283,7 +620,9 @@ msgid "View changelog and download updates"
 msgstr "परिवर्तन लॉग देखें और अपडेट डाउनलोड करें"
 
 #: ../../../app/views/admin/index.html.erb:262
-#: ../../../app/views/shared/_footer.html.erb:52
+#: ../../../app/views/pages/about.html.erb:102
+#: ../../../app/views/shared/_footer.html.erb:19
+#: ../../../app/views/users/first_runs/new.html.erb:190
 msgid "Documentation"
 msgstr "प्रलेखन"
 
@@ -367,13 +706,16 @@ msgstr "वर्तमान प्रशासक"
 
 #: ../../../app/views/admin/users/index.html.erb:50
 #: ../../../app/views/admin/users/index.html.erb:142
+#: ../../../app/views/devise/registrations/edit.html.erb:16
 #: ../../../app/views/devise/sessions/new.html.erb:7
+#: ../../../app/views/users/first_runs/new.html.erb:69
+#: ../../../app/views/users/first_runs/new.html.erb:72
 msgid "Email"
 msgstr "ईमेल"
 
 #: ../../../app/views/admin/users/index.html.erb:51
 #: ../../../app/views/admin/users/index.html.erb:143
-#: ../../../app/views/pushes/index.html.erb:39
+#: ../../../app/views/pushes/index.html.erb:34
 msgid "Created"
 msgstr "बनाया था"
 
@@ -386,6 +728,7 @@ msgstr "आखरी साइन - इन"
 #: ../../../app/views/admin/users/index.html.erb:145
 #: ../../../app/views/madmin/application/index.html.erb:63
 #: ../../../app/views/madmin/users/index.html.erb:63
+#: ../../../app/views/pushes/index.html.erb:37
 msgid "Actions"
 msgstr "कार्रवाई"
 
@@ -451,6 +794,13 @@ msgstr "कोई नियमित उपयोगकर्ता नहीं
 msgid "All users in the system are administrators."
 msgstr "सिस्टम में सभी उपयोगकर्ता प्रशासक हैं।"
 
+#: ../../../app/views/application/_push_expiration.html.erb:2
+#: ../../../app/views/pushes/audit.html.erb:95
+#: ../../../app/views/pushes/index.html.erb:88
+#: ../../../app/views/shared/_dashboard_header.html.erb:17
+msgid "Expired"
+msgstr "खत्म हो चुका"
+
 #: ../../../app/views/application/_push_expiration.html.erb:3
 msgid "The file download links above will expire in:"
 msgstr "उपरोक्त फ़ाइल डाउनलोड लिंक की समयसीमा समाप्त हो जाएगी:"
@@ -461,25 +811,20 @@ msgstr ""
 "यदि दृश्य शेष रह जाते हैं तो आप नए डाउनलोड लिंक पुनः उत्पन्न करने के लिए पृष्ठ"
 " को ताज़ा कर सकते हैं।"
 
-#: ../../../app/views/application/_push_expiration.html.erb:16
-#: ../../../app/views/pushes/audit.html.erb:98
-#: ../../../app/views/pushes/index.html.erb:75
-#: ../../../app/views/shared/_dashboard_header.html.erb:11
-msgid "Expired"
-msgstr "खत्म हो चुका"
-
-#: ../../../app/views/application/_secret_url_bar.html.erb:14
+#: ../../../app/views/application/_secret_url_bar.html.erb:15
 msgid "Secret Link Language"
 msgstr "गुप्त लिंक भाषा"
 
-#: ../../../app/views/application/_secret_url_bar.html.erb:19
+#: ../../../app/views/application/_secret_url_bar.html.erb:20
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:25
 msgid "Autodetect the recipient's language"
 msgstr "ऑटो का पता लगाने"
 
-#: ../../../app/views/application/_secret_url_bar.html.erb:38
-#: ../../../app/views/pages/generate_key.html.erb:26
-#: ../../../app/views/pages/generate_key.html.erb:39
+#: ../../../app/views/application/_secret_url_bar.html.erb:39
+#: ../../../app/views/pages/generate_key.html.erb:36
+#: ../../../app/views/pages/generate_key.html.erb:46
 #: ../../../app/views/shared/_copy_button.html.erb:2
+#: ../../../app/views/shared/_share_message.html.erb:11
 msgid "Copy to Clipboard"
 msgstr "क्लिपबोर्ड पर कॉपी करें"
 
@@ -530,8 +875,7 @@ msgstr "उपयोगकर्ता एजेंट:"
 #: ../../../app/views/audit_logs/_log_owner_view.html.erb:13
 #: ../../../app/views/audit_logs/_log_view.html.erb:10
 #: ../../../app/views/audit_logs/_log_view.html.erb:12
-#: ../../../app/views/pushes/audit.html.erb:19
-#: ../../../app/views/pushes/index.html.erb:67
+#: ../../../app/views/pushes/audit.html.erb:20
 msgid "None"
 msgstr "कोई भी नहीं"
 
@@ -549,6 +893,34 @@ msgstr "संदर्भकर्ता:"
 #: ../../../app/views/audit_logs/_log_creation.html.erb:3
 msgid "Created on %{date} by %{user}"
 msgstr "%{date} पर %{user} द्वारा बनाया गया पुश"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:22
+msgid "Email notification(s) queued on %{date}"
+msgstr "%{date} पर ईमेल सूचनाएं कतारबद्ध हैं"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:29
+msgid "Status:"
+msgstr "स्थिति:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:33
+msgid "To:"
+msgstr "को:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:38
+msgid "Sent:"
+msgstr "भेजा गया:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:44
+msgid "Error:"
+msgstr "गलती:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:49
+msgid "Proceed At:"
+msgstr "आगे बढ़ें:"
+
+#: ../../../app/views/audit_logs/_log_creation_email_send.html.erb:49
+msgid "Not yet"
+msgstr "अभी तक नहीं"
 
 #: ../../../app/views/audit_logs/_log_edit.html.erb:3
 msgid "Edited on %{date} by %{user}"
@@ -578,78 +950,61 @@ msgstr "%{date} पर %{user} द्वारा सफल दृश्य"
 msgid "Click Here to Confirm Your Account"
 msgstr "अपना खाता पुष्टि करने के लिए यहां क्लिक करें"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:8
-#: ../../../app/views/devise/mailer/email_changed.html.erb:8
-#: ../../../app/views/devise/mailer/password_change.html.erb:8
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:8
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:8
-#: ../../../app/views/layouts/application.html.erb:8
-#: ../../../app/views/layouts/bare.html.erb:8
-#: ../../../app/views/layouts/login.html.erb:8
-#: ../../../app/views/layouts/naked.html.erb:8
-msgid ""
-"Password Pusher is an application to securely send passwords over the web. Lin"
-"ks to passwords expire after a certain number of views and/or time has passed."
-msgstr ""
-"पासवर्ड पुशर वेब पर पासवर्ड सुरक्षित रूप से भेजने के लिए एक एप्लिकेशन है। पासव"
-"र्ड के लिंक एक निश्चित संख्या में देखे जाने और/या समय बीत जाने के बाद समाप्त ह"
-"ो जाते हैं।"
-
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:1
 msgid "Confirm your new account"
 msgstr "अपने नये खाते की पुष्टि करें"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:20
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:2
 msgid ""
 "Your account has been created but you must confirm that you own this email add"
 "ress."
 msgstr "आपका खाता बन गया है लेकिन आपको यह पुष्टि करनी होगी कि यह ईमेल पता आपका है।"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:23
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:5
 msgid "You can confirm your account email by"
 msgstr "आप अपने खाते के ईमेल की पुष्टि कर सकते हैं"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:24
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:22
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:6
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:4
 msgid "by clicking this link"
 msgstr "इस लिंक पर क्लिक करके"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:25
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:23
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:7
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:5
 msgid "or by copying and pasting the following URL into your browser:"
 msgstr "या निम्नलिखित यूआरएल को कॉपी करके अपने ब्राउज़र में पेस्ट करें:"
 
-#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:32
+#: ../../../app/views/devise/mailer/confirmation_instructions.html.erb:14
 msgid "If you didn't create an account, no action is required."
 msgstr "यदि आपने खाता नहीं बनाया है, तो किसी कार्रवाई की आवश्यकता नहीं है।"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:19
+#: ../../../app/views/devise/mailer/email_changed.html.erb:1
 msgid "Your email is being changed"
 msgstr "आपका ईमेल बदला जा रहा है"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:21
+#: ../../../app/views/devise/mailer/email_changed.html.erb:3
 msgid "We're contacting you to notify you that your email at"
 msgstr "हम आपको सूचित करने के लिए आपसे संपर्क कर रहे हैं कि आपका ईमेल यहां है"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:25
+#: ../../../app/views/devise/mailer/email_changed.html.erb:7
 msgid "is being changed to %s"
 msgstr "%s में बदला जा रहा है"
 
-#: ../../../app/views/devise/mailer/email_changed.html.erb:27
+#: ../../../app/views/devise/mailer/email_changed.html.erb:9
 msgid "has been changed to %s"
 msgstr "%s में बदल दिया गया है"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:19
+#: ../../../app/views/devise/mailer/password_change.html.erb:1
 msgid "Password Change"
 msgstr "पासवर्ड परिवर्तन"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:21
+#: ../../../app/views/devise/mailer/password_change.html.erb:3
 msgid "We're contacting you to notify you that your password has been changed on"
 msgstr ""
 "हम आपको सूचित करने के लिए आपसे संपर्क कर रहे हैं कि आपका पासवर्ड बदल दिया गया "
 "है"
 
-#: ../../../app/views/devise/mailer/password_change.html.erb:24
+#: ../../../app/views/devise/mailer/password_change.html.erb:6
 msgid ""
 "If you didn't initiate this and it wasn't your intention, please contact us as"
 " soon as possible."
@@ -657,11 +1012,11 @@ msgstr ""
 "यदि आपने इसकी शुरुआत नहीं की थी और यह आपका इरादा नहीं था, तो कृपया यथाशीघ्र हम"
 "से संपर्क करें।"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:1
 msgid "Password Change Request"
 msgstr "पासवर्ड परिवर्तन अनुरोध"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:21
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:3
 msgid ""
 "Someone has requested a link to change your password. You can proceed with thi"
 "s action"
@@ -669,13 +1024,13 @@ msgstr ""
 "किसी ने आपका पासवर्ड बदलने के लिए एक लिंक का अनुरोध किया है। आप इस कार्रवाई को"
 " आगे बढ़ा सकते हैं"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:31
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:13
 msgid "If you didn't request this change, you can safely delete this email."
 msgstr ""
 "यदि आपने इस परिवर्तन का अनुरोध नहीं किया है, तो आप इस ईमेल को सुरक्षित रूप से "
 "हटा सकते हैं।"
 
-#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:32
+#: ../../../app/views/devise/mailer/reset_password_instructions.html.erb:14
 msgid ""
 "Your password won't change until you access the link above and create a new on"
 "e."
@@ -683,21 +1038,21 @@ msgstr ""
 "जब तक आप ऊपर दिए गए लिंक तक पहुँच के एक नया पासवर्ड नहीं बनाते तब तक आपका पासव"
 "र्ड नहीं बदलेगा।"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:19
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:1
 msgid "Unlock Your Account"
 msgstr "अपना खाता अनलॉक करें"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:22
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:4
 msgid ""
 "Your account has been locked due to an excessive number of unsuccessful sign i"
 "n attempts."
 msgstr "अत्यधिक असफल साइन इन प्रयासों के करण आपका खाता लॉक कर दिया गया है।"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:26
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:8
 msgid "Click this link"
 msgstr "इस लिंक पर क्लिक करें"
 
-#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:27
+#: ../../../app/views/devise/mailer/unlock_instructions.html.erb:9
 msgid ""
 "to unlock your account or by copying and pasting the following URL into your b"
 "rowser:"
@@ -717,20 +1072,43 @@ msgstr "नए पासवर्ड की पुष्टि करें"
 msgid "A minimum of %d characters is required but the more the better."
 msgstr "कम से कम %d वर्णों की आवश्यकता है लेकिन जितना अधिक उतना बेहतर।"
 
-#: ../../../app/views/devise/registrations/edit.html.erb:10
-msgid "Change Email"
-msgstr "बदले ई - मेल"
-
-#: ../../../app/views/devise/registrations/edit.html.erb:46
+#: ../../../app/views/devise/registrations/edit.html.erb:53
 msgid "Current Password"
 msgstr "वर्तमान पासवर्ड"
 
-#: ../../../app/views/devise/registrations/token.html.erb:2
-#: ../../../app/views/shared/_header.html.erb:63
+#: ../../../app/views/devise/registrations/edit.html.erb:65
+#: ../../../app/views/users/sessions/otp.html.erb:1
+#: ../../../app/views/users/sessions/otp.html.erb:3
+msgid "Two-factor authentication"
+msgstr "दो-कारक प्रमाणीकरण"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:66
+msgid "Add a second step to your sign-in using an authenticator app (TOTP)."
+msgstr ""
+"अपने साइन-इन में एक दूसरा चरण जोड़ने के लिए ऑथेंटिकेटर ऐप (टीओटीपी) का उपयोग क"
+"रें।"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:68
+msgid "Disable two-factor authentication"
+msgstr "दो-कारक प्रमाणीकरण अक्षम करें"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:71
+#: ../../../app/views/devise/registrations/token.html.erb:59
+#: ../../../app/views/pushes/show.html.erb:115
+msgid "Are you sure?"
+msgstr "क्या आप निश्चित हैं?"
+
+#: ../../../app/views/devise/registrations/edit.html.erb:73
+msgid "Set up two-factor authentication"
+msgstr "दो-कारक प्रमाणीकरण सेट अप करें"
+
+#: ../../../app/views/devise/registrations/token.html.erb:1
+#: ../../../app/views/devise/registrations/token.html.erb:6
+#: ../../../app/views/shared/_header.html.erb:46
 msgid "API Token"
 msgstr "एपीआई टोकन"
 
-#: ../../../app/views/devise/registrations/token.html.erb:4
+#: ../../../app/views/devise/registrations/token.html.erb:9
 msgid ""
 "This token is specific to your account.  It can be used with command line appl"
 "ications, the JSON API, 3rd party integrations and more."
@@ -738,37 +1116,38 @@ msgstr ""
 "यह टोकन आपके खाते के लिए विशिष्ट है. इसका उपयोग कमांड लाइन एप्लिकेशन, JSON API"
 ", तृतीय पक्ष एकीकरण और बहुत कुछ के साथ किया जा सकता है।"
 
-#: ../../../app/views/devise/registrations/token.html.erb:7
+#: ../../../app/views/devise/registrations/token.html.erb:13
 msgid "Make sure to keep this token secure.  It provides full access to your account."
 msgstr ""
 "इस टोकन को सुरक्षित रखना सुनिश्चित करें. यह आपके खाते तक पूर्ण पहुंच प्रदान कर"
 "ता है।"
 
-#: ../../../app/views/devise/registrations/token.html.erb:10
-msgid ""
-"If needed, you can regenerate a new token below which will invalidate this exi"
-"sting token."
-msgstr ""
-"यदि आवश्यक हो, तो आप नीचे एक नया टोकन पुन: उत्पन्न कर सकते हैं जो इस मौजूदा टो"
-"कन को अमान्य कर देगा।"
-
-#: ../../../app/views/devise/registrations/token.html.erb:14
+#: ../../../app/views/devise/registrations/token.html.erb:16
 #: ../../../app/views/pushes/show.html.erb:4
 #: ../../../app/views/pushes/show.html.erb:64
 msgid "Copied!"
 msgstr "नकल की गई!"
 
-#: ../../../app/views/devise/registrations/token.html.erb:15
+#: ../../../app/views/devise/registrations/token.html.erb:17
+msgid "Current Token"
+msgstr "वर्तमान टोकन"
+
+#: ../../../app/views/devise/registrations/token.html.erb:18
 msgid "Your API token is blurred out.  Click below to reveal it."
 msgstr "आपका एपीआई टोकन धुंधला हो गया है। इसे प्रकट करने के लिए नीचे क्लिक करें।"
 
-#: ../../../app/views/devise/registrations/token.html.erb:27
+#: ../../../app/views/devise/registrations/token.html.erb:35
+#: ../../../app/views/devise/registrations/token.html.erb:41
+msgid "Regenerate Token"
+msgstr "टोकन पुन: उत्पन्न करें"
+
+#: ../../../app/views/devise/registrations/token.html.erb:37
 msgid "To delete this token and regenerate a new one, use the button below."
 msgstr ""
 "इस टोकन को हटाने और एक नया टोकन पुनः बनाने के लिए, नीचे दिए गए बटन का उपयोग कर"
 "ें।"
 
-#: ../../../app/views/devise/registrations/token.html.erb:30
+#: ../../../app/views/devise/registrations/token.html.erb:38
 msgid ""
 "Note that this will invalidate any tools that may be using the existing key an"
 "d will have to be updated with the new token."
@@ -776,84 +1155,96 @@ msgstr ""
 "ध्यान दें कि यह मौजूदा कुंजी का उपयोग करने वाले किसी भी उपकरण को अमान्य कर देग"
 "ा और उसे नए टोकन के साथ अपडेट करना होगा।"
 
-#: ../../../app/views/devise/registrations/token.html.erb:34
-msgid "Regenerate Token"
-msgstr "टोकन पुन: उत्पन्न करें"
-
-#: ../../../app/views/devise/registrations/token.html.erb:42
+#: ../../../app/views/devise/registrations/token.html.erb:52
 msgid "Delete and generate a new API token?"
 msgstr "हटाएँ और एक नया एपीआई टोकन जनरेट करें?"
 
-#: ../../../app/views/devise/registrations/token.html.erb:46
+#: ../../../app/views/devise/registrations/token.html.erb:56
 msgid "This will delete this token and "
 msgstr "इससे यह टोकन हट जाएगा और"
 
-#: ../../../app/views/devise/registrations/token.html.erb:47
+#: ../../../app/views/devise/registrations/token.html.erb:57
 msgid "invalidate any tools that may be using it"
 msgstr "ऐसे किसी भी उपकरण को अमान्य करें जो इसका उपयोग कर रहा हो"
 
-#: ../../../app/views/devise/registrations/token.html.erb:48
+#: ../../../app/views/devise/registrations/token.html.erb:58
 msgid "A new token will be generated in its place."
 msgstr "इसके स्थान पर एक नया टोकन जनरेट किया जाएगा।"
 
-#: ../../../app/views/devise/registrations/token.html.erb:49
-#: ../../../app/views/pushes/audit.html.erb:221
-#: ../../../app/views/pushes/show.html.erb:115
-msgid "Are you sure?"
-msgstr "क्या आप निश्चित हैं?"
-
-#: ../../../app/views/devise/registrations/token.html.erb:52
+#: ../../../app/views/devise/registrations/token.html.erb:62
 #: ../../../app/views/madmin/application/_form.html.erb:212
-#: ../../../app/views/madmin/users/_form.html.erb:80
-#: ../../../app/views/pushes/audit.html.erb:224
+#: ../../../app/views/madmin/users/_form.html.erb:82
+#: ../../../app/views/pushes/audit.html.erb:220
 #: ../../../app/views/pushes/show.html.erb:118
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:17
 msgid "Cancel"
 msgstr "रद्द करना"
 
-#: ../../../app/views/devise/registrations/token.html.erb:53
+#: ../../../app/views/devise/registrations/token.html.erb:63
 msgid "Delete & Regenerate"
 msgstr "हटाएं और पुन: उत्पन्न करें"
 
-#: ../../../app/views/devise/registrations/token.html.erb:53
-#: ../../../app/views/pushes/audit.html.erb:225
+#: ../../../app/views/devise/registrations/token.html.erb:63
+#: ../../../app/views/pushes/audit.html.erb:221
 #: ../../../app/views/pushes/show.html.erb:119
 msgid "Processing..."
 msgstr "प्रसंस्करण..."
 
 #: ../../../app/views/devise/sessions/new.html.erb:12
+#: ../../../app/views/users/first_runs/new.html.erb:79
+#: ../../../app/views/users/first_runs/new.html.erb:81
 msgid "Password"
 msgstr "पासवर्ड"
 
-#: ../../../app/views/layouts/admin.html.erb:11
+#: ../../../app/views/layouts/admin.html.erb:6
+#: ../../../app/views/layouts/application.html.erb:6
+#: ../../../app/views/layouts/login.html.erb:6
+#: ../../../app/views/layouts/madmin/application.html.erb:6
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:21
+msgid "Use light theme"
+msgstr "लाइट थीम का उपयोग करें"
+
+#: ../../../app/views/layouts/admin.html.erb:7
+#: ../../../app/views/layouts/application.html.erb:7
+#: ../../../app/views/layouts/login.html.erb:7
+#: ../../../app/views/layouts/madmin/application.html.erb:7
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:20
+msgid "Use dark theme"
+msgstr "डार्क थीम का उपयोग करें"
+
+#: ../../../app/views/layouts/admin.html.erb:8
+#: ../../../app/views/layouts/application.html.erb:8
+#: ../../../app/views/layouts/login.html.erb:8
+#: ../../../app/views/layouts/madmin/application.html.erb:8
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:7
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:8
+#: ../../../app/views/layouts/mission_control/jobs/_theme_toggle.html.erb:22
+#: ../../../app/views/shared/_theme_toggle.html.erb:9
+#: ../../../app/views/shared/_theme_toggle.html.erb:10
+msgid "Use system theme"
+msgstr "सिस्टम थीम का उपयोग करें"
+
+#: ../../../app/views/layouts/admin.html.erb:20
 msgid "Administration - Password Pusher"
 msgstr "प्रशासन - पासवर्ड पुशर"
 
-#: ../../../app/views/layouts/admin.html.erb:52
+#: ../../../app/views/layouts/admin.html.erb:63
 msgid "System Active"
 msgstr "सिस्टम सक्रिय"
 
-#: ../../../app/views/layouts/admin.html.erb:60
+#: ../../../app/views/layouts/admin.html.erb:71
 msgid "Back to App"
 msgstr "ऐप पर वापस जाएं"
 
-#: ../../../app/views/layouts/login.html.erb:33
-#: ../../../app/views/shared/_footer.html.erb:11
-#: ../../../app/views/shared/_footer.html.erb:15
-#: ../../../app/views/shared/_header.html.erb:9
-#: ../../../app/views/shared/_header.html.erb:13
-msgid "Password Pusher Logo"
-msgstr "पासवर्ड पुशर लोगो"
-
-#: ../../../app/views/layouts/madmin/application.html.erb:12
+#: ../../../app/views/layouts/madmin/application.html.erb:21
 msgid "Data Explorer - Administration - Password Pusher"
 msgstr "डेटा एक्सप्लोरर - प्रशासन - पासवर्ड पुशर"
 
-#: ../../../app/views/layouts/madmin/application.html.erb:20
+#: ../../../app/views/layouts/madmin/application.html.erb:29
 msgid "Staging Environment"
 msgstr "स्टेजिंग वातावरण"
 
-#: ../../../app/views/layouts/madmin/application.html.erb:20
+#: ../../../app/views/layouts/madmin/application.html.erb:29
 msgid ""
 "This is a staging site for testing and data is reset frequently. Please use %{"
 "production_link} unless you are testing new features."
@@ -863,22 +1254,22 @@ msgstr ""
 "र रहे हों।"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:20
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:23
 msgid "Back to Administration Center"
 msgstr "प्रशासन केंद्र पर वापस जाएं"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:36
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:39
 msgid "Monitor and manage background job processing and queues"
 msgstr "पृष्ठभूमि कार्य प्रसंस्करण और कतारों की निगरानी और प्रबंधन करें"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:47
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:50
 msgid "What are Background Jobs?"
 msgstr "बैकग्राउंड जॉब्स क्या हैं?"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:50
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
 msgid ""
 "Background jobs handle tasks that run asynchronously without blocking the main"
 " application. In Password Pusher, these include:"
@@ -887,47 +1278,47 @@ msgstr ""
 "ना एसिंक्रोनस रूप से चलते हैं। पासवर्ड पुशर में, इनमें शामिल हैं:"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
 msgid "Email notifications"
 msgstr "ईमेल सूचनाएं"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:53
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
 msgid "Sending push expiration alerts and admin notifications"
 msgstr "पुश समाप्ति अलर्ट और व्यवस्थापक सूचनाएं भेजना"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:54
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:57
 msgid "Push cleanup"
 msgstr "पुश क्लीनअप"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:54
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:57
 msgid "Automatically removing expired pushes from the database"
 msgstr "डेटाबेस से समाप्त हो चुके पुश को स्वचालित रूप से हटाना"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:55
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:58
 msgid "File processing"
 msgstr "फ़ाइल प्रसंस्करण"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:55
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:58
 msgid "Handling file uploads and any post-processing tasks."
 msgstr "फ़ाइल अपलोड और किसी भी पोस्ट-प्रोसेसिंग कार्यों को संभालना।"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
 msgid "Audit logging"
 msgstr "ऑडिट लॉगिंग"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:56
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
 msgid "Recording system events and user actions"
 msgstr "सिस्टम ईवेंट और उपयोगकर्ता क्रियाएँ रिकॉर्ड करना"
 
 #:
-#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:59
+#: ../../../app/views/layouts/mission_control/jobs/_application_selection.html.erb:62
 msgid ""
 "Use the tabs below to monitor job queues, view failed jobs, and manage job pro"
 "cessing."
@@ -981,8 +1372,8 @@ msgstr "संपादित करें %{name}"
 #: ../../../app/views/madmin/application/edit.html.erb:13
 #: ../../../app/views/madmin/application/index.html.erb:77
 #: ../../../app/views/madmin/application/show.html.erb:25
-#: ../../../app/views/pushes/audit.html.erb:204
-#: ../../../app/views/pushes/index.html.erb:86
+#: ../../../app/views/pushes/index.html.erb:103
+#: ../../../app/views/pushes/preview.html.erb:123
 msgid "Edit"
 msgstr "संपादन करना"
 
@@ -1013,7 +1404,7 @@ msgstr "खोज"
 
 #: ../../../app/views/madmin/application/index.html.erb:40
 #: ../../../app/views/madmin/users/index.html.erb:40
-#: ../../../app/views/shared/_dashboard_header.html.erb:9
+#: ../../../app/views/shared/_dashboard_header.html.erb:11
 msgid "All"
 msgstr "सभी"
 
@@ -1023,7 +1414,7 @@ msgstr "सभी"
 #: ../../../app/views/pushes/_form.html.erb:9
 #: ../../../app/views/pushes/_qr_form.html.erb:9
 #: ../../../app/views/pushes/_url_form.html.erb:9
-#: ../../../app/views/pushes/audit.html.erb:34
+#: ../../../app/views/pushes/audit.html.erb:35
 msgid "View"
 msgid_plural "Views"
 msgstr[0] "देखना"
@@ -1039,7 +1430,7 @@ msgstr "%{name} विवरण देखें"
 
 #: ../../../app/views/madmin/application/show.html.erb:26
 #: ../../../app/views/madmin/users/index.html.erb:78
-#: ../../../app/views/pushes/audit.html.erb:225
+#: ../../../app/views/pushes/audit.html.erb:222
 #: ../../../app/views/pushes/show.html.erb:119
 #: ../../../app/views/shared/_delete_user_button.html.erb:12
 msgid "Delete"
@@ -1199,6 +1590,7 @@ msgid "Manage user accounts and permissions"
 msgstr "उपयोगकर्ता खाते और अनुमतियाँ प्रबंधित करें"
 
 #: ../../../app/views/madmin/dashboard/show.html.erb:124
+#: ../../../app/views/pushes/index.html.erb:29
 msgid "Pushes"
 msgstr "धक्का"
 
@@ -1262,11 +1654,11 @@ msgstr "यूजर जानकारी"
 msgid "The email address for the new user account."
 msgstr "नये उपयोगकर्ता खाते का ईमेल पता."
 
-#: ../../../app/views/madmin/users/_form.html.erb:50
+#: ../../../app/views/madmin/users/_form.html.erb:51
 msgid "Auto-confirm account"
 msgstr "खाते की स्वतः पुष्टि"
 
-#: ../../../app/views/madmin/users/_form.html.erb:53
+#: ../../../app/views/madmin/users/_form.html.erb:54
 msgid ""
 "If checked, the user account will be automatically confirmed and ready to use."
 " Otherwise, the user will need to confirm their email address."
@@ -1274,11 +1666,11 @@ msgstr ""
 "यदि चेक किया गया है, तो उपयोगकर्ता खाता स्वतः ही पुष्टि हो जाएगा और उपयोग के ल"
 "िए तैयार हो जाएगा। अन्यथा, उपयोगकर्ता को अपना ईमेल पता सत्यापित करना होगा।"
 
-#: ../../../app/views/madmin/users/_form.html.erb:68
+#: ../../../app/views/madmin/users/_form.html.erb:70
 msgid "Password Information"
 msgstr "पासवर्ड जानकारी"
 
-#: ../../../app/views/madmin/users/_form.html.erb:70
+#: ../../../app/views/madmin/users/_form.html.erb:72
 msgid ""
 "A secure password will be automatically generated for this user. The user can "
 "reset their password using the \"Forgot Password\" link on the login page."
@@ -1286,86 +1678,226 @@ msgstr ""
 "इस उपयोगकर्ता के लिए एक सुरक्षित पासवर्ड स्वतः जनरेट हो जाएगा। उपयोगकर्ता लॉगि"
 "न पृष्ठ पर \"पासवर्ड भूल गए\" लिंक का उपयोग करके अपना पासवर्ड रीसेट कर सकता है।"
 
-#: ../../../app/views/madmin/users/_form.html.erb:85
+#: ../../../app/views/madmin/users/_form.html.erb:87
 msgid "Create User"
 msgstr "उपयोगकर्ता बनाएँ"
 
 #: ../../../app/views/pages/about.html.erb:1
+#: ../../../app/views/pages/about.html.erb:6
 msgid "About Password Pusher"
 msgstr "पासवर्ड पुशर के बारे में"
 
-#: ../../../app/views/pages/about.html.erb:2
-#: ../../../app/views/shared/_footer.html.erb:48
-msgid "About"
-msgstr "के बारे में"
-
-#: ../../../app/views/pages/about.html.erb:7
+#: ../../../app/views/pages/about.html.erb:8
 msgid ""
-"Password Pusher is a tool used for sharing passwords and other sensitive infor"
-"mation with other people securely."
+"Open source software for securely sharing passwords, text, URLs, and files. Tr"
+"usted by thousands of organizations worldwide."
 msgstr ""
-"पासवर्ड पुशर एक उपकरण है जिसका उपयोग पासवर्ड और अन्य संवेदनशील जानकारी को अन्य"
-" लोगों के साथ सुरक्षित रूप से साझा करने के लिए किया जाता है।"
+"पासवर्ड, टेक्स्ट, यूआरएल और फाइलों को सुरक्षित रूप से साझा करने के लिए ओपन सोर"
+"्स सॉफ्टवेयर। दुनिया भर में हजारों संगठनों द्वारा विश्वसनीय।"
 
-#: ../../../app/views/pages/about.html.erb:10
+#: ../../../app/views/pages/about.html.erb:13
+msgid "What It Is"
+msgstr "यह क्या है"
+
+#: ../../../app/views/pages/about.html.erb:15
 msgid ""
-"With Password Pusher, you can create a unique, one-time URL that will expire a"
-"fter a certain amount of time or after it has been accessed a certain number o"
-"f times, ensuring that your information remains private and secure."
+"Password Pusher is a tool for sharing sensitive information securely. You crea"
+"te a unique, one-time link that expires after a set number of views or a set t"
+"ime. Recipients open the link, see the content once, and the data is no longer"
+" available—reducing the risk of credentials living in email or chat."
 msgstr ""
-"पासवर्ड पुशर के साथ, आप एक अद्वितीय, एक बार का यूआरएल बना सकते हैं जो एक निश्च"
-"ित समय के बाद या इसे एक निश्चित संख्या में एक्सेस करने के बाद समाप्त हो जाएगा,"
-" यह सुनिश्चित करते हुए कि आपकी जानकारी निजी और सुरक्षित रहेगी।"
+"पासवर्ड पुशर संवेदनशील जानकारी को सुरक्षित रूप से साझा करने का एक टूल है। आप ए"
+"क अद्वितीय, एक बार उपयोग होने वाला लिंक बनाते हैं जो निश्चित संख्या में देखे ज"
+"ाने या निश्चित समय के बाद समाप्त हो जाता है। प्राप्तकर्ता लिंक खोलते हैं, सामग"
+"्री को एक बार देखते हैं, और डेटा फिर उपलब्ध नहीं रहता है - जिससे ईमेल या चैट म"
+"ें गोपनीय जानकारी के सुरक्षित रहने का जोखिम कम हो जाता है।"
 
-#: ../../../app/views/pages/about.html.erb:11
+#: ../../../app/views/pages/about.html.erb:18
 msgid ""
-"It is often used by individuals and organizations to share login credentials o"
-"r other sensitive data with colleagues, clients, or partners."
+"It is open source, free to use and modify, and designed to be self-hosted so y"
+"our data never leaves your infrastructure."
 msgstr ""
-"इसका उपयोग अक्सर व्यक्तियों और संगठनों द्वारा सहकर्मियों, ग्राहकों या भागीदारो"
-"ं के साथ लॉगिन क्रेडेंशियल या अन्य संवेदनशील डेटा साझा करने के लिए किया जाता ह"
-"ै।"
-
-#: ../../../app/views/pages/about.html.erb:14
-msgid ""
-"Password Pusher is a simple and convenient solution for securely sharing passw"
-"ords without the need for email or other less secure communication methods."
-msgstr ""
-"पासवर्ड पुशर ईमेल या अन्य कम सुरक्षित संचार विधियों की आवश्यकता के बिना पासवर्"
-"ड को सुरक्षित रूप से साझा करने का एक सरल और सुविधाजनक समाधान है।"
-
-#: ../../../app/views/pages/about.html.erb:17
-msgid "Hosted at"
-msgstr "पर होस्ट किया गया"
-
-#: ../../../app/views/pages/about.html.erb:19
-msgid "or you can run your own private instance wherever you like."
-msgstr "या आप जहां चाहें अपना निजी इंस्टेंस चला सकते हैं।"
+"यह ओपन सोर्स है, उपयोग और संशोधन के लिए निःशुल्क है, और इसे सेल्फ-होस्ट करने क"
+"े लिए डिज़ाइन किया गया है ताकि आपका डेटा कभी भी आपके इंफ्रास्ट्रक्चर से बाहर न"
+" जाए।"
 
 #: ../../../app/views/pages/about.html.erb:23
-msgid "The source code is"
-msgstr "स्रोत कोड है"
-
-#: ../../../app/views/pages/about.html.erb:24
-#: ../../../app/views/pages/about.html.erb:41
-msgid "on Github"
-msgstr "जीथूब पर"
+msgid "The Story"
+msgstr "कहानी"
 
 #: ../../../app/views/pages/about.html.erb:25
-msgid "It’s opensource and free for anyone to use, review or modify."
-msgstr "यह ओपनसोर्स है और किसी के भी उपयोग, समीक्षा या संशोधन के लिए निःशुल्क है।"
+msgid ""
+"Password Pusher began in December 2011 with a simple goal: stop sending passwo"
+"rds over email. The first commit was on"
+msgstr ""
+"पासवर्ड पुशर की शुरुआत दिसंबर 2011 में एक सरल लक्ष्य के साथ हुई: ईमेल के माध्य"
+"म से पासवर्ड भेजना बंद करना। पहला कमिट 2011 में हुआ था।"
 
-#: ../../../app/views/pages/about.html.erb:28
+#: ../../../app/views/pages/about.html.erb:27
+msgid "The public service at pwpush.com went live shortly after."
+msgstr "इसके कुछ ही समय बाद pwpush.com पर सार्वजनिक सेवा शुरू हो गई।"
+
+#: ../../../app/views/pages/about.html.erb:30
+msgid ""
+"Over the years it grew into a full-featured application—passwords, URLs, file "
+"uploads, QR codes, a JSON API, dozens of languages, and a large self-hosted co"
+"mmunity. Today it is used by companies, teams, and individuals who want a simp"
+"le, auditable way to share secrets without leaving them in inboxes or messagin"
+"g apps."
+msgstr ""
+"समय के साथ-साथ यह एक पूर्ण विशेषताओं से लैस एप्लिकेशन बन गया है—पासवर्ड, यूआरए"
+"ल, फ़ाइल अपलोड, क्यूआर कोड, एक JSON एपीआई, दर्जनों भाषाएँ और एक बड़ा स्व-संचाल"
+"ित समुदाय। आज इसका उपयोग उन कंपनियों, टीमों और व्यक्तियों द्वारा किया जाता है "
+"जो गोपनीय जानकारियों को इनबॉक्स या मैसेजिंग ऐप्स में छोड़े बिना, उन्हें साझा क"
+"रने का एक सरल और ऑडिट करने योग्य तरीका चाहते हैं।"
+
+#: ../../../app/views/pages/about.html.erb:33
+msgid "In 2024,"
+msgstr "2024 में,"
+
+#: ../../../app/views/pages/about.html.erb:35
+msgid ""
+"was formed to further the open source Password Pusher project: maintaining the"
+" codebase, hosting the public service at pwpush.com, publishing documentation,"
+" and offering a Pro edition for teams that want additional features and suppor"
+"t. The open source version remains free and self-hostable."
+msgstr ""
+"पासवर्ड पुशर ओपन सोर्स प्रोजेक्ट को आगे बढ़ाने के लिए गठित किया गया था: कोडबेस"
+" को बनाए रखना, pwpush.com पर सार्वजनिक सेवा को होस्ट करना, दस्तावेज़ प्रकाशित "
+"करना और अतिरिक्त सुविधाओं और समर्थन चाहने वाली टीमों के लिए प्रो संस्करण प्रदा"
+"न करना। ओपन सोर्स संस्करण निःशुल्क और स्वयं-होस्ट करने योग्य है।"
+
+#: ../../../app/views/pages/about.html.erb:40
+msgid "What You Can Do"
+msgstr "आप क्या कर सकते हैं"
+
+#: ../../../app/views/pages/about.html.erb:46
+msgid "Passwords & text"
+msgstr "पासवर्ड और टेक्स्ट"
+
+#: ../../../app/views/pages/about.html.erb:47
+msgid "Share one-time secrets with expiration by views or time."
+msgstr ""
+"एक बार के लिए ऐसे गुप्त रहस्य साझा करें जिनकी समय सीमा व्यूज या समय के आधार पर"
+" समाप्त हो जाती है।"
+
+#: ../../../app/views/pages/about.html.erb:55
+#: ../../../app/views/shared/_topnav.html.erb:18
+msgid "URLs"
+msgstr "यूआरएल"
+
+#: ../../../app/views/pages/about.html.erb:56
+msgid "Send links that redirect only after the recipient opens the push."
+msgstr ""
+"ऐसे लिंक भेजें जो प्राप्तकर्ता द्वारा पुश नोटिफिकेशन खोलने के बाद ही रीडायरेक्"
+"ट हों।"
+
+#: ../../../app/views/pages/about.html.erb:64
+#: ../../../app/views/shared/_topnav.html.erb:11
+msgid "Files"
+msgstr "फ़ाइलें"
+
+#: ../../../app/views/pages/about.html.erb:65
+msgid "Upload files that expire after retrieval or time."
+msgstr "ऐसी फाइलें अपलोड करें जो पुनर्प्राप्ति या समय सीमा के बाद समाप्त हो जाती हैं।"
+
+#: ../../../app/views/pages/about.html.erb:73
+msgid "QR codes"
+msgstr "क्यूआर कोड"
+
+#: ../../../app/views/pages/about.html.erb:74
+msgid "Generate expiring QR codes for credentials or links."
+msgstr "क्रेडेंशियल या लिंक के लिए समय-समय पर समाप्त होने वाले क्यूआर कोड जनरेट करें।"
+
+#: ../../../app/views/pages/about.html.erb:80
+msgid ""
+"Optional passphrase protection, view/expiration limits, optional deletion by v"
+"iewer, JSON API, and more. See the"
+msgstr ""
+"वैकल्पिक पासफ़्रेज़ सुरक्षा, देखने/समाप्ति की सीमाएँ, दर्शक द्वारा वैकल्पिक वि"
+"लोपन, JSON API, और बहुत कुछ। देखें"
+
+#: ../../../app/views/pages/about.html.erb:81
+msgid "documentation"
+msgstr "प्रलेखन"
+
+#: ../../../app/views/pages/about.html.erb:82
+msgid "for details."
+msgstr "जानकारी के लिए।"
+
+#: ../../../app/views/pages/about.html.erb:87
+msgid "Security & Self-Hosting"
+msgstr "सुरक्षा और सेल्फ-होस्टिंग"
+
+#: ../../../app/views/pages/about.html.erb:89
+msgid ""
+"Payloads are encrypted at rest. You control where data lives: run Password Pus"
+"her on your own servers, in your cloud, or in Docker. Thousands of companies a"
+"nd teams self-host it so sensitive data never touches third-party SaaS."
+msgstr ""
+"पेलोड को सुरक्षित रखते हुए एन्क्रिप्ट किया जाता है। डेटा कहाँ रहता है, यह आप न"
+"ियंत्रित करते हैं: पासवर्ड पुशर को अपने सर्वर पर, क्लाउड में या डॉकर में चलाएँ"
+"। हजारों कंपनियाँ और टीमें इसे स्वयं होस्ट करती हैं ताकि संवेदनशील डेटा कभी भी"
+" किसी तृतीय-पक्ष SaaS सेवा के संपर्क में न आए।"
+
+#: ../../../app/views/pages/about.html.erb:92
+msgid ""
+"No account is required for basic use; optional user accounts and sign-in let t"
+"eams track their own pushes. The source code is open so you can review and ada"
+"pt it."
+msgstr ""
+"बुनियादी उपयोग के लिए किसी खाते की आवश्यकता नहीं है; वैकल्पिक उपयोगकर्ता खाते "
+"और साइन-इन की सुविधा से टीमें अपने पुश नोटिफिकेशन को ट्रैक कर सकती हैं। सोर्स "
+"कोड ओपन सोर्स है, इसलिए आप इसकी समीक्षा और अनुकूलन कर सकते हैं।"
+
+#: ../../../app/views/pages/about.html.erb:97
+msgid "Get Started"
+msgstr "शुरू करें"
+
+#: ../../../app/views/pages/about.html.erb:103
+msgid "Installation, configuration, API, and FAQ."
+msgstr "स्थापना, कॉन्फ़िगरेशन, एपीआई और अक्सर पूछे जाने वाले प्रश्न।"
+
+#: ../../../app/views/pages/about.html.erb:104
+msgid "docs.pwpush.com"
+msgstr "docs.pwpush.com"
+
+#: ../../../app/views/pages/about.html.erb:111
+#: ../../../app/views/users/first_runs/new.html.erb:214
+msgid "Source code"
+msgstr "सोर्स कोड"
+
+#: ../../../app/views/pages/about.html.erb:112
+msgid "Open source on GitHub. Use, review, or contribute."
+msgstr "GitHub पर ओपन सोर्स। उपयोग करें, समीक्षा करें या योगदान दें।"
+
+#: ../../../app/views/pages/about.html.erb:113
+msgid "GitHub"
+msgstr "GitHub"
+
+#: ../../../app/views/pages/about.html.erb:120
+msgid "Hosted option"
+msgstr "होस्ट किया गया विकल्प"
+
+#: ../../../app/views/pages/about.html.erb:121
+msgid "Use the public service or run your own instance."
+msgstr "सार्वजनिक सेवा का उपयोग करें या अपना स्वयं का इंस्टेंस चलाएं।"
+
+#: ../../../app/views/pages/about.html.erb:130
 msgid "The Author"
 msgstr "लेखक"
 
-#: ../../../app/views/pages/about.html.erb:31
-msgid "My name is Peter Giacomo Lombardo. You can find me on"
-msgstr "मेरा नाम पीटर जियाकोमो लोम्बार्डो है। आप मुझे यहां पा सकते हैं"
+#: ../../../app/views/pages/about.html.erb:132
+msgid ""
+"Password Pusher is created and maintained by Peter Giacomo Lombardo. You can f"
+"ind him on"
+msgstr ""
+"पासवर्ड पुशर को पीटर जियाकोमो लोम्बार्डो द्वारा बनाया और अनुरक्षित किया गया है"
+"। आप उन्हें यहां पा सकते हैं:"
 
-#: ../../../app/views/pages/about.html.erb:34
-#: ../../../app/views/pages/about.html.erb:40
-#: ../../../app/views/pushes/preview.html.erb:58
+#: ../../../app/views/pages/about.html.erb:135
+#: ../../../app/views/pages/about.html.erb:141
+#: ../../../app/views/pushes/preview.html.erb:77
 #: ../../../app/views/pushes/print_preview.html.erb:14
 #: ../../../app/views/pushes/show.html.erb:46
 #: ../../../app/views/pushes/show.html.erb:49
@@ -1374,249 +1906,720 @@ msgstr "मेरा नाम पीटर जियाकोमो लोम�
 msgid "or"
 msgstr "या"
 
-#: ../../../app/views/pages/about.html.erb:38
-msgid "For updates, you can"
-msgstr "अपडेट के लिए, आप कर सकते हैं"
+#: ../../../app/views/pages/about.html.erb:139
+msgid "For news and updates,"
+msgstr "समाचार और अपडेट के लिए,"
 
-#: ../../../app/views/pages/about.html.erb:39
-msgid "follow me on Twitter"
-msgstr "ट्विटर पर मुझे फॉलो करें"
+#: ../../../app/views/pages/about.html.erb:140
+msgid "follow on X"
+msgstr "आगे X"
 
-#: ../../../app/views/pages/about.html.erb:44
-msgid "Want to Help Out?"
-msgstr "मदद करना चाहते हैं?"
+#: ../../../app/views/pages/about.html.erb:142
+msgid "subscribe to the newsletter"
+msgstr "न्यूज़लेटर की सदस्यता लें"
 
-#: ../../../app/views/pages/about.html.erb:48
-msgid "By far the biggest help is to spread the word"
-msgstr "अब तक की सबसे बड़ी मदद बात फैलाना है"
-
-#: ../../../app/views/pages/about.html.erb:50
-msgid "Share and suggest Password Pusher to colleagues and friends."
-msgstr "सहकर्मियों और मित्रों को पासवर्ड पुशर साझा करें और सुझाव दें।"
-
-#: ../../../app/views/pages/about.html.erb:53
-msgid "You can also"
-msgstr "आप भी कर सकते हैं"
-
-#: ../../../app/views/pages/about.html.erb:56
-msgid "Star the Github project"
-msgstr "जीथब प्रोजेक्ट को तारांकित करें"
-
-#: ../../../app/views/pages/about.html.erb:57
-msgid "It's gasoline for the algos that trend Password Pusher."
-msgstr "यह उन अल्गोज़ के लिए गैसोलीन है जो पासवर्ड पुशर को ट्रेंड करते हैं।"
-
-#: ../../../app/views/pages/about.html.erb:60
-msgid "Sign up for the"
-msgstr "के लिए साइन अप करें"
-
-#: ../../../app/views/pages/about.html.erb:61
-msgid "newsletter"
-msgstr "न्यूजलैटर"
-
-#: ../../../app/views/pages/about.html.erb:62
-msgid "to get updates on important releases, security issues, tips and more."
+#: ../../../app/views/pages/about.html.erb:149
+msgid ""
+"Apnotic was created to manage and build out the Password Pusher project—mainta"
+"ining the open source codebase, the public service, documentation, and related"
+" products."
 msgstr ""
-"महत्वपूर्ण रिलीज़, सुरक्षा मुद्दों, युक्तियों और अधिक पर अपडेट प्राप्त करने के"
-" लिए।"
+"एप्नोटिक का गठन पासवर्ड पुशर प्रोजेक्ट को प्रबंधित और विकसित करने के लिए किया "
+"गया था - जिसमें ओपन सोर्स कोडबेस, सार्वजनिक सेवा, दस्तावेज़ीकरण और संबंधित उत्"
+"पादों का रखरखाव शामिल है।"
 
-#: ../../../app/views/pages/about.html.erb:65
-msgid "Follow Password Pusher on"
-msgstr "पासवर्ड पुशर का पालन करें"
+#: ../../../app/views/pages/about.html.erb:150
+msgid "Learn more at apnotic.com"
+msgstr "अधिक जानकारी के लिए apnotic.com पर जाएं।"
 
-#: ../../../app/views/pages/about.html.erb:68
-#: ../../../app/views/pages/about.html.erb:91
-#: ../../../app/views/pushes/preview.html.erb:65
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "and"
-msgstr "और"
+#: ../../../app/views/pages/about.html.erb:152
+msgid "Why choose Apnotic?"
+msgstr "आप Apnotic को क्यों चुनें?"
 
-#: ../../../app/views/pages/about.html.erb:72
-msgid "Fix an issue, add a feature or write some documentation."
-msgstr "किसी समस्या को ठीक करें, कोई सुविधा जोड़ें या कुछ दस्तावेज़ लिखें।"
+#: ../../../app/views/pages/about.html.erb:154
+msgid "Apnotic is built on principles of trust, reliability, and exceptional service."
+msgstr "एप्नोटिक विश्वास, विश्वसनीयता और असाधारण सेवा के सिद्धांतों पर आधारित है।"
 
-#: ../../../app/views/pages/about.html.erb:72
-msgid "See the Github project."
-msgstr "जीथब प्रोजेक्ट देखें।"
+#: ../../../app/views/pages/about.html.erb:157
+msgid "Privately held, zero debt, and financially responsible"
+msgstr "निजी स्वामित्व वाली, ऋणमुक्त और वित्तीय रूप से जिम्मेदार कंपनी"
 
-#: ../../../app/views/pages/about.html.erb:75
-msgid "Sign up to Digital Ocean"
-msgstr "डिजिटल महासागर के लिए साइन अप करें"
+#: ../../../app/views/pages/about.html.erb:158
+msgid "Fanatical customer service and support"
+msgstr "उत्कृष्ट ग्राहक सेवा और सहायता"
 
-#: ../../../app/views/pages/about.html.erb:76
-msgid "with this link"
-msgstr "इस लिंक के साथ"
+#: ../../../app/views/pages/about.html.erb:159
+msgid "No venture capital pressure—we build for customers, not investors"
+msgstr ""
+"हम पर वेंचर कैपिटल का कोई दबाव नहीं है—हम ग्राहकों के लिए उत्पाद बनाते हैं, नि"
+"वेशकों के लिए नहीं।"
 
-#: ../../../app/views/pages/about.html.erb:77
-msgid "to get Password Pusher a hosting credit."
-msgstr "पासवर्ड पुशर को होस्टिंग क्रेडिट प्राप्त करने के लिए।"
+#: ../../../app/views/pages/about.html.erb:160
+msgid "Run by industry veterans with decades of experience"
+msgstr "दशकों के अनुभव वाले उद्योग जगत के दिग्गजों द्वारा संचालित।"
 
-#: ../../../app/views/pages/about.html.erb:81
-msgid "Thank you for supporting Password Pusher!"
-msgstr "पासवर्ड पुशर का समर्थन करने के लिए धन्यवाद!"
+#: ../../../app/views/pages/about.html.erb:161
+msgid "Talk directly with the founder and team"
+msgstr "संस्थापक और टीम से सीधे बात करें"
 
-#: ../../../app/views/pages/about.html.erb:83
-#: ../../../app/views/shared/_footer.html.erb:25
+#: ../../../app/views/pages/about.html.erb:162
+msgid "15+ years of proven track record with Password Pusher"
+msgstr "पासवर्ड पुशर के साथ 15+ वर्षों का सिद्ध ट्रैक रिकॉर्ड"
+
+#: ../../../app/views/pages/about.html.erb:167
+msgid "Want to Help?"
+msgstr "मदद करने की इच्छा है?"
+
+#: ../../../app/views/pages/about.html.erb:169
+msgid "The biggest help is to spread the word."
+msgstr "सबसे बड़ी मदद तो यही है कि इसके बारे में लोगों को बताया जाए।"
+
+#: ../../../app/views/pages/about.html.erb:170
+msgid "Share Password Pusher with colleagues and friends."
+msgstr "पासवर्ड पुशर को अपने सहकर्मियों और दोस्तों के साथ साझा करें।"
+
+#: ../../../app/views/pages/about.html.erb:174
+msgid "Star the project on GitHub"
+msgstr "GitHub पर प्रोजेक्ट को स्टार करें"
+
+#: ../../../app/views/pages/about.html.erb:175
+msgid "it helps others discover the project."
+msgstr "इससे दूसरों को परियोजना के बारे में जानने में मदद मिलती है।"
+
+#: ../../../app/views/pages/about.html.erb:178
+msgid "Subscribe to the newsletter"
+msgstr "न्यूज़लेटर की सदस्यता लें"
+
+#: ../../../app/views/pages/about.html.erb:179
+msgid "releases, security notes, and tips."
+msgstr "विज्ञप्तियां, सुरक्षा संबंधी नोट्स और सुझाव।"
+
+#: ../../../app/views/pages/about.html.erb:182
+msgid "Fix a bug, add a feature, or improve the docs."
+msgstr "किसी बग को ठीक करें, कोई नया फीचर जोड़ें या दस्तावेज़ों में सुधार करें।"
+
+#: ../../../app/views/pages/about.html.erb:183
+msgid "See the GitHub project"
+msgstr "GitHub प्रोजेक्ट देखें"
+
+#: ../../../app/views/pages/about.html.erb:189
 msgid "Resources"
 msgstr "संसाधन"
 
-#: ../../../app/views/pages/about.html.erb:86
+#: ../../../app/views/pages/about.html.erb:191
 msgid ""
-"If you are giving a presentation, authoring a blog post or video about Passwor"
-"d Pusher, feel free to contact me for any questions."
+"Presenting or writing about Password Pusher? Media kits and slide decks are av"
+"ailable in"
 msgstr ""
-"यदि आप पासवर्ड पुशर के बारे में कोई प्रेजेंटेशन दे रहे हैं, ब्लॉग पोस्ट या वीड"
-"ियो लिख रहे हैं, तो किसी भी प्रश्न के लिए बेझिझक मुझसे संपर्क करें।"
+"क्या आप पासवर्ड पुशर के बारे में प्रस्तुति दे रहे हैं या लिख रहे हैं? मीडिया क"
+"िट और स्लाइड डेक उपलब्ध हैं।"
 
-#: ../../../app/views/pages/about.html.erb:89
-msgid "We have media resources and a full explanation of features available in"
-msgstr "हमारे पास मीडिया संसाधन और सुविधाओं की पूरी व्याख्या उपलब्ध है"
+#: ../../../app/views/pages/about.html.erb:192
+msgid "PowerPoint"
+msgstr "पावर प्वाइंट"
 
-#: ../../../app/views/pages/about.html.erb:90
-msgid "Windows Powerpoint"
-msgstr "विंडोज़ पावरप्वाइंट"
+#: ../../../app/views/pages/about.html.erb:193
+msgid "and"
+msgstr "और"
 
-#: ../../../app/views/pages/about.html.erb:92
-msgid "Mac Keynote"
-msgstr "मैक मुख्य वक्ता"
+#: ../../../app/views/pages/about.html.erb:194
+msgid "Keynote"
+msgstr "मुख्य भाषण"
 
-#: ../../../app/views/pages/about.html.erb:93
-msgid "formats."
-msgstr "प्रारूप।"
+#: ../../../app/views/pages/about.html.erb:195
+msgid "formats. For questions or assets, reach out via the links above."
+msgstr ""
+"प्रारूपों के लिए। प्रश्नों या संसाधनों के लिए, ऊपर दिए गए लिंक के माध्यम से सं"
+"पर्क करें।"
 
-#: ../../../app/views/pages/about.html.erb:99
-msgid "Birthday"
-msgstr "जन्मदिन"
+#: ../../../app/views/pages/about.html.erb:200
+msgid "Thank you for using and supporting Password Pusher."
+msgstr "पासवर्ड पुशर का उपयोग करने और उसका समर्थन करने के लिए धन्यवाद।"
 
-#: ../../../app/views/pages/about.html.erb:101
-msgid "More Than 11 Years Old"
-msgstr "11 वर्ष से अधिक पुराना"
+#: ../../../app/views/pages/api.html.erb:4
+msgid "API v2"
+msgstr "एपीआई v2"
 
-#: ../../../app/views/pages/about.html.erb:103
-msgid "The first git commit to Password Pusher was on"
-msgstr "पासवर्ड पुशर के लिए पहला गिट कमिट चालू था"
-
-#: ../../../app/views/pages/about.html.erb:107
-msgid "pwpush.com went live shortly thereafter."
-msgstr "इसके तुरंत बाद pwpush.com लाइव हो गया।"
-
-#: ../../../app/views/pages/about.html.erb:113
-msgid "The Original Theme"
-msgstr "मूल विषय"
-
-#: ../../../app/views/pages/about.html.erb:114
+#: ../../../app/views/pages/api.html.erb:6
 msgid ""
-"The original site design consisted of a dark background with a bold yellow fon"
-"t."
-msgstr "मूल साइट डिज़ाइन में गहरे पीले फ़ॉन्ट के साथ गहरे रंग की पृष्ठभूमि शामिल थी।"
+"Complete JSON API documentation for creating, retrieving and managing pushes i"
+"n the open-source edition."
+msgstr ""
+"ओपन-सोर्स संस्करण में पुश बनाने, प्राप्त करने और प्रबंधित करने के लिए संपूर्ण "
+"JSON API दस्तावेज़ीकरण।"
 
-#: ../../../app/views/pages/about.html.erb:117
-msgid "Follow for news, changes & updates."
-msgstr "समाचार, परिवर्तन और अपडेट के लिए फ़ॉलो करें।"
+#: ../../../app/views/pages/api.html.erb:11
+msgid "Authentication"
+msgstr "प्रमाणीकरण"
+
+#: ../../../app/views/pages/api.html.erb:13
+msgid "Authenticate requests with a Bearer token in the Authorization header."
+msgstr "ऑथराइजेशन हेडर में बियरर टोकन का उपयोग करके अनुरोधों को प्रमाणित करें।"
+
+#: ../../../app/views/pages/api.html.erb:17
+msgid "Create an API token in your account settings at"
+msgstr "अपने अकाउंट सेटिंग में जाकर एक API टोकन बनाएं।"
+
+#: ../../../app/views/pages/api.html.erb:23
+msgid "Public endpoints:"
+msgstr "सार्वजनिक एंडपॉइंट:"
+
+#: ../../../app/views/pages/api.html.erb:24
+msgid "Authenticated endpoints:"
+msgstr "प्रमाणित एंडपॉइंट्स:"
+
+#: ../../../app/views/pages/api.html.erb:25
+msgid "Anonymous access setting:"
+msgstr "अनाम पहुंच सेटिंग:"
+
+#: ../../../app/views/pages/api.html.erb:25
+msgid "When anonymous pushes are disabled, API endpoints require authentication."
+msgstr ""
+"जब अनाम पुश नोटिफिकेशन अक्षम होते हैं, तो एपीआई एंडपॉइंट्स को प्रमाणीकरण की आव"
+"श्यकता होती है।"
+
+#: ../../../app/views/pages/api.html.erb:32
+msgid "Base URL"
+msgstr "बेस यूआरएल"
+
+#: ../../../app/views/pages/api.html.erb:33
+msgid "All endpoints are relative to your installation host:"
+msgstr "सभी एंडपॉइंट आपके इंस्टॉलेशन होस्ट के सापेक्ष हैं:"
+
+#: ../../../app/views/pages/api.html.erb:40
+msgid "Version Endpoint"
+msgstr "संस्करण एंडपॉइंट"
+
+#: ../../../app/views/pages/api.html.erb:42
+msgid ""
+"Returns API version, application details, and a features hash describing which"
+" capabilities are enabled on this instance."
+msgstr ""
+"यह एपीआई संस्करण, एप्लिकेशन विवरण और एक फ़ीचर हैश लौटाता है जो यह बताता है कि "
+"इस इंस्टेंस पर कौन सी क्षमताएं सक्षम हैं।"
+
+#: ../../../app/views/pages/api.html.erb:43
+#: ../../../app/views/pages/api.html.erb:155
+#: ../../../app/views/pages/api.html.erb:164
+#: ../../../app/views/pages/api.html.erb:174
+#: ../../../app/views/pages/api.html.erb:184
+#: ../../../app/views/pages/api.html.erb:195
+#: ../../../app/views/pages/api.html.erb:206
+#: ../../../app/views/pages/api.html.erb:235
+msgid "cURL example:"
+msgstr "cURL का उदाहरण:"
+
+#: ../../../app/views/pages/api.html.erb:75
+msgid "Features Hash"
+msgstr "विशेषताएं हैश"
+
+#: ../../../app/views/pages/api.html.erb:77
+msgid "Whether anonymous API usage is allowed (Settings.allow_anonymous)"
+msgstr "क्या अनाम एपीआई उपयोग की अनुमति है (Settings.allow_anonymous)"
+
+#: ../../../app/views/pages/api.html.erb:78
+msgid "Bearer token authentication support"
+msgstr "बियरर टोकन प्रमाणीकरण समर्थन"
+
+#: ../../../app/views/pages/api.html.erb:79
+msgid "Accounts API availability (not available in OSS)"
+msgstr "अकाउंट्स एपीआई की उपलब्धता (ओएसएस में उपलब्ध नहीं)"
+
+#: ../../../app/views/pages/api.html.erb:80
+msgid "Push creation and management via API"
+msgstr "एपीआई के माध्यम से पुश का निर्माण और प्रबंधन"
+
+#: ../../../app/views/pages/api.html.erb:81
+msgid ""
+"Auto-Dispatch email notifications (Settings.notify_by_email.enabled, requires "
+"SMTP and logins)"
+msgstr ""
+"ईमेल सूचनाओं का स्वतः प्रेषण (Settings.notify_by_email.enabled, इसके लिए SMTP "
+"और लॉगिन आवश्यक हैं)"
+
+#: ../../../app/views/pages/api.html.erb:82
+msgid "File attachments on pushes (Settings.enable_file_pushes)"
+msgstr "पुश फ़ाइलों पर फ़ाइल अटैचमेंट (Settings.enable_file_pushes)"
+
+#: ../../../app/views/pages/api.html.erb:83
+msgid "URL push type (Settings.enable_url_pushes)"
+msgstr "यूआरएल पुश प्रकार (सेटिंग्स.enable_url_pushes)"
+
+#: ../../../app/views/pages/api.html.erb:84
+msgid "QR code push type (Settings.enable_qr_pushes)"
+msgstr "क्यूआर कोड पुश प्रकार (सेटिंग्स.इनेबल_क्यूआर_पुश)"
+
+#: ../../../app/views/pages/api.html.erb:85
+msgid "Requests API availability (not available in OSS)"
+msgstr "API की उपलब्धता के लिए अनुरोध (OSS में उपलब्ध नहीं)"
+
+#: ../../../app/views/pages/api.html.erb:91
+msgid "Push Endpoints"
+msgstr "पुश एंडपॉइंट्स"
+
+#: ../../../app/views/pages/api.html.erb:96
+msgid "Create a new push."
+msgstr "एक नया अभियान शुरू करें।"
+
+#: ../../../app/views/pages/api.html.erb:97
+#: ../../../app/views/pages/api.html.erb:218
+msgid "Body format:"
+msgstr "बॉडी फॉर्मेट:"
+
+#: ../../../app/views/pages/api.html.erb:102
+#: ../../../app/views/pages/api.html.erb:223
+msgid "Parameter"
+msgstr "पैरामीटर"
+
+#: ../../../app/views/pages/api.html.erb:103
+#: ../../../app/views/pages/api.html.erb:224
+#: ../../../app/views/pushes/index.html.erb:33
+msgid "Type"
+msgstr "प्रकार"
+
+#: ../../../app/views/pages/api.html.erb:104
+#: ../../../app/views/pages/api.html.erb:225
+msgid "Required"
+msgstr "आवश्यक"
+
+#: ../../../app/views/pages/api.html.erb:105
+#: ../../../app/views/pages/api.html.erb:226
+msgid "Description"
+msgstr "विवरण"
+
+#: ../../../app/views/pages/api.html.erb:109
+#: ../../../app/views/pages/api.html.erb:230
+#: ../../../app/views/pushes/audit.html.erb:53
+#: ../../../app/views/pushes/audit.html.erb:66
+#: ../../../app/views/pushes/audit.html.erb:80
+#: ../../../app/views/pushes/audit.html.erb:142
+msgid "Yes"
+msgstr "हाँ"
+
+#: ../../../app/views/pages/api.html.erb:109
+msgid "Secret text payload for text, URL or QR pushes."
+msgstr "टेक्स्ट, यूआरएल या क्यूआर पुश के लिए गुप्त टेक्स्ट पेलोड।"
+
+#: ../../../app/views/pages/api.html.erb:110
+#: ../../../app/views/pages/api.html.erb:111
+#: ../../../app/views/pages/api.html.erb:112
+#: ../../../app/views/pages/api.html.erb:113
+#: ../../../app/views/pages/api.html.erb:114
+#: ../../../app/views/pages/api.html.erb:115
+#: ../../../app/views/pages/api.html.erb:116
+#: ../../../app/views/pages/api.html.erb:117
+#: ../../../app/views/pages/api.html.erb:118
+#: ../../../app/views/pages/api.html.erb:119
+#: ../../../app/views/pages/api.html.erb:120
+#: ../../../app/views/pages/api.html.erb:231
+#: ../../../app/views/pushes/audit.html.erb:55
+#: ../../../app/views/pushes/audit.html.erb:68
+#: ../../../app/views/pushes/audit.html.erb:78
+#: ../../../app/views/pushes/audit.html.erb:140
+msgid "No"
+msgstr "नहीं"
+
+#: ../../../app/views/pages/api.html.erb:110
+msgid ""
+"Files to attach. When present, the push type becomes file unless kind is expli"
+"citly provided."
+msgstr ""
+"संलग्न करने के लिए फ़ाइलें। यदि फ़ाइलें मौजूद हैं, तो पुश प्रकार फ़ाइल बन जाता"
+" है, जब तक कि प्रकार स्पष्ट रूप से प्रदान न किया गया हो।"
+
+#: ../../../app/views/pages/api.html.erb:111
+msgid "Push type: text, file, url, or qr. Defaults to text when not provided."
+msgstr ""
+"पुश का प्रकार: टेक्स्ट, फ़ाइल, यूआरएल या क्यूआर। यदि कोई प्रकार नहीं दिया गया "
+"है, तो डिफ़ॉल्ट रूप से टेक्स्ट ही चुना जाएगा।"
+
+#: ../../../app/views/pages/api.html.erb:112
+msgid "Expiration window in days. If omitted, instance defaults are used."
+msgstr ""
+"समाप्ति अवधि दिनों में। यदि इसे छोड़ दिया जाता है, तो डिफ़ॉल्ट मानों का उपयोग "
+"किया जाता है।"
+
+#: ../../../app/views/pages/api.html.erb:113
+msgid "Maximum allowed retrieval count. If omitted, instance defaults are used."
+msgstr ""
+"अधिकतम अनुमत पुनर्प्राप्ति संख्या। यदि इसे छोड़ दिया जाता है, तो इंस्टेंस के ड"
+"िफ़ॉल्ट मानों का उपयोग किया जाता है।"
+
+#: ../../../app/views/pages/api.html.erb:114
+msgid "Allows the recipient to expire the push."
+msgstr "यह प्राप्तकर्ता को पुश नोटिफिकेशन की समय सीमा समाप्त करने की अनुमति देता है।"
+
+#: ../../../app/views/pages/api.html.erb:115
+msgid "Adds an extra retrieval confirmation step."
+msgstr "इसमें पुनर्प्राप्ति की पुष्टि करने का एक अतिरिक्त चरण जोड़ा गया है।"
+
+#: ../../../app/views/pages/api.html.erb:116
+msgid "Requires this passphrase to retrieve the payload."
+msgstr "पेलोड प्राप्त करने के लिए इस पासफ़्रेज़ की आवश्यकता है।"
+
+#: ../../../app/views/pages/api.html.erb:117
+msgid "Optional label shown to the owner."
+msgstr "मालिक को दिखाया जाने वाला वैकल्पिक लेबल।"
+
+#: ../../../app/views/pages/api.html.erb:118
+msgid "Optional owner-only note."
+msgstr "मालिक के लिए वैकल्पिक टिप्पणी।"
+
+#: ../../../app/views/pages/api.html.erb:119
+msgid ""
+"Optional recipients for the push creation email. Comma-separated list of email"
+" addresses. Maximum 5 emails. Requires authentication when provided."
+msgstr ""
+"पुश नोटिफिकेशन बनाने के लिए भेजे जाने वाले ईमेल के लिए वैकल्पिक प्राप्तकर्ता। "
+"ईमेल पतों की अल्पविराम से अलग की गई सूची। अधिकतम 5 ईमेल पते। प्रमाणीकरण आवश्यक"
+" है।"
+
+#: ../../../app/views/pages/api.html.erb:120
+msgid ""
+"Optional locale for the push creation email. See the list of available locales"
+" in the"
+msgstr ""
+"पुश नोटिफिकेशन बनाने वाले ईमेल के लिए वैकल्पिक स्थान। उपलब्ध स्थानों की सूची द"
+"ेखें।"
+
+#: ../../../app/views/pages/api.html.erb:120
+#: ../../../app/views/pages/api.html.erb:231
+#: ../../../app/views/pages/api.html.erb:258
+msgid "Supported Locales"
+msgstr "समर्थित लोकेशंस"
+
+#: ../../../app/views/pages/api.html.erb:136
+msgid "cURL example (JSON body):"
+msgstr "cURL उदाहरण (JSON बॉडी):"
+
+#: ../../../app/views/pages/api.html.erb:153
+msgid ""
+"Retrieve a push payload by token. This counts as a view and may expire the pus"
+"h when limits are reached."
+msgstr ""
+"टोकन के माध्यम से पुश पेलोड प्राप्त करें। इसे एक व्यू के रूप में गिना जाएगा और"
+" सीमा पूरी होने पर पुश समाप्त हो सकता है।"
+
+#: ../../../app/views/pages/api.html.erb:154
+#: ../../../app/views/pages/api.html.erb:173
+#: ../../../app/views/pages/api.html.erb:194
+#: ../../../app/views/pages/api.html.erb:205
+msgid "Query parameters:"
+msgstr "क्वेरी पैरामीटर:"
+
+#: ../../../app/views/pages/api.html.erb:154
+msgid "optional, required when the push is passphrase-protected"
+msgstr ""
+"यह वैकल्पिक है, लेकिन पुश नोटिफिकेशन पासफ़्रेज़ से सुरक्षित होने पर यह आवश्यक "
+"है।"
+
+#: ../../../app/views/pages/api.html.erb:163
+msgid ""
+"Returns the fully-qualified secret URL for a push without retrieving its paylo"
+"ad."
+msgstr ""
+"पुश नोटिफिकेशन के पेलोड को प्राप्त किए बिना, यह पूरी तरह से योग्य गुप्त URL लौ"
+"टाता है।"
+
+#: ../../../app/views/pages/api.html.erb:172
+msgid ""
+"Return audit log entries for a push. Authentication and ownership are required"
+"."
+msgstr ""
+"पुश नोटिफिकेशन के लिए ऑडिट लॉग प्रविष्टियाँ लौटाएँ। प्रमाणीकरण और स्वामित्व आव"
+"श्यक हैं।"
+
+#: ../../../app/views/pages/api.html.erb:173
+#: ../../../app/views/pages/api.html.erb:194
+#: ../../../app/views/pages/api.html.erb:205
+msgid "optional, integer, default 1, valid range 1 to 200"
+msgstr "वैकल्पिक, पूर्णांक, डिफ़ॉल्ट 1, मान्य सीमा 1 से 200"
+
+#: ../../../app/views/pages/api.html.erb:183
+msgid ""
+"Expire a push immediately. Allowed for owners (when authenticated) or for reci"
+"pients when the push was created with deletable_by_viewer enabled."
+msgstr ""
+"पुश नोटिफिकेशन को तुरंत समाप्त करें। यह सुविधा मालिकों (प्रमाणित होने पर) या प"
+"्राप्तकर्ताओं के लिए उपलब्ध है, जब पुश नोटिफिकेशन को deletable_by_viewer सक्षम"
+" विकल्प के साथ बनाया गया हो।"
+
+#: ../../../app/views/pages/api.html.erb:193
+msgid "List active pushes for the authenticated user."
+msgstr "प्रमाणित उपयोगकर्ता के लिए सक्रिय पुश नोटिफिकेशन की सूची बनाएं।"
+
+#: ../../../app/views/pages/api.html.erb:204
+msgid "List expired pushes for the authenticated user."
+msgstr "प्रमाणित उपयोगकर्ता के लिए समाप्त हो चुके पुश नोटिफिकेशन की सूची देखें।"
+
+#: ../../../app/views/pages/api.html.erb:215
+msgid "Send an email to notify the push creation to the specified recipients."
+msgstr ""
+"निर्दिष्ट प्राप्तकर्ताओं को पुश नोटिफिकेशन बनने की सूचना देने के लिए एक ईमेल भ"
+"ेजें।"
+
+#: ../../../app/views/pages/api.html.erb:216
+msgid ""
+"Authentication and ownership are required. Only the push owner may send email "
+"notifications."
+msgstr ""
+"प्रमाणीकरण और स्वामित्व आवश्यक हैं। केवल पुश नोटिफिकेशन का स्वामी ही ईमेल सूचन"
+"ाएं भेज सकता है।"
+
+#: ../../../app/views/pages/api.html.erb:217
+msgid ""
+"This endpoint is only available when email auto-dispatch is enabled and SMTP i"
+"s configured. When disabled, the route is not registered and requests return 4"
+"04 Not Found."
+msgstr ""
+"यह एंडपॉइंट केवल तभी उपलब्ध होता है जब ईमेल ऑटो-डिस्पैच सक्षम हो और SMTP कॉन्फ"
+"़िगर किया गया हो। अक्षम होने पर, रूट पंजीकृत नहीं होता है और अनुरोध 404 नॉट फा"
+"उंड त्रुटि लौटाते हैं।"
+
+#: ../../../app/views/pages/api.html.erb:230
+msgid "Comma-separated list of email addresses. Maximum 5 emails."
+msgstr "ईमेल पतों की अल्पविराम से अलग की गई सूची। अधिकतम 5 ईमेल पते।"
+
+#: ../../../app/views/pages/api.html.erb:231
+msgid "Locale for the email notification. See the list of available locales in the"
+msgstr "ईमेल सूचना के लिए स्थान। उपलब्ध स्थानों की सूची देखें।"
+
+#: ../../../app/views/pages/api.html.erb:243
+msgid "Success response (201):"
+msgstr "सफलता प्रतिक्रिया (201):"
+
+#: ../../../app/views/pages/api.html.erb:247
+msgid "Validation error response (422):"
+msgstr "सत्यापन त्रुटि प्रतिक्रिया (422):"
+
+#: ../../../app/views/pages/api.html.erb:248
+msgid "Field-level errors are returned as a JSON object keyed by parameter name:"
+msgstr ""
+"फ़ील्ड-स्तर की त्रुटियाँ पैरामीटर नाम द्वारा कुंजीबद्ध JSON ऑब्जेक्ट के रूप मे"
+"ं वापस की जाती हैं:"
+
+#: ../../../app/views/pages/api.html.erb:259
+msgid ""
+"The following locales are supported for API requests that accept a locale para"
+"meter:"
+msgstr ""
+"लोकेल पैरामीटर स्वीकार करने वाले API अनुरोधों के लिए निम्नलिखित लोकेल समर्थित "
+"हैं:"
+
+#: ../../../app/views/pages/api.html.erb:264
+msgid "Locale Code"
+msgstr "स्थान कोड"
+
+#: ../../../app/views/pages/api.html.erb:265
+msgid "Language"
+msgstr "भाषा"
+
+#: ../../../app/views/pages/api.html.erb:283
+msgid "HTTP Status Codes"
+msgstr "HTTP स्थिति कोड"
+
+#: ../../../app/views/pages/api.html.erb:285
+msgid "Successful request"
+msgstr "अनुरोध सफल रहा"
+
+#: ../../../app/views/pages/api.html.erb:286
+msgid "Push created or email notification queued"
+msgstr "पुश नोटिफिकेशन बनाया गया या ईमेल नोटिफिकेशन कतार में शामिल किया गया"
+
+#: ../../../app/views/pages/api.html.erb:287
+msgid "Invalid request parameters"
+msgstr "अमान्य अनुरोध पैरामीटर"
+
+#: ../../../app/views/pages/api.html.erb:288
+msgid "Authentication required or invalid token"
+msgstr "प्रमाणीकरण आवश्यक है या टोकन अमान्य है"
+
+#: ../../../app/views/pages/api.html.erb:289
+msgid "Forbidden for current user"
+msgstr "वर्तमान उपयोगकर्ता के लिए निषिद्ध"
+
+#: ../../../app/views/pages/api.html.erb:290
+msgid ""
+"Resource not found (includes unavailable notify_emails route when email auto-d"
+"ispatch is disabled)"
+msgstr ""
+"संसाधन नहीं मिला (इसमें ईमेल ऑटो-डिस्पैच अक्षम होने पर अनुपलब्ध notify_emails "
+"रूट शामिल है)"
+
+#: ../../../app/views/pages/api.html.erb:291
+msgid "Validation error"
+msgstr "सत्यापन त्रुटि"
+
+#: ../../../app/views/pages/api.html.erb:292
+msgid "Too many email notification requests (notify_emails endpoint only)"
+msgstr "बहुत अधिक ईमेल सूचना अनुरोध (केवल notify_emails एंडपॉइंट के लिए)"
+
+#: ../../../app/views/pages/api.html.erb:298
+msgid "For legacy API v1 documentation, see"
+msgstr "पुराने API v1 दस्तावेज़ के लिए, देखें"
 
 #: ../../../app/views/pages/generate_key.html.erb:1
 msgid "Generate Key"
 msgstr "कुंजी जनरेट करें"
 
-#: ../../../app/views/pages/generate_key.html.erb:3
-msgid "Generate an Encryption Key"
-msgstr "एक एन्क्रिप्शन कुंजी उत्पन्न करें"
+#: ../../../app/views/pages/generate_key.html.erb:9
+msgid "Encryption Key Generator"
+msgstr "कुंजी जनरेटर"
 
-#: ../../../app/views/pages/generate_key.html.erb:6
+#: ../../../app/views/pages/generate_key.html.erb:12
 msgid ""
-"This page is used as a helper tool to generate a random encryption key for pri"
-"vately hosted instances of Password Pusher."
+"Generate a secure encryption key for your self-hosted Password Pusher instance"
+"."
 msgstr ""
-"इस पृष्ठ का उपयोग पासवर्ड पुशर के निजी तौर पर होस्ट किए गए उदाहरणों के लिए याद"
-"ृच्छिक एन्क्रिप्शन कुंजी उत्पन्न करने के लिए एक सहायक उपकरण के रूप में किया जा"
-"ता है।"
+"अपने सेल्फ-होस्टेड पासवर्ड पुशर इंस्टेंस के लिए एक सुरक्षित एन्क्रिप्शन कुंजी "
+"जनरेट करें।"
 
-#: ../../../app/views/pages/generate_key.html.erb:10
+#: ../../../app/views/pages/generate_key.html.erb:20
+msgid "Why Use a Custom Key?"
+msgstr "कस्टम कुंजी का उपयोग क्यों करें?"
+
+#: ../../../app/views/pages/generate_key.html.erb:23
 msgid ""
-"Password Pusher encrypts sensitive data in the database.  This requires a rand"
-"omly generated encryption key for each application instance."
+"Password Pusher encrypts all sensitive data in the database using a master enc"
+"ryption key. While a default key is provided for convenience, using your own u"
+"nique key provides the highest level of security for your private instance."
 msgstr ""
-"पासवर्ड पुशर डेटाबेस में संवेदनशील डेटा को एन्क्रिप्ट करता है। इसके लिए प्रत्य"
-"ेक एप्लिकेशन इंस्टेंस के लिए यादृच्छिक रूप से उत्पन्न एन्क्रिप्शन कुंजी की आवश"
-"्यकता होती है।"
+"पासवर्ड पुशर डेटाबेस में मौजूद सभी संवेदनशील डेटा को मास्टर एन्क्रिप्शन कुंजी "
+"का उपयोग करके एन्क्रिप्ट करता है। सुविधा के लिए एक डिफ़ॉल्ट कुंजी प्रदान की जा"
+"ती है, लेकिन अपनी स्वयं की विशिष्ट कुंजी का उपयोग करने से आपके निजी इंस्टेंस क"
+"े लिए उच्चतम स्तर की सुरक्षा सुनिश्चित होती है।"
 
-#: ../../../app/views/pages/generate_key.html.erb:14
-msgid ""
-"You can use the randomly generated code below to configure your Password Pushe"
-"r instance."
-msgstr ""
-"आप अपने पासवर्ड पुशर इंस्टेंस को कॉन्फ़िगर करने के लिए नीचे यादृच्छिक रूप से ज"
-"ेनरेट किए गए कोड का उपयोग कर सकते हैं।"
+#: ../../../app/views/pages/generate_key.html.erb:29
+msgid "Your Generated Key"
+msgstr "आपकी जनरेट की गई कुंजी"
 
-#: ../../../app/views/pages/generate_key.html.erb:22
-msgid "Generated Encryption Key"
-msgstr "जनरेट की गई एन्क्रिप्शन कुंजी"
+#: ../../../app/views/pages/generate_key.html.erb:33
+msgid "Raw Encryption Key"
+msgstr "रॉ एन्क्रिप्शन कुंजी"
 
-#: ../../../app/views/pages/generate_key.html.erb:32
-msgid "You can apply this key to your application by setting the environment variable"
-msgstr "आप पर्यावरण चर सेट करके इस कुंजी को अपने एप्लिकेशन पर लागू कर सकते हैं"
+#: ../../../app/views/pages/generate_key.html.erb:43
+msgid "Environment Variable Format"
+msgstr "पर्यावरण चर प्रारूप"
 
-#: ../../../app/views/pages/generate_key.html.erb:45
-msgid "Reload this page to re-generate a new key."
-msgstr "नई कुंजी पुनः उत्पन्न करने के लिए इस पृष्ठ को पुनः लोड करें।"
+#: ../../../app/views/pages/generate_key.html.erb:51
+msgid "Set this environment variable in your deployment configuration."
+msgstr "इस पर्यावरण चर को अपने परिनियोजन कॉन्फ़िगरेशन में सेट करें।"
 
-#: ../../../app/views/pages/generate_key.html.erb:49
-msgid "Notes:"
-msgstr "टिप्पणियाँ:"
-
-#: ../../../app/views/pages/generate_key.html.erb:52
-msgid "If an encryption key isn't provided, a default key will be used."
-msgstr ""
-"यदि एन्क्रिप्शन कुंजी प्रदान नहीं की गई है, तो एक डिफ़ॉल्ट कुंजी का उपयोग किया"
-" जाएगा।"
-
-#: ../../../app/views/pages/generate_key.html.erb:55
-msgid ""
-"The best security for private instances of Password Pusher is to use your own "
-"custom encryption key although it is not required."
-msgstr ""
-"पासवर्ड पुशर के निजी उदाहरणों के लिए सबसे अच्छी सुरक्षा अपनी स्वयं की कस्टम एन"
-"्क्रिप्शन कुंजी का उपयोग करना है, हालांकि इसकी आवश्यकता नहीं है।"
-
-#: ../../../app/views/pages/generate_key.html.erb:58
-msgid ""
-"The risk in using the default key is lessened if you keep your instance secure"
-" and your push expirations short.  e.g.  1 day/1 view versus 100 days/100 view"
-"s."
-msgstr ""
-"यदि आप अपना इंस्टेंस सुरक्षित रखते हैं और अपनी पुश समाप्ति अवधि कम रखते हैं तो"
-" डिफ़ॉल्ट कुंजी का उपयोग करने का जोखिम कम हो जाता है। उदाहरण के लिए 1 दिन/1 दृ"
-"श्य बनाम 100 दिन/100 दृश्य।"
-
-#: ../../../app/views/pages/generate_key.html.erb:61
-msgid "Once a push expires, all encrypted data is deleted."
-msgstr "एक बार पुश समाप्त होने पर, सभी एन्क्रिप्टेड डेटा हटा दिया जाता है।"
+#: ../../../app/views/pages/generate_key.html.erb:57
+msgid "Generate New Key"
+msgstr "नई कुंजी जनरेट करें"
 
 #: ../../../app/views/pages/generate_key.html.erb:64
+msgid "Important Notes"
+msgstr "महत्वपूर्ण नोट्स"
+
+#: ../../../app/views/pages/generate_key.html.erb:72
+msgid "Default Key Available"
+msgstr "डिफ़ॉल्ट कुंजी उपलब्ध है"
+
+#: ../../../app/views/pages/generate_key.html.erb:75
 msgid ""
-"Changing an encryption key where old pushes already exist will make those olde"
-"r pushes unreadable.  In other words, the payloads will be garbled.  New pushe"
-"s going forward will work fine."
+"A default key is used if none is provided. This works but is less secure than "
+"a custom key."
 msgstr ""
-"जहां पुराने पुश पहले से मौजूद हैं वहां एन्क्रिप्शन कुंजी बदलने से वे पुराने पु"
-"श अपठनीय हो जाएंगे। दूसरे शब्दों में, पेलोड विकृत हो जाएंगे। आगे चलकर नए प्रया"
-"स अच्छा काम करेंगे।"
+"यदि कोई कुंजी प्रदान नहीं की जाती है, तो डिफ़ॉल्ट कुंजी का उपयोग किया जाता है।"
+" यह काम तो करता है, लेकिन कस्टम कुंजी की तुलना में कम सुरक्षित है।"
 
-#: ../../../app/views/pages/generate_key.html.erb:67
+#: ../../../app/views/pages/generate_key.html.erb:85
+msgid "Reduce Risk"
+msgstr "जोखिम कम करें"
+
+#: ../../../app/views/pages/generate_key.html.erb:88
 msgid ""
-"Key generation can also be done from the command line in the application sourc"
-"e by executing: "
+"Using short push expirations (e.g., 1 day/1 view) reduces risk even with the d"
+"efault key."
 msgstr ""
-"कुंजी निर्माण को एप्लिकेशन स्रोत में कमांड लाइन से निष्पादित करके भी किया जा स"
-"कता है:"
+"कम समय सीमा (जैसे, 1 दिन/1 बार देखना) के साथ पुश नोटिफिकेशन का उपयोग करने से ड"
+"िफ़ॉल्ट कुंजी के साथ भी जोखिम कम हो जाता है।"
 
-#: ../../../app/views/pages/generate_key.html.erb:79
-msgid "See also the Password Pusher"
-msgstr "पासवर्ड पुशर भी देखें"
+#: ../../../app/views/pages/generate_key.html.erb:98
+msgid "Data Deletion"
+msgstr "डेटा विलोपन"
 
-#: ../../../app/views/pages/generate_key.html.erb:80
-msgid "Configuration documentation"
+#: ../../../app/views/pages/generate_key.html.erb:101
+msgid ""
+"Once a push expires, all encrypted data is permanently deleted from the databa"
+"se."
+msgstr ""
+"पुश की समय सीमा समाप्त होने के बाद, डेटाबेस से सभी एन्क्रिप्टेड डेटा स्थायी रू"
+"प से हटा दिया जाता है।"
+
+#: ../../../app/views/pages/generate_key.html.erb:111
+msgid "Key Changes"
+msgstr "प्रमुख परिवर्तन"
+
+#: ../../../app/views/pages/generate_key.html.erb:114
+msgid "Changing keys makes existing pushes unreadable. New pushes will work normally."
+msgstr ""
+"बटन बदलने से मौजूदा बटन पढ़ने योग्य नहीं रह जाते। नए बटन सामान्य रूप से काम कर"
+"ेंगे।"
+
+#: ../../../app/views/pages/generate_key.html.erb:124
+msgid "Command Line Alternative"
+msgstr "कमांड लाइन विकल्प"
+
+#: ../../../app/views/pages/generate_key.html.erb:127
+msgid "You can also generate keys from the command line in the application source:"
+msgstr "आप एप्लिकेशन सोर्स में कमांड लाइन से भी कुंजी जनरेट कर सकते हैं:"
+
+#: ../../../app/views/pages/generate_key.html.erb:130
+msgid "In your Password Pusher directory"
+msgstr "आपके पासवर्ड पुशर डायरेक्टरी में"
+
+#: ../../../app/views/pages/generate_key.html.erb:140
+msgid "Learn More"
+msgstr "और अधिक जानें"
+
+#: ../../../app/views/pages/generate_key.html.erb:143
+msgid "For detailed configuration options and deployment strategies, see the"
+msgstr "विस्तृत कॉन्फ़िगरेशन विकल्पों और परिनियोजन रणनीतियों के लिए, देखें"
+
+#: ../../../app/views/pages/generate_key.html.erb:145
+msgid "Configuration Documentation"
 msgstr "कॉन्फ़िगरेशन दस्तावेज़ीकरण"
+
+#: ../../../app/views/pages/generate_key.html.erb:153
+msgid "Keys are generated server-side using cryptographically secure random bytes."
+msgstr ""
+"क्रिप्टोग्राफिक रूप से सुरक्षित यादृच्छिक बाइट्स का उपयोग करके सर्वर-साइड पर क"
+"ुंजियाँ उत्पन्न की जाती हैं।"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:2
+msgid "%{sender} has sent you a push"
+msgstr "%{sender} ने आपको पुश नोटिफिकेशन भेजा है"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:9
+msgid "Secret link:"
+msgstr "गुप्त लिंक:"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:11
+msgid "Important Notes:"
+msgstr "महत्वपूर्ण नोट्स:"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:13
+msgid ""
+"This link is valid for %{remaining}, or until %{views} views, whichever occurs"
+" first."
+msgstr ""
+"यह लिंक %{remaining} के लिए मान्य है, या %{views} दृश्य होने तक, जो पहले होता "
+"है।"
+
+#: ../../../app/views/push_created_mailer/notify.html.erb:15
+msgid "Upon expiration, this secret link and all content are permanently deleted."
+msgstr ""
+"समय सीमा समाप्त होने पर, यह गुप्त लिंक और इसकी सभी सामग्री स्थायी रूप से हटा द"
+"ी जाएगी।"
+
+#: ../../../app/views/pushes/_error.html.erb:3
+msgid "%{count} error prohibited this push from being saved:"
+msgid_plural "%{count} errors prohibited this push from being saved:"
+msgstr[0] "%{count} त्रुटि के कारण इस पुश को सहेजा नहीं जा सका:"
+msgstr[1] "%{count} त्रुटियों के कारण इस पुश को सहेजा नहीं जा सका:"
 
 #: ../../../app/views/pushes/_files_form.html.erb:1
 msgid "Securely Send Files"
@@ -1633,36 +2636,36 @@ msgstr[0] "दिन"
 msgstr[1] "दिन"
 
 #: ../../../app/views/pushes/_files_form.html.erb:7
-#: ../../../app/views/pushes/_files_form.html.erb:95
+#: ../../../app/views/pushes/_files_form.html.erb:90
 #: ../../../app/views/pushes/_form.html.erb:7
-#: ../../../app/views/pushes/_form.html.erb:69
+#: ../../../app/views/pushes/_form.html.erb:123
 #: ../../../app/views/pushes/_qr_form.html.erb:7
-#: ../../../app/views/pushes/_qr_form.html.erb:70
+#: ../../../app/views/pushes/_qr_form.html.erb:103
 #: ../../../app/views/pushes/_url_form.html.erb:7
-#: ../../../app/views/pushes/_url_form.html.erb:56
+#: ../../../app/views/pushes/_url_form.html.erb:58
 msgid "Days"
 msgstr "दिन"
 
 #: ../../../app/views/pushes/_files_form.html.erb:10
-#: ../../../app/views/pushes/_files_form.html.erb:113
+#: ../../../app/views/pushes/_files_form.html.erb:107
 #: ../../../app/views/pushes/_form.html.erb:10
-#: ../../../app/views/pushes/_form.html.erb:86
+#: ../../../app/views/pushes/_form.html.erb:139
 #: ../../../app/views/pushes/_qr_form.html.erb:10
-#: ../../../app/views/pushes/_qr_form.html.erb:87
+#: ../../../app/views/pushes/_qr_form.html.erb:119
 #: ../../../app/views/pushes/_url_form.html.erb:10
-#: ../../../app/views/pushes/_url_form.html.erb:75
+#: ../../../app/views/pushes/_url_form.html.erb:76
 msgid "Views"
 msgstr "दृश्य"
 
 #: ../../../app/views/pushes/_files_form.html.erb:12
-#: ../../../app/views/pushes/_files_form.html.erb:161
+#: ../../../app/views/pushes/_files_form.html.erb:148
 #: ../../../app/views/pushes/_form.html.erb:12
-#: ../../../app/views/pushes/_form.html.erb:134
+#: ../../../app/views/pushes/_form.html.erb:180
 #: ../../../app/views/pushes/_qr_form.html.erb:12
-#: ../../../app/views/pushes/_qr_form.html.erb:137
+#: ../../../app/views/pushes/_qr_form.html.erb:162
 #: ../../../app/views/pushes/_url_form.html.erb:12
-#: ../../../app/views/pushes/_url_form.html.erb:115
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:72
+#: ../../../app/views/pushes/_url_form.html.erb:109
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:82
 msgid "Save"
 msgstr "बचाना"
 
@@ -1673,135 +2676,133 @@ msgstr "बचाना"
 msgid "Saved!"
 msgstr "बचाया!"
 
-#: ../../../app/views/pushes/_files_form.html.erb:30
+#: ../../../app/views/pushes/_files_form.html.erb:28
 msgid "Uploaded Files"
 msgstr "अपलोड की गई फ़ाइलें"
 
-#: ../../../app/views/pushes/_files_form.html.erb:46
+#: ../../../app/views/pushes/_files_form.html.erb:44
 msgid "Are you sure you want to delete this file?"
 msgstr "क्या आप द्वारा इस फाइल को हटाया जाना सुनिश्चित है?"
 
-#: ../../../app/views/pushes/_files_form.html.erb:62
+#: ../../../app/views/pushes/_files_form.html.erb:57
 msgid "Add Files..."
 msgstr "फाइलें जोड़ो..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:77
+#: ../../../app/views/pushes/_files_form.html.erb:72
 msgid "You can upload up to %{count} files per push."
 msgstr "आप प्रति पुश %{count} फ़ाइलें अपलोड कर सकते हैं।"
 
-#: ../../../app/views/pushes/_files_form.html.erb:82
-#: ../../../app/views/pushes/_form.html.erb:56
-#: ../../../app/views/pushes/_qr_form.html.erb:57
-#: ../../../app/views/pushes/_url_form.html.erb:43
+#: ../../../app/views/pushes/_files_form.html.erb:76
+#: ../../../app/views/pushes/_form.html.erb:109
+#: ../../../app/views/pushes/_qr_form.html.erb:89
+#: ../../../app/views/pushes/_url_form.html.erb:44
 msgid "Expire secret link and delete after:"
 msgstr "गुप्त लिंक समाप्त करें और उसके बाद हटाएँ:"
 
-#: ../../../app/views/pushes/_files_form.html.erb:118
-#: ../../../app/views/pushes/_form.html.erb:91
-#: ../../../app/views/pushes/_qr_form.html.erb:92
-#: ../../../app/views/pushes/_url_form.html.erb:80
-#: ../../../app/views/pushes/preview.html.erb:61
-#: ../../../app/views/pushes/preview.html.erb:63
+#: ../../../app/views/pushes/_files_form.html.erb:110
+#: ../../../app/views/pushes/_form.html.erb:142
+#: ../../../app/views/pushes/_qr_form.html.erb:122
+#: ../../../app/views/pushes/_url_form.html.erb:79
 #: ../../../app/views/pushes/print_preview.html.erb:16
 msgid "(whichever comes first)"
 msgstr "(इनमें से जो भी पहले आता हो)"
 
-#: ../../../app/views/pushes/_files_form.html.erb:129
-#: ../../../app/views/pushes/_form.html.erb:102
-#: ../../../app/views/pushes/_qr_form.html.erb:104
-#: ../../../app/views/pushes/_url_form.html.erb:92
-msgid "Use a 1-click retrieval step"
-msgstr "1-क्लिक पुनर्प्राप्ति चरण का उपयोग करें"
+#: ../../../app/views/pushes/_files_form.html.erb:115
+#: ../../../app/views/pushes/_form.html.erb:147
+#: ../../../app/views/pushes/_qr_form.html.erb:127
+#: ../../../app/views/pushes/_url_form.html.erb:84
+#: ../../../app/views/pushes/audit.html.erb:76
+msgid "Passphrase"
+msgstr "पासफ़्रेज़ लॉक"
 
-#: ../../../app/views/pushes/_files_form.html.erb:130
-#: ../../../app/views/pushes/_form.html.erb:103
-#: ../../../app/views/pushes/_qr_form.html.erb:105
-#: ../../../app/views/pushes/audit.html.erb:73
-msgid "Helps to avoid chat systems and URL scanners from eating up views."
-msgstr "चैट सिस्टम और यूआरएल स्कैनर को व्यूज खत्म होने से बचाने में मदद करता है।"
-
-#: ../../../app/views/pushes/_files_form.html.erb:138
-#: ../../../app/views/pushes/_form.html.erb:111
-#: ../../../app/views/pushes/_qr_form.html.erb:114
-msgid "Allow immediate deletion"
-msgstr "तत्काल हटाने की अनुमति दें"
-
-#: ../../../app/views/pushes/_files_form.html.erb:139
-#: ../../../app/views/pushes/_form.html.erb:112
-#: ../../../app/views/pushes/_qr_form.html.erb:115
-msgid "Allow users to delete this push once retrieved."
-msgstr "एक बार पुनः प्राप्त होने पर उपयोगकर्ताओं को इस पुश को हटाने की अनुमति दें।"
-
-#: ../../../app/views/pushes/_files_form.html.erb:149
-#: ../../../app/views/pushes/_form.html.erb:122
-#: ../../../app/views/pushes/_qr_form.html.erb:125
-#: ../../../app/views/pushes/_url_form.html.erb:103
-#: ../../../app/views/pushes/audit.html.erb:78
-msgid "Passphrase Lockdown"
-msgstr "पासफ़्रेज़ लॉकडाउन"
-
-#: ../../../app/views/pushes/_files_form.html.erb:152
-#: ../../../app/views/pushes/_form.html.erb:125
-#: ../../../app/views/pushes/_qr_form.html.erb:128
-#: ../../../app/views/pushes/_url_form.html.erb:106
+#: ../../../app/views/pushes/_files_form.html.erb:118
+#: ../../../app/views/pushes/_form.html.erb:150
+#: ../../../app/views/pushes/_qr_form.html.erb:130
+#: ../../../app/views/pushes/_url_form.html.erb:87
 msgid "Optional: Require recipients to enter a passphrase to view this push"
 msgstr ""
 "वैकल्पिक: इस पुश को देखने के लिए प्राप्तकर्ताओं को पासफ़्रेज़ दर्ज करने की आवश"
 "्यकता है"
 
-#: ../../../app/views/pushes/_files_form.html.erb:161
-#: ../../../app/views/pushes/_form.html.erb:134
-#: ../../../app/views/pushes/_qr_form.html.erb:137
-#: ../../../app/views/pushes/_url_form.html.erb:115
+#: ../../../app/views/pushes/_files_form.html.erb:129
+#: ../../../app/views/pushes/_form.html.erb:161
+#: ../../../app/views/pushes/_qr_form.html.erb:142
+#: ../../../app/views/pushes/_url_form.html.erb:99
+msgid "Use a 1-click retrieval step"
+msgstr "1-क्लिक पुनर्प्राप्ति चरण का उपयोग करें"
+
+#: ../../../app/views/pushes/_files_form.html.erb:130
+#: ../../../app/views/pushes/_form.html.erb:162
+#: ../../../app/views/pushes/_qr_form.html.erb:143
+#: ../../../app/views/pushes/audit.html.erb:70
+msgid "Helps to avoid chat systems and URL scanners from eating up views."
+msgstr "चैट सिस्टम और यूआरएल स्कैनर को व्यूज खत्म होने से बचाने में मदद करता है।"
+
+#: ../../../app/views/pushes/_files_form.html.erb:138
+#: ../../../app/views/pushes/_form.html.erb:170
+#: ../../../app/views/pushes/_qr_form.html.erb:152
+msgid "Allow immediate deletion"
+msgstr "तत्काल हटाने की अनुमति दें"
+
+#: ../../../app/views/pushes/_files_form.html.erb:139
+#: ../../../app/views/pushes/_form.html.erb:171
+#: ../../../app/views/pushes/_qr_form.html.erb:153
+msgid "Allow users to delete this push once retrieved."
+msgstr "एक बार पुनः प्राप्त होने पर उपयोगकर्ताओं को इस पुश को हटाने की अनुमति दें।"
+
+#: ../../../app/views/pushes/_files_form.html.erb:148
+#: ../../../app/views/pushes/_form.html.erb:180
+#: ../../../app/views/pushes/_qr_form.html.erb:162
+#: ../../../app/views/pushes/_url_form.html.erb:109
 msgid "the above settings as the page default."
 msgstr "उपरोक्त सेटिंग्स पृष्ठ डिफ़ॉल्ट के रूप में।"
 
-#: ../../../app/views/pushes/_files_form.html.erb:175
-#: ../../../app/views/pushes/_files_form.html.erb:198
-#: ../../../app/views/pushes/_form.html.erb:161
-#: ../../../app/views/pushes/_form.html.erb:171
-#: ../../../app/views/pushes/_qr_form.html.erb:164
-#: ../../../app/views/pushes/_qr_form.html.erb:174
-#: ../../../app/views/pushes/_url_form.html.erb:128
-#: ../../../app/views/pushes/_url_form.html.erb:138
+#: ../../../app/views/pushes/_files_form.html.erb:158
+#: ../../../app/views/pushes/_files_form.html.erb:181
+#: ../../../app/views/pushes/_form.html.erb:190
+#: ../../../app/views/pushes/_form.html.erb:200
+#: ../../../app/views/pushes/_qr_form.html.erb:172
+#: ../../../app/views/pushes/_qr_form.html.erb:182
+#: ../../../app/views/pushes/_url_form.html.erb:119
+#: ../../../app/views/pushes/_url_form.html.erb:129
 msgid "Optional"
 msgstr "वैकल्पिक"
 
-#: ../../../app/views/pushes/_files_form.html.erb:178
-#: ../../../app/views/pushes/_form.html.erb:164
-#: ../../../app/views/pushes/_qr_form.html.erb:167
-#: ../../../app/views/pushes/_url_form.html.erb:131
+#: ../../../app/views/pushes/_files_form.html.erb:161
+#: ../../../app/views/pushes/_form.html.erb:193
+#: ../../../app/views/pushes/_qr_form.html.erb:175
+#: ../../../app/views/pushes/_url_form.html.erb:122
 msgid "A name shown in the dashboard, notifications and emails."
 msgstr "डैशबोर्ड, अधिसूचनाओं और ईमेल में दिखाया गया नाम."
 
-#: ../../../app/views/pushes/_files_form.html.erb:183
+#: ../../../app/views/pushes/_files_form.html.erb:166
 msgid "Message"
 msgstr "संदेश"
 
-#: ../../../app/views/pushes/_files_form.html.erb:186
+#: ../../../app/views/pushes/_files_form.html.erb:169
 msgid "Optional: A message to be included with the push"
 msgstr "वैकल्पिक: पुश के साथ शामिल किया जाने वाला एक संदेश"
 
-#: ../../../app/views/pushes/_files_form.html.erb:190
+#: ../../../app/views/pushes/_files_form.html.erb:173
 msgid "Encrypted and visible to the receiving party"
 msgstr "एन्क्रिप्टेड और प्राप्तकर्ता पक्ष को दृश्यमान"
 
-#: ../../../app/views/pushes/_files_form.html.erb:195
-#: ../../../app/views/pushes/_form.html.erb:168
-#: ../../../app/views/pushes/_qr_form.html.erb:171
-#: ../../../app/views/pushes/_url_form.html.erb:135
-#: ../../../app/views/pushes/audit.html.erb:15
-msgid "Reference Note"
-msgstr "संदर्भ नोट"
+#: ../../../app/views/pushes/_files_form.html.erb:178
+#: ../../../app/views/pushes/_form.html.erb:197
+#: ../../../app/views/pushes/_qr_form.html.erb:179
+#: ../../../app/views/pushes/_url_form.html.erb:126
+#: ../../../app/views/pushes/index.html.erb:35
+msgid "Note"
+msgstr "टिप्पणी"
 
-#: ../../../app/views/pushes/_files_form.html.erb:201
-#: ../../../app/views/pushes/_form.html.erb:174
-#: ../../../app/views/pushes/_qr_form.html.erb:177
-#: ../../../app/views/pushes/_url_form.html.erb:141
+#: ../../../app/views/pushes/_files_form.html.erb:184
+#: ../../../app/views/pushes/_form.html.erb:203
+#: ../../../app/views/pushes/_qr_form.html.erb:185
+#: ../../../app/views/pushes/_url_form.html.erb:132
 msgid "Encrypted and visible only to you"
 msgstr "एन्क्रिप्टेड और केवल आपके लिए दृश्यमान"
 
-#: ../../../app/views/pushes/_files_form.html.erb:207
+#: ../../../app/views/pushes/_files_form.html.erb:189
 msgid ""
 "Once expired, all files and content of the push will be deleted immediately an"
 "d entirely."
@@ -1809,36 +2810,36 @@ msgstr ""
 "एक बार समय सीमा समाप्त होने पर, पुश की सभी फ़ाइलें और सामग्री तुरंत और पूरी तर"
 "ह से हटा दी जाएंगी।"
 
-#: ../../../app/views/pushes/_files_form.html.erb:212
-#: ../../../app/views/pushes/_url_form.html.erb:153
+#: ../../../app/views/pushes/_files_form.html.erb:190
+#: ../../../app/views/pushes/_url_form.html.erb:138
 msgid "An audit log of activity will be available."
 msgstr "गतिविधि का एक ऑडिट लॉग उपलब्ध होगा."
 
-#: ../../../app/views/pushes/_files_form.html.erb:221
-#: ../../../app/views/pushes/_form.html.erb:188
-#: ../../../app/views/pushes/_qr_form.html.erb:191
-#: ../../../app/views/pushes/_url_form.html.erb:162
+#: ../../../app/views/pushes/_files_form.html.erb:199
+#: ../../../app/views/pushes/_form.html.erb:218
+#: ../../../app/views/pushes/_qr_form.html.erb:200
+#: ../../../app/views/pushes/_url_form.html.erb:147
 msgid "Updating..."
 msgstr "अपडेट हो रहा है..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:221
-#: ../../../app/views/pushes/_form.html.erb:188
-#: ../../../app/views/pushes/_qr_form.html.erb:191
-#: ../../../app/views/pushes/_url_form.html.erb:162
+#: ../../../app/views/pushes/_files_form.html.erb:199
+#: ../../../app/views/pushes/_form.html.erb:218
+#: ../../../app/views/pushes/_qr_form.html.erb:200
+#: ../../../app/views/pushes/_url_form.html.erb:147
 msgid "Update Push"
 msgstr "पुश अपडेट करें"
 
-#: ../../../app/views/pushes/_files_form.html.erb:223
-#: ../../../app/views/pushes/_form.html.erb:190
-#: ../../../app/views/pushes/_qr_form.html.erb:193
-#: ../../../app/views/pushes/_url_form.html.erb:164
+#: ../../../app/views/pushes/_files_form.html.erb:201
+#: ../../../app/views/pushes/_form.html.erb:220
+#: ../../../app/views/pushes/_qr_form.html.erb:202
+#: ../../../app/views/pushes/_url_form.html.erb:149
 msgid "Pushing..."
 msgstr "धकेलना..."
 
-#: ../../../app/views/pushes/_files_form.html.erb:223
-#: ../../../app/views/pushes/_form.html.erb:190
-#: ../../../app/views/pushes/_qr_form.html.erb:193
-#: ../../../app/views/pushes/_url_form.html.erb:164
+#: ../../../app/views/pushes/_files_form.html.erb:201
+#: ../../../app/views/pushes/_form.html.erb:220
+#: ../../../app/views/pushes/_qr_form.html.erb:202
+#: ../../../app/views/pushes/_url_form.html.erb:149
 msgid "Push It!"
 msgstr "इसे दबाएं!"
 
@@ -1846,51 +2847,78 @@ msgstr "इसे दबाएं!"
 msgid "Securely Send a Password"
 msgstr "पासवर्ड सुरक्षित रूप से भेजें"
 
-#: ../../../app/views/pushes/_form.html.erb:36
+#: ../../../app/views/pushes/_form.html.erb:39
+msgid "Content is hidden for privacy. Click the field below to reveal and edit."
+msgstr ""
+"गोपनीयता के लिए सामग्री छुपाई गई है। इसे देखने और संपादित करने के लिए नीचे दिए"
+" गए फ़ील्ड पर क्लिक करें।"
+
+#: ../../../app/views/pushes/_form.html.erb:43
+#: ../../../app/views/pushes/_form.html.erb:60
 msgid "Enter the Password or Text to push..."
 msgstr "पुश करने के लिए पासवर्ड या टेक्स्ट दर्ज करें..."
 
-#: ../../../app/views/pushes/_form.html.erb:48
-#: ../../../app/views/pushes/_qr_form.html.erb:49
+#: ../../../app/views/pushes/_form.html.erb:56
+#: ../../../app/views/pushes/_form.html.erb:75
+#: ../../../app/views/pushes/_form.html.erb:76
+#: ../../../app/views/pushes/_qr_form.html.erb:36
+#: ../../../app/views/pushes/_qr_form.html.erb:56
+#: ../../../app/views/pushes/_qr_form.html.erb:57
+msgid "Hide payload"
+msgstr "पेलोड छुपाएँ"
+
+#: ../../../app/views/pushes/_form.html.erb:57
+#: ../../../app/views/pushes/_qr_form.html.erb:37
+msgid "Show payload"
+msgstr "पेलोड दिखाएँ"
+
+#: ../../../app/views/pushes/_form.html.erb:85
+#: ../../../app/views/pushes/_qr_form.html.erb:65
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:55
 msgid "Characters"
 msgstr "पात्र"
 
-#: ../../../app/views/pushes/_form.html.erb:147
-#: ../../../app/views/pushes/_qr_form.html.erb:150
+#: ../../../app/views/pushes/_form.html.erb:92
+#: ../../../app/views/pushes/_qr_form.html.erb:72
+msgid "Password Generator"
+msgstr "पासवर्ड जनरेटर"
+
+#: ../../../app/views/pushes/_form.html.erb:96
+#: ../../../app/views/pushes/_qr_form.html.erb:76
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:18
 msgid "Generate Password"
 msgstr "पासवर्ड उत्पन्न करें"
 
-#: ../../../app/views/pushes/_form.html.erb:154
-#: ../../../app/views/pushes/_qr_form.html.erb:157
-msgid "Use the button above to generate a random password."
-msgstr "यादृच्छिक पासवर्ड उत्पन्न करने के लिए उपरोक्त बटन का उपयोग करें।"
+#: ../../../app/views/pushes/_form.html.erb:100
+#: ../../../app/views/pushes/_qr_form.html.erb:80
+msgid "Configure Generator"
+msgstr "जनरेटर को कॉन्फ़िगर करें"
 
-#: ../../../app/views/pushes/_form.html.erb:179
-#: ../../../app/views/pushes/_qr_form.html.erb:182
+#: ../../../app/views/pushes/_form.html.erb:208
+#: ../../../app/views/pushes/_qr_form.html.erb:190
 msgid ""
-"Tip: Only enter a password into the box.  Other identifying information can co"
-"mpromise security."
+"Tip: Only enter a password into the box. Other identifying information can com"
+"promise security."
 msgstr ""
-"युक्ति: बॉक्स में केवल पासवर्ड दर्ज करें। अन्य पहचान संबंधी जानकारी सुरक्षा से"
-" समझौता कर सकती है।"
+"सलाह: बॉक्स में केवल पासवर्ड ही दर्ज करें। अन्य पहचान संबंधी जानकारी सुरक्षा क"
+"ो खतरे में डाल सकती है।"
 
-#: ../../../app/views/pushes/_form.html.erb:180
-#: ../../../app/views/pushes/_qr_form.html.erb:183
+#: ../../../app/views/pushes/_form.html.erb:209
+#: ../../../app/views/pushes/_qr_form.html.erb:191
 msgid ""
 "All passwords are encrypted prior to storage and are available to only those w"
-"ith the secret link.  Once expired, encrypted passwords are unequivocally dele"
-"ted from the database."
+"ith the secret link. Once expired, encrypted passwords are unequivocally delet"
+"ed from the database."
 msgstr ""
-"सभी पासवर्ड भंडारण से पहले एन्क्रिप्ट किए जाते हैं और केवल गुप्त लिंक वाले लोग"
-"ों के लिए ही उपलब्ध होते हैं। एक बार समाप्त होने पर, एन्क्रिप्टेड पासवर्ड डेटा"
-"बेस से स्पष्ट रूप से हटा दिए जाते हैं।"
+"सभी पासवर्ड संग्रहित करने से पहले एन्क्रिप्ट किए जाते हैं और केवल गुप्त लिंक व"
+"ाले व्यक्तियों के लिए ही उपलब्ध होते हैं। एक बार समाप्त होने पर, एन्क्रिप्ट कि"
+"ए गए पासवर्ड डेटाबेस से पूरी तरह से हटा दिए जाते हैं।"
 
 #: ../../../app/views/pushes/_qr_form.html.erb:1
 msgid "Securely Send a QR Code"
 msgstr "सुरक्षित रूप से QR कोड भेजें"
 
-#: ../../../app/views/pushes/_qr_form.html.erb:36
+#: ../../../app/views/pushes/_qr_form.html.erb:40
 msgid "Enter up to 1024 characters..."
 msgstr "अधिकतम 1024 अक्षर दर्ज करें..."
 
@@ -1911,25 +2939,25 @@ msgstr "आपका पासवर्ड धुंधला हो गया �
 msgid "Securely Send URLs"
 msgstr "सुरक्षित रूप से यूआरएल भेजें"
 
-#: ../../../app/views/pushes/_url_form.html.erb:28
+#: ../../../app/views/pushes/_url_form.html.erb:26
 msgid "URL Redirection"
 msgstr "यूआरएल पुनर्निर्देशन"
 
-#: ../../../app/views/pushes/_url_form.html.erb:32
+#: ../../../app/views/pushes/_url_form.html.erb:30
 msgid "Enter the URL to redirect to..."
 msgstr "रीडायरेक्ट करने के लिए URL दर्ज करें..."
 
-#: ../../../app/views/pushes/_url_form.html.erb:93
+#: ../../../app/views/pushes/_url_form.html.erb:100
 msgid "Helps to avoid chat systems and URL scanners from eating up redirects."
 msgstr ""
 "चैट सिस्टम और यूआरएल स्कैनर को रीडायरेक्ट को ख़त्म करने से बचाने में मदद करता "
 "है।"
 
-#: ../../../app/views/pushes/_url_form.html.erb:147
+#: ../../../app/views/pushes/_url_form.html.erb:137
 msgid "A secret URL will be generated that will redirect to the URL specified."
 msgstr "एक गुप्त यूआरएल उत्पन्न होगा जो निर्दिष्ट यूआरएल पर रीडायरेक्ट करेगा।"
 
-#: ../../../app/views/pushes/_url_form.html.erb:152
+#: ../../../app/views/pushes/_url_form.html.erb:138
 msgid "Upon expiration, the push URL will be deleted entirely."
 msgstr "समाप्ति पर, पुश यूआरएल पूरी तरह से हटा दिया जाएगा।"
 
@@ -1938,27 +2966,33 @@ msgid "Audit Log for %{push_id}"
 msgstr "%{push_id} के लिए ऑडिट लॉग"
 
 #: ../../../app/views/pushes/audit.html.erb:4
-msgid "Audit Log for Push ID: %{push_id}"
-msgstr "पुश आईडी के लिए ऑडिट लॉग: %{push_id}"
+#: ../../../app/views/pushes/index.html.erb:107
+#: ../../../app/views/pushes/preview.html.erb:120
+msgid "Audit Log"
+msgstr "हिसाब सूचि"
 
-#: ../../../app/views/pushes/audit.html.erb:6
-msgid "Pushed on %{date}"
-msgstr "%{date} पर धकेला गया"
+#: ../../../app/views/pushes/audit.html.erb:7
+msgid "Pushed on"
+msgstr "आगे बढ़ाया"
 
-#: ../../../app/views/pushes/audit.html.erb:9
+#: ../../../app/views/pushes/audit.html.erb:10
 msgid "Secret URL for this push"
 msgstr "इस पुश के लिए गुप्त यूआरएल"
 
 #: ../../../app/views/pushes/audit.html.erb:16
+msgid "Reference Note"
+msgstr "संदर्भ नोट"
+
+#: ../../../app/views/pushes/audit.html.erb:17
 msgid "Visible Only To You"
 msgstr "केवल आपके लिए दृश्यमान"
 
-#: ../../../app/views/pushes/audit.html.erb:28
+#: ../../../app/views/pushes/audit.html.erb:29
 msgid "Settings"
 msgstr "समायोजन"
 
-#: ../../../app/views/pushes/audit.html.erb:32
-#: ../../../app/views/pushes/audit.html.erb:41
+#: ../../../app/views/pushes/audit.html.erb:34
+#: ../../../app/views/pushes/audit.html.erb:42
 msgid "Expire after"
 msgstr "के बाद समाप्त हो जायेगा"
 
@@ -1966,7 +3000,7 @@ msgstr "के बाद समाप्त हो जायेगा"
 msgid "The push expires after this number of views."
 msgstr "इस संख्या में देखे जाने के बाद पुश समाप्त हो जाता है।"
 
-#: ../../../app/views/pushes/audit.html.erb:45
+#: ../../../app/views/pushes/audit.html.erb:44
 msgid "The push expires after this number of days."
 msgstr "इतने दिनों के बाद पुश समाप्त हो जाता है।"
 
@@ -1974,70 +3008,50 @@ msgstr "इतने दिनों के बाद पुश समाप्�
 msgid "Deletable by Viewers"
 msgstr "दर्शकों द्वारा हटाने योग्य"
 
-#: ../../../app/views/pushes/audit.html.erb:54
-#: ../../../app/views/pushes/audit.html.erb:68
-msgid "True"
-msgstr "सत्य"
-
-#: ../../../app/views/pushes/audit.html.erb:56
-#: ../../../app/views/pushes/audit.html.erb:70
-msgid "False"
-msgstr "असत्य"
-
-#: ../../../app/views/pushes/audit.html.erb:59
+#: ../../../app/views/pushes/audit.html.erb:57
 msgid "This allows end users to delete content once retrieved."
 msgstr ""
 "यह अंतिम उपयोगकर्ताओं को पुनर्प्राप्त होने के बाद सामग्री को हटाने की अनुमति द"
 "ेता है।"
 
-#: ../../../app/views/pushes/audit.html.erb:65
+#: ../../../app/views/pushes/audit.html.erb:64
 msgid "1-click Retrieval Step"
 msgstr "पुनर्प्राप्ति चरण पर 1-क्लिक करें"
 
-#: ../../../app/views/pushes/audit.html.erb:81
-#: ../../../app/views/pushes/audit.html.erb:140
-msgid "No"
-msgstr "नहीं"
-
-#: ../../../app/views/pushes/audit.html.erb:83
-#: ../../../app/views/pushes/audit.html.erb:142
-msgid "Yes"
-msgstr "हाँ"
-
-#: ../../../app/views/pushes/audit.html.erb:86
+#: ../../../app/views/pushes/audit.html.erb:82
 msgid "Require recipients to enter a passphrase to view this push."
 msgstr "इस पुश को देखने के लिए प्राप्तकर्ताओं को पासफ़्रेज़ दर्ज करने की आवश्यकता है।"
 
-#: ../../../app/views/pushes/audit.html.erb:92
+#: ../../../app/views/pushes/audit.html.erb:88
 msgid "Current Status"
 msgstr "वर्तमान स्थिति"
 
-#: ../../../app/views/pushes/audit.html.erb:96
+#: ../../../app/views/pushes/audit.html.erb:93
 msgid "State:"
 msgstr "राज्य:"
 
-#: ../../../app/views/pushes/audit.html.erb:101
-#: ../../../app/views/shared/_dashboard_header.html.erb:10
+#: ../../../app/views/pushes/audit.html.erb:98
+#: ../../../app/views/shared/_dashboard_header.html.erb:14
 msgid "Active"
 msgstr "सक्रिय"
 
-#: ../../../app/views/pushes/audit.html.erb:102
+#: ../../../app/views/pushes/audit.html.erb:99
 msgid "Active and still available for viewing."
 msgstr "सक्रिय और अभी भी देखने के लिए उपलब्ध है।"
 
-#: ../../../app/views/pushes/audit.html.erb:108
+#: ../../../app/views/pushes/audit.html.erb:106
 msgid "Successful Views"
 msgstr "सफल दृश्य"
 
-#: ../../../app/views/pushes/audit.html.erb:109
+#: ../../../app/views/pushes/audit.html.erb:107
 msgid "The number of times this push has been viewed before expiration."
 msgstr "समाप्ति से पहले इस पुश को कितनी बार देखा गया है।"
 
-#: ../../../app/views/pushes/audit.html.erb:114
+#: ../../../app/views/pushes/audit.html.erb:113
 msgid "Failed View Attempts"
 msgstr "दृश्य प्रयास विफल"
 
-#: ../../../app/views/pushes/audit.html.erb:115
+#: ../../../app/views/pushes/audit.html.erb:114
 msgid "The number of times this push has been viewed after expiration."
 msgstr "समाप्ति के बाद इस पुश को कितनी बार देखा गया है।"
 
@@ -2057,16 +3071,16 @@ msgstr ""
 msgid "Payload"
 msgstr "पेलोड"
 
-#: ../../../app/views/pushes/audit.html.erb:135
+#: ../../../app/views/pushes/audit.html.erb:136
 msgid "Contains Message for Receiver"
 msgstr "प्राप्तकर्ता के लिए संदेश शामिल है"
 
 #: ../../../app/views/pushes/audit.html.erb:138
-#: ../../../app/views/pushes/audit.html.erb:153
+#: ../../../app/views/pushes/audit.html.erb:152
 msgid "Deleted"
 msgstr "हटाए गए"
 
-#: ../../../app/views/pushes/audit.html.erb:145
+#: ../../../app/views/pushes/audit.html.erb:144
 msgid "Has a text payload been added to this push?"
 msgstr "क्या इस पुश में कोई टेक्स्ट पेलोड जोड़ा गया है?"
 
@@ -2074,66 +3088,67 @@ msgstr "क्या इस पुश में कोई टेक्स्ट 
 msgid "Message Length"
 msgstr "संदेश की लंबाई"
 
-#: ../../../app/views/pushes/audit.html.erb:155
+#: ../../../app/views/pushes/audit.html.erb:154
 msgid "Not Applicable"
 msgstr "लागू नहीं"
 
-#: ../../../app/views/pushes/audit.html.erb:160
+#: ../../../app/views/pushes/audit.html.erb:158
 msgid "The length of the attached text payload."
 msgstr "संलग्न पाठ पेलोड की लंबाई."
 
-#: ../../../app/views/pushes/audit.html.erb:165
+#: ../../../app/views/pushes/audit.html.erb:164
 msgid "Number of Files Attached"
 msgstr "संलग्न फ़ाइलों की संख्या"
 
-#: ../../../app/views/pushes/audit.html.erb:173
+#: ../../../app/views/pushes/audit.html.erb:170
 msgid "The number of files attached to this push. This value will be 0 when expired."
 msgstr "इस पुश से जुड़ी फ़ाइलों की संख्या. समाप्त होने पर यह मान 0 होगा।"
 
-#: ../../../app/views/pushes/audit.html.erb:179
+#: ../../../app/views/pushes/audit.html.erb:176
 #: ../../../app/views/pushes/show.html.erb:28
 msgid "Attached Files"
 msgstr "संलग्न फाइल"
 
-#: ../../../app/views/pushes/audit.html.erb:185
-msgid "Filename:"
-msgstr "फ़ाइल का नाम:"
-
-#: ../../../app/views/pushes/audit.html.erb:187
-msgid "Size: "
+#: ../../../app/views/pushes/audit.html.erb:184
+msgid "Size:"
 msgstr "आकार:"
 
-#: ../../../app/views/pushes/audit.html.erb:192
+#: ../../../app/views/pushes/audit.html.erb:189
 msgid "All attached files have been deleted."
 msgstr "सभी संलग्न फ़ाइलें हटा दी गई हैं."
 
-#: ../../../app/views/pushes/audit.html.erb:207
+#: ../../../app/views/pushes/audit.html.erb:201
+#: ../../../app/views/pushes/edit.html.erb:1
+msgid "Edit Push"
+msgstr "एडिट पुश"
+
+#: ../../../app/views/pushes/audit.html.erb:204
 msgid "Expire Now"
 msgstr "अब समाप्त हो जाओ"
 
-#: ../../../app/views/pushes/audit.html.erb:215
+#: ../../../app/views/pushes/audit.html.erb:212
 msgid "Delete This Push?"
 msgstr "इस पुश को हटाएँ?"
 
-#: ../../../app/views/pushes/audit.html.erb:219
+#: ../../../app/views/pushes/audit.html.erb:216
 msgid "This will expire this secret link and"
 msgstr "इससे यह गुप्त लिंक समाप्त हो जाएगा और"
 
-#: ../../../app/views/pushes/audit.html.erb:219
+#: ../../../app/views/pushes/audit.html.erb:216
 msgid "remove all content from the database forever"
 msgstr "डेटाबेस से सभी सामग्री को हमेशा के लिए हटा दें"
 
-#: ../../../app/views/pushes/audit.html.erb:220
+#: ../../../app/views/pushes/audit.html.erb:217
 msgid ""
 "The audit log (including future attempted views) will still be maintained goin"
 "g forward."
 msgstr "ऑडिट लॉग (भविष्य में प्रयास किए गए विचारों सहित) अभी भी आगे भी बनाए रखा जाएगा।"
 
-#: ../../../app/views/pushes/audit.html.erb:237
-msgid "Start of Audit Log"
-msgstr "ऑडिट लॉग की शुरुआत"
+#: ../../../app/views/pushes/audit.html.erb:234
+msgid "Activity Log"
+msgstr "गतिविधि लॉग"
 
-#: ../../../app/views/pushes/audit.html.erb:243
+#: ../../../app/views/pushes/audit.html.erb:241
 msgid ""
 "As the push receives activity, a log of each with identifying information will"
 " show up here."
@@ -2141,90 +3156,72 @@ msgstr ""
 "जैसे ही पुश को गतिविधि प्राप्त होगी, पहचान संबंधी जानकारी के साथ प्रत्येक का ए"
 "क लॉग यहां दिखाई देगा।"
 
-#: ../../../app/views/pushes/audit.html.erb:247
-msgid "End of Audit Log"
-msgstr "ऑडिट लॉग का अंत"
-
-#: ../../../app/views/pushes/edit.html.erb:1
-#: ../../../app/views/pushes/preview.html.erb:98
-msgid "Edit Push"
-msgstr "एडिट पुश"
-
-#: ../../../app/views/pushes/edit.html.erb:4
+#: ../../../app/views/pushes/edit.html.erb:6
 msgid "Editing Push"
 msgstr "संपादन पुश"
 
-#: ../../../app/views/pushes/index.html.erb:9
-msgid "You currently have no active pushes."
-msgstr "वर्तमान में आपके पास कोई सक्रिय पुश नहीं है."
-
-#: ../../../app/views/pushes/index.html.erb:11
-msgid "You currently have no expired pushes."
-msgstr "वर्तमान में आपके पास कोई भी समाप्त पुश नहीं है।"
+#: ../../../app/views/pushes/index.html.erb:1
+#: ../../../app/views/shared/_dashboard_header.html.erb:5
+#: ../../../app/views/shared/_header.html.erb:19
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
 
 #: ../../../app/views/pushes/index.html.erb:13
-msgid "You currently have no pushes."
-msgstr "वर्तमान में आपके पास कोई पुश नहीं है."
+msgid "No active pushes"
+msgstr "कोई सक्रिय पुश नहीं"
 
-#: ../../../app/views/pushes/index.html.erb:19
-msgid "Push a Password Now"
-msgstr "अभी पासवर्ड पुश करें"
+#: ../../../app/views/pushes/index.html.erb:15
+msgid "No expired pushes"
+msgstr "कोई भी पुश बटन समाप्त नहीं हुआ है"
 
-#: ../../../app/views/pushes/index.html.erb:28
-msgid "Expired Pushes"
-msgstr "समाप्त हो चुके पुश"
+#: ../../../app/views/pushes/index.html.erb:17
+msgid "No pushes yet"
+msgstr "अभी तक कोई धक्का नहीं लगा है"
 
-#: ../../../app/views/pushes/index.html.erb:30
-msgid "All Pushes"
-msgstr "सभी पुश"
+#: ../../../app/views/pushes/index.html.erb:21
+msgid "Create your first secure push to share passwords, files, or URLs."
+msgstr "पासवर्ड, फ़ाइलें या यूआरएल साझा करने के लिए अपना पहला सुरक्षित पुश बनाएं।"
 
-#: ../../../app/views/pushes/index.html.erb:37
-msgid "Name or ID"
-msgstr "नाम या आईडी"
+#: ../../../app/views/pushes/index.html.erb:24
+msgid "Create Your First Push"
+msgstr "अपनी पहली पहल बनाएं"
 
-#: ../../../app/views/pushes/index.html.erb:38
-msgid "Kind"
-msgstr "प्रकार"
+#: ../../../app/views/pushes/index.html.erb:32
+msgid "Name / ID"
+msgstr "नाम / पहचान पत्र"
 
-#: ../../../app/views/pushes/index.html.erb:40
-msgid "Note"
-msgstr "टिप्पणी"
-
-#: ../../../app/views/pushes/index.html.erb:41
-msgid "Remaining"
-msgstr "शेष"
+#: ../../../app/views/pushes/index.html.erb:36
+msgid "Status"
+msgstr "स्थिति"
 
 #: ../../../app/views/pushes/index.html.erb:55
-msgid "File(s)"
-msgstr "फ़ाइल(फ़ाइलें)"
+msgid "File"
+msgstr "फ़ाइल"
 
-#: ../../../app/views/pushes/index.html.erb:57
+#: ../../../app/views/pushes/index.html.erb:59
 msgid "URL"
 msgstr "यूआरएल"
 
-#: ../../../app/views/pushes/index.html.erb:59
-msgid "QR Code"
-msgstr "क्यू आर संहिता"
+#: ../../../app/views/pushes/index.html.erb:63
+msgid "QR"
+msgstr "क्यूआर"
 
-#: ../../../app/views/pushes/index.html.erb:61
+#: ../../../app/views/pushes/index.html.erb:67
 msgid "Text"
 msgstr "मूलपाठ"
 
-#: ../../../app/views/pushes/index.html.erb:77
-msgid "%{views} views or %{days} days"
-msgstr "%{views} दृश्य या %{days} दिन"
+#: ../../../app/views/pushes/index.html.erb:93
+msgid "%{views}v / %{days}d"
+msgstr "%{views}v / %{days}d"
 
-#: ../../../app/views/pushes/index.html.erb:80
+#: ../../../app/views/pushes/index.html.erb:98
 msgid "Push Controls"
 msgstr "पुश नियंत्रण"
 
-#: ../../../app/views/pushes/index.html.erb:83
+#: ../../../app/views/pushes/index.html.erb:100
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:10
 msgid "Preview"
 msgstr "पूर्व दर्शन"
-
-#: ../../../app/views/pushes/index.html.erb:90
-msgid "Audit"
-msgstr "अंकेक्षण"
 
 #: ../../../app/views/pushes/new.html.erb:1
 msgid "Securely Send a Password, Text or File"
@@ -2251,115 +3248,122 @@ msgid "Click Here to Proceed"
 msgstr "आगे बढ़ने के लिए यहां क्लिक करें"
 
 #: ../../../app/views/pushes/preview.html.erb:1
-#: ../../../app/views/pushes/preview.html.erb:6
 msgid "Push Preview"
 msgstr "पुश पूर्वावलोकन"
 
-#: ../../../app/views/pushes/preview.html.erb:8
-msgid "Use this secret link to share it:"
-msgstr "इसे साझा करने के लिए इस गुप्त लिंक का उपयोग करें:"
+#: ../../../app/views/pushes/preview.html.erb:10
+msgid "Push Created"
+msgstr "पुश बनाया गया"
 
-#: ../../../app/views/pushes/preview.html.erb:14
+#: ../../../app/views/pushes/preview.html.erb:12
+msgid "Copy the link or message below to share this push securely."
+msgstr ""
+"इस पुश नोटिफिकेशन को सुरक्षित रूप से साझा करने के लिए नीचे दिए गए लिंक या संदे"
+"श को कॉपी करें।"
+
+#: ../../../app/views/pushes/preview.html.erb:28
+msgid "QR code"
+msgstr "क्यू आर संहिता"
+
+#: ../../../app/views/pushes/preview.html.erb:30
+msgid "Scan to open the secret link on a mobile device."
+msgstr "मोबाइल डिवाइस पर गुप्त लिंक खोलने के लिए स्कैन करें।"
+
+#: ../../../app/views/pushes/preview.html.erb:34
 msgid "Print & Share"
 msgstr "प्रिंट करें और साझा करें"
 
-#: ../../../app/views/pushes/preview.html.erb:19
-msgid "Generate a Printable Page for End Users"
-msgstr "अंतिम उपयोगकर्ताओं के लिए प्रिंट करने योग्य पृष्ठ बनाएं"
+#: ../../../app/views/pushes/preview.html.erb:38
+msgid "Generate a printable page"
+msgstr "एक प्रिंट करने योग्य पृष्ठ बनाएं"
 
-#: ../../../app/views/pushes/preview.html.erb:24
-#: ../../../app/views/pushes/preview.html.erb:26
-msgid "Optional Custom Message"
-msgstr "वैकल्पिक कस्टम संदेश"
+#: ../../../app/views/pushes/preview.html.erb:41
+msgid "Optional custom message"
+msgstr "वैकल्पिक अनुकूलित संदेश"
 
-#: ../../../app/views/pushes/preview.html.erb:35
-msgid "Show Expiration Details"
-msgstr "समाप्ति विवरण दिखाएं"
+#: ../../../app/views/pushes/preview.html.erb:45
+msgid "Show expiration details"
+msgstr "समाप्ति विवरण दिखाएँ"
 
-#: ../../../app/views/pushes/preview.html.erb:42
+#: ../../../app/views/pushes/preview.html.erb:49
 msgid "Include ID"
 msgstr "आईडी शामिल करें"
 
-#: ../../../app/views/pushes/preview.html.erb:47
+#: ../../../app/views/pushes/preview.html.erb:52
 msgid "Generate"
 msgstr "उत्पन्न"
 
-#: ../../../app/views/pushes/preview.html.erb:56
-#: ../../../app/views/pushes/show.html.erb:41
-#: ../../../app/views/pushes/show.html.erb:75
-msgid "This secret link and all content will be deleted in"
-msgstr "यह गुप्त लिंक और सभी सामग्री हटा दी जाएगी"
-
-#: ../../../app/views/pushes/preview.html.erb:57
-#: ../../../app/views/pushes/print_preview.html.erb:13
-#: ../../../app/views/pushes/show.html.erb:43
-#: ../../../app/views/pushes/show.html.erb:77
-msgid "day"
-msgid_plural "days"
-msgstr[0] "दिन"
-msgstr[1] "दिन"
-
-#: ../../../app/views/pushes/preview.html.erb:59
-#: ../../../app/views/pushes/print_preview.html.erb:15
-msgid "view"
-msgid_plural "views"
-msgstr[0] "देखना"
-msgstr[1] "दृश्य"
-
-#: ../../../app/views/pushes/preview.html.erb:65
-msgid "can be"
-msgstr "हो सकता है"
-
-#: ../../../app/views/pushes/preview.html.erb:65
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "deleted by viewers."
-msgstr "दर्शकों द्वारा हटा दिया गया."
-
-#: ../../../app/views/pushes/preview.html.erb:67
-msgid "can NOT be"
-msgstr "हो नहीं सकता"
-
 #: ../../../app/views/pushes/preview.html.erb:73
-msgid "It also includes a"
-msgstr "इसमें एक भी शामिल है"
+msgid "Expires when the first limit is reached"
+msgstr "पहली सीमा तक पहुँचने पर यह समाप्त हो जाता है"
 
-#: ../../../app/views/pushes/preview.html.erb:73
+#: ../../../app/views/pushes/preview.html.erb:83
+msgid "Viewers can delete this push."
+msgstr "दर्शक इस पुश नोटिफिकेशन को डिलीट कर सकते हैं।"
+
+#: ../../../app/views/pushes/preview.html.erb:85
+msgid "Viewers cannot delete this push."
+msgstr "दर्शक इस पुश नोटिफिकेशन को डिलीट नहीं कर सकते।"
+
+#: ../../../app/views/pushes/preview.html.erb:91
+msgid "Includes a"
+msgstr "इसमें शामिल है"
+
+#: ../../../app/views/pushes/preview.html.erb:91
 msgid "1-click preliminary retrieval step"
 msgstr "1-क्लिक प्रारंभिक पुनर्प्राप्ति चरण"
 
-#: ../../../app/views/pushes/preview.html.erb:77
-msgid "View This Push Now"
-msgstr "इस पुश को अभी देखें"
+#: ../../../app/views/pushes/preview.html.erb:103
+msgid "View This Push"
+msgstr "इस पुश नोटिफिकेशन को देखें"
 
-#: ../../../app/views/pushes/preview.html.erb:82
-msgid "(will burn a view) or"
-msgstr "(एक दृश्य जला देगा) या"
-
-#: ../../../app/views/pushes/preview.html.erb:84
-#: ../../../app/views/pushes/preview.html.erb:86
-#: ../../../app/views/pushes/preview.html.erb:88
+#: ../../../app/views/pushes/preview.html.erb:107
+#: ../../../app/views/pushes/preview.html.erb:111
+#: ../../../app/views/pushes/preview.html.erb:115
 msgid "Push Another"
 msgstr "दूसरे को धक्का दो"
 
-#: ../../../app/views/pushes/preview.html.erb:95
-msgid "View Audit Log"
-msgstr "ऑडिट लॉग देखें"
+#: ../../../app/views/pushes/preview.html.erb:128
+#: ../../../app/views/pushes/preview.html.erb:142
+msgid "Notify by Email"
+msgstr "ईमेल द्वारा सूचित करें"
 
-#: ../../../app/views/pushes/preview.html.erb:103
-msgid ""
-"Tip: Pushing to an international user?  Change the secret link language using "
-"the dropdown menu to the right of the URL."
-msgstr ""
-"युक्ति: किसी अंतर्राष्ट्रीय उपयोगकर्ता को धक्का दे रहे हैं? यूआरएल के दाईं ओर "
-"ड्रॉपडाउन मेनू का उपयोग करके गुप्त लिंक भाषा बदलें।"
+#: ../../../app/views/pushes/preview.html.erb:147
+#: ../../../app/views/shared/_notify_emails_to.html.erb:7
+msgid "You have reached the maximum number of emails you can send today."
+msgstr "आज आप अधिकतम संख्या में ईमेल भेज चुके हैं।"
 
-#: ../../../app/views/pushes/preview.html.erb:104
+#: ../../../app/views/pushes/preview.html.erb:152
+msgid "Email Recipients"
+msgstr "ईमेल प्राप्तकर्ता"
+
+#: ../../../app/views/pushes/preview.html.erb:159
+msgid "email1@example.com, email2@example.com"
+msgstr "email1@example.com, email2@example.com"
+
+#: ../../../app/views/pushes/preview.html.erb:164
+msgid "Enter email addresses separated by commas (maximum 5 emails)."
+msgstr "ईमेल पते अल्पविराम से अलग करके दर्ज करें (अधिकतम 5 ईमेल पते)।"
+
+#: ../../../app/views/pushes/preview.html.erb:168
+msgid "Send Emails"
+msgstr "ईमेल भेजो"
+
+#: ../../../app/views/pushes/preview.html.erb:181
 msgid ""
-"Alternatively auto-detection will select a language based on end-user browser "
-"settings."
+"Tip: Change the secret link language using the dropdown to the right of the UR"
+"L."
 msgstr ""
-"वैकल्पिक रूप से स्वतः पहचान अंतिम उपयोगकर्ता ब्राउज़र सेटिंग्स के आधार पर एक भ"
-"ाषा का चयन करेगी।"
+"सुझाव: यूआरएल के दाईं ओर स्थित ड्रॉपडाउन का उपयोग करके गुप्त लिंक की भाषा बदले"
+"ं।"
+
+#: ../../../app/views/pushes/preview.html.erb:183
+msgid ""
+"Alternatively, auto-detection will select a language based on the recipient's "
+"browser settings."
+msgstr ""
+"इसके अलावा, प्राप्तकर्ता के ब्राउज़र की सेटिंग के आधार पर स्वतः पहचान करके भाष"
+"ा का चयन किया जाएगा।"
 
 #: ../../../app/views/pushes/print_preview.html.erb:1
 msgid "Your Secret URL"
@@ -2388,6 +3392,11 @@ msgstr "निम्नलिखित संदेश आपको नीचे
 #: ../../../app/views/pushes/show.html.erb:15
 msgid "The message is blurred out.  Click below to reveal it."
 msgstr "संदेश धुंधला हो गया है. इसे प्रकट करने के लिए नीचे क्लिक करें।"
+
+#: ../../../app/views/pushes/show.html.erb:41
+#: ../../../app/views/pushes/show.html.erb:75
+msgid "This secret link and all content will be deleted in"
+msgstr "यह गुप्त लिंक और सभी सामग्री हटा दी जाएगी"
 
 #: ../../../app/views/pushes/show.html.erb:46
 #: ../../../app/views/pushes/show.html.erb:80
@@ -2444,6 +3453,19 @@ msgstr ""
 "यदि आवश्यक हो, तो कृपया उस व्यक्ति या संगठन से संपर्क करें जिसने आपको यह गुप्त"
 " यूआरएल दिया है।"
 
+#: ../../../app/views/shared/_additional_options.html.erb:3
+msgid "Additional Options"
+msgstr "अतिरिक्त विकल्प"
+
+#: ../../../app/views/shared/_additional_options.html.erb:13
+msgid "Show / Hide"
+msgstr "दिखाएँ / छिपाएँ"
+
+#: ../../../app/views/shared/_brand_logo.html.erb:15
+#: ../../../app/views/users/first_runs/new.html.erb:11
+msgid "Password Pusher Logo"
+msgstr "पासवर्ड पुशर लोगो"
+
 #: ../../../app/views/shared/_cookie_consent.html.erb:6
 msgid ""
 "Browser cookies help make this tool work. By using it, you agree the use of th"
@@ -2452,14 +3474,13 @@ msgstr ""
 "ब्राउज़र कुकीज़ इस टूल को काम करने में मदद करती हैं। इसका उपयोग करके, आप इन कु"
 "कीज़ के उपयोग से सहमत होते हैं।"
 
-#: ../../../app/views/shared/_dashboard_header.html.erb:3
-#: ../../../app/views/shared/_header.html.erb:30
-msgid "Dashboard"
-msgstr "डैशबोर्ड"
+#: ../../../app/views/shared/_dashboard_header.html.erb:9
+msgid "Filter pushes"
+msgstr "फ़िल्टर पुश"
 
-#: ../../../app/views/shared/_dashboard_header.html.erb:13
-msgid "New"
-msgstr "नया"
+#: ../../../app/views/shared/_dashboard_header.html.erb:22
+msgid "New Push"
+msgstr "नया धक्का"
 
 #: ../../../app/views/shared/_delete_user_button.html.erb:6
 msgid ""
@@ -2471,57 +3492,54 @@ msgstr ""
 " नोटिफिकेशन भी स्थायी रूप से हट जाएंगे। यह कार्रवाई पूर्ववत नहीं की जा सकती। क"
 "्या आप आगे बढ़ना चाहते हैं?"
 
-#: ../../../app/views/shared/_footer.html.erb:22
-msgid "Front Page"
-msgstr "मुखपृष्ठ"
+#: ../../../app/views/shared/_footer.html.erb:17
+msgid "About"
+msgstr "के बारे में"
 
-#: ../../../app/views/shared/_footer.html.erb:30
-msgid "Docker Containers"
-msgstr "डॉकर कंटेनर"
+#: ../../../app/views/shared/_footer.html.erb:18
+msgid "API"
+msgstr "API"
 
-#: ../../../app/views/shared/_footer.html.erb:34
-msgid "FAQ"
-msgstr "सामान्य प्रश्न"
-
-#: ../../../app/views/shared/_footer.html.erb:35
-msgid "JSON API"
-msgstr "जेएसओएन एपीआई"
-
-#: ../../../app/views/shared/_footer.html.erb:36
-msgid "Key Generator"
-msgstr "कुंजी जनरेटर"
-
-#: ../../../app/views/shared/_footer.html.erb:39
-msgid "Source Code"
-msgstr "सोर्स कोड"
-
-#: ../../../app/views/shared/_footer.html.erb:43
-msgid "Tools"
-msgstr "औजार"
-
-#: ../../../app/views/shared/_footer.html.erb:51
-msgid "Overview"
-msgstr "अवलोकन"
-
-#: ../../../app/views/shared/_header.html.erb:37
+#: ../../../app/views/shared/_header.html.erb:25
 msgid "Account"
 msgstr "खाता"
 
-#: ../../../app/views/shared/_header.html.erb:55
+#: ../../../app/views/shared/_header.html.erb:40
 msgid "Edit Login Details"
 msgstr "लॉगिन विवरण संपादित करें"
 
-#: ../../../app/views/shared/_header.html.erb:71
+#: ../../../app/views/shared/_header.html.erb:53
 msgid "Log Out"
 msgstr "लॉग आउट"
 
-#: ../../../app/views/shared/_header.html.erb:78
+#: ../../../app/views/shared/_header.html.erb:60
 msgid "Log In"
 msgstr "लॉग इन करें"
 
-#: ../../../app/views/shared/_header.html.erb:82
+#: ../../../app/views/shared/_header.html.erb:63
 msgid "Sign Up"
 msgstr "साइन अप करें"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:4
+msgid "Auto-Dispatch: Send Secret Link To"
+msgstr "ऑटो-डिस्पैच: गुप्त लिंक भेजें"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:14
+msgid "recipient@example.com, another@example.com"
+msgstr "recipient@example.com, another@example.com"
+
+#: ../../../app/views/shared/_notify_emails_to.html.erb:18
+msgid "Separate multiple addresses with commas (max 5)."
+msgstr "एकाधिक पतों को अल्पविराम (अधिकतम 5) से अलग करें।"
+
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:11
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:12
+msgid "Select the language for the email notifications"
+msgstr "ईमेल सूचनाओं के लिए भाषा चुनें"
+
+#: ../../../app/views/shared/_notify_emails_to_locale.html.erb:17
+msgid "Email Notification Language"
+msgstr "ईमेल अधिसूचना भाषा"
 
 #: ../../../app/views/shared/_pw_generate_confirm_modal.html.erb:5
 msgid "Confirm Password Generation"
@@ -2539,66 +3557,326 @@ msgstr "क्या आप वाकई जारी रखना चाहत�
 msgid "Configure Password Generation"
 msgstr "पासवर्ड जनरेशन कॉन्फ़िगर करें"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:11
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:12
 msgid "Test Area"
 msgstr "परीक्षण क्षेत्र"
 
 #: ../../../app/views/shared/_pw_generator_modal.html.erb:16
-msgid "Number of Syllables"
-msgstr "अक्षरों की संख्या"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:20
-msgid "Minimum Syllable Length"
-msgstr "न्यूनतम शब्दांश लंबाई"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:24
-msgid "Maximum Syllable Length"
-msgstr "अधिकतम शब्दांश लंबाई"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:31
-msgid "Include numbers"
-msgstr "संख्याएँ शामिल करें"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:35
-msgid "Use Titlecase"
-msgstr "टाइटलकेस का प्रयोग करें"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:39
-msgid "Use Separators"
-msgstr "विभाजक का प्रयोग करें"
-
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:43
 msgid "Test"
 msgstr "परीक्षा"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:50
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:22
+msgid "Structure"
+msgstr "संरचना"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:24
+msgid "Number of Syllables"
+msgstr "अक्षरों की संख्या"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:28
+msgid "Minimum Syllable Length"
+msgstr "न्यूनतम शब्दांश लंबाई"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:32
+msgid "Maximum Syllable Length"
+msgstr "अधिकतम शब्दांश लंबाई"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:37
+msgid "Options"
+msgstr "विकल्प"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:40
+msgid "Include numbers"
+msgstr "संख्याएँ शामिल करें"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:44
+msgid "Use Titlecase"
+msgstr "टाइटलकेस का प्रयोग करें"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:48
+msgid "Use Separators"
+msgstr "विभाजक का प्रयोग करें"
+
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:59
 msgid "Separators"
 msgstr "विभाजक"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:56
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:65
 msgid "Vowels"
 msgstr "स्वर वर्ण"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:62
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:71
 msgid "Consonants"
 msgstr "व्यंजन"
 
-#: ../../../app/views/shared/_pw_generator_modal.html.erb:71
+#: ../../../app/views/shared/_pw_generator_modal.html.erb:79
 msgid "Reset to Defaults"
 msgstr "डिफ़ॉल्ट पर पुनः सेट करें"
 
-#: ../../../app/views/shared/_topnav.html.erb:4
+#: ../../../app/views/shared/_share_message.html.erb:5
+msgid "Optional message to share"
+msgstr "साझा करने के लिए वैकल्पिक संदेश"
+
+#: ../../../app/views/shared/_share_message.html.erb:6
+msgid ""
+"Copy and paste this into your email or chat. It includes the secret link and e"
+"xpiration details."
+msgstr ""
+"इसे कॉपी करके अपने ईमेल या चैट में पेस्ट करें। इसमें गुप्त लिंक और समाप्ति तिथ"
+"ि की जानकारी शामिल है।"
+
+#: ../../../app/views/shared/_share_message.html.erb:12
+#: ../../../app/views/shared/_share_message.html.erb:14
+msgid "Copy message"
+msgstr "संदेश की प्रतिलिपि बनाएँ"
+
+#: ../../../app/views/shared/_topnav.html.erb:5
 msgid "Passwords"
 msgstr "पासवर्डों"
 
-#: ../../../app/views/shared/_topnav.html.erb:8
-msgid "Files"
-msgstr "फ़ाइलें"
-
-#: ../../../app/views/shared/_topnav.html.erb:13
-msgid "URLs"
-msgstr "यूआरएल"
-
-#: ../../../app/views/shared/_topnav.html.erb:18
+#: ../../../app/views/shared/_topnav.html.erb:25
 msgid "QR Codes"
-msgstr "क्यूआर कोड ᴮᴱᵀᴬ"
+msgstr "क्यूआर कोड"
+
+#: ../../../app/views/users/first_runs/new.html.erb:1
+msgid "Password Pusher — First Run Setup"
+msgstr "पासवर्ड पुशर — पहली बार चलाने का सेटअप"
+
+#: ../../../app/views/users/first_runs/new.html.erb:22
+msgid "Open Source Edition"
+msgstr "ओपन सोर्स संस्करण"
+
+#: ../../../app/views/users/first_runs/new.html.erb:27
+msgid "First Run Setup"
+msgstr "पहला रन सेटअप"
+
+#: ../../../app/views/users/first_runs/new.html.erb:29
+msgid ""
+"Securely share sensitive information with automatic expiration & deletion. Tra"
+"ck access with full audit logs."
+msgstr ""
+"स्वचालित समाप्ति और विलोपन की सुविधा के साथ संवेदनशील जानकारी को सुरक्षित रूप "
+"से साझा करें। पूर्ण ऑडिट लॉग के साथ पहुंच को ट्रैक करें।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:38
+#: ../../../app/views/users/first_runs/new.html.erb:98
+msgid "Create Admin Account"
+msgstr "खाता बनाएं"
+
+#: ../../../app/views/users/first_runs/new.html.erb:39
+msgid "This account will have full access to manage your Password Pusher instance."
+msgstr ""
+"इस खाते को आपके पासवर्ड पुशर इंस्टेंस को प्रबंधित करने के लिए पूर्ण पहुंच प्रा"
+"प्त होगी।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:49
+msgid "Boot Code Required"
+msgstr "बूट कोड आवश्यक है"
+
+#: ../../../app/views/users/first_runs/new.html.erb:50
+msgid "Enter the boot code shown in the application logs during startup."
+msgstr "स्टार्टअप के दौरान एप्लिकेशन लॉग में दिखाए गए बूट कोड को दर्ज करें।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:57
+#: ../../../app/views/users/first_runs/new.html.erb:61
+msgid "Boot Code"
+msgstr "बूट कोड"
+
+#: ../../../app/views/users/first_runs/new.html.erb:93
+msgid "Your account will be created and you'll be signed in automatically."
+msgstr "आपका खाता बन जाएगा और आप स्वचालित रूप से लॉग इन हो जाएंगे।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:111
+msgid "How to retrieve the boot code"
+msgstr "बूट कोड कैसे प्राप्त करें"
+
+#: ../../../app/views/users/first_runs/new.html.erb:112
+msgid ""
+"The boot code is printed to the application logs when the server starts. Use o"
+"ne of the following:"
+msgstr ""
+"सर्वर शुरू होने पर बूट कोड एप्लिकेशन लॉग में प्रिंट हो जाता है। निम्न में से क"
+"िसी एक का उपयोग करें:"
+
+#: ../../../app/views/users/first_runs/new.html.erb:115
+msgid "Docker"
+msgstr "डाक में काम करनेवाला मज़दूर"
+
+#: ../../../app/views/users/first_runs/new.html.erb:119
+msgid "Docker Compose"
+msgstr "डॉकर कंपोज़"
+
+#: ../../../app/views/users/first_runs/new.html.erb:123
+msgid "Look for a line containing the boot code in the output."
+msgstr "आउटपुट में बूट कोड वाली पंक्ति ढूंढें।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:132
+msgid "What you can do with Password Pusher"
+msgstr "पासवर्ड पुशर के साथ आप क्या कर सकते हैं"
+
+#: ../../../app/views/users/first_runs/new.html.erb:143
+msgid "Encrypted & ephemeral"
+msgstr "एन्क्रिप्टेड और क्षणभंगुर"
+
+#: ../../../app/views/users/first_runs/new.html.erb:144
+msgid ""
+"Secrets are stored encrypted and removed automatically after they expire or ar"
+"e viewed."
+msgstr ""
+"गुप्त जानकारी एन्क्रिप्टेड रूप में संग्रहीत की जाती है और समय सीमा समाप्त होने"
+" या देखे जाने के बाद स्वचालित रूप से हटा दी जाती है।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:152
+msgid "Passwords, text & files"
+msgstr "पासवर्ड, टेक्स्ट और फ़ाइलें"
+
+#: ../../../app/views/users/first_runs/new.html.erb:153
+msgid ""
+"Share passwords, notes, URLs, and files with configurable expiration and view "
+"limits."
+msgstr ""
+"पासवर्ड, नोट्स, यूआरएल और फाइलों को कॉन्फ़िगर करने योग्य समाप्ति और देखने की स"
+"ीमाओं के साथ साझा करें।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:161
+msgid "100% open source"
+msgstr "100% ओपन सोर्स"
+
+#: ../../../app/views/users/first_runs/new.html.erb:162
+msgid "Self-host with Docker or your own stack. No vendor lock-in, full transparency."
+msgstr ""
+"डॉकर या अपने खुद के स्टैक के साथ सेल्फ-होस्ट करें। किसी वेंडर से बंधे होने की "
+"ज़रूरत नहीं, पूरी पारदर्शिता।"
+
+#: ../../../app/views/users/first_runs/new.html.erb:172
+msgid "Helpful links"
+msgstr "सहायक लिंक्स"
+
+#: ../../../app/views/users/first_runs/new.html.erb:178
+msgid "Configuration"
+msgstr "विन्यास"
+
+#: ../../../app/views/users/first_runs/new.html.erb:184
+msgid "Installation"
+msgstr "इंस्टालेशन"
+
+#: ../../../app/views/users/first_runs/new.html.erb:196
+msgid "FAQ"
+msgstr "सामान्य प्रश्न"
+
+#: ../../../app/views/users/first_runs/new.html.erb:202
+msgid "Docker images"
+msgstr "डॉकर छवियां"
+
+#: ../../../app/views/users/first_runs/new.html.erb:208
+msgid "JSON API"
+msgstr "जेएसओएन एपीआई"
+
+#: ../../../app/views/users/first_runs/new.html.erb:224
+msgid "Thanks for choosing Password Pusher!"
+msgstr "पासवर्ड पुशर चुनने के लिए धन्यवाद!"
+
+#: ../../../app/views/users/sessions/otp.html.erb:4
+msgid "Enter the 6-digit code from your authenticator app or a backup code."
+msgstr "अपने ऑथेंटिकेटर ऐप से 6 अंकों का कोड या बैकअप कोड दर्ज करें।"
+
+#: ../../../app/views/users/sessions/otp.html.erb:8
+#: ../../../app/views/users/two_factor/verify.html.erb:19
+msgid "Code"
+msgstr "कोड"
+
+#: ../../../app/views/users/sessions/otp.html.erb:9
+#: ../../../app/views/users/two_factor/verify.html.erb:20
+msgid "Verification code"
+msgstr "सत्यापन कोड"
+
+#: ../../../app/views/users/sessions/otp.html.erb:11
+msgid "Verify"
+msgstr "सत्यापित करें"
+
+#: ../../../app/views/users/two_factor/_mfa_required_banner.html.erb:3
+msgid ""
+"Two-factor authentication is required by the administrator. You must complete "
+"setup to access the application."
+msgstr ""
+"प्रशासक द्वारा दो-कारक प्रमाणीकरण आवश्यक है। एप्लिकेशन तक पहुँचने के लिए आपको "
+"सेटअप पूरा करना होगा।"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:1
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:6
+msgid "Save your backup codes"
+msgstr "अपने बैकअप कोड सुरक्षित रखें"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:12
+msgid ""
+"Store these codes in a safe place. Each can be used once if you lose your auth"
+"enticator device."
+msgstr ""
+"इन कोड्स को सुरक्षित स्थान पर रखें। यदि आपका प्रमाणीकरण उपकरण खो जाता है, तो प"
+"्रत्येक कोड का उपयोग केवल एक बार किया जा सकता है।"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:17
+msgid "Save or copy these codes now"
+msgstr "इन कोड्स को अभी सेव या कॉपी करें"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:18
+msgid ""
+"You will not be able to see this list again after you continue. If you lose yo"
+"ur device and your backup codes, you may need an administrator to reset your a"
+"ccount."
+msgstr ""
+"आगे बढ़ने पर आप इस सूची को दोबारा नहीं देख पाएंगे। यदि आपका डिवाइस और बैकअप को"
+"ड खो जाते हैं, तो आपको अपना खाता रीसेट करने के लिए एक व्यवस्थापक की आवश्यकता ह"
+"ो सकती है।"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:24
+msgid "Recovery codes"
+msgstr "पुनर्प्राप्ति कोड"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:25
+msgid "total"
+msgstr "कुल"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:41
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:42
+msgid "Copy all codes"
+msgstr "सभी कोड कॉपी करें"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:46
+msgid ""
+"Backup codes are saved but can only be shown once. If you did not save them, d"
+"isable two-factor authentication and set it up again."
+msgstr ""
+"बैकअप कोड सहेजे जाते हैं, लेकिन उन्हें केवल एक बार ही दिखाया जा सकता है। यदि आ"
+"पने उन्हें सहेजा नहीं है, तो दो-कारक प्रमाणीकरण को अक्षम करें और इसे पुनः सेट "
+"करें।"
+
+#: ../../../app/views/users/two_factor/backup_codes.html.erb:52
+msgid "Continue to verify"
+msgstr "सत्यापन जारी रखें"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:1
+msgid "Verify authenticator"
+msgstr "प्रमाणीकरणकर्ता सत्यापित करें"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:6
+msgid "Scan this QR code"
+msgstr "इस क्यूआर कोड को स्कैन करें"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:10
+msgid ""
+"Add this account to your authenticator app, then enter the 6-digit code to con"
+"firm."
+msgstr ""
+"इस खाते को अपने प्रमाणीकरण ऐप में जोड़ें, फिर पुष्टि करने के लिए 6 अंकों का को"
+"ड दर्ज करें।"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:14
+msgid "If you cannot scan the code, enter this secret manually:"
+msgstr ""
+"यदि आप कोड को स्कैन नहीं कर सकते हैं, तो इस गुप्त कोड को मैन्युअल रूप से दर्ज "
+"करें:"
+
+#: ../../../app/views/users/two_factor/verify.html.erb:23
+msgid "Enable two-factor authentication"
+msgstr "दो-कारक प्रमाणीकरण सक्षम करें"

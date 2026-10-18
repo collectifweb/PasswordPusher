@@ -1,6 +1,25 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  STOCK_LIGHT_LOGO = "logo-transparent-sm-bare.png"
+  STOCK_DARK_LOGO = "logo-transparent-sm-dark-bare.png"
+
+  # Resolves light/dark brand logo URLs.
+  #
+  # If only one of light_logo / dark_logo is set, that custom file is used for
+  # both theme modes. Stock Password Pusher assets are used only when neither
+  # custom logo is configured.
+  #
+  # @return [Hash] keys :light and :dark with logo src strings
+  def brand_logo_srcs
+    light = Settings.brand&.light_logo.presence
+    dark = Settings.brand&.dark_logo.presence
+    {
+      light: light || dark || asset_path(STOCK_LIGHT_LOGO),
+      dark: dark || light || asset_path(STOCK_DARK_LOGO)
+    }
+  end
+
   # Set the HTML title for the page with a trailing site identifier.
   def title(content)
     content_for(:html_title) { "#{content} | #{Settings.brand.title}" }
@@ -40,7 +59,7 @@ module ApplicationHelper
     end
 
     # Support forced https links with FORCE_SSL env var
-    raw_url.gsub!(/http/i, "https") if ENV.key?("FORCE_SSL") && !request.ssl?
+    raw_url = raw_url.sub(%r{\Ahttp://}i, "https://") if ENV.key?("FORCE_SSL") && !request.ssl?
     raw_url
   end
 
@@ -51,12 +70,34 @@ module ApplicationHelper
   # @param [String] url - The URL to generate the QR code for
   # @return [String] - The SVG QR code
   def qr_code(url)
-    RQRCode::QRCode.new(url).as_svg(
+    svg = RQRCode::QRCode.new(url).as_svg(
       offset: 0,
       color: :currentColor,
       shape_rendering: "crispEdges",
       module_size: 6,
       standalone: true
-    ).html_safe
+    )
+    # Strip XML declaration so the SVG is valid when embedded in HTML.
+    svg.sub(/\A<\?xml[^>]*\?>\s*/, "").html_safe
+  end
+
+  # Renders custom CSS from database as a style tag
+  # Returns nil if no custom CSS is set
+  def custom_css_style_tag
+    css = SiteSetting.custom_css
+    return if css.blank?
+
+    tag.style(css.html_safe, data: {turbo_track: "reload"})
+  end
+
+  def pwgen_default_language
+    locale = I18n.locale.to_s.split(/[-_]/).first
+    return locale if Pwpush::Generator::LANGUAGES.include?(locale)
+
+    Settings.gen.language
+  end
+
+  def pwgen_wordlist_sizes
+    Pwpush::Generator::LANGUAGES.index_with { |language| Pwpush::Generator::Wordlists.size_for(language) }
   end
 end

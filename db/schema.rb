@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_06_06_094103) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_28_110942) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.integer "blob_id", null: false
     t.datetime "created_at", precision: nil, null: false
@@ -62,6 +62,20 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_06_094103) do
     t.index ["name"], name: "index_data_migration_statuses_on_name", unique: true
   end
 
+  create_table "notify_by_emails", force: :cascade do |t|
+    t.integer "audit_log_id", null: false
+    t.datetime "created_at", null: false
+    t.text "error_message_ciphertext"
+    t.text "locale_ciphertext"
+    t.datetime "proceed_at"
+    t.text "recipients_ciphertext", null: false
+    t.integer "recipients_count", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.text "successful_sends_ciphertext"
+    t.datetime "updated_at", null: false
+    t.index ["audit_log_id"], name: "index_notify_by_emails_on_audit_log_id"
+  end
+
   create_table "pushes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.boolean "deletable_by_viewer", default: true
@@ -80,6 +94,41 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_06_094103) do
     t.integer "user_id"
     t.index ["url_token"], name: "index_pushes_on_url_token", unique: true
     t.index ["user_id"], name: "index_pushes_on_user_id"
+  end
+
+  create_table "site_settings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "key", null: false
+    t.datetime "updated_at", null: false
+    t.text "value"
+    t.index ["key"], name: "index_site_settings_on_key", unique: true
+  end
+
+  create_table "solid_queue_batch_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "batch_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["batch_id"], name: "index_solid_queue_batch_executions_on_batch_id"
+    t.index ["job_id"], name: "index_solid_queue_batch_executions_on_job_id", unique: true
+  end
+
+  create_table "solid_queue_batches", force: :cascade do |t|
+    t.string "active_job_batch_id"
+    t.string "description"
+    t.text "on_finish"
+    t.text "on_success"
+    t.text "on_failure"
+    t.text "metadata"
+    t.integer "total_jobs", default: 0, null: false
+    t.integer "completed_jobs", default: 0, null: false
+    t.integer "failed_jobs", default: 0, null: false
+    t.datetime "enqueued_at"
+    t.datetime "finished_at"
+    t.datetime "failed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["active_job_batch_id"], name: "index_solid_queue_batches_on_active_job_batch_id", unique: true
+    t.index ["finished_at"], name: "index_solid_queue_batches_on_finished_at"
   end
 
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
@@ -120,7 +169,9 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_06_094103) do
     t.string "queue_name", null: false
     t.datetime "scheduled_at"
     t.datetime "updated_at", null: false
+    t.bigint "batch_id"
     t.index ["active_job_id"], name: "index_solid_queue_jobs_on_active_job_id"
+    t.index ["batch_id"], name: "index_solid_queue_jobs_on_batch_id"
     t.index ["class_name"], name: "index_solid_queue_jobs_on_class_name"
     t.index ["finished_at"], name: "index_solid_queue_jobs_on_finished_at"
     t.index ["queue_name", "finished_at"], name: "index_solid_queue_jobs_for_filtering"
@@ -213,11 +264,17 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_06_094103) do
     t.datetime "current_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "email", default: "", null: false
+    t.integer "email_sent_count", default: 0, null: false
+    t.datetime "email_sent_count_reset_at"
     t.string "encrypted_password", default: "", null: false
     t.integer "failed_attempts", default: 0
+    t.integer "last_otp_timestep"
     t.datetime "last_sign_in_at", precision: nil
     t.string "last_sign_in_ip"
     t.datetime "locked_at", precision: nil
+    t.text "otp_backup_code_digests"
+    t.boolean "otp_required_for_login"
+    t.text "otp_secret_ciphertext"
     t.string "preferred_language"
     t.datetime "remember_created_at", precision: nil
     t.datetime "reset_password_sent_at", precision: nil
@@ -255,7 +312,10 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_06_094103) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audit_logs", "pushes"
+  add_foreign_key "notify_by_emails", "audit_logs"
   add_foreign_key "pushes", "users"
+  add_foreign_key "solid_queue_batch_executions", "solid_queue_batches", column: "batch_id", on_delete: :cascade
+  add_foreign_key "solid_queue_batch_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

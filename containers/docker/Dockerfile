@@ -2,7 +2,7 @@
 ARG BUNDLE_WITHOUT=development:test
 ARG BUNDLE_DEPLOYMENT=true
 
-FROM ruby:3.4.8-alpine AS build-env
+FROM ruby:4.0.7-alpine AS build-env
 
 # include global args
 ARG BUNDLE_WITHOUT
@@ -24,7 +24,8 @@ RUN apk update && apk add --no-cache \
     yaml-dev \
     yarn \
     pkgconf \
-    openssl-dev
+    openssl-dev \
+    libffi-dev
 
 ENV APP_ROOT=/opt/PasswordPusher
 ENV RACK_ENV=production RAILS_ENV=production
@@ -52,8 +53,8 @@ RUN yarn install --frozen-lockfile
 # Copy source code - this should be done as late as possible
 COPY ./ ${APP_ROOT}/
 
-# Build assets - this layer will be rebuilt when source code changes
-RUN yarn build
+# Full multi-theme CSS (build_themes.js) runs during assets:precompile.
+# See config/application.rb for the CSS build policy.
 
 # SECRET_KEY_BASE must be set at runtime via environment variable
 # Do NOT hardcode secrets in Docker images for security reasons.
@@ -77,7 +78,7 @@ RUN rm -rf tmp/cache tmp/pids tmp/sockets app/assets/images/features
 
 ################## Build done ##################
 
-FROM ruby:3.4.8-alpine
+FROM ruby:4.0.7-alpine
 
 # include global args
 ARG BUNDLE_WITHOUT
@@ -106,6 +107,7 @@ ENV LC_CTYPE=UTF-8 LC_ALL=en_US.UTF-8
 ENV APP_ROOT=/opt/PasswordPusher
 ENV RACK_ENV=production RAILS_ENV=production
 ENV LD_PRELOAD=/usr/lib/libjemalloc.so.2
+ENV SOLID_QUEUE_SUPERVISOR_MODE=async
 
 WORKDIR ${APP_ROOT}
 

@@ -5,12 +5,9 @@ require "test_helper"
 class CleanUpPushesJobTest < ActiveSupport::TestCase
   setup do
     # Clear all pushes before running tests
-    AuditLog.delete_all
+    AuditLog.destroy_all
     Push.delete_all
     User.delete_all
-
-    # Set default URL options for test environment to avoid missing host errors
-    Rails.application.routes.default_url_options[:host] = "localhost:3000"
   end
 
   test "job deletes anonymous expired pushes" do

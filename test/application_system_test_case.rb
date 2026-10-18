@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "timeout"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # Register a custom driver that respects CHROME_BIN environment variable.
@@ -11,6 +12,10 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     options.add_argument("--window-size=1400,1400")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    # Pin browser language so Accept-Language is English. SetLocale resolves locale from
+    # params, user preference, then this header—without this, CI or local OS locale can
+    # change UI copy and make assertions flaky.
+    options.add_argument("--lang=en")
 
     # Use custom Chrome binary if specified (for CI pinning)
     if ENV["CHROME_BIN"].present?
@@ -32,5 +37,27 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   teardown do
     # Any teardown needed for all system tests
+  end
+
+  def wait_until_field_has_value(locator, timeout: 8)
+    Timeout.timeout(timeout) do
+      loop do
+        value = find_field(locator).value
+        break value if value.present?
+
+        sleep 0.1
+      end
+    end
+  end
+
+  def wait_until_field_changes(locator, from:, timeout: 8)
+    Timeout.timeout(timeout) do
+      loop do
+        value = find_field(locator).value
+        break value if value.present? && value != from
+
+        sleep 0.1
+      end
+    end
   end
 end
