@@ -4,7 +4,7 @@
 **User** : cwsecretsdaddou
 **URL** : secrets.collectifweb.ca
 **Gestion serveur** : RunCloud
-**App** : Docker (pglombardo/pwpush:stable)
+**App** : Docker (pglombardo/pwpush:2.14.3, version épinglée depuis le 18/10/2026)
 **Upstream** : https://github.com/pglombardo/PasswordPusher.git
 
 ### Fichiers sur le serveur
@@ -21,13 +21,18 @@
 
 ```
 /etc/nginx-rc/extra.d/
-  app-secrets.location.main-before.secrets.conf # Reverse proxy vers Docker + injection de cw-custom.js
+  app-secrets.location.http.cwnonce.conf        # Relit le nonce de la CSP (niveau http, directive map)
+  app-secrets.location.main-before.secrets.conf # Reverse proxy vers Docker + injection de cw-custom.js avec le nonce
   app-secrets.location.main-before.assets.conf  # Proxy des assets statiques
   app-secrets.location.main-before.cwjs.conf    # Sert le fichier cw-custom.js
   app-secrets.location.main-before.cable.conf   # Ferme /cable (websocket ActionCable, inutilisé)
 ```
 
 Les fichiers de `deploy/nginx/` portent les mêmes noms que sur le serveur.
+
+La CSP de la 2.x (`strict-dynamic`) n'exécute que les scripts qui portent son nonce. nginx le relit
+dans l'en-tête de la réponse et le recopie sur la balise de `cw-custom.js`. Si cette recopie se perd,
+le script est bloqué sans bruit : plus de menus d'expiration ni de bouton « Copier le lien ».
 
 ### Personnalisations CW
 
@@ -36,6 +41,9 @@ Toutes les customisations sont externes au container Docker :
 - **CSS** : custom.css monté en volume (recompilé au boot via PWP_PRECOMPILE=true)
 - **Labels/textes** : cw-custom.js injecté par nginx sub_filter
 - **Footer** : liens cachés via CSS
+- **Thème** : clair seulement, sans bascule (`PWP__THEME_MODE=light`)
+- **Comptes** : fermés (`PWP__DISABLE_LOGINS=true`, `PWP__DISABLE_SIGNUPS=true` ; sans eux, la 2.x
+  renvoie vers `/first_run` tant que la base n'a aucun compte)
 
 Les mises à jour upstream (`docker compose pull`) n'écrasent rien.
 
@@ -47,18 +55,23 @@ L'app a deux axes de mise à jour indépendants :
 
 ### 1. Mise à jour de l'image Docker (app upstream)
 
-L'image `pglombardo/pwpush:stable` est publiée sur DockerHub par l'auteur upstream.
-
-> **Ne pas appliquer en l'état** : au 17/10/2026, `stable` pointe sur la 2.14.3 et la prod tourne en 1.69.3. Un `pull` ferait le saut de version majeure. Épingler d'abord une version dans `docker-compose.yml` (voir `CLAUDE.md`).
+L'image `pglombardo/pwpush` est publiée sur DockerHub par l'auteur upstream. La version est épinglée
+dans `deploy/docker-compose.yml` : ne jamais revenir à `stable`, qui change de version sans prévenir.
 
 Pour appliquer une nouvelle version :
+
+1. Essayer d'abord la nouvelle image en local, avec les réglages de prod et des clés de test : le CSS
+   et le JS custom visent la structure HTML de l'image, et la CSP peut changer.
+2. Changer l'étiquette dans `deploy/docker-compose.yml`, copier le fichier sur le serveur.
+3. Sauvegarder la base (volume `pwpush_pwpush-storage`, conteneur arrêté) et le `.env`.
+4. Appliquer :
 
 ```bash
 ssh cwsecretsdaddou@159.89.118.112
 cd ~/pwpush
-docker compose pull        # Télécharge la nouvelle image
-docker compose up -d       # Redémarre avec la nouvelle version
-docker compose logs -f     # Vérifier le boot (attendre ~40s pour la precompilation CSS)
+docker compose pull                 # Télécharge l'image épinglée
+docker compose up -d --wait         # Redémarre (≈ 1 min avec la précompilation CSS, mesuré le 18/10/2026)
+docker compose logs pwpush | grep -E "Version|migrat"
 ```
 
 Vérification :
@@ -124,7 +137,7 @@ ssh cwsecretsdaddou@159.89.118.112 "cd ~/pwpush && docker compose logs -f"
 ssh cwsecretsdaddou@159.89.118.112 "cd ~/pwpush && docker compose restart"
 
 # Voir la version en cours
-ssh cwsecretsdaddou@159.89.118.112 "cd ~/pwpush && docker compose logs | grep 'Version:' | tail -1"
+curl -s https://secrets.collectifweb.ca/api/v1/version.json
 
 # Recharger nginx
 ssh cwsecretsdaddou@159.89.118.112 "sudo nginx-rc -t && sudo systemctl reload nginx-rc"

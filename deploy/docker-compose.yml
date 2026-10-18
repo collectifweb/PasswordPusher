@@ -1,6 +1,6 @@
 services:
   pwpush:
-    image: pglombardo/pwpush:stable
+    image: pglombardo/pwpush:2.14.3
     restart: unless-stopped
     ports:
       - "127.0.0.1:5100:5100"

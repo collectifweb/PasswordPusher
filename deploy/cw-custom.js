@@ -89,12 +89,7 @@
     if (daysRow) daysRow.classList.add('cw-hidden');
     if (viewsRow) viewsRow.classList.add('cw-hidden');
 
-    // Masque le "(whichever comes first)" — la nouvelle UI est sans ambiguïté
-    var whicheverP = document.querySelector('.text-center.form-text');
-    if (whicheverP) {
-      var whicheverRow = whicheverP.closest('.row');
-      if (whicheverRow) whicheverRow.classList.add('cw-hidden');
-    }
+    // Le "(whichever comes first)" est masqué par custom.css en 2.x
 
     var block = document.createElement('div');
     block.id = 'cw-expiration';

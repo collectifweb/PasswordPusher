@@ -1,55 +1,71 @@
 /*
- * CSS overrides for the Collectif palette.
+ * CSS overrides for the Collectif palette — Password Pusher 2.x.
  * Loaded last, so it wins over theme defaults.
+ * Le site est forcé en thème clair (PWP__THEME_MODE=light) : les couleurs
+ * s'appliquent sans condition sur le mode du système.
  */
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --bs-primary: #268b78;
-        --bs-primary-rgb: 38, 139, 120;
-        --bs-link-color: #268b78;
-        --bs-link-hover-color: #1f725f;
-        --bs-body-color: #2f2e2e;
-        --bs-gray-100: rgba(0, 0, 0, 0.045);
-        --bs-light: rgba(0, 0, 0, 0.045);
-    }
+:root,
+[data-bs-theme="light"] {
+    --bs-primary: #268b78;
+    --bs-primary-rgb: 38, 139, 120;
+    --bs-link-color: #268b78;
+    --bs-link-hover-color: #1f725f;
+    --bs-body-color: #2f2e2e;
+    --bs-gray-100: rgba(0, 0, 0, 0.045);
+    --bs-light: rgba(0, 0, 0, 0.045);
 }
 
 /* ===== CW Customizations ===== */
 
-/* Cache les cases "1-click retrieval step" + "Allow immediate deletion" */
-.list-group.mx-0 {
+/* Cache les cases "1-click retrieval step" + "Allow immediate deletion" et leur
+   bandeau "Options supplémentaires" (cw-custom.js fixe leurs valeurs) */
+form[id^="new_push"] .pt-3.pb-2:has(.list-group.mx-0) {
     display: none !important;
 }
 
-/* Cache le bouton générateur de mot de passe et sa configuration */
+/* Cache le bouton générateur de mot de passe, sa configuration et sa barre */
 #generate_password,
 #configure_generator {
     display: none !important;
 }
-.btn-group[aria-label="Password Generator button group with nested dropdown"] {
+form[id^="new_push"] .d-flex:has(> .btn-group > #generate_password) {
     display: none !important;
 }
-.btn-group[aria-label="Password Generator button group with nested dropdown"] + p {
+/* Sans cette barre, le bloc d'expiration collerait à la zone de texte :
+   on rend l'écart de 1,5rem qu'elle apportait */
+form[id^="new_push"] .row.g-4 {
+    margin-top: 0;
+}
+
+/* Cache la colonne de droite (astuces) ; le bloc d'expiration prend toute la largeur */
+form[id^="new_push"] .row.g-4 > .col-md-4 {
+    display: none !important;
+}
+form[id^="new_push"] .row.g-4 > .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* Cache le titre du bloc d'expiration et le "(whichever comes first)" :
+   les menus CW portent leurs propres libellés */
+form[id^="new_push"] .border.rounded-3 > .fw-medium:has(> .bi-clock),
+form[id^="new_push"] .border.rounded-3 > p.text-center.small {
     display: none !important;
 }
 
-/* Cache le séparateur hr entre générateur et astuces */
-.col-12.col-sm-4 .row.my-3.px-5 {
+/* Cache l'onglet unique "Mots de passe" au-dessus du formulaire */
+.nav.nav-underline:has(.nav-link[href*="tab=text"]) {
     display: none !important;
 }
 
-/* Cache la colonne de droite entière (générateur + astuces) */
-.col-12.col-sm-4.p-3.mt-3 {
+/* Cache les liens de navigation dans le footer (la classe .footer est
+   nécessaire pour passer devant le .d-flex !important de Bootstrap) */
+footer.footer nav {
     display: none !important;
 }
 
-/* Cache les liens de navigation dans le footer */
-footer .nav.col-md-5.justify-content-end {
-    display: none !important;
-}
-
-/* ===== Éléments masqués par cw-custom.js (sliders, "whichever") ===== */
+/* ===== Éléments masqués par cw-custom.js (sliders) ===== */
 .cw-hidden {
     display: none !important;
 }
