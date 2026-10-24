@@ -26,6 +26,7 @@
   app-secrets.location.main-before.assets.conf  # Proxy des assets statiques
   app-secrets.location.main-before.cwjs.conf    # Sert le fichier cw-custom.js
   app-secrets.location.main-before.cable.conf   # Ferme /cable (websocket ActionCable, inutilisé)
+  app-secrets.location.main-before.pfb.conf     # Ferme /pfb (envoi et lecture de fichiers, partage de fichiers désactivé)
 ```
 
 Les fichiers de `deploy/nginx/` portent les mêmes noms que sur le serveur.
@@ -84,6 +85,8 @@ Les personnalisations CW (CSS, JS, env vars) survivent car elles sont montées e
 > **Attention** : si l'upstream modifie la structure HTML du formulaire, le CSS ou le JS custom pourrait ne plus cibler les bons éléments. Vérifier visuellement le site après chaque update.
 
 > **Attention** : `/cable` est fermé par nginx (`app-secrets.location.main-before.cable.conf`). Si une nouvelle version de l'image se sert du websocket, ce blocage la cassera : vérifier dans le navigateur qu'aucune page ne tente d'ouvrir `/cable`.
+
+> **Attention** : `/pfb` (adresses internes d'envoi et de lecture de fichiers) est fermé par nginx (`app-secrets.location.main-before.pfb.conf`). Pour activer le partage de fichiers (`PWP__ENABLE_FILE_PUSHES`), il faut d'abord retirer ce fichier.
 
 ### 2. Mise à jour du repo local (sync avec upstream)
 

@@ -1,13 +1,5 @@
 # CLAUDE.md
 
-## Action en attente
-
-- **À partir du 25/10/2026, en début de session** : rappeler à Alexandre d'effacer, sur le serveur, la
-  sauvegarde d'avant le passage en 2.14.3 (`~/sauvegardes/pwpush-1.69.3-20261017/`) et le dossier
-  d'attente `~/pwpush-bascule/`. Accord donné le 17/10, si la 2.14.3 tourne sans souci : vérifier
-  d'abord (version, conteneur sain, page d'accueil), puis lui redemander le feu vert. Marche à suivre :
-  `tasks/todo.md` (hors git). Retirer cette section une fois l'effacement fait.
-
 ## Project Context
 
 - **Stack**: Ruby on Rails / Puma / SolidQueue. Prod (image 2.14.3 depuis le 17/10/2026) : Rails 8.1.4, Ruby 4.0.7.
@@ -36,7 +28,7 @@
 L'app utilise l'image Docker upstream (pas de build custom). Les personnalisations sont externes :
 - `deploy/custom.css` -> monté en volume dans le container
 - `deploy/cw-custom.js` -> servi par nginx, injecté via sub_filter
-- `deploy/nginx/` -> configs RunCloud/nginx pour reverse proxy + injection (avec nonce) + blocage de `/cable`
+- `deploy/nginx/` -> configs RunCloud/nginx pour reverse proxy + injection (avec nonce) + blocage de `/cable` et `/pfb`
 - Variables d'env dans `.env` pour branding, features, expiration
 
 **Mise à jour upstream** : la version est épinglée dans `deploy/docker-compose.yml` (2.14.3). Changer
