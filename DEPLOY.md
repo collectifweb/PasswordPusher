@@ -146,4 +146,7 @@ ssh cwsecretsdaddou@159.89.118.112 "curl -sf -H 'Host: secrets.collectifweb.ca' 
 
 # Vérifier que /cable reste fermé (attendu : 404). Toujours en HTTP/1.1 : en HTTP/2, la réponse trompe.
 curl -s -o /dev/null -w '%{http_code}\n' --http1.1 --max-time 4 -H 'Connection: Upgrade' -H 'Upgrade: websocket' -H 'Sec-WebSocket-Version: 13' -H 'Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==' https://secrets.collectifweb.ca/cable
+
+# Vérifier que /pfb reste fermé (attendu : 404 sans en-tête x-request-id, donc servi par nginx et non par Rails)
+curl -s -o /dev/null -D - -X POST https://secrets.collectifweb.ca/pfb/direct_uploads | grep -iE '^HTTP|x-request-id'
 ```
