@@ -98,7 +98,7 @@ l'application : elles vivent dans `deploy/`, `CLAUDE.md`, `DEPLOY.md` (et une li
 À chaque changement de version épinglée (exemple : vX.Y.Z) :
 
 ```bash
-cd /home/alexandre/Apps-coding/CW_secrets
+cd /home/alexandre/Apps-coding/CW/CW_secrets
 git fetch upstream --tags
 git merge --no-ff --no-commit vX.Y.Z
 git checkout vX.Y.Z -- .            # version officielle de tout fichier de l'application
