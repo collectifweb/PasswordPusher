@@ -27,9 +27,20 @@
   app-secrets.location.main-before.cwjs.conf    # Sert le fichier cw-custom.js
   app-secrets.location.main-before.cable.conf   # Ferme /cable (websocket ActionCable, inutilisé)
   app-secrets.location.main-before.pfb.conf     # Ferme /pfb (envoi et lecture de fichiers, partage de fichiers désactivé)
+  app-secrets.headers.hsts.conf                 # HSTS : le navigateur reste en HTTPS (inclus par le headers.conf de RunCloud)
 ```
 
 Les fichiers de `deploy/nginx/` portent les mêmes noms que sur le serveur.
+
+Les deux blocs proxy (`secrets` et `assets`) donnent à l'appli l'adresse que nginx voit, jamais celle que
+le visiteur annonce : `Forwarded` et `Client-IP` retirés, `X-Forwarded-For` remplacé par `$remote_addr`.
+Sinon un visiteur choisit son IP et échappe aux limites par IP de l'appli. Ça suppose qu'aucun proxy (CDN)
+ne se trouve devant nginx : en ajouter un obligerait à revoir ces lignes.
+
+nginx-rc : 1.31.1 depuis le 16/11/2026 (paquet RunCloud, `apt-get install nginx-rc`, qui ajoute
+`libmodsecurity3`). Avant une mise à jour, tester le nouveau programme sans l'installer :
+`apt-get download`, `dpkg-deb -x`, puis `nginx-rc -t -c /etc/nginx-rc/nginx.conf` avec ses bibliothèques
+(`LD_LIBRARY_PATH`). Au 16/11/2026, le dépôt RunCloud pour Ubuntu 20.04 n'avait rien de plus récent.
 
 La CSP de la 2.x (`strict-dynamic`) n'exécute que les scripts qui portent son nonce. nginx le relit
 dans l'en-tête de la réponse et le recopie sur la balise de `cw-custom.js`. Si cette recopie se perd,
