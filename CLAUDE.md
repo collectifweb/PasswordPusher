@@ -2,14 +2,14 @@
 
 ## Project Context
 
-- **Stack**: Ruby on Rails / Puma / SolidQueue. Prod (image 2.14.3 depuis le 17/10/2026) : Rails 8.1.4, Ruby 4.0.7.
-  Dépôt : aligné sur l'étiquette officielle `v2.14.3` (même code que l'image en prod), plus les
+- **Stack**: Ruby on Rails / Puma / SolidQueue. Prod (image 2.17.2 depuis le 16/11/2026) : Rails 8.1.4.1, Ruby 4.0.9.
+  Dépôt : aligné sur l'étiquette officielle `v2.17.2` (même code que l'image en prod), plus les
   fichiers CW (`deploy/`, docs). Il suit la version épinglée, pas `master` (voir `DEPLOY.md`).
 - **CSS loading**: Sass compilé via cssbundling-rails + Bootstrap 5, custom.css Collectif chargé en dernier
 - **Templates**: ERB avec layout application.html.erb
 - **Base de données**: SQLite3 (production, fichier dans storage/db/)
 - **Storage/fichiers**: Volume Docker `/opt/PasswordPusher/storage`
-- **Déploiement**: Docker (pglombardo/pwpush:2.14.3, version épinglée) sur DO/RunCloud. Voir `deploy/` et `DEPLOY.md`
+- **Déploiement**: Docker (pglombardo/pwpush:2.17.2, version épinglée) sur DO/RunCloud. Voir `deploy/` et `DEPLOY.md`
 - **Variables d'env**: `.env` sur le serveur (voir `deploy/.env.example`), pas de .env local
 - **Personnalisations CW**: CSS via volume mount, JS via nginx sub_filter (avec le nonce de la CSP,
   sans quoi la 2.x bloque le script), labels via cw-custom.js. Thème clair forcé (`PWP__THEME_MODE=light`).
@@ -28,10 +28,10 @@
 L'app utilise l'image Docker upstream (pas de build custom). Les personnalisations sont externes :
 - `deploy/custom.css` -> monté en volume dans le container
 - `deploy/cw-custom.js` -> servi par nginx, injecté via sub_filter
-- `deploy/nginx/` -> configs RunCloud/nginx pour reverse proxy + injection (avec nonce) + blocage de `/cable` et `/pfb`
+- `deploy/nginx/` -> configs RunCloud/nginx pour reverse proxy (adresse réelle du visiteur) + injection (avec nonce) + blocage de `/cable` et `/pfb` + HSTS
 - Variables d'env dans `.env` pour branding, features, expiration
 
-**Mise à jour upstream** : la version est épinglée dans `deploy/docker-compose.yml` (2.14.3). Changer
+**Mise à jour upstream** : la version est épinglée dans `deploy/docker-compose.yml` (2.17.2). Changer
 de version = changer cette étiquette, après un essai local : la structure HTML et la CSP de l'image
 peuvent casser `custom.css` et `cw-custom.js` (voir `DEPLOY.md`). Ne jamais revenir à `stable`.
 Fusionner ensuite la même étiquette dans le dépôt, pour que ses alertes Dependabot restent celles de la prod.

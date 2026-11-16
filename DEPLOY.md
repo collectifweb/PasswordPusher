@@ -4,7 +4,7 @@
 **User** : cwsecretsdaddou
 **URL** : secrets.collectifweb.ca
 **Gestion serveur** : RunCloud
-**App** : Docker (pglombardo/pwpush:2.14.3, version épinglée depuis le 17/10/2026)
+**App** : Docker (pglombardo/pwpush:2.17.2, version épinglée ; 2.14.3 le 17/10/2026, 2.17.2 le 16/11/2026)
 **Upstream** : https://github.com/pglombardo/PasswordPusher.git
 
 ### Fichiers sur le serveur

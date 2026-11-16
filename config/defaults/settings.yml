@@ -80,22 +80,27 @@ host_protocol: 'https'
 # trusted.  By default, Password Pusher trusts common private and non-routable
 # IPv4 ranges: loopback (127.0.0.0/8), RFC 1918 (10.0.0.0/8, 172.16.0.0/12,
 # 192.168.0.0/16), IPv4 link-local (169.254.0.0/16), and RFC 6598 shared space
-# (100.64.0.0/10), plus IPv6 localhost (::1).  Typical Docker and LAN reverse
-# proxies fall in these ranges, so no extra configuration is needed.
+# (100.64.0.0/10); plus IPv6 localhost (::1), ULA (fc00::/7), and link-local
+# (fe80::/10). Typical Docker and LAN reverse proxies fall in these ranges, so
+# no extra configuration is needed.
 #
 # If your reverse proxy uses a public IP or another range (for example a hosted
 # load balancer outside those networks), add its address below—or use Cloudflare
 # Proxy below when fronting with Cloudflare.
+# Direct connections do not supply a trusted client IP via forwarded headers;
+# configure the address or CIDR of every reverse proxy that connects to Password
+# Pusher.
 #
-# Multiple IP addresses can be added by separating them with a comma.
+# Multiple addresses can be added by separating them with a comma.
+# Each entry may be a single IP address or a CIDR range.
 #
 # Environment Variable Override:
-# PWP__TRUSTED_PROXIES='<ipaddress>'
-# PWP__TRUSTED_PROXIES='<ipaddress1>,<ipaddress2>'
+# PWP__TRUSTED_PROXIES='203.0.113.10'
+# PWP__TRUSTED_PROXIES='203.0.113.10,198.51.100.0/24'
 #
 # trusted_proxies:
-#   - '1.2.3.4'
-#   - '2.3.4.5'
+#   - '203.0.113.10'
+#   - '198.51.100.0/24'
 
 ## Cloudflare Proxy
 #
@@ -320,12 +325,20 @@ mail:
   # smtp_password: ''
 
   # Use STARTTLS when connecting to your SMTP server and fail if unsupported.
+  # Ignored when smtp_ssl is true.
   # Environment Variable Override: PWP__MAIL__SMTP_STARTTLS='true'
   # smtp_starttls: false
 
   # Detects if STARTTLS is enabled in your SMTP server and starts to use it. Defaults to true.
+  # Ignored when smtp_ssl is true.
   # Environment Variable Override: PWP__MAIL__SMTP_ENABLE_STARTTLS_AUTO='false'
   smtp_enable_starttls_auto: true
+
+  # Use implicit TLS (SMTPS) from the first byte. Typical for port 465.
+  # When true, both STARTTLS modes are turned off. The mail gem raises if they are combined.
+  # Leave false for the usual port 587 STARTTLS setup.
+  # Environment Variable Override: PWP__MAIL__SMTP_SSL='true'
+  smtp_ssl: false
 
   # Number of seconds to wait while attempting to open a connection.
   # Environment Variable Override: PWP__MAIL__SMTP_OPEN_TIMEOUT='10'
@@ -1187,6 +1200,26 @@ throttling:
   #
   # Environment Variable Override: PWP__THROTTLING__SECOND='20'
   second: 60
+
+### Prometheus metrics
+#
+# Metrics are disabled by default. When enabled, application processes send
+# metrics to a standalone exporter. Keep the exporter on a private network;
+# it intentionally has no application authentication.
+#
+# Environment variable overrides:
+# PWP__PROMETHEUS__ENABLED='true'
+# PWP__PROMETHEUS__BIND='0.0.0.0'
+# PWP__PROMETHEUS__PORT='9394'
+# PWP__PROMETHEUS__CLIENT_HOST='127.0.0.1'
+# PWP__PROMETHEUS__CLIENT_PORT='9394'
+#
+prometheus:
+  enabled: false
+  bind: '127.0.0.1'
+  port: 9394
+  client_host: '127.0.0.1'
+  client_port: 9394
 
 ### Notify by Email
 #

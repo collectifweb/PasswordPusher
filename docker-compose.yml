@@ -77,6 +77,8 @@ x-env: &x-env
     # PWP__MAIL__SMTP_USER_NAME: ""
     # PWP__MAIL__SMTP_PASSWORD: ""
     # PWP__MAIL__SMTP_ENABLE_STARTTLS_AUTO: "true"
+    # Implicit TLS for port 465. Turns STARTTLS off. Leave unset for port 587.
+    # PWP__MAIL__SMTP_SSL: "false"
     # PWP__MAIL__SMTP_OPEN_TIMEOUT: "10"
     # PWP__MAIL__SMTP_READ_TIMEOUT: "10"
     # PWP__MAIL__MAILER_SENDER: ""
@@ -159,6 +161,11 @@ x-env: &x-env
     # PWP__THROTTLING__MINUTE: "120"
     # PWP__THROTTLING__SECOND: "60"
     # PWP__PURGE_AFTER: "disabled"
+    # PWP__PROMETHEUS__ENABLED: "true"
+    # PWP__PROMETHEUS__BIND: "0.0.0.0"       # Required when scraping through the port mapping below
+    # PWP__PROMETHEUS__PORT: "9394"
+    # PWP__PROMETHEUS__CLIENT_HOST: "127.0.0.1"
+    # PWP__PROMETHEUS__CLIENT_PORT: "9394"
 
     # --- Logging ---
     # PWP__LOG_LEVEL: "warn"
@@ -177,6 +184,7 @@ services:
       - "443:443"
       # - "80:80" # To support older browsers
       # - "5100:5100" # High port if you host pwpush behind a proxy (HTTP)
+      # - "127.0.0.1:9394:9394" # Prometheus exporter; keep private
     platform: linux/amd64
     volumes:
       # Persist SQLite DB + uploads here. Do NOT mount over /opt/PasswordPusher/db —

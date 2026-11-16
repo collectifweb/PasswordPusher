@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby ENV["CUSTOM_RUBY_VERSION"] || ">=3.4.3"
 
-gem "rails", "~> 8.1.3"
+gem "rails", "~> 8.1.4"
 gem "propshaft"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -60,7 +60,7 @@ gem "kramdown", require: false
 gem "lockbox"
 gem "terser", "~> 1.2"
 gem "bootstrap"
-gem "json", "~> 3.0" # Legacy carry-over
+gem "json", "~> 3.1" # Legacy carry-over
 gem "apipie-rails"
 gem "config"
 gem "devise", "~> 5.0"
@@ -69,7 +69,7 @@ gem "lograge"
 gem "mail_form", ">= 1.9.0"
 gem "oj"
 gem "puma"
-gem "kaminari", "~> 1.2"
+gem "kaminari", "~> 1.3"
 gem "invisible_captcha", "~> 2.3"
 gem "devise-i18n"
 gem "rails-i18n", "~> 8.1.0"
@@ -78,7 +78,7 @@ gem "local_time"
 
 # For File Uploads
 gem "aws-sdk-s3", require: false
-gem "azure-blob", "~> 0.8.0", require: false
+gem "azure-blob", "~> 0.9.0", require: false
 gem "google-cloud-storage", "~> 1.62", require: false
 
 # Database backends
@@ -93,10 +93,12 @@ end
 gem "rollbar"
 gem "version", git: "https://github.com/pglombardo/version.git", branch: "master"
 gem "madmin"
-gem "rotp", "~> 6.2"
+gem "rotp", "~> 6.4"
 gem "rqrcode", "~> 3.2"
 gem "turnout2024", require: "turnout"
 gem "mission_control-jobs", "~> 1.3.1"
 gem "overmind", "~> 2.5", group: :development
 
 gem "dotenv", "~> 3.2"
+
+gem "prometheus_exporter", "~> 2.3"

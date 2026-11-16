@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "active_support/core_ext/integer/time"
+require Rails.root.join("config/smtp_settings")
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -54,22 +55,11 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = ENV.key?("FORCE_SSL")
 
-  # The list of trusted proxies from which we will accept proxy related headers.
-  # Covers common private / non-routable IPv4 ranges (RFC 1918, loopback, link-local, RFC 6598).
-  config.action_dispatch.trusted_proxies = [
-    /^::1$/, # IPv6 localhost
-    /127\.\d{1,3}\.\d{1,3}\.\d{1,3}/, # IPv4 loopback (127.0.0.0/8)
-    /10\.\d{1,3}\.\d{1,3}\.\d{1,3}/, # RFC 1918: 10.0.0.0/8
-    /172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}/, # RFC 1918: 172.16.0.0/12 (e.g. Docker bridge)
-    /192\.168\.\d{1,3}\.\d{1,3}/, # RFC 1918: 192.168.0.0/16
-    /169\.254\.\d{1,3}\.\d{1,3}/, # IPv4 link-local (169.254.0.0/16)
-    /100\.(6[4-9]|[7-9][0-9]|1[0-1][0-9]|12[0-7])\.\d{1,3}\.\d{1,3}/ # RFC 6598: 100.64.0.0/10
-  ]
+  # The proxy peers from which we accept forwarded headers.
+  config.action_dispatch.trusted_proxies = PasswordPusher::TrustedProxies::DEFAULTS.dup
 
-  if Settings.trusted_proxies.present?
-    trusted_proxies = Settings.trusted_proxies.split(",").map(&:strip)
-    config.action_dispatch.trusted_proxies.concat(trusted_proxies)
-  end
+  # Custom addresses from Settings.trusted_proxies are appended in
+  # config/initializers/trusted_proxies.rb.
 
   # Logging
   config.logger = if ENV["RAILS_LOG_TO_STDOUT"].present? || Settings.log_to_stdout
@@ -142,43 +132,7 @@ Rails.application.configure do
       protocol: Settings.host_protocol
     }
 
-    config.action_mailer.smtp_settings = {
-      address: Settings.mail.smtp_address,
-      port: Settings.mail.smtp_port
-    }
-
-    config.action_mailer.smtp_settings[:domain] = Settings.mail.smtp_domain if Settings.mail.smtp_domain
-    config.action_mailer.smtp_settings[:open_timeout] = Settings.mail.smtp_open_timeout if Settings.mail.smtp_open_timeout
-    config.action_mailer.smtp_settings[:read_timeout] = Settings.mail.smtp_read_timeout if Settings.mail.smtp_read_timeout
-
-    if !Settings.mail.smtp_authentication.nil?
-      config.action_mailer.smtp_settings[:authentication] = Settings.mail.smtp_authentication
-    end
-
-    if !Settings.mail.smtp_user_name.nil?
-      config.action_mailer.smtp_settings[:user_name] = Settings.mail.smtp_user_name
-    end
-
-    if !Settings.mail.smtp_password.nil?
-      config.action_mailer.smtp_settings[:password] = Settings.mail.smtp_password
-    end
-
-    # The mail gem maps String names ("none" / "peer") to OpenSSL::SSL::VERIFY_* constants.
-    # A Symbol like :none raises TypeError during TLS handshake. Leave Integers alone —
-    # config.env_parse_values can turn PWP__MAIL__SMTP_OPENSSL_VERIFY_MODE=0 into an Integer.
-    if !Settings.mail.smtp_openssl_verify_mode.nil?
-      mode = Settings.mail.smtp_openssl_verify_mode
-      config.action_mailer.smtp_settings[:openssl_verify_mode] = mode.is_a?(Symbol) ? mode.to_s : mode
-    end
-
-    if !Settings.mail.smtp_enable_starttls_auto.nil?
-      config.action_mailer.smtp_settings[:enable_starttls_auto] = Settings.mail.smtp_enable_starttls_auto
-    end
-
-    # settings.yml / PWP__MAIL__SMTP_STARTTLS maps to smtp_starttls
-    if !Settings.mail.smtp_starttls.nil?
-      config.action_mailer.smtp_settings[:enable_starttls] = Settings.mail.smtp_starttls
-    end
+    config.action_mailer.smtp_settings = PasswordPusher::SmtpSettings.build(Settings.mail)
   end
 
   # If a user sets the allowed_hosts setting, we need to add the domain(s) to the list of allowed hosts
